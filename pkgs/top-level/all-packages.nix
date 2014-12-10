@@ -2438,9 +2438,11 @@ let
 
   spiped = callPackage ../tools/networking/spiped { };
 
-  sproxy = haskellPackages.callPackage ../tools/networking/sproxy { };
+  /* TODO: fix build
+  sproxy = haskellPackages.definePackage ../tools/networking/sproxy { };
 
   sproxy-web = haskellPackages.callPackage ../tools/networking/sproxy-web { };
+   */
 
   sqliteman = callPackage ../applications/misc/sqliteman { };
 
@@ -3042,6 +3044,7 @@ let
   compcert = callPackage ../development/compilers/compcert {};
 
   cryptol1 = lowPrio (callPackage ../development/compilers/cryptol/1.8.x.nix {});
+  /* TODO: fix build
   cryptol2 = with haskellPackages_ghc763; callPackage ../development/compilers/cryptol/2.0.x.nix {
     Cabal = Cabal_1_18_1_3;
     cabalInstall = cabalInstall_1_18_0_3.override {
@@ -3050,6 +3053,7 @@ let
     };
     process = process_1_2_0_0;
   };
+  */
 
   cython = pythonPackages.cython;
   cython3 = python3Packages.cython;
@@ -3316,10 +3320,12 @@ let
     };
   };
 
+   /* TODO: fix build
   jhc = callPackage ../development/compilers/jhc {
     inherit (haskellPackages_ghc763) ghc binary zlib utf8String readline fgl
       regexCompat HsSyck random;
   };
+  */
 
   gcc-arm-embedded-4_7 = callPackage_i686 ../development/compilers/gcc-arm-embedded {
     version = "4.7-2013q3-20130916";
@@ -3339,6 +3345,7 @@ let
 
   # Import Haskell infrastructure.
 
+  /* TODO: re-factor this stuff
   haskell = let pkgs_       = pkgs // { gmp = gmp.override { withStatic = true; }; };
                 callPackage = newScope pkgs_;
                 newScope    = extra: lib.callPackageWith (pkgs_ // pkgs_.xorg // extra);
@@ -3359,19 +3366,44 @@ let
   ) (lib.filterAttrs (name: value:
     builtins.substring 0 (builtins.stringLength "packages_") name == "packages_"
   ) haskell));
+  */
 
-  haskellPackages = haskellPackages_ghc784;
+  ghc6101Binary = callPackage ../development/compilers/ghc/6.10.1-binary.nix { gmp = pkgs.gmp4; };
+  ghc6102inary = callPackage ../development/compilers/ghc/6.10.2-binary.nix { gmp = pkgs.gmp4; };
+  ghc6121Binary = callPackage ../development/compilers/ghc/6.12.1-binary.nix { gmp = pkgs.gmp4; };
+  ghc642Binary = callPackage ../development/compilers/ghc/6.4.2-binary.nix { gmp = pkgs.gmp4; };
+  ghc704Binary = callPackage ../development/compilers/ghc/7.0.4-binary.nix { gmp = pkgs.gmp4; };
+  ghc742Binary = callPackage ../development/compilers/ghc/7.4.2-binary.nix { gmp = pkgs.gmp4; };
 
-  haskellPackages_ghc6104 = haskell.packages_ghc6104;
-  haskellPackages_ghc6123 = haskell.packages_ghc6123;
-  haskellPackages_ghc704  = haskell.packages_ghc704;
-  haskellPackages_ghc722  = haskell.packages_ghc722;
-  haskellPackages_ghc742  = haskell.packages_ghc742;
-  haskellPackages_ghc763  = haskell.packages_ghc763;
-  haskellPackages_ghc784_no_profiling = recurseIntoAttrs haskell.packages_ghc784.noProfiling;
-  haskellPackages_ghc784_profiling    = recurseIntoAttrs haskell.packages_ghc784.profiling;
-  haskellPackages_ghc784              = recurseIntoAttrs haskell.packages_ghc784.highPrio;
-  haskellPackages_ghcHEAD = haskell.packages_ghcHEAD;
+  ghc6101 = callPackage ../development/compilers/ghc/6.10.1.nix { ghc = ghc742Binary; };
+  ghc6102 = callPackage ../development/compilers/ghc/6.10.2.nix { ghc = ghc742Binary; };
+  ghc6103 = callPackage ../development/compilers/ghc/6.10.3.nix { ghc = ghc742Binary; };
+  ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc742Binary; };
+  # ghc611 = callPackage ../development/compilers/ghc/6.11.nix { ghc = ghc742Binary; happpy = ???; };
+  ghc6121 = callPackage ../development/compilers/ghc/6.12.1.nix { ghc = ghc742Binary; };
+  ghc6122 = callPackage ../development/compilers/ghc/6.12.2.nix { ghc = ghc742Binary; };
+  ghc6123 = callPackage ../development/compilers/ghc/6.12.3.nix { ghc = ghc742Binary; };
+  ghc642 = callPackage ../development/compilers/ghc/6.4.2.nix { ghc = ghc742Binary; };
+  # ghc661 = callPackage ../development/compilers/ghc/6.6.1.nix { ghc = ghc742Binary; perl58 = ???; };
+  ghc682 = callPackage ../development/compilers/ghc/6.8.2.nix { ghc = ghc742Binary; };
+  # ghc683 = callPackage ../development/compilers/ghc/6.8.3.nix { ghc = ghc742Binary; haddock = ???; };
+  ghc701 = callPackage ../development/compilers/ghc/7.0.1.nix { ghc = ghc742Binary; };
+  ghc702 = callPackage ../development/compilers/ghc/7.0.2.nix { ghc = ghc742Binary; };
+  ghc703 = callPackage ../development/compilers/ghc/7.0.3.nix { ghc = ghc742Binary; };
+  ghc704 = callPackage ../development/compilers/ghc/7.0.4.nix { ghc = ghc742Binary; };
+  ghc721 = callPackage ../development/compilers/ghc/7.2.1.nix { ghc = ghc742Binary; };
+  ghc722 = callPackage ../development/compilers/ghc/7.2.2.nix { ghc = ghc742Binary; };
+  ghc741 = callPackage ../development/compilers/ghc/7.4.1.nix { ghc = ghc742Binary; };
+  ghc742 = callPackage ../development/compilers/ghc/7.4.2.nix { ghc = ghc742Binary; };
+  ghc761 = callPackage ../development/compilers/ghc/7.6.1.nix { ghc = ghc742Binary; };
+  ghc762 = callPackage ../development/compilers/ghc/7.6.2.nix { ghc = ghc742Binary; };
+  ghc763 = callPackage ../development/compilers/ghc/7.6.3.nix { ghc = ghc742Binary; };
+  ghc783 = callPackage ../development/compilers/ghc/7.8.3.nix { ghc = ghc742Binary; };
+  ghc784 = callPackage ../development/compilers/ghc/7.8.4.nix { ghc = ghc742Binary; };
+  ghcHEAD = callPackage ../development/compilers/ghc/head.nix { ghc = ghc742Binary; inherit (haskellPackages) alex happy; };
+  ghc = ghc783;
+
+  haskellPackages = recurseIntoAttrs (callPackage ../development/haskell-modules { });
 
   haxe = callPackage ../development/compilers/haxe { };
 
@@ -9324,7 +9356,9 @@ let
 
   d4x = callPackage ../applications/misc/d4x { };
 
-  darcs = with haskellPackages_ghc784; callPackage ../applications/version-management/darcs {
+  darcs = null;
+  /* TODO: fix build
+          with haskellPackages_ghc783; callPackage ../applications/version-management/darcs {
     cabal = cabal.override {
       extension = self : super : {
         enableSharedExecutables = false;
@@ -9333,6 +9367,7 @@ let
       };
     };
   };
+  */
 
   darktable = callPackage ../applications/graphics/darktable {
     inherit (gnome) GConf libglade;
@@ -9566,10 +9601,12 @@ let
 
     stratego = callPackage ../applications/editors/emacs-modes/stratego { };
 
+    /* TODO: fix build
     structuredHaskellMode = callPackage ../applications/editors/emacs-modes/structured-haskell-mode {
       inherit (haskellPackages) cabal ;
       haskellSrcExts = haskellPackages.haskellSrcExts_1_15_0_1;
     };
+    */
 
     sunriseCommander = callPackage ../applications/editors/emacs-modes/sunrise-commander { };
 
