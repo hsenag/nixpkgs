@@ -8,7 +8,10 @@ let
 
   extend = rattrs: f: self: let super = rattrs self; in super // f self super;
 
-  buildCabal = import ./generic-builder.nix { inherit stdenv ghc fetchurl; inherit (pkgs) pkgconfig glibcLocales; };
+  buildCabal = import ./generic-builder.nix {
+    inherit stdenv ghc fetchurl;
+    inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep;
+  };
 
   haskellPackages = self:
     let
