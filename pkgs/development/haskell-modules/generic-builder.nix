@@ -115,6 +115,8 @@ stdenv.mkDerivation {
       exit 1
     fi
 
+    export GHC_PACKAGE_PATH="$out/nix-support/ghc-${ghc.version}-package.conf.d:"
+
     runHook postConfigure
   '';
 
