@@ -10,7 +10,7 @@ let
 
   buildCabal = import ./generic-builder.nix {
     inherit stdenv ghc fetchurl;
-    inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep;
+    inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep gnused;
   };
 
   haskellPackages = self:

@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep }:
+{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused }:
 
 { pname, version, sha256
 , buildDepends ? []
@@ -31,7 +31,7 @@ assert pkgconfigDepends != [] -> pkgconfig != null;
 let
 
   inherit (stdenv.lib) optional optionals optionalString versionOlder
-                       concatStringsSep closePropagation enableFeature;
+                       concatStringsSep enableFeature;
 
   defaultSetupHs = builtins.toFile "Setup.hs" ''
                      import Distribution.Simple
@@ -62,7 +62,7 @@ stdenv.mkDerivation {
   inherit preConfigure postConfigure configureFlags configureFlagsArray;
   inherit patches patchPhase prePatch postPatch;
   inherit preInstall postInstall;
-  inherit /*doCheck*/ preCheck postCheck;
+  inherit doCheck preCheck postCheck;
 
   # GHC needs the locale configured during the Haddock phase.
   LANG = "en_US.UTF-8";
@@ -84,15 +84,13 @@ stdenv.mkDerivation {
       configureFlags+=" --ghc-option=-j$NIX_BUILD_CORES"
     ''}
 
-    for p in ${concatStringsSep " " (closePropagation buildDepends)} $nativeBuildInputs; do
-      if [ -d "$p/lib/ghc-${ghc.version}/package.conf.d" ]; then
-        for db in "$p/lib/ghc-${ghc.version}/package.conf.d/"*".db"; do
-          configureFlags+=" --package-db=$db"
-        done
+    local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
+    mkdir -p $confDir
+    for p in $propagatedNativeBuildInputs $nativeBuildInputs; do
+      if [ -d "$p/nix-support/ghc-${ghc.version}-package.conf.d" ]; then
+        cp -f "$p/nix-support/ghc-${ghc.version}-package.conf.d/"*.conf $confDir/
+        continue
       fi
-    done
-
-    for p in $nativeBuildInputs; do
       if [ -d "$p/include" ]; then
         configureFlags+=" --extra-include-dirs=$p/include"
       fi
@@ -102,6 +100,8 @@ stdenv.mkDerivation {
         fi
       done
     done
+    ghc-pkg --package-db=$confDir recache
+    configureFlags+=" --package-db=$confDir"
 
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break
@@ -125,8 +125,6 @@ stdenv.mkDerivation {
     runHook postBuild
   '';
 
-  doCheck = false;
-
   checkPhase = if installPhase != "" then installPhase else ''
     runHook preCheck
     ./Setup test ${testTarget}
@@ -136,15 +134,15 @@ stdenv.mkDerivation {
   installPhase = if installPhase != "" then installPhase else ''
     runHook preInstall
     ./Setup copy
-    local confDir=$out/lib/ghc-${ghc.version}/package.conf.d
-    local packageDb=$confDir/${pname}-${version}.db
-    local pkgConf=$confDir/${pname}-${version}.conf
-    mkdir -p $confDir
-    ./Setup register --gen-pkg-config=$pkgConf
-    if test -f $pkgConf; then
-      echo '[]' > $packageDb
-      GHC_PACKAGE_PATH=$packageDb ghc-pkg --global register $pkgConf --force
-    fi
+    ${optionalString (isLibrary && (enableStaticLibraries || enableSharedLibraries)) ''
+      local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
+      local pkgConf=$confDir/${pname}-${version}.conf
+      mkdir -p $confDir
+      ./Setup register --gen-pkg-config=$pkgConf
+      local pkgId=$( ${gnused}/bin/sed -n -e 's|^id: ||p' $pkgConf )
+      mv $pkgConf $confDir/$pkgId.conf
+      ghc-pkg --package-db=$confDir recache
+    ''}
     runHook postInstall
   '';
 
