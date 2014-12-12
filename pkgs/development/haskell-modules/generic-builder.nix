@@ -141,7 +141,9 @@ stdenv.mkDerivation {
 
   installPhase = if installPhase != "" then installPhase else ''
     runHook preInstall
+
     ./Setup copy
+
     ${optionalString hasActiveLibrary ''
       local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
       local pkgConf=$confDir/${pname}-${version}.conf
@@ -151,6 +153,13 @@ stdenv.mkDerivation {
       mv $pkgConf $confDir/$pkgId.conf
       ghc-pkg --package-db=$confDir recache
     ''}
+
+    ${optionalString (enableSharedExecutables && isExecutable && stdenv.isDarwin) ''
+      for exe in "$out/bin/"* ; do
+        install_name_tool -add_rpath "$out/lib/ghc-${ghc.version}/${pname}-${version}" "$exe"
+      done
+    ''}
+
     runHook postInstall
   '';
 
