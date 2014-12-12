@@ -47,6 +47,8 @@ let
     (optionalString (versionOlder "7" ghc.version) (enableFeature doCheck "tests"))
   ];
 
+  hasActiveLibrary = isLibrary && (enableStaticLibraries || enableSharedLibraries);
+
 in
 stdenv.mkDerivation {
   name = "${pname}-${version}";
@@ -138,7 +140,7 @@ stdenv.mkDerivation {
   installPhase = if installPhase != "" then installPhase else ''
     runHook preInstall
     ./Setup copy
-    ${optionalString (isLibrary && (enableStaticLibraries || enableSharedLibraries)) ''
+    ${optionalString hasActiveLibrary ''
       local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
       local pkgConf=$confDir/${pname}-${version}.conf
       mkdir -p $confDir
