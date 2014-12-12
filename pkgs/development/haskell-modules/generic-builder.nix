@@ -127,7 +127,9 @@ stdenv.mkDerivation {
   buildPhase = ''
     runHook preBuild
     ./Setup build
-    ${optionalString (!noHaddock) "./Setup haddock --html"}
+    ${optionalString (!noHaddock && hasActiveLibrary) ''
+      ./Setup haddock --html
+    ''}
     runHook postBuild
   '';
 
