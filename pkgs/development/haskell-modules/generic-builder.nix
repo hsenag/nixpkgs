@@ -51,7 +51,7 @@ let
 
 in
 stdenv.mkDerivation {
-  name = "${pname}-${version}";
+  name = "${optionalString hasActiveLibrary "haskell-"}${pname}-${version}";
 
   src = fetchurl { url = "mirror://hackage/${pname}-${version}.tar.gz"; inherit sha256; };
 
