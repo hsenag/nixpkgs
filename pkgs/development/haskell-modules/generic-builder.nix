@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused }:
+{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused, jailbreakCabal }:
 
 { pname, version, sha256
 , buildDepends ? []
@@ -102,6 +102,8 @@ stdenv.mkDerivation {
     done
     ghc-pkg --package-db=$confDir recache
     configureFlags+=" --package-db=$confDir"
+
+    ${optionalString jailbreak "${jailbreakCabal}/bin/jailbreak-cabal ${pname}.cabal"}
 
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break

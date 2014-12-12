@@ -2,19 +2,19 @@
 
 let
 
-  inherit (pkgs) lib;
-
   fix = f: let x = f x // { __unfix__ = f; }; in x;
 
   extend = rattrs: f: self: let super = rattrs self; in super // f self super;
 
-  buildCabal = import ./generic-builder.nix {
-    inherit stdenv ghc fetchurl;
-    inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep gnused;
-  };
-
   haskellPackages = self:
     let
+
+      buildCabal = import ./generic-builder.nix {
+        inherit stdenv ghc fetchurl;
+        inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep gnused;
+        inherit (self) jailbreakCabal;
+      };
+
 
       definePackage = args: pkg: newScope self pkg args;
 
