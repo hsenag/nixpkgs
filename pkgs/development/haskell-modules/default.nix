@@ -97,7 +97,6 @@ let
 
     # These packages fail their test suite.
     networkUri = super.networkUri.overrideArgs (drv: { doCheck = false; });
-
     /* doCheck = false;
     postgresql-simple
     llvm-general-pure
@@ -224,6 +223,9 @@ let
     ihaskell
     cabal-meta
     */
+
+    # Need jailbreaks.
+    hashable = super.hashable.overrideArgs (drv: { jailbreak = true; });
 
     # Missing system library mappings
     Advapi32 = null;
