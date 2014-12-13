@@ -58,7 +58,7 @@ let
     directory = null;
     filepath = null;
     ghcPrim = null;
-    haskeline = null;
+    # haskeline = null;                                                 # Huh? Core package!
     haskell2010 = null;
     haskell98 = null;
     hoopl = null;
@@ -70,7 +70,7 @@ let
     process = null;
     rts = null;
     templateHaskell = null;
-    terminfo = null;
+    terminfo = super.terminfo.override { inherit (pkgs) ncurses; };     # Huh? Core package!
     time = null;
     transformers = null;
     unix = null;
