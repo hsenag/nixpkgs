@@ -224,6 +224,10 @@ let
     cabal-meta
     */
 
+    # break inifinite recursion
+    mwcRandom = super.mwcRandom.overrideArgs (drv: { doCheck = false; });
+    options = super.options.overrideArgs (drv: { doCheck = false; });
+
     # Need jailbreaks.
     hashable = super.hashable.overrideArgs (drv: { jailbreak = true; });
 
