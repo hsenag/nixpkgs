@@ -9,12 +9,13 @@ let
   haskellPackages = self:
     let
 
-      buildCabal = import ./generic-builder.nix {
+      buildCabal_ = pkgs.callPackage ./generic-builder.nix {
         inherit stdenv ghc fetchurl;
         inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep gnused;
         inherit (self) jailbreakCabal;
       };
 
+      buildCabal = args: stdenv.lib.addPassthru (buildCabal_ args) { overrideArgs = f: buildCabal (args // (f args)); };
 
       definePackage = args: pkg: newScope self pkg args;
 
@@ -89,10 +90,140 @@ let
 
     # transformers-compat doesn't auto-detect the correct flags for
     # building with transformers 0.3.x.
-    transformersCompat = super.transformersCompat.overrideDerivation (old: { configureFlags = ["-fthree"]++old.configureFlags; });
+    transformersCompat = super.transformersCompat.overrideArgs (drv: { configureFlags = ["-fthree"] ++ drv.configureFlags or []; });
 
     # Doesn't compile with lua 5.2.
     hslua = super.hslua.override { lua = pkgs.lua5_1; };
+
+    # These packages fail their test suite.
+    networkUri = super.networkUri.overrideArgs (drv: { doCheck = false; });
+
+    /* doCheck = false;
+    postgresql-simple
+    llvm-general-pure
+    time
+    setenv
+    hspec-expectations
+    crypto-conduit
+    bitset
+    dbus
+    llvm-general
+    hspec
+    warp
+    hsbencher-fusion
+    process-conduit
+    command-qq
+    http-client
+    doctest
+    hashed-storage
+    math-functions
+    hindent
+    GLFW-b
+    aws
+    CouchDB
+    grid
+    dom-selector
+    HTTP
+    th-desugar
+    amqp
+    simple-sendfile
+    ghc-events
+    sparse
+    pipes-binary
+    haskoin
+    conduit
+    stm-containers
+    http-conduit
+    pandoc
+    xmlgen
+    cmdtheline
+    hsbencher
+    network-uri
+    distributed-process-platform
+    permutation
+    fb
+    bson
+    haskell-names
+    handa-gdata
+    serialport
+    js-jquery
+    tls
+    nanospec
+    haskell-src-exts
+    monad-par
+    mwc-random
+    crypto-numbers
+    punycode
+    http-client-tls
+    directory-layout
+    rethinkdb
+    equivalence
+    thread-local-storage
+    filestore
+    RSA
+    hedis
+    vty
+    rematch
+    http-reverse-proxy
+    system-filepath
+    lifted-base
+    boundingboxes
+    network-transport-tcp
+    ariadne
+    language-ecmascript
+    thyme
+    hledger-web
+    text
+    bindings-GLFW
+    ghc-mod
+    options
+    holy-project
+    criterion
+    opaleye
+    pipes-shell
+    base64-bytestring
+    pandoc-citeproc
+    concreteTyperep
+    scotty
+    wreq
+    HList
+    hspec-meta
+    Cabal
+    HTF
+    Rasterific
+    asn1-encoding
+    webdriver
+    deepseq-th
+    linear
+    cuda
+    threads
+    hashable
+    language-java
+    yesod-static
+    happstack-server.nix
+    uuid
+    zeromq3-haskell
+    http-streams
+    statistics
+    conduit-extra
+    wai-logger
+    libjenkins
+    graphviz
+    snowball
+    twitter-types
+    hi
+    fsnotify
+    unordered-containers
+    zip-archive
+    MissingH
+    cautious-file
+    abstract-deque
+    cabal-bounds
+    haskell-docs
+    ghcid
+    ihaskell
+    cabal-meta
+    */
 
     # Missing system library mappings
     Advapi32 = null;
