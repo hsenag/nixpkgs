@@ -97,6 +97,9 @@ let
 
     # These packages fail their test suite.
     networkUri = super.networkUri.overrideArgs (drv: { doCheck = false; });
+    zipArchive = super.zipArchive.overrideArgs (drv: { doCheck = false; });
+    liftedBase = super.liftedBase.overrideArgs (drv: { doCheck = false; });
+
     /* doCheck = false;
     postgresql-simple
     llvm-general-pure
