@@ -3400,7 +3400,7 @@ let
   ghc763 = callPackage ../development/compilers/ghc/7.6.3.nix { ghc = ghc742Binary; };
   ghc783 = callPackage ../development/compilers/ghc/7.8.3.nix { ghc = ghc742Binary; };
   ghc784 = callPackage ../development/compilers/ghc/7.8.4.nix { ghc = ghc742Binary; };
-  ghcHEAD = callPackage ../development/compilers/ghc/head.nix { ghc = ghc742Binary; inherit (haskellPackages) alex happy; };
+  ghcHEAD = callPackage ../development/compilers/ghc/head.nix { inherit (haskellPackages) ghc alex happy; };
   ghc = ghc783;
 
   haskellPackages = recurseIntoAttrs (callPackage ../development/haskell-modules { });
