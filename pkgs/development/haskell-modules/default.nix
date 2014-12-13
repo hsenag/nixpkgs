@@ -88,6 +88,9 @@ let
     mtl22 = super.mtl.override { transformers = super.transformers; };
     mtl = self.mtl21.override { transformers = null; };
 
+    # no haddock
+    networkConduit = super.networkConduit.overrideArgs (drv: { noHaddock = true; });
+
     # transformers-compat doesn't auto-detect the correct flags for
     # building with transformers 0.3.x.
     transformersCompat = super.transformersCompat.overrideArgs (drv: { configureFlags = ["-fthree"] ++ drv.configureFlags or []; });
@@ -99,6 +102,8 @@ let
     networkUri = super.networkUri.overrideArgs (drv: { doCheck = false; });
     zipArchive = super.zipArchive.overrideArgs (drv: { doCheck = false; });
     liftedBase = super.liftedBase.overrideArgs (drv: { doCheck = false; });
+    waiLogger = super.waiLogger.overrideArgs (drv: { doCheck = false; });
+    dbus = super.dbus.overrideArgs (drv: { doCheck = false; });
 
     /* doCheck = false;
     postgresql-simple
