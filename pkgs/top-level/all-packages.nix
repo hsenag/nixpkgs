@@ -3379,9 +3379,6 @@ let
   # ghc661 = callPackage ../development/compilers/ghc/6.6.1.nix { ghc = ghc6101Binary; perl58 = ???; };
   ghc682 = callPackage ../development/compilers/ghc/6.8.2.nix { ghc = ghc6102Binary; };
   # ghc683 = callPackage ../development/compilers/ghc/6.8.3.nix { ghc = ghc6101Binary; haddock = ???; };
-  ghc6101 = callPackage ../development/compilers/ghc/6.10.1.nix { ghc = ghc6102Binary; };
-  ghc6102 = callPackage ../development/compilers/ghc/6.10.2.nix { ghc = ghc6102Binary; };
-  ghc6103 = callPackage ../development/compilers/ghc/6.10.3.nix { ghc = ghc6102Binary; };
   ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc6102Binary; };
   # ghc611 = callPackage ../development/compilers/ghc/6.11.nix { ghc = ghc6102Binary; happpy = ???; };
   ghc6121 = callPackage ../development/compilers/ghc/6.12.1.nix { ghc = ghc6101Binary; };
