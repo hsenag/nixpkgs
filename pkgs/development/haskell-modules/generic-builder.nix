@@ -26,6 +26,7 @@
 , homepage ? null
 , description ? null
 , license
+, editedCabalFile ? null
 }:
 
 assert pkgconfigDepends != [] -> pkgconfig != null;
@@ -51,6 +52,11 @@ let
 
   hasActiveLibrary = isLibrary && (enableStaticLibraries || enableSharedLibraries);
 
+  newCabalFile = fetchurl {
+    url = "http://hackage.haskell.org/package/${pname}-${version}/${pname}.cabal";
+    sha256 = editedCabalFile;
+  };
+
 in
 stdenv.mkDerivation {
   name = "${optionalString hasActiveLibrary "haskell-"}${pname}-${version}";
@@ -73,6 +79,7 @@ stdenv.mkDerivation {
   LOCALE_ARCHIVE = optionalString stdenv.isLinux "${glibcLocales}/lib/locale/locale-archive";
 
   configurePhase = ''
+    echo "Building with ${ghc}."
     export PATH="${ghc}/bin:$PATH"
     runHook preConfigure
 
@@ -107,7 +114,15 @@ stdenv.mkDerivation {
     ghc-pkg --package-db=$confDir recache
     configureFlags+=" --package-db=$confDir"
 
-    ${optionalString jailbreak "${jailbreak-cabal}/bin/jailbreak-cabal ${pname}.cabal"}
+    ${optionalString (editedCabalFile != null) ''
+      echo "Replacing Cabal file with edited version ${newCabalFile}."
+      cp ${newCabalFile} ${pname}.cabal
+    ''}
+
+    ${optionalString jailbreak ''
+      echo "Running jailbreak-cabal to lift version restrictions on build inputs."
+      ${jailbreak-cabal}/bin/jailbreak-cabal ${pname}.cabal
+    ''}
 
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break
