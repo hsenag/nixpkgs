@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused, jailbreakCabal }:
+{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused, jailbreak-cabal }:
 
 { pname, version, sha256
 , buildDepends ? []
@@ -17,13 +17,15 @@
 , testDepends ? []
 , doCheck ? stdenv.lib.versionOlder "7.4" ghc.version, testTarget ? ""
 , jailbreak ? false
-, meta
 , enableHyperlinkSource ? true
 , enableLibraryProfiling ? false
 , enableSharedExecutables ? stdenv.lib.versionOlder "7.7" ghc.version
 , enableSharedLibraries ? stdenv.lib.versionOlder "7.7" ghc.version
 , enableSplitObjs ? !stdenv.isDarwin # http://hackage.haskell.org/trac/ghc/ticket/4013
 , enableStaticLibraries ? true
+, homepage ? null
+, description ? null
+, license
 }:
 
 assert pkgconfigDepends != [] -> pkgconfig != null;
@@ -105,7 +107,7 @@ stdenv.mkDerivation {
     ghc-pkg --package-db=$confDir recache
     configureFlags+=" --package-db=$confDir"
 
-    ${optionalString jailbreak "${jailbreakCabal}/bin/jailbreak-cabal ${pname}.cabal"}
+    ${optionalString jailbreak "${jailbreak-cabal}/bin/jailbreak-cabal ${pname}.cabal"}
 
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break
@@ -163,5 +165,8 @@ stdenv.mkDerivation {
     runHook postInstall
   '';
 
-  inherit meta;
+   meta = {
+     inherit homepage license description;
+     inherit (ghc.meta) platforms;
+   };
 }
