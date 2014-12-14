@@ -44,6 +44,8 @@ let
 
       };
 
+  compatLayer = import ./compat-layer.nix;
+
   defaultConfiguration = self: super: {
     # Disable GHC 7.8.3 core libraries.
     array = null;
@@ -721,4 +723,4 @@ let
 
 in
 
-  fix (extend (extend haskellPackages defaultConfiguration) overrides)
+  fix (extend (extend (extend haskellPackages defaultConfiguration) compatLayer) overrides)
