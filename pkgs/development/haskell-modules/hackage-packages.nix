@@ -3470,12 +3470,12 @@ self: {
      }) {};
 
   "FModExRaw" = callPackage
-    ({ mkDerivation, fmodex }:
+    ({ mkDerivation, fmodex64 }:
      mkDerivation {
        pname = "FModExRaw";
        version = "0.2.0.0";
        sha256 = "0l2zhlxh88wy9y9gk1aa03yy65iw8zigr4pgp63mn2mqcrskfszl";
-       extraLibraries = [ fmodex ];
+       extraLibraries = [ fmodex64 ];
        homepage = "https://github.com/skypers/hsFModEx";
        description = "The Haskell FModEx raw API";
        license = stdenv.lib.licenses.gpl3;
@@ -7048,18 +7048,17 @@ self: {
      }) {};
 
   "IsNull" = callPackage
-    ({ mkDerivation, base-compat, hspec, HUnit, QuickCheck
-     , quickcheck-instances, system-filepath, text, unordered-containers
-     , vector
+    ({ mkDerivation, hspec, HUnit, QuickCheck, quickcheck-instances
+     , system-filepath, text, unordered-containers, vector
      }:
      mkDerivation {
        pname = "IsNull";
        version = "0.4.0.0";
        sha256 = "06f03b9my7hix5fvcv9cc0saf9zfwgkvn3210vymlyc1rj450ykm";
-       buildDepends = [ base-compat text ];
+       buildDepends = [ text ];
        testDepends = [
-         base-compat hspec HUnit QuickCheck quickcheck-instances
-         system-filepath text unordered-containers vector
+         hspec HUnit QuickCheck quickcheck-instances system-filepath text
+         unordered-containers vector
        ];
        homepage = "https://github.com/jcristovao/IsNull";
        description = "A typeclass to determine if a given value is null";
@@ -10338,12 +10337,12 @@ self: {
      }) {};
 
   "RepLib" = callPackage
-    ({ mkDerivation, mtl, type-equality }:
+    ({ mkDerivation, mtl }:
      mkDerivation {
        pname = "RepLib";
        version = "0.5.3.3";
        sha256 = "1772r6rfajcn622dxwy9z1bvv53l5xj6acbcv8n9p7h01fs52mpr";
-       buildDepends = [ mtl type-equality ];
+       buildDepends = [ mtl ];
        homepage = "http://code.google.com/p/replib/";
        description = "Generic programming library with representation types";
        license = stdenv.lib.licenses.bsd3;
@@ -13788,14 +13787,14 @@ self: {
 
   "ad" = callPackage
     ({ mkDerivation, comonad, data-reify, doctest, erf, filepath, free
-     , nats, reflection, tagged, transformers
+     , nats, reflection, transformers
      }:
      mkDerivation {
        pname = "ad";
        version = "4.2.1.1";
        sha256 = "1zdpfh4k93ygrm91m7lw1la6n4yvaq3k2sqswgia04naf2wcmjka";
        buildDepends = [
-         comonad data-reify erf free nats reflection tagged transformers
+         comonad data-reify erf free nats reflection transformers
        ];
        testDepends = [ doctest filepath ];
        homepage = "http://github.com/ekmett/ad";
@@ -27413,15 +27412,15 @@ self: {
      }) {};
 
   "contravariant" = callPackage
-    ({ mkDerivation, semigroups, tagged, transformers
-     , transformers-compat, void
+    ({ mkDerivation, semigroups, transformers, transformers-compat
+     , void
      }:
      mkDerivation {
        pname = "contravariant";
        version = "1.2";
        sha256 = "0gzk9b3xig48jvqz9983a7kziyb2n9z329kn6cqw1k0p8w2h3l8f";
        buildDepends = [
-         semigroups tagged transformers transformers-compat void
+         semigroups transformers transformers-compat void
        ];
        homepage = "http://github.com/ekmett/contravariant/";
        description = "Contravariant functors";
@@ -35933,12 +35932,12 @@ self: {
      }) {};
 
   "equational-reasoning" = callPackage
-    ({ mkDerivation, singletons, tagged, void }:
+    ({ mkDerivation, singletons, void }:
      mkDerivation {
        pname = "equational-reasoning";
        version = "0.2.0.4";
        sha256 = "1f94y6h7qg7rck7rxf6j8sygkh1xmfk0z1lr71inx6s74agjyc9j";
-       buildDepends = [ singletons tagged void ];
+       buildDepends = [ singletons void ];
        description = "Proof assistant for Haskell using DataKinds & PolyKinds";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -40414,12 +40413,11 @@ self: {
      }) {};
 
   "generics-sop" = callPackage
-    ({ mkDerivation, tagged }:
+    ({ mkDerivation }:
      mkDerivation {
        pname = "generics-sop";
        version = "0.1.0.3";
        sha256 = "0wvrav5armspfp6iixns1db45xfpqicx74asi14a2gnl28yqmfpl";
-       buildDepends = [ tagged ];
        description = "Generic Programming using True Sums of Products";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -40889,8 +40887,8 @@ self: {
      }) {};
 
   "ghc-mod" = callPackage
-    ({ mkDerivation, async, Cabal, convertible, data-default, deepseq
-     , djinn-ghc, doctest, emacs, filepath, ghc-paths, ghc-syb-utils
+    ({ mkDerivation, async, Cabal, data-default, deepseq, djinn-ghc
+     , doctest, emacs, filepath, ghc-paths, ghc-syb-utils
      , haskell-src-exts, hlint, hspec, io-choice, makeWrapper
      , monad-control, monad-journal, mtl, split, syb, temporary, text
      , time, transformers, transformers-base
@@ -40902,16 +40900,15 @@ self: {
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         async Cabal convertible data-default deepseq djinn-ghc filepath
-         ghc-paths ghc-syb-utils haskell-src-exts hlint io-choice
-         monad-control monad-journal mtl split syb temporary text time
-         transformers transformers-base
-       ];
-       testDepends = [
-         Cabal convertible deepseq djinn-ghc doctest filepath ghc-paths
-         ghc-syb-utils haskell-src-exts hlint hspec io-choice monad-control
+         async Cabal data-default deepseq djinn-ghc filepath ghc-paths
+         ghc-syb-utils haskell-src-exts hlint io-choice monad-control
          monad-journal mtl split syb temporary text time transformers
          transformers-base
+       ];
+       testDepends = [
+         Cabal deepseq djinn-ghc doctest filepath ghc-paths ghc-syb-utils
+         haskell-src-exts hlint hspec io-choice monad-control monad-journal
+         mtl split syb temporary text time transformers transformers-base
        ];
        buildTools = [ emacs makeWrapper ];
        configureFlags = "--datasubdir=ghc-mod-5.2.1.1";
@@ -44957,8 +44954,8 @@ self: {
      }) {};
 
   "haddocset" = callPackage
-    ({ mkDerivation, Cabal, conduit, conduit-extra, exceptions, haddock
-     , mtl, optparse-applicative, resourcet, sqlite-simple
+    ({ mkDerivation, Cabal, conduit, conduit-extra, exceptions
+     , haddock-api, mtl, optparse-applicative, resourcet, sqlite-simple
      , system-fileio, system-filepath, tagsoup, text, transformers
      }:
      mkDerivation {
@@ -44968,7 +44965,7 @@ self: {
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
-         Cabal conduit conduit-extra exceptions haddock mtl
+         Cabal conduit conduit-extra exceptions haddock-api mtl
          optparse-applicative resourcet sqlite-simple system-fileio
          system-filepath tagsoup text transformers
        ];
@@ -57208,13 +57205,13 @@ self: {
      }) {};
 
   "hydra-hs" = callPackage
-    ({ mkDerivation, hmatrix, sixense }:
+    ({ mkDerivation, hmatrix, sixense_x64 }:
      mkDerivation {
        pname = "hydra-hs";
        version = "1.0.0.2";
        sha256 = "18sxqangnl3gbb77dsg036ymsjj6w7zws2v43qnp3cfi0ksjxx8s";
        buildDepends = [ hmatrix ];
-       extraLibraries = [ sixense ];
+       extraLibraries = [ sixense_x64 ];
        homepage = "https://github.com/mruegenberg/hydra-hs";
        description = "Haskell binding to the Sixense SDK for the Razer Hydra";
        license = stdenv.lib.licenses.bsd3;
@@ -61169,8 +61166,8 @@ self: {
 
   "kevin" = callPackage
     ({ mkDerivation, attoparsec, cprng-aes, damnpacket, data-default
-     , HTTP, lens, MonadCatchIO-transformers, mtl, network
-     , regex-pcre-builtin, stm, text, time, tls, tls-extra
+     , exceptions, HTTP, lens, mtl, network, regex-pcre-builtin, stm
+     , text, time, tls, tls-extra
      }:
      mkDerivation {
        pname = "kevin";
@@ -61179,9 +61176,8 @@ self: {
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
-         attoparsec cprng-aes damnpacket data-default HTTP lens
-         MonadCatchIO-transformers mtl network regex-pcre-builtin stm text
-         time tls tls-extra
+         attoparsec cprng-aes damnpacket data-default exceptions HTTP lens
+         mtl network regex-pcre-builtin stm text time tls tls-extra
        ];
        description = "a dAmn ↔ IRC proxy";
        license = "GPL";
@@ -80578,7 +80574,7 @@ self: {
      }) {};
 
   "rank1dynamic" = callPackage
-    ({ mkDerivation, binary, HUnit, test-framework
+    ({ mkDerivation, binary, constraints, HUnit, test-framework
      , test-framework-hunit
      }:
      mkDerivation {
@@ -80586,7 +80582,9 @@ self: {
        version = "0.2.0.1";
        sha256 = "1np3ghp7wdn0clsyslk5j6fhs4c5cd6y0xlvdg2jj6ydaglzcchl";
        buildDepends = [ binary ];
-       testDepends = [ HUnit test-framework test-framework-hunit ];
+       testDepends = [
+         constraints HUnit test-framework test-framework-hunit
+       ];
        homepage = "http://haskell-distributed.github.com";
        description = "Like Data.Dynamic/Data.Typeable but with support for rank-1 polymorphic types";
        license = stdenv.lib.licenses.bsd3;
@@ -81411,12 +81409,11 @@ self: {
      }) {};
 
   "reflection" = callPackage
-    ({ mkDerivation, tagged }:
+    ({ mkDerivation }:
      mkDerivation {
        pname = "reflection";
        version = "1.5.1";
        sha256 = "18ail6j7rs5jff9zxphxd7vjkwanpv12dhi98s86r65425fdhjlx";
-       buildDepends = [ tagged ];
        homepage = "http://github.com/ekmett/reflection";
        description = "Reifies arbitrary terms into types that can be reflected back into terms";
        license = stdenv.lib.licenses.bsd3;
@@ -90131,15 +90128,15 @@ self: {
      }) {};
 
   "sql-simple" = callPackage
-    ({ mkDerivation, exceptions, monad-control, tagged, text
-     , transformers, transformers-base
+    ({ mkDerivation, exceptions, monad-control, text, transformers
+     , transformers-base
      }:
      mkDerivation {
        pname = "sql-simple";
        version = "0.3.1";
        sha256 = "1vhg8ijpa64qalgza5sr3j8y1ihk6ys5lyf34vwcmjv8nlpyhpwh";
        buildDepends = [
-         exceptions monad-control tagged text transformers transformers-base
+         exceptions monad-control text transformers transformers-base
        ];
        homepage = "https://github.com/philopon/sql-simple";
        description = "common middle-level sql client";
@@ -90148,14 +90145,14 @@ self: {
 
   "sql-simple-mysql" = callPackage
     ({ mkDerivation, data-default-class, mysql, mysql-simple
-     , sql-simple, tagged, text
+     , sql-simple, text
      }:
      mkDerivation {
        pname = "sql-simple-mysql";
        version = "0.3.0";
        sha256 = "1i9xgzl3pjxii4mgx8az5gmygxq2vn1km7kmndwy07qkh26ynd7p";
        buildDepends = [
-         data-default-class mysql mysql-simple sql-simple tagged text
+         data-default-class mysql mysql-simple sql-simple text
        ];
        homepage = "https://github.com/philopon/sql-simple";
        description = "mysql backend for sql-simple";
@@ -90180,14 +90177,14 @@ self: {
 
   "sql-simple-postgresql" = callPackage
     ({ mkDerivation, data-default-class, postgresql-simple, sql-simple
-     , tagged, text
+     , text
      }:
      mkDerivation {
        pname = "sql-simple-postgresql";
        version = "0.3.0";
        sha256 = "0dk2829zkcwxyqw0p2nsrm9gw527cmggdslhflrylg8xr1ag6zs1";
        buildDepends = [
-         data-default-class postgresql-simple sql-simple tagged text
+         data-default-class postgresql-simple sql-simple text
        ];
        homepage = "https://github.com/philopon/sql-simple";
        description = "postgresql backend for sql-simple";
@@ -90195,12 +90192,12 @@ self: {
      }) {};
 
   "sql-simple-sqlite" = callPackage
-    ({ mkDerivation, sql-simple, sqlite-simple, tagged }:
+    ({ mkDerivation, sql-simple, sqlite-simple }:
      mkDerivation {
        pname = "sql-simple-sqlite";
        version = "0.3.0";
        sha256 = "07ji17b4q9b8w9q9r8digb218qkjcrxfc24113p0f3pmgbwci3f1";
-       buildDepends = [ sql-simple sqlite-simple tagged ];
+       buildDepends = [ sql-simple sqlite-simple ];
        homepage = "https://github.com/philopon/sql-simple";
        description = "sqlite backend for sql-simple";
        license = stdenv.lib.licenses.mit;
@@ -94819,17 +94816,16 @@ self: {
      }) {};
 
   "text-show" = callPackage
-    ({ mkDerivation, QuickCheck, quickcheck-instances, tagged, tasty
+    ({ mkDerivation, QuickCheck, quickcheck-instances, tasty
      , tasty-quickcheck, text, time
      }:
      mkDerivation {
        pname = "text-show";
        version = "0.4.1";
        sha256 = "1npbi1d2grqqvyzw93vlwhp3vbk2wksxr1wq33lffgrhdx2iv5p7";
-       buildDepends = [ tagged text time ];
+       buildDepends = [ text time ];
        testDepends = [
-         QuickCheck quickcheck-instances tagged tasty tasty-quickcheck text
-         time
+         QuickCheck quickcheck-instances tasty tasty-quickcheck text time
        ];
        homepage = "https://github.com/RyanGlScott/text-show";
        description = "Efficient conversion of values into Text";
@@ -97746,12 +97742,11 @@ self: {
      }) {};
 
   "type-hint" = callPackage
-    ({ mkDerivation, tagged }:
+    ({ mkDerivation }:
      mkDerivation {
        pname = "type-hint";
        version = "0.1";
        sha256 = "1fcrma7m6y7i1y42rzhv7qch8xkk93lkh1767saw4hsb9fzwsq8i";
-       buildDepends = [ tagged ];
        homepage = "https://github.com/mvv/type-hint";
        description = "Guide type inference with proxy values";
        license = stdenv.lib.licenses.bsd3;
@@ -99221,14 +99216,13 @@ self: {
      }) {};
 
   "unsafely" = callPackage
-    ({ mkDerivation, tagged }:
+    ({ mkDerivation }:
      mkDerivation {
        pname = "unsafely";
        version = "0.2.0.0";
        sha256 = "10v50bzd7ccjs0d1spvyl6awhwdhxmkcacm2lkillk9f7myild0r";
        isLibrary = true;
        isExecutable = true;
-       buildDepends = [ tagged ];
        homepage = "http://github.com/konn/unsafely";
        description = "Flexible access control for unsafe operations and instances";
        license = stdenv.lib.licenses.bsd3;
@@ -106224,13 +106218,13 @@ self: {
      }) {};
 
   "yi" = callPackage
-    ({ mkDerivation, binary, Cabal, cautious-file, data-default, derive
-     , dlist, dynamic-state, dyre, exceptions, filepath, glib, gtk
-     , hashable, hint, HUnit, lens, mtl, oo-prototypes, pango, parsec
-     , pointedlist, QuickCheck, random, regex-base, regex-tdfa, safe
-     , semigroups, split, tagged, tasty, tasty-hunit, tasty-quickcheck
-     , text, time, transformers-base, unix-compat, unordered-containers
-     , utf8-string, vty, word-trie, xdg-basedir, yi-language, yi-rope
+    ({ mkDerivation, binary, Cabal, cautious-file, data-default, dlist
+     , dynamic-state, dyre, exceptions, filepath, glib, gtk, hashable
+     , hint, HUnit, lens, mtl, oo-prototypes, pango, parsec, pointedlist
+     , QuickCheck, random, regex-base, regex-tdfa, safe, semigroups
+     , split, tasty, tasty-hunit, tasty-quickcheck, text, time
+     , transformers-base, unix-compat, unordered-containers, utf8-string
+     , vty, word-trie, xdg-basedir, yi-language, yi-rope
      }:
      mkDerivation {
        pname = "yi";
@@ -106239,12 +106233,12 @@ self: {
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         binary Cabal cautious-file data-default derive dlist dynamic-state
-         dyre exceptions filepath glib gtk hashable hint lens mtl
-         oo-prototypes pango parsec pointedlist QuickCheck random regex-base
-         regex-tdfa safe semigroups split tagged text time transformers-base
-         unix-compat unordered-containers utf8-string vty word-trie
-         xdg-basedir yi-language yi-rope
+         binary Cabal cautious-file data-default dlist dynamic-state dyre
+         exceptions filepath glib gtk hashable hint lens mtl oo-prototypes
+         pango parsec pointedlist QuickCheck random regex-base regex-tdfa
+         safe semigroups split text time transformers-base unix-compat
+         unordered-containers utf8-string vty word-trie xdg-basedir
+         yi-language yi-rope
        ];
        testDepends = [
          filepath HUnit lens QuickCheck semigroups tasty tasty-hunit

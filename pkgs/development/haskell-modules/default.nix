@@ -506,6 +506,7 @@ let
     fftw3 = null;
     fltk_images = null;
     fltk = null;
+    fmodex64 = null;
     fmodex = null;
     freenect_sync = null;
     friso = null;
@@ -541,6 +542,7 @@ let
     gtk-mac-integration = null;
     gtksourceview = null;
     gtk_x11 = null;
+    haste-lib = null;
     hasteLib = null;
     help = null;
     hg3dcegui040 = null;
@@ -642,7 +644,6 @@ let
     OpenNI2 = null;
     ovr = null;
     papi = null;
-    haste-lib = null;
     pfs = null;
     pHash = null;
     pkgs_tzdata = null;
@@ -679,6 +680,7 @@ let
     shfolder = null;
     sipc = null;
     sixense = null;
+    sixense_x64 = null;
     sqlplus = null;
     ssh2 = null;
     stats-web = null;
