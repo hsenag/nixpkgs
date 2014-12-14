@@ -78,11 +78,6 @@ let
     xhtml = null;
 
     # Break infinite recursions.
-    curl = super.curl.override { inherit (pkgs) curl; };
-    gnutls = super.gnutls.override { inherit (pkgs) gnutls; };
-    gsasl = super.gsasl.override { inherit (pkgs) gsasl; };
-    sqlite = super.sqlite.override { inherit (pkgs) sqlite; };
-    zlib = super.zlib.override { inherit (pkgs) zlib; };
     digest = super.digest.override { inherit (pkgs) zlib; };
 
     # We cannot use mtl 2.2.x with GHC versions < 7.9.x.
@@ -436,6 +431,8 @@ let
     zlib-conduit = super.zlib-conduit.overrideArgs (drv: { noHaddock = true; });
 
     # Missing system library mappings
+    inherit (pkgs.gnome) gnome_vfs GConf;
+
     accelerate-llvm-multidev = null;
     accelerate-llvm-native = null;
     accelerate-llvm = null;
@@ -512,7 +509,6 @@ let
     friso = null;
     ftd2xx = null;
     gcc_s = null;
-    GConf = null;
     gcrypt = null;
     gdi32 = null;
     gdk_x11 = null;
@@ -525,6 +521,7 @@ let
     ghcjs-base = null;
     GLESv2 = null;
     gnome_keyring = null;
+    gnome_vfs_module = null;
     gnomeVfsModule = null;
     gnome-vfs = null;
     g = null;

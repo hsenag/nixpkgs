@@ -3385,7 +3385,7 @@ self: {
      }) {};
 
   "Etherbunny" = callPackage
-    ({ mkDerivation, binary, network, pcap }:
+    ({ mkDerivation, binary, libpcap, network, pcap }:
      mkDerivation {
        pname = "Etherbunny";
        version = "0.3";
@@ -3393,7 +3393,7 @@ self: {
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ binary network pcap ];
-       extraLibraries = [ pcap ];
+       extraLibraries = [ libpcap ];
        homepage = "http://etherbunny.anytini.com/";
        description = "A network analysis toolkit for Haskell";
        license = "GPL";
@@ -4868,16 +4868,16 @@ self: {
        homepage = "http://software.complete.org/hdbc-sqlite3";
        description = "Sqlite v3 driver for HDBC";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "HDRUtils" = callPackage
-    ({ mkDerivation, colour, mtl, pfs }:
+    ({ mkDerivation, colour, mtl, pfstools }:
      mkDerivation {
        pname = "HDRUtils";
        version = "1.0.2";
        sha256 = "0rkykxmqpqiclvxlvfd0v9rrvkkb25shyajdmajxisfqxl684y0g";
        buildDepends = [ colour mtl ];
-       extraLibraries = [ pfs ];
+       extraLibraries = [ pfstools ];
        homepage = "http://vis.renci.org/jeff/pfs";
        description = "Utilities for reading, manipulating, and writing HDR images";
        license = stdenv.lib.licenses.bsd3;
@@ -5157,7 +5157,7 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "SFML Binding for HGamer3D";
        license = "unknown";
-     }) {};
+     }) { inherit (pkgs) sfml-audio; };
 
   "HGamer3D-WinEvent" = callPackage
     ({ mkDerivation, HGamer3D-Data, HGamer3D-SDL2-Binding, text }:
@@ -7423,7 +7423,7 @@ self: {
        homepage = "https://code.google.com/p/kyotocabinet-hs/";
        description = "Kyoto Cabinet DB bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) kyotocabinet; };
 
   "L-seed" = callPackage
     ({ mkDerivation, cairo, gtk, mtl, parsec, random }:
@@ -7517,7 +7517,7 @@ self: {
        homepage = "http://github.com/LambdaHack/LambdaHack";
        description = "A game engine library for roguelike dungeon crawlers";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "LambdaINet" = callPackage
     ({ mkDerivation, GLFW, GLFW-task, monad-task, mtl, OpenGL
@@ -9036,7 +9036,7 @@ self: {
        homepage = "https://github.com/IFCA/opencl";
        description = "Haskell high-level wrapper for OpenCL";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) OpenCL; };
 
   "OpenCLRaw" = callPackage
     ({ mkDerivation, mtl }:
@@ -10461,7 +10461,7 @@ self: {
        extraLibraries = [ SDL ];
        description = "Binding to libSDL";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) SDL; };
 
   "SDL-gfx" = callPackage
     ({ mkDerivation, SDL }:
@@ -10780,7 +10780,7 @@ self: {
        homepage = "http://haskell.org/haskellwiki/Salsa";
        description = "A .NET Bridge for Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "ScratchFs" = callPackage
     ({ mkDerivation, filepath, HFuse, hsyslog, regex-compat
@@ -12074,7 +12074,7 @@ self: {
        homepage = "http://github.com/ierton/vkhs";
        description = "Provides access to Vkontakte social network via public API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) curl; };
 
   "Validation" = callPackage
     ({ mkDerivation, bifunctors, semigroupoids, semigroups }:
@@ -12883,7 +12883,7 @@ self: {
        homepage = "http://code.google.com/p/yogurt-mud/";
        description = "A functional MUD client";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) readline; };
 
   "ZFS" = callPackage
     ({ mkDerivation, CC-delcont, mtl, network }:
@@ -14852,7 +14852,7 @@ self: {
        extraLibraries = [ alure ];
        description = "A Haskell binding for ALURE";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) alure; };
 
   "amazon-emailer" = callPackage
     ({ mkDerivation, configurator, http-conduit, lifted-base, mime-mail
@@ -16928,7 +16928,7 @@ self: {
        extraLibraries = [ assimp ];
        description = "The Assimp asset import library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) assimp; };
 
   "astar" = callPackage
     ({ mkDerivation, PSQueue }:
@@ -17452,7 +17452,7 @@ self: {
        homepage = "http://trac.haskell.org/augeas";
        description = "A Haskell FFI wrapper for the Augeas API";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) augeas; };
 
   "augur" = callPackage
     ({ mkDerivation, classify, filepath, HaXml, mtl }:
@@ -17717,7 +17717,7 @@ self: {
        extraLibraries = [ awesomium ];
        description = "Low-level Awesomium bindings";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) awesomium; };
 
   "aws" = callPackage
     ({ mkDerivation, aeson, attoparsec, base16-bytestring
@@ -19741,7 +19741,7 @@ self: {
        pkgconfigDepends = [ glib ];
        description = "Low level bindings to GLib";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "bindings-gobject" = callPackage
     ({ mkDerivation, bindings-DSL, bindings-glib, glib }:
@@ -19753,7 +19753,7 @@ self: {
        pkgconfigDepends = [ glib ];
        description = "Low level bindings supporting GObject and derived libraries";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "bindings-gpgme" = callPackage
     ({ mkDerivation, bindings-DSL, gpgme }:
@@ -19829,7 +19829,7 @@ self: {
        homepage = "https://github.com/basvandijk/bindings-levmar";
        description = "Low level bindings to the C levmar (Levenberg-Marquardt) library";
        license = "unknown";
-     }) {};
+     }) { inherit (pkgs) blas; };
 
   "bindings-libcddb" = callPackage
     ({ mkDerivation, bindings-DSL, libcddb }:
@@ -19854,7 +19854,7 @@ self: {
        pkgconfigDepends = [ libffi ];
        description = "Low level bindings to libffi";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) libffi; };
 
   "bindings-libftdi" = callPackage
     ({ mkDerivation, bindings-DSL, libftdi, libusb }:
@@ -19891,7 +19891,7 @@ self: {
        extraLibraries = [ stemmer ];
        description = "Binding for libstemmer with low level binding";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) stemmer; };
 
   "bindings-libusb" = callPackage
     ({ mkDerivation, bindings-DSL, libusb }:
@@ -19917,7 +19917,7 @@ self: {
        homepage = "https://gitorious.org/hsv4l2";
        description = "bindings to libv4l2 for Linux";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) v4l2; };
 
   "bindings-libzip" = callPackage
     ({ mkDerivation, bindings-DSL, libzip }:
@@ -19955,7 +19955,7 @@ self: {
        homepage = "https://github.com/fizruk/bindings-lxc";
        description = "Direct Haskell bindings to LXC (Linux containers) C API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) lxc; };
 
   "bindings-mmap" = callPackage
     ({ mkDerivation, bindings-posix }:
@@ -19994,7 +19994,7 @@ self: {
        homepage = "http://floss.scru.org/bindings-nettle";
        description = "bindings to nettle crypto library";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) nettle; };
 
   "bindings-parport" = callPackage
     ({ mkDerivation, bindings-DSL }:
@@ -20017,7 +20017,7 @@ self: {
        pkgconfigDepends = [ portaudio ];
        description = "Low-level bindings to portaudio library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) portaudio; };
 
   "bindings-posix" = callPackage
     ({ mkDerivation, bindings-DSL }:
@@ -20116,7 +20116,7 @@ self: {
        pkgconfigDepends = [ sqlite ];
        description = "Low level bindings to sqlite3";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "bindings-svm" = callPackage
     ({ mkDerivation, bindings-DSL }:
@@ -20149,7 +20149,7 @@ self: {
        extraLibraries = [ gmp yices ];
        description = "Bindings to the Yices theorem prover";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+     }) { inherit (pkgs) yices; };
 
   "binembed" = callPackage
     ({ mkDerivation, Cabal, dlist, filepath }:
@@ -20530,7 +20530,7 @@ self: {
        pkgconfigDepends = [ gtk pango ];
        description = "Proof-of-concept tool for writing using binary choices";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) gtk pango; };
 
   "bitstream" = callPackage
     ({ mkDerivation, base-unicode-symbols, QuickCheck, vector }:
@@ -21119,7 +21119,7 @@ self: {
        homepage = "http://www.bluetile.org/";
        description = "full-featured tiling for the GNOME desktop environment";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "bluetileutils" = callPackage
     ({ mkDerivation, gtk }:
@@ -21690,7 +21690,7 @@ self: {
        homepage = "http://www.haskell.org/haskellwiki/Bullet";
        description = "A wrapper for the Bullet physics engine";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) bullet; };
 
   "bumper" = callPackage
     ({ mkDerivation, Cabal, fclabels, regex-compat, split, strict }:
@@ -21792,7 +21792,7 @@ self: {
        pkgconfigDepends = [ glib ];
        description = "Draw pretty sequence diagrams of D-Bus traffic";
        license = "unknown";
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "bv" = callPackage
     ({ mkDerivation }:
@@ -22511,7 +22511,7 @@ self: {
        extraLibraries = [ zlib ];
        description = "The (bundled) command-line interface for Cabal and Hackage";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "cabal-install-ghc72" = callPackage
     ({ mkDerivation, Cabal, filepath, HTTP, network, random, time, zlib
@@ -22977,7 +22977,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Cairo library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) cairo zlib; };
 
   "cairo-appbase" = callPackage
     ({ mkDerivation, cairo, glib, gtk }:
@@ -23055,7 +23055,7 @@ self: {
        homepage = "http://haskell.org/haskellwiki/Cal3d_animation";
        description = "Haskell binding to the Cal3D animation library";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) cal3d; };
 
   "cal3d-examples" = callPackage
     ({ mkDerivation, cal3d, cal3d-opengl, OpenGL, SDL }:
@@ -23740,7 +23740,7 @@ self: {
        extraLibraries = [ cci ];
        description = "Bindings for the CCI networking library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) cci; };
 
   "ccnx" = callPackage
     ({ mkDerivation }:
@@ -23790,7 +23790,7 @@ self: {
        pkgconfigDepends = [ gtk ];
        description = "Cairo-based CellRenderer";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "cereal" = callPackage
     ({ mkDerivation }:
@@ -24583,7 +24583,7 @@ self: {
        homepage = "http://haskell.org/haskellwiki/Library/cinvoke";
        description = "A binding to cinvoke";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) cinvoke; };
 
   "cio" = callPackage
     ({ mkDerivation, monad-stm, mtl, parallel-io, stm }:
@@ -25610,7 +25610,7 @@ self: {
        pkgconfigDepends = [ clutter glib pango ];
        description = "Bindings to the Clutter animation library";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) glib pango; };
 
   "cmaes" = callPackage
     ({ mkDerivation, doctest, doctest-prop, mtl, random, safe, strict
@@ -28185,14 +28185,14 @@ self: {
      }) {};
 
   "cpython" = callPackage
-    ({ mkDerivation, c2hs, python33, text }:
+    ({ mkDerivation, c2hs, python3, text }:
      mkDerivation {
        pname = "cpython";
        version = "3.3.0";
        sha256 = "162m0dfgnicyv3jb9dqq6pmyymh1dim043kbmbg1hfhxjfrv17jj";
        buildDepends = [ text ];
        buildTools = [ c2hs ];
-       pkgconfigDepends = [ python33 ];
+       pkgconfigDepends = [ python3 ];
        homepage = "https://john-millikin.com/software/haskell-python/";
        description = "Bindings for libpython";
        license = stdenv.lib.licenses.gpl3;
@@ -28368,7 +28368,7 @@ self: {
        extraLibraries = [ crack ];
        description = "A haskell binding to cracklib";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) crack; };
 
   "craftwerk" = callPackage
     ({ mkDerivation, colour, mtl, vector-space }:
@@ -29244,7 +29244,7 @@ self: {
        homepage = "http://darcs.imperialviolet.org/ctemplate";
        description = "Binding to the Google ctemplate library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) ctemplate; };
 
   "ctkl" = callPackage
     ({ mkDerivation }:
@@ -29337,7 +29337,7 @@ self: {
        homepage = "https://github.com/bmsherman/cublas";
        description = "FFI bindings to the CUDA CUBLAS and CUSPARSE libraries";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) cublas; };
 
   "cuboid" = callPackage
     ({ mkDerivation, GLUT, Yampa }:
@@ -29409,7 +29409,7 @@ self: {
        extraLibraries = [ curl ];
        description = "Haskell binding to libcurl";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) curl; };
 
   "curl-aeson" = callPackage
     ({ mkDerivation, aeson, curl, text, utf8-string }:
@@ -29721,7 +29721,7 @@ self: {
        homepage = "http://darcs.net/";
        description = "a distributed, interactive, smart revision control system";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) curl; };
 
   "darcs-benchmark" = callPackage
     ({ mkDerivation, cmdargs, datetime, filepath, hs-gchart, html, HTTP
@@ -29764,7 +29764,7 @@ self: {
        homepage = "http://darcs.net/";
        description = "a distributed, interactive, smart revision control system";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) curl; };
 
   "darcs-buildpackage" = callPackage
     ({ mkDerivation, ConfigFile, hslogger, MissingH, network, parsec
@@ -29798,7 +29798,7 @@ self: {
        homepage = "http://darcs.net/";
        description = "David's Advanced Version Control System";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) curl zlib; };
 
   "darcs-fastconvert" = callPackage
     ({ mkDerivation, attoparsec, cmdlib, darcs, datetime, filepath
@@ -32539,7 +32539,7 @@ self: {
        extraLibraries = [ zlib ];
        description = "Various cryptographic hashes for bytestrings; CRC32 and Adler32 for now";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "digest-pure" = callPackage
     ({ mkDerivation, digest, QuickCheck }:
@@ -33015,7 +33015,7 @@ self: {
        homepage = "http://github.com/lightquake/discount";
        description = "Haskell bindings to the discount Markdown library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) markdown; };
 
   "discrete-space-map" = callPackage
     ({ mkDerivation, adjunctions, comonad, distributive, keys
@@ -34220,7 +34220,7 @@ self: {
        pkgconfigDepends = [ dvdread ];
        description = "A monadic interface to libdvdread";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) dvdread; };
 
   "dvi-processing" = callPackage
     ({ mkDerivation, filepath, transformers }:
@@ -36533,7 +36533,7 @@ self: {
        extraLibraries = [ exif ];
        description = "A Haskell binding to a subset of libexif";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) exif; };
 
   "exists" = callPackage
     ({ mkDerivation, contravariant }:
@@ -38665,7 +38665,7 @@ self: {
        homepage = "https://github.com/MostAwesomeDude/hsfluidsynth";
        description = "Haskell bindings to FluidSynth";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) fluidsynth; };
 
   "fmark" = callPackage
     ({ mkDerivation, filepath, mtl, Unixutils }:
@@ -39372,7 +39372,7 @@ self: {
        homepage = "https://github.com/chrisdone/freenect";
        description = "Interface to the Kinect device";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) freenect; };
 
   "freesect" = callPackage
     ({ mkDerivation, cpphs, mtl, parallel, random, syb }:
@@ -40099,7 +40099,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GNOME configuration database system";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gconf; };
 
   "gd" = callPackage
     ({ mkDerivation, expat, fontconfig, freetype, gd, libjpeg, libpng
@@ -40114,7 +40114,7 @@ self: {
        ];
        description = "A Haskell binding to a subset of the GD graphics library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) gd zlib; };
 
   "gdiff" = callPackage
     ({ mkDerivation }:
@@ -41313,7 +41313,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GIO";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "gist" = callPackage
     ({ mkDerivation, aeson, conduit, http-conduit, text }:
@@ -41943,7 +41943,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GLIB library for Gtk2Hs";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "glider-nlp" = callPackage
     ({ mkDerivation, Cabal, HUnit, text }:
@@ -42160,7 +42160,7 @@ self: {
        homepage = "http://gloss.ouroborus.net";
        description = "Parallel rendering of raster images";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) llvm; };
 
   "gloss-raster-accelerate" = callPackage
     ({ mkDerivation, accelerate, accelerate-cuda, gloss
@@ -42281,7 +42281,7 @@ self: {
      }) {};
 
   "gnomevfs" = callPackage
-    ({ mkDerivation, glib, gnome-vfs, gnomeVfsModule, gtk
+    ({ mkDerivation, glib, gnome_vfs, gnome_vfs_module, gtk
      , gtk2hs-buildtools, mtl
      }:
      mkDerivation {
@@ -42290,7 +42290,7 @@ self: {
        sha256 = "0g4dic9k1c4221v4kacc46sj2vra1jlnb4pn657zfwbkni8z0kmp";
        buildDepends = [ glib gtk mtl ];
        buildTools = [ gtk2hs-buildtools ];
-       pkgconfigDepends = [ gnome-vfs gnomeVfsModule ];
+       pkgconfigDepends = [ gnome_vfs gnome_vfs_module ];
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the GNOME Virtual File System library";
        license = "GPL";
@@ -42342,7 +42342,7 @@ self: {
        homepage = "https://john-millikin.com/software/haskell-gnutls/";
        description = "Bindings for GNU libgnutls";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) gnutls; };
 
   "goa" = callPackage
     ({ mkDerivation, filepath }:
@@ -43442,7 +43442,7 @@ self: {
        homepage = "https://john-millikin.com/software/haskell-gsasl/";
        description = "Bindings for GNU libgsasl";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) gsasl; };
 
   "gsc-weighting" = callPackage
     ({ mkDerivation, hierarchical-clustering }:
@@ -43511,7 +43511,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GStreamer open source multimedia framework";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gstreamer; };
 
   "gt-tools" = callPackage
     ({ mkDerivation, extensible-exceptions, haskeline, HTTP, json, mtl
@@ -43557,7 +43557,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Gtk+ graphical user interface library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) glib gtk; };
 
   "gtk-jsinput" = callPackage
     ({ mkDerivation, gtk, json, transformers }:
@@ -43597,7 +43597,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Bindings for the Gtk/OS X integration library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtk-mac-integration; };
 
   "gtk-serialized-event" = callPackage
     ({ mkDerivation, glib, gtk, mtl }:
@@ -43610,7 +43610,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "GTK+ Serialized event";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "gtk-simple-list-view" = callPackage
     ({ mkDerivation, gtk }:
@@ -43658,7 +43658,7 @@ self: {
        homepage = "http://github.com/travitch/gtk-traymanager";
        description = "A wrapper around the eggtraymanager library for Linux system trays";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "gtk2hs-buildtools" = callPackage
     ({ mkDerivation, alex, filepath, happy, hashtables, random }:
@@ -43799,7 +43799,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Gtk+ graphical user interface library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) glib gtk3; };
 
   "gtk3-mac-integration" = callPackage
     ({ mkDerivation, glib, gtk-mac-integration, gtk2hs-buildtools, gtk3
@@ -43815,7 +43815,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Bindings for the Gtk/OS X integration library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtk-mac-integration; };
 
   "gtkglext" = callPackage
     ({ mkDerivation, glib, gtk, gtk2hs-buildtools, gtkglext, pango
@@ -43831,7 +43831,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GTK+ OpenGL Extension";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtkglext; };
 
   "gtkimageview" = callPackage
     ({ mkDerivation, glib, gtk, gtk2hs-buildtools, gtkimageview, mtl }:
@@ -43845,7 +43845,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the GtkImageView library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) gtkimageview; };
 
   "gtkrsync" = callPackage
     ({ mkDerivation, gconf, glade, gtk, MissingH, regex-posix }:
@@ -44270,7 +44270,7 @@ self: {
        homepage = "http://dslsrv4.cs.missouri.edu/~qqbm9";
        description = "Optimal variable selection in chain graphical model";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) blas; };
 
   "haar" = callPackage
     ({ mkDerivation, QuickCheck, split, test-framework
@@ -44986,7 +44986,7 @@ self: {
        homepage = "http://github.com/jystic/hadoop-formats";
        description = "Read/write file formats commonly used by Hadoop";
        license = stdenv.lib.licenses.asl20;
-     }) {};
+     }) { inherit (pkgs) snappy; };
 
   "hadoop-rpc" = callPackage
     ({ mkDerivation, attoparsec, cereal, exceptions, hashable, network
@@ -45643,7 +45643,7 @@ self: {
      }) {};
 
   "happindicator3" = callPackage
-    ({ mkDerivation, appindicator3, glib, gtk3, text }:
+    ({ mkDerivation, appindicator, glib, gtk3, text }:
      mkDerivation {
        pname = "happindicator3";
        version = "0.2.1";
@@ -45651,7 +45651,7 @@ self: {
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ glib gtk3 text ];
-       pkgconfigDepends = [ appindicator3 ];
+       pkgconfigDepends = [ appindicator ];
        homepage = "https://github.com/mlacorte/happindicator3";
        description = "Binding to the appindicator library";
        license = stdenv.lib.licenses.lgpl21;
@@ -46273,7 +46273,7 @@ self: {
        homepage = "http://www.davidb.org/darcs/harchive/";
        description = "Networked content addressed backup and restore software";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "hark" = callPackage
     ({ mkDerivation, filepath, mtl, regex-pcre }:
@@ -48648,7 +48648,7 @@ self: {
        homepage = "http://www.dockerz.net/software/hbeat.html";
        description = "A simple step sequencer GUI";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) SDL; };
 
   "hblas" = callPackage
     ({ mkDerivation, blas, HUnit, lapack, primitive, storable-complex
@@ -48664,7 +48664,7 @@ self: {
        homepage = "http://github.com/wellposed/hblas/";
        description = "Human friendly BLAS and Lapack bindings for Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) blas; };
 
   "hblock" = callPackage
     ({ mkDerivation, aeson, blaze-markup, cereal, deepseq, hashable
@@ -49094,7 +49094,7 @@ self: {
        homepage = "https://github.com/jamwt/hdiscount";
        description = "Haskell bindings to the Discount markdown library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) markdown; };
 
   "hdm" = callPackage
     ({ mkDerivation, vty }:
@@ -50303,7 +50303,7 @@ self: {
        homepage = "http://www.harphttp.org";
        description = "Binding to libharp";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) harp; };
 
   "hi" = callPackage
     ({ mkDerivation, doctest, filepath, hspec, HUnit, parsec, split
@@ -50365,7 +50365,7 @@ self: {
        homepage = "https://github.com/vahokif/haskell-hidapi";
        description = "Haskell bindings to HIDAPI";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) udev; };
 
   "hieraclus" = callPackage
     ({ mkDerivation, HUnit, mtl, multiset }:
@@ -51435,7 +51435,7 @@ self: {
        homepage = "https://github.com/albertoruiz/hmatrix";
        description = "Numeric Linear Algebra";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) blas; };
 
   "hmatrix-banded" = callPackage
     ({ mkDerivation, hmatrix, lapack, transformers }:
@@ -52104,7 +52104,7 @@ self: {
        extraLibraries = [ freenect OpenNI2 ];
        description = "OpenNI 2 binding";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) freenect; };
 
   "honk" = callPackage
     ({ mkDerivation }:
@@ -52444,7 +52444,7 @@ self: {
        homepage = "https://github.com/merijn/hopencl";
        description = "Haskell bindings for OpenCL";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) OpenCL; };
 
   "hopenpgp-tools" = callPackage
     ({ mkDerivation, aeson, alex, ansi-wl-pprint, attoparsec
@@ -53474,7 +53474,7 @@ self: {
        ];
        extraLibraries = [ mesos protobuf ];
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) protobuf; };
 
   "hs-nombre-generator" = callPackage
     ({ mkDerivation, HandsomeSoup, hxt, random }:
@@ -54410,7 +54410,7 @@ self: {
        homepage = "http://www.cs.helsinki.fi/u/ekarttun/hsgnutls";
        description = "Library wrapping the GnuTLS API";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) gnutls; };
 
   "hsgnutls-yj" = callPackage
     ({ mkDerivation, gcrypt, gnutls, mtl }:
@@ -54423,7 +54423,7 @@ self: {
        homepage = "http://www.cs.helsinki.fi/u/ekarttun/hsgnutls";
        description = "Library wrapping the GnuTLS API";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) gnutls; };
 
   "hsgsom" = callPackage
     ({ mkDerivation, random, stm, time }:
@@ -54549,7 +54549,7 @@ self: {
        extraLibraries = [ svm ];
        description = "A FFI binding to libsvm";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) svm; };
 
   "hslinks" = callPackage
     ({ mkDerivation, Cabal, hint, MemoTrie, regex-compat }:
@@ -54651,7 +54651,7 @@ self: {
        homepage = "https://github.com/vincentg/hsmagick";
        description = "FFI bindings for the GraphicsMagick library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) freetype2 zlib; };
 
   "hsmtpclient" = callPackage
     ({ mkDerivation, network }:
@@ -55322,7 +55322,7 @@ self: {
        extraLibraries = [ sqlite ];
        description = "SQLite3 driver for HSQL";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "hsqml" = callPackage
     ({ mkDerivation, c2hs, filepath, Qt5Core, Qt5Gui, Qt5Qml, Qt5Quick
@@ -55614,7 +55614,7 @@ self: {
        extraLibraries = [ ncurses readline swipl ];
        description = "embedding prolog in haskell";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) ncurses readline; };
 
   "hsx" = callPackage
     ({ mkDerivation, haskell-src-exts, mtl, utf8-string }:
@@ -57797,7 +57797,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Bindings for the Gtk/OS X integration library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) ige-mac-integration; };
 
   "igraph" = callPackage
     ({ mkDerivation, c2hs, hashable, igraph, unordered-containers }:
@@ -57811,7 +57811,7 @@ self: {
        homepage = "http://giorgidze.github.com/igraph/";
        description = "Bindings to the igraph C library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) igraph; };
 
   "igrf" = callPackage
     ({ mkDerivation, ad, polynomial }:
@@ -59523,7 +59523,7 @@ self: {
        homepage = "http://www.scs.stanford.edu/~dm/iterIO";
        description = "Iteratee-based IO with pipe operators";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "iterable" = callPackage
     ({ mkDerivation, mtl, tagged, vector }:
@@ -59570,7 +59570,7 @@ self: {
        extraLibraries = [ bzip2 zlib ];
        description = "Enumeratees for compressing and decompressing streams";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "iteratee-mtl" = callPackage
     ({ mkDerivation, ListLike, MonadCatchIO-mtl, mtl }:
@@ -61571,7 +61571,7 @@ self: {
        extraLibraries = [ kyotocabinet ];
        description = "Mid level bindings to Kyoto Cabinet";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) kyotocabinet; };
 
   "l-bfgs-b" = callPackage
     ({ mkDerivation, lbfgsb, vector }:
@@ -63233,7 +63233,7 @@ self: {
        homepage = "http://github.com/kim/leveldb-haskell";
        description = "Haskell bindings to LevelDB";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) snappy; };
 
   "leveldb-haskell-fork" = callPackage
     ({ mkDerivation, async, data-default, filepath, hspec
@@ -63459,7 +63459,7 @@ self: {
        extraLibraries = [ archive ];
        description = "Read many archive formats with libarchive and conduit";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) archive; };
 
   "libcspm" = callPackage
     ({ mkDerivation, deepseq, filepath, graph-wrapper, hashable
@@ -63499,7 +63499,7 @@ self: {
        pkgconfigDepends = [ libffi ];
        description = "A binding to libffi";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) libffi; };
 
   "libgit" = callPackage
     ({ mkDerivation, mtl }:
@@ -63735,7 +63735,7 @@ self: {
        homepage = "https://github.com/portnov/libssh2-hs";
        description = "FFI bindings to libssh2 SSH2 client library (http://libssh2.org/)";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) libssh2; };
 
   "libssh2-conduit" = callPackage
     ({ mkDerivation, conduit, libssh2, monad-control, stm, transformers
@@ -63782,7 +63782,7 @@ self: {
        pkgconfigDepends = [ libsystemd-daemon ];
        description = "Haskell bindings for libsystemd-daemon";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) libsystemd-daemon; };
 
   "libsystemd-journal" = callPackage
     ({ mkDerivation, hashable, hsyslog, pipes, pipes-safe, systemd
@@ -63801,7 +63801,7 @@ self: {
        homepage = "http://github.com/ocharles/libsystemd-journal";
        description = "Haskell bindings to libsystemd-journal";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) systemd; };
 
   "libtagc" = callPackage
     ({ mkDerivation, glib, tag_c, taglib_c }:
@@ -63895,7 +63895,7 @@ self: {
        extraLibraries = [ xslt ];
        description = "Binding to libxslt";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) xslt; };
 
   "life" = callPackage
     ({ mkDerivation, GLUT, OpenGL, random }:
@@ -64788,7 +64788,7 @@ self: {
        homepage = "https://github.com/bos/llvm";
        description = "FFI bindings to the LLVM compiler toolkit";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) llvm; };
 
   "llvm-base-types" = callPackage
     ({ mkDerivation, c2hs, deepseq, dwarf, failure, GenericPretty
@@ -65019,7 +65019,7 @@ self: {
        homepage = "http://github.com/dmbarbour/haskell-lmdb";
        description = "Lightning MDB bindings";
        license = stdenv.lib.licenses.bsd2;
-     }) {};
+     }) { inherit (pkgs) lmdb; };
 
   "load-env" = callPackage
     ({ mkDerivation, hspec, HUnit, parsec }:
@@ -65471,7 +65471,7 @@ self: {
        homepage = "http://www.tiresiaspress.us/haskell/loris";
        description = "interface to Loris API";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+     }) { inherit (pkgs) loris; };
 
   "loshadka" = callPackage
     ({ mkDerivation, aeson, binary, cryptohash, hex, network, split }:
@@ -66042,7 +66042,7 @@ self: {
        extraLibraries = [ magic ];
        description = "Interface to C file/magic library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) magic; };
 
   "magma" = callPackage
     ({ mkDerivation, deepseq, profunctors, semigroups }:
@@ -67270,7 +67270,7 @@ self: {
        homepage = "http://github.com/tanakh/hsmecab";
        description = "A Haskell binding to MeCab";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) mecab; };
 
   "mecha" = callPackage
     ({ mkDerivation }:
@@ -68082,7 +68082,7 @@ self: {
        extraLibraries = [ zlib ];
        description = "A Haskell bundle of the Minisat SAT solver";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "ministg" = callPackage
     ({ mkDerivation, filepath, monads-tf, parsec, transformers, xhtml
@@ -69542,7 +69542,7 @@ self: {
        homepage = "https://github.com/kawu/morfeusz";
        description = "Bindings to the morphological analyser Morfeusz";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) morfeusz; };
 
   "morte" = callPackage
     ({ mkDerivation, alex, binary, happy, lens-family-core
@@ -69879,7 +69879,7 @@ self: {
        extraLibraries = [ mtp ];
        description = "Bindings to libmtp";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) mtp; };
 
   "mtree" = callPackage
     ({ mkDerivation, bifunctors }:
@@ -70637,7 +70637,7 @@ self: {
        homepage = "https://github.com/bos/mysql";
        description = "A low-level MySQL client library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "mysql-effect" = callPackage
     ({ mkDerivation, extensible-effects, mysql, mysql-simple }:
@@ -70857,7 +70857,7 @@ self: {
        extraLibraries = [ nanomsg ];
        description = "nanomsg - scalability protocols library";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+     }) { inherit (pkgs) nanomsg; };
 
   "nanomsg-haskell" = callPackage
     ({ mkDerivation, binary, nanomsg, QuickCheck, test-framework
@@ -70876,7 +70876,7 @@ self: {
        homepage = "https://github.com/ivarnymoen/nanomsg-haskell";
        description = "Bindings to the nanomsg library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) nanomsg; };
 
   "nanoparsec" = callPackage
     ({ mkDerivation, ListLike }:
@@ -71059,7 +71059,7 @@ self: {
        homepage = "https://john-millikin.com/software/haskell-ncurses/";
        description = "Modernised bindings to GNU ncurses";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) ncurses; };
 
   "neat" = callPackage
     ({ mkDerivation, filepath, parsec }:
@@ -71360,7 +71360,7 @@ self: {
        homepage = "https://github.com/stbuehler/haskell-nettle";
        description = "safe nettle binding";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) nettle; };
 
   "nettle-frp" = callPackage
     ({ mkDerivation, bimap, binary, mtl, nettle-openflow, network
@@ -72302,7 +72302,7 @@ self: {
        pkgconfigDepends = [ glib libnm-glib ];
        description = "Network Manager, binding to libnm-glib";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) glib; };
 
   "nme" = callPackage
     ({ mkDerivation, utf8-string }:
@@ -72527,7 +72527,7 @@ self: {
        extraLibraries = [ glib gmime notmuch nsl talloc xapian zlib ];
        description = "Binding for notmuch MUA library";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) glib zlib; };
 
   "notmuch-web" = callPackage
     ({ mkDerivation, aeson, attoparsec, attoparsec-conduit
@@ -72977,7 +72977,7 @@ self: {
        homepage = "http://github.com/cpdurham/oculus";
        description = "Oculus Rift ffi providing head tracking data";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) udev; };
 
   "oeis" = callPackage
     ({ mkDerivation, HTTP, HUnit, network, network-uri, test-framework
@@ -74152,7 +74152,7 @@ self: {
        extraLibraries = [ pam ];
        description = "Haskell binding for C PAM API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) pam; };
 
   "panda" = callPackage
     ({ mkDerivation, cgi, data-default, filepath, gravatar, hcheat
@@ -74285,7 +74285,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Pango text rendering engine";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) cairo pango; };
 
   "papillon" = callPackage
     ({ mkDerivation, filepath, monads-tf, transformers }:
@@ -75601,7 +75601,7 @@ self: {
        homepage = "http://www.yesodweb.com/book/persistent";
        description = "Type-safe, multi-backend data serialization";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "persistent-cereal" = callPackage
     ({ mkDerivation, cereal, persistent, text }:
@@ -77124,7 +77124,7 @@ self: {
        extraLibraries = [ poker-eval ];
        description = "Binding to libpoker-eval";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+     }) { inherit (pkgs) poker-eval; };
 
   "polar" = callPackage
     ({ mkDerivation }:
@@ -77447,7 +77447,7 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the Poppler";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+     }) { inherit (pkgs) cairo glib gtk pango; };
 
   "populate-setup-exe-cache" = callPackage
     ({ mkDerivation }:
@@ -77480,7 +77480,7 @@ self: {
        homepage = "http://code.haskell.org/portaudio";
        description = "Haskell bindings for the PortAudio library";
        license = "unknown";
-     }) {};
+     }) { inherit (pkgs) portaudio; };
 
   "porte" = callPackage
     ({ mkDerivation, extensible-exceptions, stringsearch }:
@@ -78966,7 +78966,7 @@ self: {
        homepage = "https://github.com/nicta/protobuf-native";
        description = "Protocol Buffers via C++";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) protobuf; };
 
   "protocol-buffers" = callPackage
     ({ mkDerivation, binary, filepath, mtl, parsec, syb, utf8-string }:
@@ -79281,7 +79281,7 @@ self: {
        extraLibraries = [ pulse-simple ];
        description = "binding to Simple API of pulseaudio";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) pulse-simple; };
 
   "punkt" = callPackage
     ({ mkDerivation, mtl, regex-tdfa, regex-tdfa-text, tasty
@@ -79727,7 +79727,7 @@ self: {
        extraLibraries = [ qd ];
        description = "double-double and quad-double number type via libqd";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) qd; };
 
   "qd-vec" = callPackage
     ({ mkDerivation, qd, Vec }:
@@ -82287,7 +82287,7 @@ self: {
        homepage = "http://repa.ouroborus.net";
        description = "Algorithms using the Repa array library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) llvm; };
 
   "repa-bytestring" = callPackage
     ({ mkDerivation, repa }:
@@ -82331,7 +82331,7 @@ self: {
        homepage = "http://repa.ouroborus.net";
        description = "Examples using the Repa array library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) llvm; };
 
   "repa-fftw" = callPackage
     ({ mkDerivation, carray, fft, repa, storable-complex, tasty
@@ -83196,7 +83196,7 @@ self: {
        homepage = "http://modeemi.fi/~tuomov/riot/";
        description = "Riot is an Information Organisation Tool";
        license = "GPL";
-     }) {};
+     }) { inherit (pkgs) ncurses; };
 
   "ripple" = callPackage
     ({ mkDerivation, aeson, attoparsec, base58address, binary, cereal
@@ -83847,7 +83847,7 @@ self: {
        extraLibraries = [ rtlsdr ];
        description = "Bindings to librtlsdr";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) rtlsdr; };
 
   "rtorrent-rpc" = callPackage
     ({ mkDerivation, attoparsec, blaze-builder, blaze-textual, deepseq
@@ -83895,7 +83895,7 @@ self: {
        homepage = "https://github.com/mtolly/rubberband";
        description = "Binding to the C++ audio stretching library Rubber Band";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) rubberband; };
 
   "ruby-qq" = callPackage
     ({ mkDerivation, haskell-src-exts, haskell-src-meta, pcre-light
@@ -84402,7 +84402,7 @@ self: {
        homepage = "http://www.ingolia-lab.org/samtools-tutorial.html";
        description = "Binding to the C samtools library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "samtools-conduit" = callPackage
     ({ mkDerivation, conduit, filepath, resourcet, samtools
@@ -85552,7 +85552,7 @@ self: {
        homepage = "https://github.com/luite/selinux";
        description = "SELinux bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) selinux; };
 
   "semaphore-plus" = callPackage
     ({ mkDerivation }:
@@ -89043,7 +89043,7 @@ self: {
        homepage = "http://github.com/bos/snappy";
        description = "Bindings to the Google Snappy library for fast compression/decompression";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) snappy; };
 
   "snappy-framing" = callPackage
     ({ mkDerivation, binary, snappy }:
@@ -89538,7 +89538,7 @@ self: {
        homepage = "http://www.haskell.org/haskellwiki/Sox";
        description = "Write, read, convert audio signals using libsox";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sox; };
 
   "soyuz" = callPackage
     ({ mkDerivation, cereal, cmdargs, QuickCheck, trifecta, uniplate
@@ -89849,8 +89849,8 @@ self: {
      }) {};
 
   "spike" = callPackage
-    ({ mkDerivation, filepath, glib, global-variables, gtk
-     , libsoup_gnome, mtl, random, rosezipper, stm, webkit
+    ({ mkDerivation, filepath, glib, global-variables, gtk, libsoup
+     , mtl, random, rosezipper, stm, webkit
      }:
      mkDerivation {
        pname = "spike";
@@ -89861,7 +89861,7 @@ self: {
        buildDepends = [
          filepath glib global-variables gtk mtl random rosezipper stm webkit
        ];
-       pkgconfigDepends = [ libsoup_gnome ];
+       pkgconfigDepends = [ libsoup ];
        homepage = "http://github.com/Tener/spike";
        description = "Experimental web browser";
        license = stdenv.lib.licenses.bsd3;
@@ -90224,7 +90224,7 @@ self: {
        extraLibraries = [ sqlite ];
        description = "Haskell binding to sqlite3";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "sqlite-simple" = callPackage
     ({ mkDerivation, attoparsec, base16-bytestring, blaze-builder
@@ -90640,7 +90640,7 @@ self: {
        homepage = "http://github.com/brendanhay/statgrab";
        description = "Collect system level metrics and statistics";
        license = "unknown";
-     }) {};
+     }) { inherit (pkgs) statgrab; };
 
   "static-hash" = callPackage
     ({ mkDerivation, hashable, primes }:
@@ -92988,7 +92988,7 @@ self: {
        homepage = "http://github.com/solidsnack/system-uuid/";
        description = "Bindings to system UUID functions";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) uuid; };
 
   "systemd" = callPackage
     ({ mkDerivation, network, transformers }:
@@ -93126,7 +93126,7 @@ self: {
        homepage = "http://github.com/travitch/taffybar";
        description = "A desktop bar similar to xmobar, but with more GUI";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "tag-bits" = callPackage
     ({ mkDerivation }:
@@ -94194,7 +94194,7 @@ self: {
        homepage = "https://github.com/judah/terminfo";
        description = "Haskell bindings to the terminfo library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) ncurses; };
 
   "terminfo-hs" = callPackage
     ({ mkDerivation, attoparsec, errors, filepath, QuickCheck }:
@@ -95554,7 +95554,7 @@ self: {
        homepage = "https://github.com/koterpillar/tianbar";
        description = "A desktop bar based on WebKit";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) gtk; };
 
   "tic-tac-toe" = callPackage
     ({ mkDerivation, glade, gtk }:
@@ -100796,7 +100796,7 @@ self: {
        extraLibraries = [ ncurses ];
        description = "An MPD client with vim-like key bindings";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) ncurses; };
 
   "vintage-basic" = callPackage
     ({ mkDerivation, filepath, HUnit, mtl, parsec, random, regex-base
@@ -101016,7 +101016,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the VTE library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) vte; };
 
   "vtegtk3" = callPackage
     ({ mkDerivation, glib, gtk2hs-buildtools, gtk3, pango, vte }:
@@ -101030,7 +101030,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the VTE library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) vte; };
 
   "vty" = callPackage
     ({ mkDerivation, blaze-builder, Cabal, data-default, deepseq
@@ -102408,7 +102408,7 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Webkit library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+     }) { inherit (pkgs) webkit; };
 
   "webkit-javascriptcore" = callPackage
     ({ mkDerivation, glib, gtk, gtk2hs-buildtools, webkit }:
@@ -102421,7 +102421,7 @@ self: {
        pkgconfigDepends = [ webkit ];
        description = "JavaScriptCore FFI from webkitgtk";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) webkit; };
 
   "webkitgtk3" = callPackage
     ({ mkDerivation, cairo, glib, gtk2hs-buildtools, gtk3, mtl, pango
@@ -103766,7 +103766,7 @@ self: {
        homepage = "http://github.com/joachifm/hxine";
        description = "Bindings to xine-lib";
        license = "LGPL";
-     }) {};
+     }) { inherit (pkgs) xine; };
 
   "xing-api" = callPackage
     ({ mkDerivation, aeson, authenticate-oauth, HTF, http-conduit
@@ -103803,7 +103803,7 @@ self: {
        extraLibraries = [ xkbcommon ];
        description = "Haskell bindings for libxkbcommon";
        license = stdenv.lib.licenses.mit;
-     }) {};
+     }) { inherit (pkgs) xkbcommon; };
 
   "xkcd" = callPackage
     ({ mkDerivation, filepath, HTTP, network, tagsoup }:
@@ -104487,7 +104487,7 @@ self: {
        homepage = "http://code.haskell.org/~dons/code/xosd";
        description = "A binding to the X on-screen display";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) xosd; };
 
   "xournal-builder" = callPackage
     ({ mkDerivation, blaze-builder, double-conversion, strict
@@ -104618,7 +104618,7 @@ self: {
        extraLibraries = [ xslt ];
        description = "Binding to libxslt";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) xslt; };
 
   "xss-sanitize" = callPackage
     ({ mkDerivation, attoparsec, css-text, hspec, HUnit, network-uri
@@ -104766,7 +104766,7 @@ self: {
        homepage = "https://john-millikin.com/software/haskell-yajl/";
        description = "Bindings for YAJL, an event-based JSON implementation";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) yajl; };
 
   "yajl-enumerator" = callPackage
     ({ mkDerivation, enumerator, json-types, text, transformers, yajl
@@ -105539,7 +105539,7 @@ self: {
        homepage = "http://www.yesodweb.com/";
        description = "Example programs using the Yesod Web Framework. (deprecated)";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) sqlite; };
 
   "yesod-fay" = callPackage
     ({ mkDerivation, aeson, data-default, fay, fay-dom, monad-loops
@@ -106430,7 +106430,7 @@ self: {
        homepage = "http://code.haskell.org/~dons/code/yices-painless";
        description = "An embedded language for programming the Yices SMT solver";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) yices; };
 
   "yjftp" = callPackage
     ({ mkDerivation, ftphs, haskeline, hsConfigure, mtl }:
@@ -106616,7 +106616,7 @@ self: {
        homepage = "http://bitbucket.org/iago/z3-haskell";
        description = "Bindings for the Z3 Theorem Prover";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) z3; };
 
   "zampolit" = callPackage
     ({ mkDerivation, cmdargs, filepath, HSH, MissingH, parsec, time }:
@@ -106907,7 +106907,7 @@ self: {
        extraLibraries = [ zlib ];
        description = "Compression and decompression in the gzip and zlib formats";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+     }) { inherit (pkgs) zlib; };
 
   "zlib-bindings" = callPackage
     ({ mkDerivation, hspec, QuickCheck, zlib }:
