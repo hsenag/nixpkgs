@@ -98374,10 +98374,9 @@ self: {
      }) {};
 
   "tz" = callPackage
-    ({ mkDerivation, binary, bindings-posix, deepseq, HUnit
-     , pkgs_tzdata, QuickCheck, test-framework, test-framework-hunit
-     , test-framework-quickcheck2, test-framework-th, time, tzdata
-     , vector
+    ({ mkDerivation, binary, bindings-posix, deepseq, HUnit, QuickCheck
+     , test-framework, test-framework-hunit, test-framework-quickcheck2
+     , test-framework-th, time, tzdata, vector
      }:
      mkDerivation {
        pname = "tz";
@@ -98388,7 +98387,7 @@ self: {
          bindings-posix HUnit QuickCheck test-framework test-framework-hunit
          test-framework-quickcheck2 test-framework-th time tzdata vector
        ];
-       preConfigure = "export TZDIR=${pkgs_tzdata}/share/zoneinfo";
+       preConfigure = "export TZDIR=${tzdata}/share/zoneinfo";
        homepage = "https://github.com/nilcons/haskell-tz";
        description = "Efficient time zone handling";
        license = stdenv.lib.licenses.asl20;
