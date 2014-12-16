@@ -40181,18 +40181,18 @@ self: {
      }) {};
 
   "gconf" = callPackage
-    ({ mkDerivation, gconf, glib, gtk2hs-buildtools, text }:
+    ({ mkDerivation, GConf, glib, gtk2hs-buildtools, text }:
      mkDerivation {
        pname = "gconf";
        version = "0.13.0.0";
        sha256 = "1xjnd15vf75dh6zfcgks3fwgjs0nf117g78jhb0364a3f7w1xvhn";
        buildDepends = [ glib text ];
        buildTools = [ gtk2hs-buildtools ];
-       pkgconfigDepends = [ gconf ];
+       pkgconfigDepends = [ GConf ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GNOME configuration database system";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) gconf; };
+     }) {};
 
   "gd" = callPackage
     ({ mkDerivation, expat, fontconfig, freetype, gd, libjpeg, libpng
