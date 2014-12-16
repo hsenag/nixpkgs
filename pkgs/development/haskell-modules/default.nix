@@ -94,6 +94,7 @@ let
 
     # Break infinite recursions.
     digest = super.digest.override { inherit (pkgs) zlib; };
+    matlab = super.matlab.override { matlab = null; };
 
     # We cannot use mtl 2.2.x with GHC versions < 7.9.x.
     mtl22 = super.mtl.override { transformers = super.transformers; };
@@ -471,10 +472,13 @@ let
     apr-1 = null;
     apr-util-1 = null;
     arbb_dev = null;
+    archive = null;
+    awesomium = null;
     b2 = null;
     bfd = null;
     blkid = null;
     bluetooth = null;
+    cal3d = null;
     camwire_1394 = null;
     canlib = null;
     casadi_control = null;
@@ -482,15 +486,18 @@ let
     casadi_ipopt_interface = null;
     casadi_snopt_interface = null;
     cblas = null;
+    cci = null;
     CEGUIBase = null;
     CEGUIOgreRenderer = null;
     cgen-hs = null;
+    cinvoke = null;
     clntsh = null;
     cmph = null;
     codec2 = null;
     comctl32 = null;
     comdlg32 = null;
     com_err = null;
+    crack = null;
     crypto = null;
     csfml-audio = null;
     csfml-graphics = null;
@@ -498,6 +505,8 @@ let
     csfml-system = null;
     csfml-window = null;
     csound64 = null;
+    ctemplate = null;
+    cublas = null;
     cudd = null;
     curses = null;
     cusparse = null;
@@ -512,6 +521,7 @@ let
     doublefann = null;
     dsound = null;
     dttools = null;
+    dvdread = null;
     easy-data = null;
     EGL = null;
     eibclient = null;
@@ -528,7 +538,9 @@ let
     fltk = null;
     fmodex64 = null;
     fmodex = null;
+    freenect = null;
     freenect_sync = null;
+    freetype2 = null;
     friso = null;
     ftd2xx = null;
     gcc_s = null;
@@ -559,9 +571,11 @@ let
     gstreamer-net = null;
     gstreamer-plugins-base = null;
     gtkC = null;
+    gtkglext = null;
     gtk-mac-integration = null;
     gtksourceview = null;
     gtk_x11 = null;
+    harp = null;
     haste-lib = null;
     hasteLib = null;
     help = null;
@@ -617,12 +631,17 @@ let
     libxfconf-0 = null;
     libxine = null;
     llvm-config = null;
+    lmdb = null;
     MagickCore = null;
     MagickWand = null;
+    magic = null;
+    markdown = null;
+    morfeusz = null;
     mozembed = null;
     mpdec = null;
     mpi = null;
     msimg32 = null;
+    mtp = null;
     mx = null;
     mysqlclient = null;
     mysqlConfig = null;
@@ -649,6 +668,7 @@ let
     oleaut32 = null;
     opcodes = null;
     opencc = null;
+    OpenCL = null;
     opencv_calib3d = null;
     opencv_contrib = null;
     opencv_core = null;
@@ -666,12 +686,12 @@ let
     papi = null;
     pfs = null;
     pHash = null;
-    pkgs_tzdata = null;
     plplotd-gnome2 = null;
     poker-eval = null;
     popplerGlib = null;
     pulse-simple = null;
     qdbm = null;
+    qd = null;
     Qt5Core = null;
     Qt5Gui = null;
     Qt5Qml = null;
@@ -692,6 +712,7 @@ let
     scsynth = null;
     SDL2_ttf = null;
     sedna = null;
+    selinux = null;
     sfml-audio = null;
     sfml-network = null;
     sfml-system = null;
@@ -703,7 +724,9 @@ let
     sixense_x64 = null;
     sqlplus = null;
     ssh2 = null;
+    statgrab = null;
     stats-web = null;
+    stemmer = null;
     string-templates = null;
     swipl = null;
     Synt = null;
@@ -718,6 +741,7 @@ let
     UniqueLogicNP = null;
     user32 = null;
     util = null;
+    v4l2 = null;
     virt = null;
     wayland-client = null;
     wayland-cursor = null;
@@ -733,10 +757,13 @@ let
     xenctrl = null;
     xerces-c = null;
     Xfixes = null;
+    xine = null;
     Xinerama = null;
+    xkbcommon = null;
     xmmsclient-glib = null;
     xmmsclient = null;
     xqilla = null;
+    xslt = null;
     zephyr = null;
     zeromq = null;
     zookeeper_mt = null;
