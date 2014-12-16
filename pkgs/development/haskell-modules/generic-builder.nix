@@ -130,16 +130,17 @@ stdenv.mkDerivation {
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break
     done
-    ghc --make -o Setup -odir $TMPDIR -hidir $TMPDIR $i
+    ghc -package-db=$confDir --make -o Setup -odir $TMPDIR -hidir $TMPDIR $i
 
     echo configureFlags: $configureFlags
+    unset GHC_PACKAGE_PATH      # Cabal complains about this variable if it's set.
     ./Setup configure $configureFlags 2>&1 | ${coreutils}/bin/tee "$NIX_BUILD_TOP/cabal-configure.log"
     if ${gnugrep}/bin/egrep -q '^Warning:.*depends on multiple versions' "$NIX_BUILD_TOP/cabal-configure.log"; then
       echo >&2 "*** abort because of serious configure-time warning from Cabal"
       exit 1
     fi
 
-    export GHC_PACKAGE_PATH="$out/nix-support/ghc-${ghc.version}-package.conf.d:"
+    export GHC_PACKAGE_PATH="$confDir:"
 
     runHook postConfigure
   '';
