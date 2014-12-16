@@ -163,9 +163,8 @@ stdenv.mkDerivation {
   installPhase = if installPhase != "" then installPhase else ''
     runHook preInstall
 
-    ./Setup copy
-
-    ${optionalString hasActiveLibrary ''
+    ${if !hasActiveLibrary then "./Setup install" else ''
+      ./Setup copy
       local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
       local pkgConf=$confDir/${pname}-${version}.conf
       mkdir -p $confDir
