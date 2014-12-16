@@ -1,4 +1,7 @@
-{ pkgs, newScope, stdenv, fetchurl, ghc, overrides ? (self: super: {}) }:
+{ pkgs, newScope, stdenv, fetchurl, ghc
+, overrides ? (self: super: {})
+, provideOldAttributeNames ? false
+}:
 
 let
 
@@ -44,7 +47,7 @@ let
 
       };
 
-  compatLayer = import ./compat-layer.nix;
+  compatLayer = if provideOldAttributeNames then import ./compat-layer.nix else (self: super: {});
 
   defaultConfiguration = self: super: {
     # Disable GHC 7.8.3 core libraries.

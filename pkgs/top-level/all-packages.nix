@@ -3404,7 +3404,10 @@ let
   haskellPackages_ghc763 = callPackage ../development/haskell-modules { ghc = ghc763; };
   haskellPackages_ghc783 = callPackage ../development/haskell-modules { ghc = ghc783; };
   haskellPackages_ghcHEAD = callPackage ../development/haskell-modules { ghc = ghcHEAD; };
-  haskellPackages = recurseIntoAttrs haskellPackages_ghc783;
+  haskellPackages = recurseIntoAttrs (haskellPackages_ghc783.override {
+    overrides = config.haskellPackageOverrides or (self: super: {});
+    provideOldAttributeNames = config.provideOldHaskellAttributeNames or false;
+  });
 
   haxe = callPackage ../development/compilers/haxe { };
 
