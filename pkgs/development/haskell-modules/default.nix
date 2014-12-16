@@ -109,6 +109,9 @@ let
     # resourcet doesn't build otherwise.
     monad-control = super.monad-control-0_3_x;
 
+    # Depends on code distributed under a non-free license.
+    yices-painless = super.yices-painless.overrideCabal (drv: { hydraPlatforms = []; });
+
     abstract-deque = super.abstract-deque.overrideCabal (drv: { doCheck = false; });
     accelerate-cuda = super.accelerate-cuda.overrideCabal (drv: { jailbreak = true; });
     accelerate = super.accelerate.overrideCabal (drv: { jailbreak = true; });
@@ -190,6 +193,7 @@ let
     dom-selector = super.dom-selector.overrideCabal (drv: { doCheck = false; });
     download-curl = super.download-curl.overrideCabal (drv: { jailbreak = true; });
     dual-tree = super.dual-tree.overrideCabal (drv: { jailbreak = true; });
+    Dust-crypto = super.Dust-crypto.overrideCabal (drv: { doCheck = false; });
     either = super.either.overrideCabal (drv: { noHaddock = true; });
     ekg = super.ekg.overrideCabal (drv: { jailbreak = true; });
     elm-get = super.elm-get.overrideCabal (drv: { jailbreak = true; });
@@ -236,6 +240,7 @@ let
     haskell-src-meta = super.haskell-src-meta.overrideCabal (drv: { jailbreak = true; });
     haskoin = super.haskoin.overrideCabal (drv: { doCheck = false; jailbreak = true; });
     hasktags = super.hasktags.overrideCabal (drv: { jailbreak = true; });
+    hasql-postgres = super.hasql-postgres.overrideCabal (drv: { doCheck = false; });
     haste-compiler = super.haste-compiler.overrideCabal (drv: { noHaddock = true; });
     haxl = super.haxl.overrideCabal (drv: { jailbreak = true; });
     HaXml = super.HaXml.overrideCabal (drv: { noHaddock = true; });
