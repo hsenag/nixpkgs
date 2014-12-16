@@ -29,6 +29,7 @@
 , editedCabalFile ? null
 , platforms ? ghc.meta.platforms
 , hydraPlatforms ? ghc.meta.hydraPlatforms or ghc.meta.platforms
+, broken ? false
 }:
 
 assert pkgconfigDepends != [] -> pkgconfig != null;
@@ -183,6 +184,6 @@ stdenv.mkDerivation {
   '';
 
    meta = {
-     inherit homepage license description platforms hydraPlatforms;
+     inherit homepage license description platforms hydraPlatforms broken;
    };
 }
