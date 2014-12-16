@@ -41,6 +41,18 @@ let
                    license = stdenv.lib.licenses.bsd3;
                   }) {};
 
+        monad-control-0_3_x = callPackage
+                ({ mkDerivation, transformers, transformers-base }:
+                mkDerivation {
+                  pname = "monad-control";
+                  version = "0.3.3.0";
+                  sha256 = "0vjff64iwnd9vplqfjyylbd900qmsr92h62hnh715wk06yacji7g";
+                  buildDepends = [ transformers transformers-base ];
+                  homepage = "https://github.com/basvandijk/monad-control";
+                  description = "Lift control operations, like exception catching, through monad transformers";
+                  license = stdenv.lib.licenses.bsd3;
+                }) {};
+
          ghcWithPackages = packages: pkgs.callPackage ../compilers/ghc/with-packages.nix {
            inherit stdenv ghc packages;
          };
@@ -93,6 +105,9 @@ let
 
     # Doesn't compile with lua 5.2.
     hslua = super.hslua.override { lua = pkgs.lua5_1; };
+
+    # resourcet doesn't build otherwise.
+    monad-control = super.monad-control-0_3_x;
 
     abstract-deque = super.abstract-deque.overrideCabal (drv: { doCheck = false; });
     accelerate-cuda = super.accelerate-cuda.overrideCabal (drv: { jailbreak = true; });
