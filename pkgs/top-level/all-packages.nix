@@ -3400,6 +3400,7 @@ let
   haskellPackages_ghc6104 = callPackage ../development/haskell-modules { ghc = ghc6104; };
   haskellPackages_ghc6123 = callPackage ../development/haskell-modules { ghc = ghc6123; };
   haskellPackages_ghc704 = callPackage ../development/haskell-modules { ghc = ghc704; };
+  haskellPackages_ghc722 = callPackage ../development/haskell-modules { ghc = ghc722; };
   haskellPackages_ghc742 = callPackage ../development/haskell-modules { ghc = ghc742; };
   haskellPackages_ghc763 = callPackage ../development/haskell-modules { ghc = ghc763; };
   haskellPackages_ghc783 = callPackage ../development/haskell-modules { ghc = ghc783; };
