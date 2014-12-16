@@ -364,7 +364,8 @@ self: {
        homepage = "https://github.com/haskell-openal/ALUT";
        description = "A binding for the OpenAL Utility Toolkit";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { alut = null; };
 
   "AMI" = callPackage
     ({ mkDerivation, mtl, network, pureMD5, stm }:
@@ -936,7 +937,8 @@ self: {
        homepage = "http://www.haskell.org/haskellwiki/BerkeleyDBXML";
        description = "Berkeley DB XML binding";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { dbxml = null; xerces-c = null; xqilla = null; };
 
   "BerlekampAlgorithm" = callPackage
     ({ mkDerivation, besout }:
@@ -1683,7 +1685,12 @@ self: {
        homepage = "http://aleator.github.com/CV/";
        description = "OpenCV based machine vision library";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { opencv_calib3d = null; opencv_contrib = null;
+          opencv_core = null; opencv_features2d = null; opencv_flann = null;
+          opencv_gpu = null; opencv_highgui = null; opencv_imgproc = null;
+          opencv_legacy = null; opencv_ml = null; opencv_objdetect = null;
+          opencv_video = null; };
 
   "Cabal" = callPackage
     ({ mkDerivation, deepseq, extensible-exceptions, filepath, HUnit
@@ -2841,7 +2848,8 @@ self: {
        homepage = "http://code.haskell.org/~bkomuves/";
        description = "Partial binding to the Microsoft DirectSound API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { dsound = null; };
 
   "DisTract" = callPackage
     ({ mkDerivation, Cabal, chunks, filepath, hinstaller, parsec, time
@@ -3495,7 +3503,8 @@ self: {
        homepage = "https://github.com/skypers/hsFModEx";
        description = "The Haskell FModEx raw API";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { fmodex64 = null; };
 
   "FPretty" = callPackage
     ({ mkDerivation }:
@@ -4014,7 +4023,8 @@ self: {
        extraLibraries = [ libX11 mesa rt ];
        description = "Open OpenGL context windows in X11 with libX11";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { rt = null; };
 
   "GLMatrix" = callPackage
     ({ mkDerivation, OpenGLRaw }:
@@ -4829,7 +4839,8 @@ self: {
        homepage = "https://github.com/hdbc/hdbc-odbc";
        description = "ODBC driver for HDBC";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { odbc = null; };
 
   "HDBC-postgresql" = callPackage
     ({ mkDerivation, convertible, HDBC, mtl, parsec, postgresql, time
@@ -5008,7 +5019,8 @@ self: {
        homepage = "http://www.althainz.de/HGamer3D.html";
        description = "Library to enable 3D game development for Haskell - cAudio Bindings";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { HGamer3DCAudio015 = null; };
 
   "HGamer3D-CEGUI-Binding" = callPackage
     ({ mkDerivation, CEGUIBase, CEGUIOgreRenderer, hg3dcegui040
@@ -5023,7 +5035,9 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "A Game Engine for the Haskell Programmer - CEGUI Bindings";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { CEGUIBase = null; CEGUIOgreRenderer = null;
+          hg3dcegui040 = null; };
 
   "HGamer3D-Data" = callPackage
     ({ mkDerivation, clock, filepath, FindBin, vect }:
@@ -5048,7 +5062,8 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "Enet Binding for HGamer3D";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { hg3denet040 = null; };
 
   "HGamer3D-GUI" = callPackage
     ({ mkDerivation, HGamer3D-CEGUI-Binding, HGamer3D-Data
@@ -5123,7 +5138,8 @@ self: {
        homepage = "http://www.althainz.de/HGamer3D.html";
        description = "Library to enable 3D game development for Haskell - OIS Bindings";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { HGamer3DOIS015 = null; };
 
   "HGamer3D-Ogre-Binding" = callPackage
     ({ mkDerivation, hg3dogre040, HGamer3D-Data, mtl, OgreMain
@@ -5142,7 +5158,10 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "Ogre Binding for HGamer3D";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { OgreMain = null; OgrePaging = null; OgreProperty = null;
+          OgreRTShaderSystem = null; OgreTerrain = null;
+          hg3dogre040 = null; };
 
   "HGamer3D-SDL2-Binding" = callPackage
     ({ mkDerivation, hg3dsdl2040, HGamer3D-Data, libX11, SDL2
@@ -5157,7 +5176,8 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "SDL2 Binding for HGamer3D";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { hg3dsdl2040 = null; };
 
   "HGamer3D-SFML-Binding" = callPackage
     ({ mkDerivation, hg3dsfml040, HGamer3D-Data, sfml-audio
@@ -5174,7 +5194,10 @@ self: {
        homepage = "http://www.hgamer3d.org";
        description = "SFML Binding for HGamer3D";
        license = "unknown";
-     }) { inherit (pkgs) sfml-audio; };
+       broken = true;
+     }) { inherit (pkgs) sfml-audio; 
+          hg3dsfml040 = null; sfml-network = null; sfml-system = null;
+          sfml-window = null; };
 
   "HGamer3D-WinEvent" = callPackage
     ({ mkDerivation, HGamer3D-Data, HGamer3D-SDL2-Binding, text }:
@@ -5249,7 +5272,8 @@ self: {
        homepage = "https://github.com/JPMoresmau/HJVM";
        description = "A library to create a Java Virtual Machine and manipulate Java objects";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { jvm = null; };
 
   "HJavaScript" = callPackage
     ({ mkDerivation }:
@@ -5509,7 +5533,8 @@ self: {
        homepage = "http://yakov.cc/HPlot.html";
        description = "A minimal monadic PLplot interface for Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { plplotd-gnome2 = null; };
 
   "HPong" = callPackage
     ({ mkDerivation, data-accessor, data-accessor-template, GLFW
@@ -6713,7 +6738,8 @@ self: {
        homepage = "http://cielonegro.org/HsHyperEstraier.html";
        description = "HyperEstraier binding for Haskell";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+       broken = true;
+     }) { hyperestraier = null; qdbm = null; };
 
   "HsJudy" = callPackage
     ({ mkDerivation, Judy }:
@@ -6725,7 +6751,8 @@ self: {
        homepage = "http://www.pugscode.org/";
        description = "Judy bindings, and some nice APIs";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Judy = null; };
 
   "HsOpenSSL" = callPackage
     ({ mkDerivation, network, openssl, time }:
@@ -6973,7 +7000,8 @@ self: {
        buildDepends = [ X11 ];
        extraLibraries = [ Imlib2 ];
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Imlib2 = null; };
 
   "ImperativeHaskell" = callPackage
     ({ mkDerivation, mtl }:
@@ -7376,7 +7404,8 @@ self: {
        homepage = "http://www.curry-language.org";
        description = "A compiler from Curry to Haskell";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { kics = null; };
 
   "KiCS-debugger" = callPackage
     ({ mkDerivation, curry-base, filepath, haskell-src, KiCS
@@ -7471,7 +7500,8 @@ self: {
        homepage = "https://github.com/ezyang/ldap-haskell";
        description = "Haskell binding for C LDAP API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { lber = null; ldap = null; };
 
   "LRU" = callPackage
     ({ mkDerivation, QuickCheck }:
@@ -7830,7 +7860,8 @@ self: {
        extraLibraries = [ mpi ];
        description = "an adapter for LogicGrowsOnTrees that uses MPI";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { mpi = null; };
 
   "LogicGrowsOnTrees-network" = callPackage
     ({ mkDerivation, cereal, cmdtheline, composition, hslogger
@@ -8470,7 +8501,8 @@ self: {
        homepage = "http://mitar.tnode.com";
        description = "A Haskell interface to Lego Mindstorms NXT";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { bluetooth = null; };
 
   "NXTDSL" = callPackage
     ({ mkDerivation, attoparsec, hashable, mtl, resourcet, stm, text
@@ -8565,7 +8597,8 @@ self: {
        homepage = "https://github.com/ptek/netsnmp";
        description = "Bindings for net-snmp's C API for clients";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { netsnmp = null; };
 
   "Network-NineP" = callPackage
     ({ mkDerivation, binary, convertible, monad-loops, mstate, mtl
@@ -8594,7 +8627,8 @@ self: {
        buildDepends = [ integer ];
        description = "A binary I/O library";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { integer = null; };
 
   "NineP" = callPackage
     ({ mkDerivation, binary }:
@@ -8925,7 +8959,10 @@ self: {
          winspool
        ];
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { comctl32 = null; comdlg32 = null; gdi32 = null;
+          kernel32 = null; ole32 = null; shell32 = null; user32 = null;
+          winmm = null; winspool = null; };
 
   "ObjectName" = callPackage
     ({ mkDerivation }:
@@ -9495,7 +9532,8 @@ self: {
        extraLibraries = [ cmph ];
        description = "A perfect hashing library for mapping bytestrings to values";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { cmph = null; };
 
   "PermuteEffects" = callPackage
     ({ mkDerivation, ReplicateEffects }:
@@ -10019,7 +10057,8 @@ self: {
        extraLibraries = [ canlib ftd2xx ];
        description = "Binding to code that controls a Segway RMP";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { canlib = null; ftd2xx = null; };
 
   "RNAFold" = callPackage
     ({ mkDerivation, ADPfusion, BiobaseTurner, BiobaseVienna
@@ -10553,7 +10592,8 @@ self: {
        extraLibraries = [ SDL2 SDL2_ttf ];
        description = "Binding to libSDL-ttf";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { SDL2 = null; SDL2_ttf = null; };
 
   "SFML" = callPackage
     ({ mkDerivation, csfml-audio, csfml-graphics, csfml-network
@@ -10569,7 +10609,9 @@ self: {
        homepage = "https://github.com/jeannekamikaze/SFML";
        description = "SFML bindings";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { csfml-audio = null; csfml-graphics = null;
+          csfml-network = null; csfml-system = null; csfml-window = null; };
 
   "SFML-control" = callPackage
     ({ mkDerivation, mtl, SFML }:
@@ -11665,7 +11707,8 @@ self: {
        sha256 = "1gw97mxwb6ywc4qvfggjzsryl0m4g6g30ljx4xcvy6snfmgv00ig";
        extraLibraries = [ ogg theora ];
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { ogg = null; theora = null; };
 
   "Thingie" = callPackage
     ({ mkDerivation, cairo, gtk, mtl }:
@@ -12411,7 +12454,9 @@ self: {
        homepage = "https://github.com/haskell/win32";
        description = "A binding to part of the Win32 library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { advapi32 = null; gdi32 = null; shell32 = null;
+          shfolder = null; user32 = null; winmm = null; };
 
   "Win32-dhcp-server" = callPackage
     ({ mkDerivation, text, Win32, Win32-errors }:
@@ -12448,7 +12493,8 @@ self: {
        homepage = "http://hub.darcs.net/shelarcy/Win32-extras/";
        description = "Provides missing Win32 API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { imm32 = null; msimg32 = null; };
 
   "Win32-junction-point" = callPackage
     ({ mkDerivation, text, Win32, Win32-errors }:
@@ -12486,7 +12532,8 @@ self: {
        homepage = "http://github.com/mikesteele81/win32-services";
        description = "Windows service applications";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Advapi32 = null; };
 
   "Win32-services-wrapper" = callPackage
     ({ mkDerivation, filepath, Win32, Win32-services }:
@@ -12626,7 +12673,8 @@ self: {
        homepage = "http://darcs.haskell.org/X11-xdamage";
        description = "A binding to the Xdamage X11 extension library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Xdamage = null; };
 
   "X11-xfixes" = callPackage
     ({ mkDerivation, X11, Xfixes }:
@@ -12639,7 +12687,8 @@ self: {
        homepage = "https://github.com/reacocard/x11-xfixes";
        description = "A binding to the Xfixes X11 extension library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { Xfixes = null; };
 
   "X11-xft" = callPackage
     ({ mkDerivation, fontconfig, freetype, libXft, pkgconfig
@@ -12702,7 +12751,8 @@ self: {
        homepage = "http://kawais.org.ua/XMMS/";
        description = "XMMS2 client library";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { xmmsclient = null; xmmsclient-glib = null; };
 
   "XMPP" = callPackage
     ({ mkDerivation, hsdns, mtl, network, parsec, random, utf8-string
@@ -12741,7 +12791,8 @@ self: {
        pkgconfigDepends = [ xau ];
        description = "A binding to the X11 authentication library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { xau = null; };
 
   "Xec" = callPackage
     ({ mkDerivation, binary, cairo, filepath, gtk, mtl, SHA }:
@@ -13277,7 +13328,9 @@ self: {
        homepage = "https://github.com/AccelerateHS/accelerate-examples";
        description = "Examples using the Accelerate library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { accelerate-llvm = null; accelerate-llvm-multidev = null;
+          accelerate-llvm-native = null; accelerate-llvm-ptx = null; };
 
   "accelerate-fft" = callPackage
     ({ mkDerivation, accelerate, accelerate-cuda, cuda, cufft }:
@@ -15850,7 +15903,8 @@ self: {
        homepage = "https://github.com/markwright/antlrc";
        description = "Haskell binding to the ANTLR parser generator C runtime library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { antlr3c = null; };
 
   "anydbm" = callPackage
     ({ mkDerivation, MissingH, mtl }:
@@ -15882,7 +15936,8 @@ self: {
        pkgconfigDepends = [ libaosd ];
        description = "Bindings to libaosd, a library for Cairo-based on-screen displays";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { libaosd = null; };
 
   "ap-reflect" = callPackage
     ({ mkDerivation }:
@@ -15896,7 +15951,7 @@ self: {
      }) {};
 
   "apache-md5" = callPackage
-    ({ mkDerivation, crypto, HUnit, MonadRandom, openssl, random
+    ({ mkDerivation, HUnit, MonadRandom, openssl, random
      , test-framework, test-framework-hunit, transformers
      }:
      mkDerivation {
@@ -15904,7 +15959,7 @@ self: {
        version = "0.6.1.0";
        sha256 = "01gmv3m8zl195n4vb5m35j4sfn5b35zcd3q4ywdrvacvv8w2ra49";
        testDepends = [
-         crypto HUnit MonadRandom random test-framework test-framework-hunit
+         HUnit MonadRandom random test-framework test-framework-hunit
          transformers
        ];
        extraLibraries = [ openssl ];
@@ -16401,7 +16456,8 @@ self: {
        homepage = "https://github.com/svenssonjoel/arbb-vm/wiki";
        description = "FFI binding to the Intel Array Building Blocks (ArBB) virtual machine";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { arbb_dev = null; };
 
   "arbtt" = callPackage
     ({ mkDerivation, aeson, binary, bytestring-progress, deepseq
@@ -16446,7 +16502,8 @@ self: {
        ];
        description = "A library and programs for creating hardlinked incremental archives or backups";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { debian-mirror = null; help = null; };
 
   "archiver" = callPackage
     ({ mkDerivation, curl, HTTP, network, random }:
@@ -18527,7 +18584,8 @@ self: {
        buildDepends = [ integer-simple rts ];
        description = "Basic libraries";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { integer-simple = null; rts = null; };
 
   "base-compat" = callPackage
     ({ mkDerivation, errorcall-eq-instance, hspec, QuickCheck, setenv
@@ -19240,7 +19298,9 @@ self: {
        homepage = "http://www.leksah.org";
        description = "Leksah plugin base";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { leksah-dummy = null; leksah-main = null;
+          leksah-plugin-pane = null; };
 
   "billeksah-pane" = callPackage
     ({ mkDerivation, billeksah-services, filepath, glib, gtk, mtl
@@ -19610,7 +19670,8 @@ self: {
        homepage = "http://cielonegro.org/Bindings-EsounD.html";
        description = "Low level bindings to EsounD (ESD; Enlightened Sound Daemon)";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+       broken = true;
+     }) { esound = null; };
 
   "bindings-GLFW" = callPackage
     ({ mkDerivation, bindings-DSL, HUnit, libX11, libXext, libXfixes
@@ -19640,7 +19701,8 @@ self: {
        homepage = "https://github.com/jputcu/bindings-K8055";
        description = "Bindings to Velleman K8055 dll";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { K8055D = null; };
 
   "bindings-apr" = callPackage
     ({ mkDerivation, apr-1, bindings-DSL }:
@@ -19653,7 +19715,8 @@ self: {
        homepage = "http://cielonegro.org/Bindings-APR.html";
        description = "Low level bindings to Apache Portable Runtime (APR)";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+       broken = true;
+     }) { apr-1 = null; };
 
   "bindings-apr-util" = callPackage
     ({ mkDerivation, apr-util-1, bindings-apr, bindings-DSL }:
@@ -19666,7 +19729,8 @@ self: {
        homepage = "http://cielonegro.org/Bindings-APR.html";
        description = "Low level bindings to Apache Portable Runtime Utility (APR Utility)";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+       broken = true;
+     }) { apr-util-1 = null; };
 
   "bindings-audiofile" = callPackage
     ({ mkDerivation, audiofile, bindings-DSL }:
@@ -19692,7 +19756,8 @@ self: {
        homepage = "http://projects.haskell.org/bindings-bfd/";
        description = "Bindings for libbfd, a library of the GNU `binutils'";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { bfd = null; opcodes = null; };
 
   "bindings-cctools" = callPackage
     ({ mkDerivation, bindings-DSL, dttools }:
@@ -19705,7 +19770,8 @@ self: {
        homepage = "http://bitbucket.org/badi/bindings-cctools";
        description = "Bindings to the CCTools WorkQueue C library";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+       broken = true;
+     }) { dttools = null; };
 
   "bindings-codec2" = callPackage
     ({ mkDerivation, binary, bindings-DSL, codec2, split }:
@@ -19720,7 +19786,8 @@ self: {
        homepage = "https://github.com/relrod/Codec2-hs";
        description = "Very low-level FFI bindings for Codec2";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+       broken = true;
+     }) { codec2 = null; };
 
   "bindings-common" = callPackage
     ({ mkDerivation }:
@@ -19744,7 +19811,8 @@ self: {
        homepage = "http://github.com/aleator/bindings-dc1394";
        description = "Library for using firewire (iidc-1394) cameras";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { dc1394 = null; };
 
   "bindings-directfb" = callPackage
     ({ mkDerivation, bindings-DSL, bindings-posix, directfb }:
@@ -19770,7 +19838,8 @@ self: {
        homepage = "http://github.com/a1kmm/bindings-eskit";
        description = "Bindings to ESKit";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { eskit = null; };
 
   "bindings-fann" = callPackage
     ({ mkDerivation, bindings-DSL, fann }:
@@ -19782,7 +19851,8 @@ self: {
        pkgconfigDepends = [ fann ];
        description = "Low level bindings to FANN neural network library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { fann = null; };
 
   "bindings-friso" = callPackage
     ({ mkDerivation, bindings-DSL, friso }:
@@ -19794,7 +19864,8 @@ self: {
        extraLibraries = [ friso ];
        description = "Low level bindings for friso";
        license = stdenv.lib.licenses.asl20;
-     }) {};
+       broken = true;
+     }) { friso = null; };
 
   "bindings-glib" = callPackage
     ({ mkDerivation, bindings-DSL, glib }:
@@ -19895,7 +19966,9 @@ self: {
        homepage = "https://github.com/basvandijk/bindings-levmar";
        description = "Low level bindings to the C levmar (Levenberg-Marquardt) library";
        license = "unknown";
-     }) { inherit (pkgs) blas; };
+       broken = true;
+     }) { inherit (pkgs) blas; 
+          lapack = null; };
 
   "bindings-libcddb" = callPackage
     ({ mkDerivation, bindings-DSL, libcddb }:
@@ -19945,7 +20018,8 @@ self: {
        homepage = "http://cielonegro.org/Bindings-librrd.html";
        description = "Low level bindings to RRDtool";
        license = stdenv.lib.licenses.publicDomain;
-     }) {};
+       broken = true;
+     }) { librrd = null; };
 
   "bindings-libstemmer" = callPackage
     ({ mkDerivation, bindings-DSL, resourcet, stemmer, transformers }:
@@ -20145,7 +20219,8 @@ self: {
        homepage = "https://github.com/kaoskorobase/bindings-sc3/";
        description = "Low-level bindings to the SuperCollider synthesis engine library";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { scsynth = null; };
 
   "bindings-sipc" = callPackage
     ({ mkDerivation, sipc }:
@@ -20159,7 +20234,8 @@ self: {
        homepage = "https://github.com/justinethier/hs-bindings-sipc";
        description = "Low level bindings to SIPC";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { sipc = null; };
 
   "bindings-sophia" = callPackage
     ({ mkDerivation, bindings-DSL }:
@@ -23044,7 +23120,9 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Cairo library";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) cairo zlib; };
+       broken = true;
+     }) { inherit (pkgs) cairo zlib; 
+          libc = null; };
 
   "cairo-appbase" = callPackage
     ({ mkDerivation, cairo, glib, gtk }:
@@ -23435,7 +23513,8 @@ self: {
        pkgconfigDepends = [ casadi_control ];
        description = "low level bindings to casadi-control";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { casadi_control = null; };
 
   "casadi-bindings-core" = callPackage
     ({ mkDerivation, casadi-bindings-internal, casadi_core, vector }:
@@ -23447,7 +23526,8 @@ self: {
        pkgconfigDepends = [ casadi_core ];
        description = "low level bindings to casadi-core";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { casadi_core = null; };
 
   "casadi-bindings-internal" = callPackage
     ({ mkDerivation, casadi_core, vector }:
@@ -23460,7 +23540,8 @@ self: {
        homepage = "http://github.com/ghorn/casadi-bindings";
        description = "low level bindings to CasADi";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { casadi_core = null; };
 
   "casadi-bindings-ipopt-interface" = callPackage
     ({ mkDerivation, casadi-bindings-core, casadi-bindings-internal
@@ -23476,7 +23557,8 @@ self: {
        pkgconfigDepends = [ casadi_ipopt_interface ];
        description = "low level bindings to casadi-ipopt_interface";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { casadi_ipopt_interface = null; };
 
   "casadi-bindings-snopt-interface" = callPackage
     ({ mkDerivation, casadi-bindings-core, casadi-bindings-internal
@@ -23492,7 +23574,8 @@ self: {
        pkgconfigDepends = [ casadi_snopt_interface ];
        description = "low level bindings to casadi-snopt_interface";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { casadi_snopt_interface = null; };
 
   "cascading" = callPackage
     ({ mkDerivation, blaze-builder, colour, lens, mtl, text
@@ -23831,7 +23914,8 @@ self: {
        homepage = "http://bitbucket.org/badi/hs-cctools-workqueue";
        description = "High-level interface to CCTools' WorkQueue library";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+       broken = true;
+     }) { dttools = null; };
 
   "cedict" = callPackage
     ({ mkDerivation, mtl, parsec, utf8-string }:
@@ -24373,7 +24457,8 @@ self: {
        extraLibraries = [ resolv ];
        description = "Confirm whether an email is valid and probably existant";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { resolv = null; };
 
   "check-pvp" = callPackage
     ({ mkDerivation, Cabal, explicit-exception, filepath
@@ -25513,7 +25598,8 @@ self: {
        homepage = "http://patch-tag.com/r/shahn/clocked/home";
        description = "timer functionality to clock IO commands";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { QtCore = null; };
 
   "clogparse" = callPackage
     ({ mkDerivation, attoparsec, filepath, text, time, timezone-olson
@@ -27471,7 +27557,8 @@ self: {
        ];
        extraLibraries = [ hyperleveldb ];
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { hyperleveldb = null; };
 
   "continuum-client" = callPackage
     ({ mkDerivation, cereal, mtl, nanomsg-haskell, time }:
@@ -29410,7 +29497,9 @@ self: {
        homepage = "https://github.com/bmsherman/cublas";
        description = "FFI bindings to the CUDA CUBLAS and CUSPARSE libraries";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) cublas; };
+       broken = true;
+     }) { inherit (pkgs) cublas; 
+          cusparse = null; };
 
   "cuboid" = callPackage
     ({ mkDerivation, GLUT, Yampa }:
@@ -29459,7 +29548,8 @@ self: {
        homepage = "https://github.com/tmcdonell/cuda";
        description = "FFI binding to the CUDA interface for programming NVIDIA GPUs";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { nvidia_x11 = null; };
 
   "cufft" = callPackage
     ({ mkDerivation, c2hs, cuda }:
@@ -29873,7 +29963,9 @@ self: {
        homepage = "http://darcs.net/";
        description = "David's Advanced Version Control System";
        license = "GPL";
-     }) { inherit (pkgs) curl zlib; };
+       broken = true;
+     }) { inherit (pkgs) curl zlib; 
+          curses = null; };
 
   "darcs-fastconvert" = callPackage
     ({ mkDerivation, attoparsec, cmdlib, darcs, datetime, filepath
@@ -31777,7 +31869,8 @@ self: {
        homepage = "https://github.com/massysett/deka";
        description = "Decimal floating point arithmetic";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { mpdec = null; };
 
   "deka-tests" = callPackage
     ({ mkDerivation, deka, parsec, pipes, QuickCheck, quickpull
@@ -33516,7 +33609,8 @@ self: {
        homepage = "https://github.com/maxpow4h/dnssd";
        description = "DNS service discovery bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { dns_sd = null; };
 
   "doc-review" = callPackage
     ({ mkDerivation, base64-bytestring, binary, feed, filepath, heist
@@ -34037,7 +34131,8 @@ self: {
        pkgconfigDepends = [ libdpkg ];
        description = "libdpkg bindings";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { libdpkg = null; };
 
   "drClickOn" = callPackage
     ({ mkDerivation }:
@@ -34385,7 +34480,8 @@ self: {
        extraLibraries = [ d3d9 ];
        description = "A binding to the Microsoft DirectX 9 API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { d3d9 = null; };
 
   "dx9d3dx" = callPackage
     ({ mkDerivation, d3dx9, dx9base, dx9d3d, Win32 }:
@@ -34397,7 +34493,8 @@ self: {
        extraLibraries = [ d3dx9 ];
        description = "A binding to the Microsoft DirectX 9 D3DX API";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { d3dx9 = null; };
 
   "dynamic-cabal" = callPackage
     ({ mkDerivation, data-default, doctest, filepath, ghc-paths
@@ -34665,7 +34762,8 @@ self: {
        extraLibraries = [ canlib ];
        description = "Tools for automotive ECU development";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { canlib = null; };
 
   "ed25519" = callPackage
     ({ mkDerivation, hlint, QuickCheck }:
@@ -35009,7 +35107,8 @@ self: {
        extraLibraries = [ eibclient ];
        description = "EIBd Client";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { eibclient = null; };
 
   "eigen" = callPackage
     ({ mkDerivation, vector }:
@@ -37618,7 +37717,8 @@ self: {
        homepage = "http://feldspar.github.com";
        description = "Compiler for the Feldspar language";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { gcc_s = null; };
 
   "feldspar-language" = callPackage
     ({ mkDerivation, data-default, data-hash, data-lens, deepseq
@@ -37666,7 +37766,8 @@ self: {
        homepage = "http://fenfire.org/";
        description = "Graph-based notetaking system";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { raptor = null; };
 
   "fez-conf" = callPackage
     ({ mkDerivation, regex-compat }:
@@ -37734,7 +37835,9 @@ self: {
        pkgconfigDepends = [ libavcodec libavformat libavutil libswscale ];
        description = "Minimal bindings to the FFmpeg library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { libavcodec = null; libavformat = null; libavutil = null;
+          libswscale = null; };
 
   "ffmpeg-tutorials" = callPackage
     ({ mkDerivation, hs-ffmpeg, SDL, stm }:
@@ -37763,7 +37866,8 @@ self: {
        pkgconfigDepends = [ fftw3 ];
        description = "Bindings to the FFTW library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { fftw3 = null; };
 
   "fgl" = callPackage
     ({ mkDerivation, mtl }:
@@ -39464,7 +39568,9 @@ self: {
        homepage = "https://github.com/chrisdone/freenect";
        description = "Interface to the Kinect device";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) freenect; };
+       broken = true;
+     }) { inherit (pkgs) freenect; 
+          freenect_sync = null; };
 
   "freesect" = callPackage
     ({ mkDerivation, cpphs, mtl, parallel, random, syb }:
@@ -41110,7 +41216,8 @@ self: {
        buildDepends = [ rts ];
        description = "GHC primitives";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { rts = null; };
 
   "ghc-server" = callPackage
     ({ mkDerivation }:
@@ -41292,7 +41399,8 @@ self: {
        buildDepends = [ ghcjs-base mtl text ];
        description = "DOM library that supports both GHCJS and WebKitGTK";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { ghcjs-base = null; };
 
   "ghcjs-dom-hello" = callPackage
     ({ mkDerivation, ghcjs-dom, mtl }:
@@ -41994,7 +42102,8 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the glade library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { gtkC = null; libc = null; libglade = null; };
 
   "gladexml-accessor" = callPackage
     ({ mkDerivation, glade, HaXml }:
@@ -42036,7 +42145,9 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GLIB library for Gtk2Hs";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) glib; };
+       broken = true;
+     }) { inherit (pkgs) glib; 
+          libc = null; };
 
   "glider-nlp" = callPackage
     ({ mkDerivation, Cabal, HUnit, text }:
@@ -42373,7 +42484,8 @@ self: {
        homepage = "https://john-millikin.com/software/haskell-gnome-keyring/";
        description = "Bindings for libgnome-keyring";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { gnome_keyring = null; };
 
   "gnomevfs" = callPackage
     ({ mkDerivation, glib, gnome_vfs, gnome_vfs_module, gtk
@@ -42389,7 +42501,8 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the GNOME Virtual File System library";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { gnome_vfs_module = null; };
 
   "gnuidn" = callPackage
     ({ mkDerivation, c2hs, libidn, text }:
@@ -43180,8 +43293,7 @@ self: {
 
   "graphviz" = callPackage
     ({ mkDerivation, colour, dlist, fgl, filepath, polyparse
-     , QuickCheck, systemGraphviz, temporary, text, transformers
-     , wl-pprint-text
+     , QuickCheck, temporary, text, transformers, wl-pprint-text
      }:
      mkDerivation {
        pname = "graphviz";
@@ -43193,7 +43305,7 @@ self: {
          colour dlist fgl filepath polyparse temporary text transformers
          wl-pprint-text
        ];
-       testDepends = [ fgl filepath QuickCheck systemGraphviz text ];
+       testDepends = [ fgl filepath QuickCheck text ];
        homepage = "http://projects.haskell.org/graphviz/";
        description = "Bindings to Graphviz for graph visualisation";
        license = stdenv.lib.licenses.bsd3;
@@ -43606,7 +43718,11 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GStreamer open source multimedia framework";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) gstreamer; };
+       broken = true;
+     }) { inherit (pkgs) gstreamer; 
+          gstreamer-audio = null; gstreamer-base = null;
+          gstreamer-controller = null; gstreamer-dataprotocol = null;
+          gstreamer-net = null; gstreamer-plugins-base = null; };
 
   "gt-tools" = callPackage
     ({ mkDerivation, extensible-exceptions, haskeline, HTTP, json, mtl
@@ -43652,7 +43768,9 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Gtk+ graphical user interface library";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) glib gtk; };
+       broken = true;
+     }) { inherit (pkgs) glib gtk; 
+          libc = null; };
 
   "gtk-jsinput" = callPackage
     ({ mkDerivation, gtk, json, transformers }:
@@ -43971,7 +44089,8 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GtkSourceView library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { gtksourceview = null; libc = null; };
 
   "gtksourceview3" = callPackage
     ({ mkDerivation, glib, gtk2hs-buildtools, gtk3, gtksourceview, mtl
@@ -43987,7 +44106,8 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GtkSourceView library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { gtksourceview = null; };
 
   "guarded-rewriting" = callPackage
     ({ mkDerivation, instant-generics }:
@@ -44123,7 +44243,8 @@ self: {
        extraLibraries = [ cudd epd mtr st util ];
        description = "An FFI binding to the CUDD library";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { cudd = null; epd = null; util = null; };
 
   "hCsound" = callPackage
     ({ mkDerivation, c2hs, csound64, libsndfile, monads-tf
@@ -44138,7 +44259,8 @@ self: {
        extraLibraries = [ csound64 libsndfile ];
        description = "interface to CSound API";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { csound64 = null; };
 
   "hDFA" = callPackage
     ({ mkDerivation }:
@@ -44365,7 +44487,9 @@ self: {
        homepage = "http://dslsrv4.cs.missouri.edu/~qqbm9";
        description = "Optimal variable selection in chain graphical model";
        license = "GPL";
-     }) { inherit (pkgs) blas; };
+       broken = true;
+     }) { inherit (pkgs) blas; 
+          lapack = null; };
 
   "haar" = callPackage
     ({ mkDerivation, QuickCheck, split, test-framework
@@ -44503,7 +44627,8 @@ self: {
        homepage = "http://github.com/bickfordb/hack-handler-evhttp";
        description = "Hack EvHTTP (libevent) Handler";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { event = null; };
 
   "hack-handler-fastcgi" = callPackage
     ({ mkDerivation, fcgi, hack, hack-handler-cgi }:
@@ -45240,7 +45365,8 @@ self: {
        ];
        description = "Multi-app web platform framework";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { quickcheck-lio-instances = null; };
 
   "hails-bin" = callPackage
     ({ mkDerivation, bson, ghc-paths, hails, iterIO, iterio-server
@@ -45382,7 +45508,8 @@ self: {
        homepage = "http://jaspervdj.be/hakyll";
        description = "A static website compiler library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { utillinux = null; };
 
   "hakyll-agda" = callPackage
     ({ mkDerivation, Agda, filepath, hakyll, mtl, pandoc, transformers
@@ -45735,7 +45862,8 @@ self: {
        pkgconfigDepends = [ appindicator ];
        description = "Binding to the appindicator library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { appindicator = null; };
 
   "happindicator3" = callPackage
     ({ mkDerivation, appindicator, glib, gtk3, text }:
@@ -45750,7 +45878,8 @@ self: {
        homepage = "https://github.com/mlacorte/happindicator3";
        description = "Binding to the appindicator library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { appindicator = null; };
 
   "happraise" = callPackage
     ({ mkDerivation, filepath }:
@@ -46398,7 +46527,8 @@ self: {
        pkgconfigDepends = [ groonga ];
        description = "Low level bindings for Groonga";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { groonga = null; };
 
   "harp" = callPackage
     ({ mkDerivation }:
@@ -46737,7 +46867,8 @@ self: {
        homepage = "http://github.com/cosbynator/haskakafka";
        description = "Kafka bindings for Haskell";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { rdkafka = null; };
 
   "haskanoid" = callPackage
     ({ mkDerivation, freenect, hcwiid, IfElse, MissingH, mtl, SDL
@@ -46855,7 +46986,8 @@ self: {
        homepage = "http://trac.haskell.org/haskeline";
        description = "A command-line interface for user input, written in Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { utf8String = null; };
 
   "haskeline-class" = callPackage
     ({ mkDerivation, haskeline, mtl }:
@@ -47125,7 +47257,8 @@ self: {
        homepage = "http://github.com/bjpop/haskell-mpi";
        description = "Distributed parallel programming in Haskell using MPI";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { mpi = null; };
 
   "haskell-names" = callPackage
     ({ mkDerivation, aeson, Cabal, data-lens-light, filemanip, filepath
@@ -47741,7 +47874,8 @@ self: {
        homepage = "https://github.com/m4dc4p/haskelldb";
        description = "HaskellDB support for the HSQL Oracle driver";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { hsql-oracle = null; };
 
   "haskelldb-hsql-postgresql" = callPackage
     ({ mkDerivation, haskelldb, haskelldb-hsql, hsql, hsql-postgresql
@@ -47774,7 +47908,8 @@ self: {
        homepage = "https://github.com/m4dc4p/haskelldb";
        description = "HaskellDB support for the HSQL SQLite driver";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { hsql-sqlite = null; };
 
   "haskelldb-hsql-sqlite3" = callPackage
     ({ mkDerivation, haskelldb, haskelldb-hsql, hsql, hsql-sqlite3, mtl
@@ -48430,7 +48565,8 @@ self: {
        homepage = "http://github.com/ajnsit/haste-markup";
        description = "A port of blaze-markup and blaze-html to Haste";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { haste-lib = null; };
 
   "haste-perch" = callPackage
     ({ mkDerivation, haste-compiler, transformers }:
@@ -48657,7 +48793,9 @@ self: {
        ];
        description = "Haskell bindings for the C Wayland library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { wayland-client = null; wayland-cursor = null;
+          wayland-egl = null; wayland-server = null; };
 
   "hayoo-cli" = callPackage
     ({ mkDerivation, aeson, http-conduit, http-types
@@ -48777,7 +48915,9 @@ self: {
        homepage = "http://github.com/wellposed/hblas/";
        description = "Human friendly BLAS and Lapack bindings for Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) blas; };
+       broken = true;
+     }) { inherit (pkgs) blas; 
+          lapack = null; };
 
   "hblock" = callPackage
     ({ mkDerivation, aeson, blaze-markup, cereal, deepseq, hashable
@@ -48817,7 +48957,8 @@ self: {
        homepage = "https://bitbucket.org/k0ral/hbro";
        description = "Minimal KISS-compliant browser";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { integer-simple = null; };
 
   "hbro-contrib" = callPackage
     ({ mkDerivation, classy-prelude, glib, gtk3, hbro, monad-control
@@ -48970,7 +49111,8 @@ self: {
        homepage = "https://github.com/ivanperez-keera/hcwiid";
        description = "Library to interface with the wiimote";
        license = stdenv.lib.licenses.gpl2;
-     }) {};
+       broken = true;
+     }) { bluetooth = null; cwiid = null; };
 
   "hdaemonize" = callPackage
     ({ mkDerivation, extensible-exceptions, filepath, hsyslog, mtl }:
@@ -49498,7 +49640,9 @@ self: {
        homepage = "https://github.com/philopon/helics";
        description = "New Relic® agent SDK wrapper for Haskell";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { newrelic-collector-client = null; newrelic-common = null;
+          newrelic-transaction = null; };
 
   "helics-wai" = callPackage
     ({ mkDerivation, data-default-class, helics, vault, wai }:
@@ -49720,7 +49864,8 @@ self: {
        homepage = "https://github.com/selectel/hen";
        description = "Haskell bindings to Xen hypervisor interface";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { xenctrl = null; };
 
   "henet" = callPackage
     ({ mkDerivation, bitset, network, typesafe-endian }:
@@ -49936,7 +50081,8 @@ self: {
        homepage = "http://web.comlab.ox.ac.uk/oucl/work/ian.lynagh/Hetris/";
        description = "Text Tetris";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { curses = null; };
 
   "heukarya" = callPackage
     ({ mkDerivation, deepseq, parallel, random, text }:
@@ -50122,7 +50268,8 @@ self: {
        pkgconfigDepends = [ fann ];
        description = "Haskell binding to the FANN library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { doublefann = null; fann = null; };
 
   "hfd" = callPackage
     ({ mkDerivation, haskeline, iteratee, MissingH
@@ -50379,7 +50526,8 @@ self: {
        homepage = "http://code.haskell.org/~thielema/hgl-example/";
        description = "Various animations generated using HGL";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { HTam = null; };
 
   "hgom" = callPackage
     ({ mkDerivation, filepath, mtl, parsec, wl-pprint }:
@@ -50659,7 +50807,8 @@ self: {
        homepage = "http://www.haskell.org/himerge";
        description = "Haskell Graphical User Interface for Emerge";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { mozembed = null; };
 
   "himg" = callPackage
     ({ mkDerivation, gtk, HTTP, http-conduit, network, temporary }:
@@ -51415,7 +51564,8 @@ self: {
        homepage = "http://github.com/aycanirican/hlibev";
        description = "FFI interface to libev";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { ev = null; };
 
   "hlibfam" = callPackage
     ({ mkDerivation, fam }:
@@ -51439,7 +51589,8 @@ self: {
        extraLibraries = [ openssl ];
        description = "Low-level bindings to libgit2";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { git = null; };
 
   "hlint" = callPackage
     ({ mkDerivation, ansi-terminal, cmdargs, cpphs, extra, filepath
@@ -51562,7 +51713,8 @@ self: {
        homepage = "http://code.haskell.org/~thielema/hmatrix-banded/";
        description = "HMatrix interface to LAPACK functions for banded matrices";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { lapack = null; };
 
   "hmatrix-csv" = callPackage
     ({ mkDerivation, cassava, hmatrix, vector }:
@@ -51650,7 +51802,8 @@ self: {
        extraLibraries = [ QuadProgpp ];
        description = "Bindings to the QuadProg++ quadratic programming library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { QuadProgpp = null; };
 
   "hmatrix-repa" = callPackage
     ({ mkDerivation, hmatrix, repa, vector }:
@@ -51822,7 +51975,8 @@ self: {
        homepage = "http://www.cse.unsw.edu.au/~dons/hmp3.html";
        description = "An ncurses mp3 player written in Haskell";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { curses = null; };
 
   "hmpfr" = callPackage
     ({ mkDerivation, mpfr }:
@@ -51911,7 +52065,8 @@ self: {
        homepage = "https://github.com/ian-ross/hnetcdf";
        description = "Haskell NetCDF library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { netcdf = null; };
 
   "hnn" = callPackage
     ({ mkDerivation, binary, hmatrix, mwc-random, random, vector
@@ -52075,7 +52230,8 @@ self: {
        homepage = "http://anttisalonen.github.com/hogre";
        description = "Haskell binding to a subset of OGRE";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { OGRE = null; OgreMain = null; cgen-hs = null; grgen = null; };
 
   "hogre-examples" = callPackage
     ({ mkDerivation, hogre, OgreMain }:
@@ -52090,7 +52246,8 @@ self: {
        homepage = "http://github.com/anttisalonen/hogre-examples";
        description = "Examples for using Hogre";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { OgreMain = null; };
 
   "hois" = callPackage
     ({ mkDerivation, OIS, X11 }:
@@ -52104,7 +52261,8 @@ self: {
        extraLibraries = [ OIS ];
        description = "OIS bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { OIS = null; };
 
   "hoist-error" = callPackage
     ({ mkDerivation, either, mtl }:
@@ -52221,7 +52379,9 @@ self: {
        extraLibraries = [ freenect OpenNI2 ];
        description = "OpenNI 2 binding";
        license = stdenv.lib.licenses.mit;
-     }) { inherit (pkgs) freenect; };
+       broken = true;
+     }) { inherit (pkgs) freenect; 
+          OpenNI2 = null; };
 
   "honk" = callPackage
     ({ mkDerivation }:
@@ -52542,7 +52702,8 @@ self: {
        homepage = "https://github.com/MnO2/hopencc";
        description = "Haskell binding to libopencc";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { opencc = null; };
 
   "hopencl" = callPackage
     ({ mkDerivation, c2hs, HUnit, OpenCL, QuickCheck, test-framework
@@ -52628,7 +52789,8 @@ self: {
        homepage = "https://github.com/imperialhopfield/hopfield";
        description = "Hopfield Networks, Boltzmann Machines and Clusters";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { MagickCore = null; MagickWand = null; };
 
   "hopfield-networks" = callPackage
     ({ mkDerivation, matrix, MonadRandom, QuickCheck, split
@@ -52734,7 +52896,8 @@ self: {
        homepage = "http://rd.slavepianos.org/?t=hosc-utils";
        description = "Haskell Open Sound Control Utilities";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { www-minus = null; };
 
   "hostname" = callPackage
     ({ mkDerivation }:
@@ -52955,7 +53118,8 @@ self: {
        extraLibraries = [ papi ];
        description = "Binding for the PAPI library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { papi = null; };
 
   "hpaste" = callPackage
     ({ mkDerivation, blaze-builder, blaze-html, blaze-markup, cgi
@@ -53350,7 +53514,8 @@ self: {
        homepage = "http://github.com/ozataman/hs-GeoIP";
        description = "Haskell bindings to the MaxMind GeoIPCity database via the C library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { GeoIP = null; };
 
   "hs-bibutils" = callPackage
     ({ mkDerivation, syb }:
@@ -53379,7 +53544,8 @@ self: {
        homepage = "https://github.com/tsuraan/hs-blake2";
        description = "A cryptohash-inspired library for blake2";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { b2 = null; };
 
   "hs-captcha" = callPackage
     ({ mkDerivation, gd, random }:
@@ -53443,7 +53609,8 @@ self: {
        extraLibraries = [ ole32 oleaut32 ];
        description = "Pragmatic .NET interop for Haskell";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { ole32 = null; oleaut32 = null; };
 
   "hs-excelx" = callPackage
     ({ mkDerivation, mtl, text, time, xml-conduit, zip-archive }:
@@ -53477,7 +53644,8 @@ self: {
        homepage = "http://www.cs.helsinki.fi/u/ekarttun/hs-fltk/";
        description = "Binding to GUI library FLTK";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { fltk = null; fltk_images = null; };
 
   "hs-gchart" = callPackage
     ({ mkDerivation, mtl }:
@@ -53780,7 +53948,8 @@ self: {
        homepage = "http://haskell.org/haskellwiki/HsXenCtrl";
        description = "FFI bindings to the Xen Control library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { xenctrl = null; };
 
   "hsay" = callPackage
     ({ mkDerivation, HTTP }:
@@ -54200,7 +54369,8 @@ self: {
        extraLibraries = [ camwire_1394 dc1394_control raw1394 ];
        description = "Haskell bindings to IIDC1394 cameras, via Camwire";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { camwire_1394 = null; dc1394_control = null; raw1394 = null; };
 
   "hscassandra" = callPackage
     ({ mkDerivation, cassandra-thrift, mtl, network, Thrift }:
@@ -54541,7 +54711,9 @@ self: {
        homepage = "http://www.cs.helsinki.fi/u/ekarttun/hsgnutls";
        description = "Library wrapping the GnuTLS API";
        license = "LGPL";
-     }) { inherit (pkgs) gnutls; };
+       broken = true;
+     }) { inherit (pkgs) gnutls; 
+          gcrypt = null; };
 
   "hsgnutls-yj" = callPackage
     ({ mkDerivation, gcrypt, gnutls, mtl }:
@@ -54554,7 +54726,9 @@ self: {
        homepage = "http://www.cs.helsinki.fi/u/ekarttun/hsgnutls";
        description = "Library wrapping the GnuTLS API";
        license = "LGPL";
-     }) { inherit (pkgs) gnutls; };
+       broken = true;
+     }) { inherit (pkgs) gnutls; 
+          gcrypt = null; };
 
   "hsgsom" = callPackage
     ({ mkDerivation, random, stm, time }:
@@ -54782,7 +54956,9 @@ self: {
        homepage = "https://github.com/vincentg/hsmagick";
        description = "FFI bindings for the GraphicsMagick library";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) freetype2 zlib; };
+       broken = true;
+     }) { inherit (pkgs) freetype2 zlib; 
+          GraphicsMagick = null; tiff = null; wmflite = null; };
 
   "hsmtpclient" = callPackage
     ({ mkDerivation, network }:
@@ -55435,7 +55611,8 @@ self: {
        extraLibraries = [ mysqlclient ];
        description = "MySQL driver for HSQL";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { mysqlclient = null; };
 
   "hsql-odbc" = callPackage
     ({ mkDerivation, hsql, odbc }:
@@ -55447,7 +55624,8 @@ self: {
        extraLibraries = [ odbc ];
        description = "A Haskell Interface to ODBC";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { odbc = null; };
 
   "hsql-postgresql" = callPackage
     ({ mkDerivation, hsql, postgresql }:
@@ -55488,7 +55666,9 @@ self: {
        homepage = "http://www.gekkou.co.uk/software/hsqml/";
        description = "Haskell binding for Qt Quick";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Qt5Core = null; Qt5Gui = null; Qt5Qml = null; Qt5Quick = null;
+          Qt5Widgets = null; };
 
   "hsqml-demo-morris" = callPackage
     ({ mkDerivation, deepseq, hsqml, OddWord, text }:
@@ -55763,7 +55943,9 @@ self: {
        extraLibraries = [ ncurses readline swipl ];
        description = "embedding prolog in haskell";
        license = "GPL";
-     }) { inherit (pkgs) ncurses readline; };
+       broken = true;
+     }) { inherit (pkgs) ncurses readline; 
+          swipl = null; };
 
   "hsx" = callPackage
     ({ mkDerivation, haskell-src-exts, mtl, utf8-string }:
@@ -55858,7 +56040,8 @@ self: {
        extraLibraries = [ com_err zephyr ];
        description = "Simple libzephyr bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { com_err = null; zephyr = null; };
 
   "htags" = callPackage
     ({ mkDerivation, filepath, haskell-src, mtl }:
@@ -57364,7 +57547,8 @@ self: {
        homepage = "https://github.com/mruegenberg/hydra-hs";
        description = "Haskell binding to the Sixense SDK for the Razer Hydra";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { sixense_x64 = null; };
 
   "hydra-print" = callPackage
     ({ mkDerivation, async, filepath, HUnit, io-streams, mtl, ncurses
@@ -57611,7 +57795,8 @@ self: {
        homepage = "http://github.com/dgvncsz0f/hzk";
        description = "Haskell client library for Apache Zookeeper";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { zookeeper_mt = null; };
 
   "hzulip" = callPackage
     ({ mkDerivation, aeson, async, conduit, exceptions, hspec
@@ -58180,7 +58365,8 @@ self: {
        pkgconfigDepends = [ ImageMagick MagickWand ];
        description = "bindings to imagemagick library";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { ImageMagick = null; MagickWand = null; };
 
   "imagepaste" = callPackage
     ({ mkDerivation, HTTP, json, mtl, network, regex-posix, tagsoup
@@ -58727,7 +58913,8 @@ self: {
        buildDepends = [ aether text ];
        description = "Console client for encyclopedias";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { aether = null; };
 
   "inserts" = callPackage
     ({ mkDerivation, attoparsec, dlist }:
@@ -58864,7 +59051,8 @@ self: {
        homepage = "https://github.com/rrnewton/intel-aes/wiki";
        description = "Hardware accelerated AES encryption and Random Number Generation";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { intel_aes = null; };
 
   "interleavableGen" = callPackage
     ({ mkDerivation, haskell-src, hint, mtl }:
@@ -60142,7 +60330,9 @@ self: {
        homepage = "https://github.com/cgo/jalla";
        description = "Higher level functions for linear algebra. Wraps BLAS and LAPACKE.";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { cblas = null; f77blas = null; lapack = null;
+          lapacke = null; };
 
   "jammittools" = callPackage
     ({ mkDerivation, boxes, filepath, property-list, temporary
@@ -60554,7 +60744,8 @@ self: {
        testDepends = [ ghcjs-base hslogger lens text transformers ];
        description = "High level interface for webkit-javascriptcore";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { ghcjs-base = null; };
 
   "jsaddle-hello" = callPackage
     ({ mkDerivation, ghcjs-dom, jsaddle, lens }:
@@ -61003,7 +61194,8 @@ self: {
        homepage = "http://github.com/mwotton/judy";
        description = "Fast, scalable, mutable dynamic arrays, maps and hashes";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { Judy = null; };
 
   "jukebox" = callPackage
     ({ mkDerivation, alex, binary, filepath, hashable, minisat, mtl
@@ -61616,7 +61808,8 @@ self: {
        ];
        description = "Utilities for working with many HStringTemplate templates from files";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { string-templates = null; };
 
   "koofr-client" = callPackage
     ({ mkDerivation, aeson, filepath, http-client, http-client-tls
@@ -61741,7 +61934,8 @@ self: {
        homepage = "http://nonempty.org/software/haskell-l-bfgs-b";
        description = "Bindings to L-BFGS-B, Fortran code for limited-memory quasi-Newton bound-constrained optimization";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { lbfgsb = null; };
 
   "labeled-graph" = callPackage
     ({ mkDerivation, labeled-tree }:
@@ -63413,7 +63607,8 @@ self: {
        homepage = "http://github.com/kim/leveldb-haskell";
        description = "Haskell bindings to LevelDB";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { hyperleveldb = null; };
 
   "levmar" = callPackage
     ({ mkDerivation, base-unicode-symbols, bindings-levmar, hmatrix
@@ -63804,7 +63999,8 @@ self: {
        extraLibraries = [ notify ];
        description = "Bindings to libnotify library";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { notify = null; };
 
   "libnvvm" = callPackage
     ({ mkDerivation, c2hs, Cabal, cuda, HUnit, nvvm, test-framework
@@ -63821,7 +64017,8 @@ self: {
        homepage = "https://github.com/nvidia-compiler-sdk/hsnvvm";
        description = "FFI binding to libNVVM, a compiler SDK component from NVIDIA";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { nvvm = null; };
 
   "liboleg" = callPackage
     ({ mkDerivation, CC-delcont, mtl }:
@@ -63892,7 +64089,9 @@ self: {
        homepage = "https://github.com/portnov/libssh2-hs";
        description = "FFI bindings to libssh2 SSH2 client library (http://libssh2.org/)";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) libssh2; };
+       broken = true;
+     }) { inherit (pkgs) libssh2; 
+          ssh2 = null; };
 
   "libssh2-conduit" = callPackage
     ({ mkDerivation, conduit, libssh2, monad-control, stm, transformers
@@ -63939,7 +64138,9 @@ self: {
        pkgconfigDepends = [ libsystemd-daemon ];
        description = "Haskell bindings for libsystemd-daemon";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) libsystemd-daemon; };
+       broken = true;
+     }) { inherit (pkgs) libsystemd-daemon; 
+          systemd-daemon = null; };
 
   "libsystemd-journal" = callPackage
     ({ mkDerivation, hashable, hsyslog, pipes, pipes-safe, systemd
@@ -63972,7 +64173,8 @@ self: {
        homepage = "https://patch-tag.com/r/AndyStewart/libtagc/home";
        description = "Binding to TagLib C library";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { tag_c = null; taglib_c = null; };
 
   "libvirt-hs" = callPackage
     ({ mkDerivation, c2hs, syb, virt }:
@@ -63986,7 +64188,8 @@ self: {
        homepage = "http://redmine.iportnov.ru/projects/libvirt-hs";
        description = "FFI bindings to libvirt virtualization API (http://libvirt.org)";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { virt = null; };
 
   "libvorbis" = callPackage
     ({ mkDerivation, cpu }:
@@ -64443,7 +64646,8 @@ self: {
        pkgconfigDepends = [ blkid ];
        description = "Linux libblkid";
        license = stdenv.lib.licenses.lgpl21;
-     }) {};
+       broken = true;
+     }) { blkid = null; };
 
   "linux-cgroup" = callPackage
     ({ mkDerivation, filepath }:
@@ -64501,7 +64705,8 @@ self: {
        homepage = "https://github.com/tensor5/linux-kmod";
        description = "Linux kernel modules support";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { libkmod = null; };
 
   "linux-mount" = callPackage
     ({ mkDerivation }:
@@ -65037,7 +65242,8 @@ self: {
        doCheck = false;
        description = "General purpose LLVM bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { llvm-config = null; };
 
   "llvm-general-pure" = callPackage
     ({ mkDerivation, HUnit, mtl, parsec, QuickCheck, setenv
@@ -65726,7 +65932,8 @@ self: {
        homepage = "https://github.com/dbp/lss";
        description = "Lexical Style Sheets - a language for writing styles that is focused around lexical (ie, static) scoping and re-use of large components";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { language-css-attoparsec = null; };
 
   "lsystem" = callPackage
     ({ mkDerivation, uu-parsinglib, wx, wxcore }:
@@ -65891,7 +66098,8 @@ self: {
        homepage = "https://github.com/nfjinjing/luka";
        description = "Simple ObjectiveC runtime binding";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { objc = null; };
 
   "lushtags" = callPackage
     ({ mkDerivation, haskell-src-exts, text, vector }:
@@ -66195,7 +66403,8 @@ self: {
        homepage = "http://www.scannedinavian.com/~shae/mage-1.0pre35.tar.gz";
        description = "Rogue-like";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { curses = null; };
 
   "magic" = callPackage
     ({ mkDerivation, magic }:
@@ -67189,7 +67398,8 @@ self: {
        extraLibraries = [ eng mx ];
        description = "Matlab bindings and interface";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { eng = null; mx = null; };
 
   "matrices" = callPackage
     ({ mkDerivation, primitive, vector }:
@@ -69283,7 +69493,9 @@ self: {
        homepage = "http://users.ugent.be/~tschrijv/MCP/";
        description = "Constraint Programming";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { gecodeint = null; gecodekernel = null; gecodesearch = null;
+          gecodeset = null; gecodesupport = null; };
 
   "monadio-unwrappable" = callPackage
     ({ mkDerivation, monads-tf, transformers }:
@@ -69619,7 +69831,8 @@ self: {
        homepage = "http://github.com/bumptech/montage";
        description = "Riak Resolution Proxy";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { riak-bump = null; stats-web = null; };
 
   "montage-client" = callPackage
     ({ mkDerivation, aeson, ListLike, mtl, pool-conduit
@@ -69640,7 +69853,8 @@ self: {
        homepage = "http://github.com/bumptech/montage-haskell-client";
        description = "Riak Resolution Proxy Client";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { riak-bump = null; stats-web = null; };
 
   "monte-carlo" = callPackage
     ({ mkDerivation, gsl-random, ieee754, primitive, QuickCheck, random
@@ -70111,7 +70325,8 @@ self: {
        homepage = "https://github.com/massysett/multiarg";
        description = "Combinators to build command line parsers";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { utf8String = null; };
 
   "multifocal" = callPackage
     ({ mkDerivation, haskell-src-exts, HaXml, hxt, hxt-xpath, mtl
@@ -70806,7 +71021,9 @@ self: {
        homepage = "https://github.com/bos/mysql";
        description = "A low-level MySQL client library";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) zlib; };
+       broken = true;
+     }) { inherit (pkgs) zlib; 
+          mysqlConfig = null; };
 
   "mysql-effect" = callPackage
     ({ mkDerivation, extensible-effects, mysql, mysql-simple }:
@@ -71015,7 +71232,8 @@ self: {
        homepage = "http://www.cse.unsw.edu.au/~dons/hmp3.html";
        description = "Simple Curses binding";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { curses = null; };
 
   "nanomsg" = callPackage
     ({ mkDerivation, nanomsg }:
@@ -72471,7 +72689,9 @@ self: {
        pkgconfigDepends = [ glib libnm-glib ];
        description = "Network Manager, binding to libnm-glib";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) glib; };
+       broken = true;
+     }) { inherit (pkgs) glib; 
+          g = null; libnm-glib = null; nm-glib = null; };
 
   "nme" = callPackage
     ({ mkDerivation, utf8-string }:
@@ -72696,7 +72916,9 @@ self: {
        extraLibraries = [ glib gmime notmuch nsl talloc xapian zlib ];
        description = "Binding for notmuch MUA library";
        license = "LGPL";
-     }) { inherit (pkgs) glib zlib; };
+       broken = true;
+     }) { inherit (pkgs) glib zlib; 
+          nsl = null; };
 
   "notmuch-web" = callPackage
     ({ mkDerivation, aeson, attoparsec, attoparsec-conduit
@@ -73148,7 +73370,9 @@ self: {
        homepage = "http://github.com/cpdurham/oculus";
        description = "Oculus Rift ffi providing head tracking data";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) udev; };
+       broken = true;
+     }) { inherit (pkgs) udev; 
+          Xinerama = null; ovr = null; };
 
   "oeis" = callPackage
     ({ mkDerivation, HTTP, HUnit, network, network-uri, test-framework
@@ -73232,7 +73456,8 @@ self: {
        extraLibraries = [ OIS ];
        description = "wrapper for OIS input manager for use with hogre";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { OIS = null; };
 
   "old-locale" = callPackage
     ({ mkDerivation }:
@@ -73529,7 +73754,8 @@ self: {
        extraLibraries = [ EGL GLESv2 ];
        description = "OpenGL ES 2.0 and 3.0 with EGL 1.4";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { EGL = null; GLESv2 = null; };
 
   "openid" = callPackage
     ({ mkDerivation, HsOpenSSL, HTTP, monadLib, network, time, xml }:
@@ -74460,7 +74686,9 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Pango text rendering engine";
        license = stdenv.lib.licenses.lgpl21;
-     }) { inherit (pkgs) cairo pango; };
+       broken = true;
+     }) { inherit (pkgs) cairo pango; 
+          libc = null; };
 
   "papillon" = callPackage
     ({ mkDerivation, filepath, monads-tf, transformers }:
@@ -76196,7 +76424,8 @@ self: {
        homepage = "http://github.com/michaelxavier/phash";
        description = "Haskell bindings to pHash, the open source perceptual hash library";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { pHash = null; };
 
   "phone-push" = callPackage
     ({ mkDerivation, base16-bytestring, binary, conduit, convertible
@@ -77636,7 +77865,9 @@ self: {
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the Poppler";
        license = stdenv.lib.licenses.gpl2;
-     }) { inherit (pkgs) cairo glib gtk pango; };
+       broken = true;
+     }) { inherit (pkgs) cairo glib gtk pango; 
+          libc = null; popplerGlib = null; };
 
   "populate-setup-exe-cache" = callPackage
     ({ mkDerivation }:
@@ -79654,7 +79885,8 @@ self: {
        homepage = "http://www.purescript.org/";
        description = "PureScript Programming Language Compiler";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { nodejs = null; };
 
   "push-notify" = callPackage
     ({ mkDerivation, aeson, async, attoparsec-conduit
@@ -80435,7 +80667,8 @@ self: {
        homepage = "github";
        description = "librados haskell bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { rados = null; };
 
   "rail-compiler-editor" = callPackage
     ({ mkDerivation, cairo, gtk, HUnit, llvm-general, llvm-general-pure
@@ -81604,7 +81837,8 @@ self: {
        homepage = "https://github.com/lazac/references";
        description = "Generalization of lenses, folds and traversals to handle monads and addition";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { instance-control = null; };
 
   "refh" = callPackage
     ({ mkDerivation, clippard, cmdargs, filepath, haskheap, network }:
@@ -83559,7 +83793,8 @@ self: {
        homepage = "http://github.com/agrafix/rocksdb-haskell";
        description = "Haskell bindings to RocksDB";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { rocksdb = null; };
 
   "roguestar" = callPackage
     ({ mkDerivation, filepath }:
@@ -85690,7 +85925,8 @@ self: {
        extraLibraries = [ sedna ];
        description = "Sedna C API XML Binding";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { sedna = null; };
 
   "select" = callPackage
     ({ mkDerivation, rt }:
@@ -85702,7 +85938,8 @@ self: {
        homepage = "http://nonempty.org/software/haskell-select";
        description = "Wrap the select(2) POSIX function";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { rt = null; };
 
   "selectors" = callPackage
     ({ mkDerivation, alex, happy, text, xml-conduit }:
@@ -87168,7 +87405,8 @@ self: {
        homepage = "http://mypage.iu.edu/~gdweber/software/sifflet/";
        description = "Library of modules shared by sifflet and its tests and its exporters";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { gdk_x11 = null; gtk_x11 = null; };
 
   "sign" = callPackage
     ({ mkDerivation, deepseq, hashable, HUnit, lattices, QuickCheck
@@ -87296,7 +87534,8 @@ self: {
        extraLibraries = [ bluetooth ];
        description = "Simple Bluetooth API for Windows and Linux (bluez)";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { bluetooth = null; };
 
   "simple-c-value" = callPackage
     ({ mkDerivation, checkers, DebugTraceHelpers, derive, dlist, HUnit
@@ -87790,7 +88029,8 @@ self: {
        homepage = "http://hub.darcs.net/thoferon/simplessh";
        description = "Simple wrapper around libssh2";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { ssh2 = null; };
 
   "simplex" = callPackage
     ({ mkDerivation, filepath, mtl, random, regex-compat, split, time
@@ -90882,7 +91122,8 @@ self: {
        buildDepends = [ applicative transformers ];
        description = "The ST monad and STRefs";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { applicative = null; };
 
   "statgrab" = callPackage
     ({ mkDerivation, async, statgrab, time, transformers }:
@@ -92441,7 +92682,8 @@ self: {
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the libsvg-cairo library";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { libc = null; };
 
   "svgutils" = callPackage
     ({ mkDerivation, filepath, xml }:
@@ -92750,7 +92992,8 @@ self: {
        homepage = "http://github.com/brentlintner/synt";
        description = "Similar code analysis";
        license = "unknown";
-     }) {};
+       broken = true;
+     }) { Synt = null; };
 
   "syntactic" = callPackage
     ({ mkDerivation, constraints, data-hash, mtl, QuickCheck, safe
@@ -93001,7 +93244,8 @@ self: {
        homepage = "http://www.haskell.org/haskellwiki/Synthesizer";
        description = "Audio signal processing with dynamic physical dimensions";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { UniqueLogicNP = null; };
 
   "synthesizer-llvm" = callPackage
     ({ mkDerivation, event-list, filepath, llvm-extra, llvm-tf, midi
@@ -93229,7 +93473,8 @@ self: {
        homepage = "https://github.com/jcristovao/system-util";
        description = "Various system utils lifted to EitherT";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { easy-data = null; };
 
   "system-uuid" = callPackage
     ({ mkDerivation, binary, murmur-hash, parsec, uuid }:
@@ -93572,7 +93817,8 @@ self: {
        pkgconfigDepends = [ taglib_c ];
        description = "Binding to TagLib (ID3 tag library)";
        license = "LGPL";
-     }) {};
+       broken = true;
+     }) { tag_c = null; taglib_c = null; };
 
   "taglib-api" = callPackage
     ({ mkDerivation, mtl, taglib_c, text, transformers }:
@@ -93584,7 +93830,8 @@ self: {
        pkgconfigDepends = [ taglib_c ];
        description = "An FFI layer over TagLib's C bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { taglib_c = null; };
 
   "tagset-positional" = callPackage
     ({ mkDerivation, binary, parsec, text, text-binary }:
@@ -93687,7 +93934,8 @@ self: {
        homepage = "https://github.com/paulrzcz/takusen-oracle.git";
        description = "Database library with left-fold interface for Oracle";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { clntsh = null; sqlplus = null; };
 
   "tamarin-prover" = callPackage
     ({ mkDerivation, aeson, binary, blaze-builder, blaze-html, cmdargs
@@ -94474,7 +94722,8 @@ self: {
        homepage = "http://lucc.ess.inpe.br/doku.php?id=terrahs";
        description = "A Haskell GIS Programming Environment";
        license = "GPL";
-     }) {};
+       broken = true;
+     }) { terralib4c = null; translib = null; };
 
   "tersmu" = callPackage
     ({ mkDerivation, mtl, syb, transformers }:
@@ -98538,7 +98787,8 @@ self: {
        homepage = "https://github.com/pxqr/udev";
        description = "libudev bindings";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { libudev = null; };
 
   "uglymemo" = callPackage
     ({ mkDerivation }:
@@ -100755,7 +101005,8 @@ self: {
        homepage = "http://hackage.haskell.org/package/vector-fftw";
        description = "A binding to the fftw library for one-dimensional vectors";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { fftw3 = null; };
 
   "vector-functorlazy" = callPackage
     ({ mkDerivation, primitive, vector, vector-th-unbox }:
@@ -101677,7 +101928,8 @@ self: {
        homepage = "https://github.com/yesodweb/wai/tree/master/wai-handler-webkit";
        description = "Turn WAI applications into standalone GUIs using QtWebkit";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { QtWebKit = null; };
 
   "wai-hastache" = callPackage
     ({ mkDerivation, hastache, http-types, transformers, wai }:
@@ -102639,7 +102891,8 @@ self: {
        buildDepends = [ HSFFIG LEXER parsec utf8-env utf8-string ];
        description = "Parser and Pretty Printer for the Web IDL Language";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { LEXER = null; };
 
   "webify" = callPackage
     ({ mkDerivation, binary, binary-strict, filepath, hopfli
@@ -103029,7 +103282,8 @@ self: {
        homepage = "http://github.com/felixmar/winio";
        description = "I/O library for Windows";
        license = stdenv.lib.licenses.bsd3;
-     }) {};
+       broken = true;
+     }) { kernel32 = null; ws2_32 = null; };
 
   "witherable" = callPackage
     ({ mkDerivation, hashable, transformers, unordered-containers
@@ -103949,7 +104203,8 @@ self: {
        homepage = "http://patch-tag.com/r/obbele/xfconf/home";
        description = "FFI bindings to xfconf";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+       broken = true;
+     }) { libxfconf-0 = null; };
 
   "xformat" = callPackage
     ({ mkDerivation }:
@@ -104034,7 +104289,9 @@ self: {
        homepage = "http://github.com/joachifm/hxine";
        description = "Bindings to xine-lib";
        license = "LGPL";
-     }) { inherit (pkgs) xine; };
+       broken = true;
+     }) { inherit (pkgs) xine; 
+          libxine = null; };
 
   "xing-api" = callPackage
     ({ mkDerivation, aeson, authenticate-oauth, HTF, http-conduit
@@ -106887,7 +107144,9 @@ self: {
        homepage = "http://bitbucket.org/iago/z3-haskell";
        description = "Bindings for the Z3 Theorem Prover";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) z3; };
+       broken = true;
+     }) { inherit (pkgs) z3; 
+          gomp = null; };
 
   "zampolit" = callPackage
     ({ mkDerivation, cmdargs, filepath, HSH, MissingH, parsec, time }:
@@ -106988,7 +107247,8 @@ self: {
        homepage = "http://github.com/twittner/zeromq-haskell/";
        description = "Bindings to ZeroMQ 2.1.x";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { zeromq = null; };
 
   "zeromq3-conduit" = callPackage
     ({ mkDerivation, conduit, lifted-base, monad-control, mtl
@@ -107027,7 +107287,8 @@ self: {
        homepage = "http://github.com/twittner/zeromq-haskell/";
        description = "Bindings to ZeroMQ 3.x";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { zeromq = null; };
 
   "zeromq4-haskell" = callPackage
     ({ mkDerivation, async, exceptions, QuickCheck, semigroups, tasty
@@ -107045,7 +107306,8 @@ self: {
        homepage = "http://github.com/twittner/zeromq-haskell/";
        description = "Bindings to ZeroMQ 4.x";
        license = stdenv.lib.licenses.mit;
-     }) {};
+       broken = true;
+     }) { zeromq = null; };
 
   "zeroth" = callPackage
     ({ mkDerivation, Cabal, derive, filepath, haskell-src-exts
