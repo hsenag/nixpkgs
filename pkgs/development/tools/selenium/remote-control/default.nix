@@ -33,7 +33,7 @@ in stdenv.mkDerivation {
     # this dist file has been created using  mvn package  -Dmaven.test.skip=true based on svn rev 2450
     src = fetchurl {
       url = "http://mawercer.de/~nix/selenium-server-1.0-SNAPSHOT-standalone.jar";
-      sha256 = "1lqr72a3lmmww1psl19pzp91c9q1dm0314b7y7mz1gnfpwc49y38";
+      sha256 = "132dxalh7f6rv4f45pwsfq45i8ilklxmq5l6mplgav5fv0kv3kv6";
     };
     phases = "buildPhase";
     buildPhase = ''
