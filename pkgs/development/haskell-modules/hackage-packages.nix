@@ -859,7 +859,7 @@ self: {
        pname = "Baggins";
        version = "1.0";
        sha256 = "0mgxq8zqyfmwkvn91y91c2vjhrni3br0vgiih2ynlafnas1ji0bc";
-       editedCabalFile = "16206xd8lm8fkvpxbm19h403264xyjki07s9lam3pgq985xbqk35";
+       editedCabalFile = "654cbc7a4109bf3baaa2491f10a7f49d1831008129d4d5ef9e0e558a5a374098";
        buildDepends = [ cairo mtl ];
        homepage = "http://pageperso.lif.univ-mrs.fr/~pierre-etienne.meunier/Baggins";
        description = "Tools for self-assembly";
@@ -1202,7 +1202,7 @@ self: {
        pname = "BlastHTTP";
        version = "1.0.1";
        sha256 = "1qxf2lqsbwmfqkzabx8qpavf3da4lq3j1v1rdsv42gl27lqhbayi";
-       editedCabalFile = "025kaax8mdva3833h9rxbb2qmybiyd33xfnqbhzzzp0zig5yi0p1";
+       editedCabalFile = "e182e8cb8b1fdcff3f5cd8ba3e46f371f98ac55a3d2738061a6ab78aba52b308";
        buildDepends = [
          biocore blastxml conduit HTTP http-conduit hxt mtl network
          transformers
@@ -1236,7 +1236,7 @@ self: {
        pname = "BlogLiterately";
        version = "0.7.1.7";
        sha256 = "05i0v5mrmnxbmrqrm473z6hs9j4c2jv1l81i4kdmm2wia6p93s90";
-       editedCabalFile = "0k074dcfxi9pj2kxwp22byy5vjgl11yamd8djy8s23z6l7dzbvq4";
+       editedCabalFile = "04eff5dba1e60fa191970db5aa7c08f4c95dbc5f425cdea79037c5ee5823074c";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -1257,7 +1257,7 @@ self: {
        pname = "BlogLiterately-diagrams";
        version = "0.1.4.3";
        sha256 = "0p65nyslcvf4qzgrwsi59xil8i5sgh1xfyz431lf4f00nsqb0s2h";
-       editedCabalFile = "0ga0zxyi5wfaqbsv7a6p5r69xr5lvxqj3hi8yqlivflvc1r6mfd9";
+       editedCabalFile = "a9b96a72609bba1d29f628c22171dfb4e49e4c2ed7a8b3f5c2caf1127dff403d";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -4579,7 +4579,7 @@ self: {
        pname = "Grow";
        version = "1.1.0.3";
        sha256 = "1vc4ln5fzvcv68qlanyw8mc6qchnjn1kj9rpz661n8ia1x8gkb3l";
-       editedCabalFile = "0spkl7nsxs7452r8d8fx14q9snih101vdq5s3nzjnqgwxswam6g5";
+       editedCabalFile = "e599aab8eefc612bbf1dbae0b60308305a9d3009dda186b228e4e8aeeda1f36a";
        buildDepends = [
          clock deepseq definitive-base definitive-filesystem
          definitive-parser definitive-reactive filepath primitive time
@@ -5562,7 +5562,7 @@ self: {
        pname = "HROOT";
        version = "0.8";
        sha256 = "0q6n5j1hzl8fk6a0ziqjzfi1515shqzqxx0argbvnhw85vjajvqf";
-       editedCabalFile = "05q9v8plyp9ra1450065lg0i4jgqwhwpl25i8l6785q5ksiqn1a3";
+       editedCabalFile = "43058ba39e0517740c45b1087a39e4f84912c1a3c500504850395d4f2fda0917";
        buildDepends = [
          fficxx-runtime HROOT-core HROOT-graf HROOT-hist HROOT-io HROOT-math
        ];
@@ -5762,7 +5762,7 @@ self: {
        pname = "HStringTemplate";
        version = "0.7.3";
        sha256 = "1gw4v16nk0878qplcx6by2bl4280lwyn9a252p6ldaqlbk9vygw8";
-       editedCabalFile = "09xhmy4pzm3hb0nhgk8z0ing8rrf6b9i1dqx7iagxcv73fdx3r7c";
+       editedCabalFile = "ece4d19b1b67b3fe543c1db710d3322e67f46c041fcd072d5870d47f89afb027";
        buildDepends = [
          blaze-builder deepseq filepath mtl parsec syb text time utf8-string
          void
@@ -6848,7 +6848,7 @@ self: {
        pname = "Hsmtlib";
        version = "2.8.8.8";
        sha256 = "1zb5s5rwcqc90c3zv332k44p7l13ngp9nqci8qalnlbxbypx3hab";
-       editedCabalFile = "12ca7x8xr0cqjjkpfqqcy7kl8cf2z3hs2nq7dxjqlr78rihhbwq1";
+       editedCabalFile = "01f30561cce8648a656f075ba1e1f8c23144e7f10c6377a7949881dc513f8a89";
        buildDepends = [ parsec smtLib transformers ];
        homepage = "https://github.com/MfesGA/Hsmtlib";
        description = "Haskell library for easy interaction with SMT-LIB 2 compliant solvers";
@@ -8264,7 +8264,7 @@ self: {
        pname = "MonadCatchIO-transformers";
        version = "0.3.1.2";
        sha256 = "1r5c4qz6yp1qrsmk9di35d5kk2dcnaxh2mg3n5kdim991ydzsi1d";
-       editedCabalFile = "0783d24gx2fnlapxlipgf2vg5kwlsfmcqvy3llw14vy1yz6xz9i0";
+       editedCabalFile = "20a6dfcdf7c16f1238a5c36fccaad394cff2b670ef46daafa2d689fe8868031d";
        buildDepends = [ extensible-exceptions monads-tf transformers ];
        description = "Monad-transformer compatible version of the Control.Exception module";
        license = stdenv.lib.licenses.bsd3;
@@ -11245,7 +11245,7 @@ self: {
        pname = "SpacePrivateers";
        version = "0.1.0.0";
        sha256 = "0gj709knv4lvz34900jigb1hiq35acbbl86iwa5yszibm8f0drkh";
-       editedCabalFile = "1gv48zss4rw4z2n9grga090j1223ylzwi5pirqb0d1mdj9w617dm";
+       editedCabalFile = "b59d607892ad860616cef196c83ff54388204102eae597acf88467a2f54764bf";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [ enummapset-th filepath LambdaHack text ];
@@ -11350,7 +11350,7 @@ self: {
        pname = "StateVar";
        version = "1.0.1.0";
        sha256 = "02n2sxxkr0ydc77dc3amwp5jrw289d2s2z55rhrmhxxg1c7lp5js";
-       editedCabalFile = "0vvn1nz744g3xl4p41dk73shbyp29ck8f4xdqcs8c08bfcag2wv2";
+       editedCabalFile = "6273f114730b018634c3ad1387264be2fa05f538b3057209ede31172be0d766f";
        homepage = "https://github.com/haskell-opengl/StateVar";
        description = "State variables";
        license = stdenv.lib.licenses.bsd3;
@@ -11737,7 +11737,7 @@ self: {
        pname = "Thrift";
        version = "0.6.0.1";
        sha256 = "0yk496zql0jpyj83ybdzffc03sylf5pwn093k831m99j54l2r5yv";
-       editedCabalFile = "1ncrb6m5a7qywbi3vmavfqv2nim3qbjpa51gf28p6xw52q2apa2n";
+       editedCabalFile = "56a8ab041685777391702f1475e5c2a3462b36765bd53de2e21e1f55aa5999d9";
        buildDepends = [ binary HTTP network ];
        homepage = "http://thrift.apache.org";
        description = "Haskell bindings for the Apache Thrift RPC system";
@@ -12069,7 +12069,7 @@ self: {
        pname = "Unixutils";
        version = "1.52";
        sha256 = "1gp04mc6irycwazykl9kpyhkkryn3hbnpn08ih6cjbsm3p8yi8b4";
-       editedCabalFile = "0cbx658ljjdvpbfc3cmll4xlw0vzsij0v4g0xs89fraawmvpi2mi";
+       editedCabalFile = "b18a7877e54a659790eee0910d64d47f034e3ba1b4b2c1dcbabb494951317d31";
        buildDepends = [ filepath pureMD5 regex-tdfa zlib ];
        homepage = "https://github.com/seereason/haskell-unixutils";
        description = "A crude interface between Haskell and Unix-like operating systems";
@@ -12773,7 +12773,7 @@ self: {
        pname = "XSaiga";
        version = "1.0.0.0";
        sha256 = "0smf0ym26kv0fa34plnsndxp5hflc7w6g0wbkg6n4cy9bz4sgd4z";
-       editedCabalFile = "13s84vvs59zzhr5mlpvh7w7haalirs6p9hfjj80ivm8ha1xhjlm1";
+       editedCabalFile = "a152097b5010d51d0192d2c1748dce912a050f3f705f5a4b86ffa7a2f726488f";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ cgi hsparql rdf4h text ];
@@ -13211,7 +13211,7 @@ self: {
        pname = "accelerate";
        version = "0.15.0.0";
        sha256 = "1hi3zm1swm9fank9w98009pwcgccw6w2j2ilb970sbxyb0xf8nps";
-       editedCabalFile = "0k6damdq8kjxlscrc7rbbag0a05q9vjiyx86rda5lnfvgxya9klq";
+       editedCabalFile = "98cea47c7fdb595a54cb06751fe54eb800059e5a2b1f9699a65d4e845b55cd4c";
        buildDepends = [
          fclabels hashable hashtables unordered-containers
        ];
@@ -13267,7 +13267,7 @@ self: {
        pname = "accelerate-cuda";
        version = "0.15.0.0";
        sha256 = "1z8nfciwxm2f2vaddnhan5gi9i1l7qa9h9fsngmdh8d6wabxxidy";
-       editedCabalFile = "1z08hzn6wm5y51l7vx1z66qizvb2ch0zfkg2mqzfsq6kq729klay";
+       editedCabalFile = "5ed199c4c1d360ed3eaee24df7016462ed1fb1313ff47d6828be546eec8708fc";
        buildDepends = [
          accelerate binary cryptohash cuda fclabels filepath hashable
          hashtables language-c-quote mainland-pretty mtl SafeSemaphore
@@ -13311,7 +13311,7 @@ self: {
        pname = "accelerate-examples";
        version = "0.15.0.0";
        sha256 = "1jfwb0ryb8idfjc1gccb1h67hl730qn455k5z5wna8aikfscy7rq";
-       editedCabalFile = "1k4msxbk7igghm2wpl410francrjbdkd1sbc6fwh56dfjqha1y1c";
+       editedCabalFile = "2cf8a02096ae9902b9336ce9d0665b3233abb20381d0cb4585efc53357d795cc";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
@@ -13338,7 +13338,7 @@ self: {
        pname = "accelerate-fft";
        version = "0.15.0.0";
        sha256 = "0nxlw8z7bnr29vp24qbbwwmq9rj2q6jqqkmm46pp8dp582y4yk6v";
-       editedCabalFile = "1jjkbzqdf05hyd3bb7daq7jwqivq5bx2id8hxcm7ha7m42p96fy2";
+       editedCabalFile = "c23b93ae20f528782aeb10b528fa2a7847cce5c1aa9db546f3b000d7f05f53ca";
        buildDepends = [ accelerate accelerate-cuda cuda cufft ];
        homepage = "https://github.com/AccelerateHS/accelerate-fft";
        description = "FFT using the Accelerate library";
@@ -13407,7 +13407,7 @@ self: {
        pname = "accelerate-io";
        version = "0.15.0.0";
        sha256 = "00p8jmxsgywhx30nd44pl6hdcr076y2s6z2fsam6sgrmgr0qx936";
-       editedCabalFile = "1k0fiizfh9wcadalwic15pvq3ljil8z78ab3ci97c483piz8ygsw";
+       editedCabalFile = "5c3f8f7ebc03117652646329743ea251d281f72d81454e55538c27e87e8c0ecc";
        buildDepends = [ accelerate bmp repa vector ];
        homepage = "https://github.com/AccelerateHS/accelerate-io";
        description = "Read and write Accelerate arrays in various formats";
@@ -14264,7 +14264,7 @@ self: {
        pname = "aeson-utils";
        version = "0.2.2.1";
        sha256 = "0sj4kdcxcj2wnf3s109yxq8gghz976hkiqs19bjcp6qkzdf5w6sd";
-       editedCabalFile = "0b9ks5b6y5xajb499903sc684wknrzfx2pygrn3s0s4drwxa01pk";
+       editedCabalFile = "f306a03acf8d68a087cdcf5fd1ddcf7672820cd303a494c892aa176f56d1332d";
        buildDepends = [ aeson attoparsec scientific text ];
        description = "Utilities for working with Aeson";
        license = stdenv.lib.licenses.bsd3;
@@ -16044,7 +16044,7 @@ self: {
        pname = "apiary";
        version = "1.2.0";
        sha256 = "1315m35j3pjl4awzfc0y6avawc605v4q74jhxkf0jwwnwp2d74a2";
-       editedCabalFile = "1bl23h7c6kikzag8phhwb76m6p4pqhp7mis5am456lhnigl9dc5g";
+       editedCabalFile = "afb096e88b165253485545c77a2ec4975c53cd591cc28b9efa334ec30e1c82ae";
        buildDepends = [
          blaze-builder blaze-html blaze-markup bytestring-lexing
          case-insensitive data-default-class exceptions hashable http-date
@@ -16262,7 +16262,7 @@ self: {
        pname = "apis";
        version = "0.0.0";
        sha256 = "05wi30j19ggq51fx6681rqmlhz282v1wnnkgy287z051s1459kaq";
-       editedCabalFile = "0jj26dysi6cclxbhw5mrg237idkamjmhh9y01c2zdjgg4331avcl";
+       editedCabalFile = "946d15c620efc9f6050bc02708abac6ab6788678b9160e57a78c99a87d33424a";
        buildDepends = [
          aeson deepseq ecma262 exceptions filemanip filepath hslogger
          http-conduit hxt mtl opendatatable split text th-lift time
@@ -16830,7 +16830,7 @@ self: {
        pname = "arxiv";
        version = "0.0.1";
        sha256 = "1has8v40h8w4v393pgd4qk4fzgdw02y12zk2hspkic1q5bx33dxh";
-       editedCabalFile = "19xdrsrcg29c7ncy0gnxbk4zbnyb53j1kk9sys6j8h1l03k12qvl";
+       editedCabalFile = "746311e6003440248df63acd19e428cbdbf5c95cdd3ee0993d2c89c7b2ceada7";
        buildDepends = [ parsec split tagsoup ];
        homepage = "http://github.com/toschoo/Haskell-Libs";
        description = "A client for the Arxiv API";
@@ -18017,7 +18017,7 @@ self: {
        pname = "aws-kinesis-reshard";
        version = "0.1.0.0";
        sha256 = "0g8zbga3v6h8b6dk3hqvhmlmn6kq0cqxbvxhj94qgqzy7qja1pj9";
-       editedCabalFile = "14pcl8ghcgg8fqz7qzjb58x20xq55yvz2xlx9han769nw107wjn6";
+       editedCabalFile = "c64a7e40e0369963154c9d76f1b72f0577203a2a4b7e7c3e76e83d061fa2ec92";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -19934,7 +19934,7 @@ self: {
        pname = "bindings-hamlib";
        version = "0.1.0.0";
        sha256 = "1na9v5s5lqdnnj031zmqg3xfpsvy80gzr7qg0f3gsyyniww72xlz";
-       editedCabalFile = "1jcpr5c0dbsczkjabbb06y5ddf21v9bbyvs0j56zbn8xpqsrgshy";
+       editedCabalFile = "1eea9735be1dd9f54d91406fbf56da41b8d68a3760ada5e4fc4caf0658c997c9";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ bindings-DSL ];
@@ -22580,7 +22580,7 @@ self: {
        pname = "cabal-file-th";
        version = "0.2.3";
        sha256 = "0kawvb5n56rkq4453l6pia3wrr6jvvdwkghi6i176n1gm2zf2ri8";
-       editedCabalFile = "0zp3w7rnyh81jwcfr7zlj66z9lw4y5rrprg5n65618imlgsnrg2h";
+       editedCabalFile = "50bc6cf5a335a2608ab1e5e59b73f184d3f48d91f49fec189701416ff3e1e37e";
        buildDepends = [ Cabal ];
        homepage = "http://github.com/nkpart/cabal-file-th";
        description = "Template Haskell expressions for reading fields from a project's cabal file";
@@ -24170,7 +24170,7 @@ self: {
        pname = "cgi-utils";
        version = "0.2.1";
        sha256 = "0msljq31bz40hsrhhq9qhxrgmdlqq32l3ykcy4wviv8kmc3dic7p";
-       editedCabalFile = "0lnx7n8pagi3pw57cz4nz01lhfjmsyhk3z3kwgfrmdyrb3kb276z";
+       editedCabalFile = "df1cb1e658d9b79adde373fc31a1d7553a4803f8967c760abf233e75913ddd52";
        buildDepends = [ cgi mtl random ];
        homepage = "http://github.com/chrisdone/haskell-cgi-utils";
        description = "Simple modular utilities for CGI/FastCGI (sessions, etc.)";
@@ -25412,7 +25412,7 @@ self: {
        pname = "cld2";
        version = "0.1.0.1";
        sha256 = "0fsjp0y5f17gv3k43vbxgx7w6i2l4ralrc6g1wb0xi0gp1vrm3hd";
-       editedCabalFile = "1gfgnhy9ahyq7y74mpc6gsmir8v0c2d6z81klw1zhack6pmnql30";
+       editedCabalFile = "60506ceb359329f803a733a06f9a6060a31cab7e86dd4a8e3fd843953cb4cfbd";
        buildDepends = [ text ];
        homepage = "https://github.com/dfoxfranke/haskell-cld2";
        description = "Haskell bindings to Google's Compact Language Detector 2";
@@ -26017,7 +26017,7 @@ self: {
        pname = "codepad";
        version = "0.1";
        sha256 = "03jvbbv4cgrmk0ihz34shd1ydv5jhl1h1xiwqrln60622jlh8mr1";
-       editedCabalFile = "0ym0lgdpms6gnkprfpxz3ffcp4jsxkk7gpadf8069cvp3m32pzjj";
+       editedCabalFile = "52fe2b461d77b36400724ddd77e6ec5a92cb9c1bbf5f97efb4cfe87adba3a07a";
        buildDepends = [ curl mtl network tagsoup ];
        homepage = "http://github.com/chrisdone/codepad";
        description = "Submit and retrieve paste output from CodePad.org.";
@@ -26546,7 +26546,7 @@ self: {
        pname = "compdata-automata";
        version = "0.9";
        sha256 = "1hlv6a4ywlnr86pzrlffqbg55mfkrkkxn2yir6a28bdirgi69fkf";
-       editedCabalFile = "0c312ilfw7h4k0vavbciq9hghyqwpb49mwrp9kv5c7hximds3ggq";
+       editedCabalFile = "f8bda15b8d1d1e56f64c37f39ac8ba1c7bf860c291adad3698041eee68146130";
        buildDepends = [ compdata projection ];
        description = "Tree automata on Compositional Data Types";
        license = stdenv.lib.licenses.bsd3;
@@ -26561,7 +26561,7 @@ self: {
        pname = "compdata-dags";
        version = "0.1";
        sha256 = "1ijr3lpl0g5l5xynnwwzj4rflgfgw1y2b4ldabbw5qlk4qa0gr5j";
-       editedCabalFile = "0i2hyrfzswm0msjrswj5v7z13ndl89ihcx87l8wdgdmqyiibnssm";
+       editedCabalFile = "556bbb62f4b8b6d738a20775066342b4d911fed945729da5aea072fd5df65044";
        buildDepends = [
          compdata mtl projection unordered-containers vector
        ];
@@ -27988,7 +27988,7 @@ self: {
        pname = "copr";
        version = "1.1.1";
        sha256 = "0zgg60ri8yvz96gk08wdfn0445wqszigh2p0964nr2zdnffq5rnw";
-       editedCabalFile = "0994z9ivgxaw8qslmqqhcnyy4q4q90nyczb4wklylzr5gnzbi7zg";
+       editedCabalFile = "ef9fb8be7d257feae9e4647de62d489860e2bd6510e34a35465cf5b763fa2425";
        buildDepends = [
          aeson HsOpenSSL http-streams io-streams semigroups text
        ];
@@ -29520,7 +29520,7 @@ self: {
        pname = "cuda";
        version = "0.6.5.1";
        sha256 = "04j57inw4wmd0l74ryxdgpjcbf3zkklgkqw9bv7yp4n96n40mp0y";
-       editedCabalFile = "000wqa112yzvvi2650lfl3cnk1rk91fpb2g38pj21ciiq4wdnwja";
+       editedCabalFile = "4a72db38c131b220e445e389755d48338769d9a08e826244dcfb7b1182c21c00";
        isLibrary = true;
        isExecutable = true;
        buildTools = [ c2hs ];
@@ -29593,7 +29593,7 @@ self: {
        pname = "curlhs";
        version = "0.1.3";
        sha256 = "0m8n19kyimxd9c7aazkw7gak7v1lik04m0y0izs3zanjlhqvnn3j";
-       editedCabalFile = "1q0jnzbmh0ssrxzxnk7074irl34x9dzbz797bfrbyl11rm1igrhs";
+       editedCabalFile = "1ae61743cd2150bfb25b279dbf7e4b9d0c9a2339e04cdb7fcf5a0358d7b712e0";
        buildDepends = [ rtld time ];
        testDepends = [ hspec ];
        homepage = "https://kkardzis.github.com/curlhs";
@@ -30830,7 +30830,7 @@ self: {
        pname = "data-reify";
        version = "0.6";
        sha256 = "0mif89mpj5zvw8czc51mfj27jw2ipxd2awnm9q13s46k6s5pv6a7";
-       editedCabalFile = "1h9kr0d9xmxf5y5hlygfnv8r7kvwibap6i7bjzr65zl7vczms630";
+       editedCabalFile = "60185d3fdb87fe62f297eb4473d58a7ccf93d1b6ee790a8b2faed79e1ac833c1";
        isLibrary = true;
        isExecutable = true;
        homepage = "http://www.ittc.ku.edu/csdl/fpg/Tools/IOReification";
@@ -31686,7 +31686,7 @@ self: {
        pname = "deepseq";
        version = "1.3.0.2";
        sha256 = "09jnfz5158s4fvlfjbz44vb5jsvflagmsrgbk846arymwym6b7bp";
-       editedCabalFile = "0gigsy8ivijrj6jyrqkw92nymqi9kg8nqvqnmg9y6fzl47zkllad";
+       editedCabalFile = "4d513aff21f43be3d3ab166f6cd19b29e2eaad487ce2eca59159c61d91d72f3e";
        description = "Deep evaluation of data structures";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -31767,7 +31767,7 @@ self: {
        pname = "definitive-filesystem";
        version = "1.2";
        sha256 = "0bc098igiqzbm25bjaxdxm4jq17kc8bgz1ab0pgm0h5jvy1bf8id";
-       editedCabalFile = "089isrgdbc7xv4msnwqhz7kbncj1kjbjmdl9v2awm4d2mbcd8y1s";
+       editedCabalFile = "3a78d4d8aaa291ca95d889b62a979c4132bbe6f91073ab2bd9fdb0d55ed63121";
        buildDepends = [
          clock deepseq definitive-base definitive-reactive filepath
          primitive time vector
@@ -31786,7 +31786,7 @@ self: {
        pname = "definitive-graphics";
        version = "1.2";
        sha256 = "0ah19j2al9l6pbin821rsicidmg3rd4cc74r8qw095773sa98zyr";
-       editedCabalFile = "1vds2sa35gllj5zhk2qck97hbjjlz20qq20cyjphsfcqh3m6gn56";
+       editedCabalFile = "a6d867ea8098390daff40c088c81f854ca054f9a0c8b097f9194be329416baed";
        buildDepends = [
          binary clock cpu deepseq definitive-base definitive-parser
          definitive-reactive GLFW JuicyPixels mtl primitive stb-truetype
@@ -31821,7 +31821,7 @@ self: {
        pname = "definitive-reactive";
        version = "1.0";
        sha256 = "0gk39602k5yjxxgpd725dnvqhlcnaqgds7g0c8v1h509lc0d7xm3";
-       editedCabalFile = "15vpplck9h6ys5szhn8i69409cbgsv8hd01cwgnnjxffqky6lg4c";
+       editedCabalFile = "8c3c6afcc4ce7569ede32c8006d1d66fb10448321159f875d1dec03419bd7797";
        buildDepends = [ clock deepseq definitive-base primitive vector ];
        homepage = "http://coiffier.net/projects/definitive-framework.html";
        description = "A simple Reactive library";
@@ -31836,7 +31836,7 @@ self: {
        pname = "definitive-sound";
        version = "1.0";
        sha256 = "01k4h7av4fhp4xchrcbnc1gnnbsh5ngasq55l16n3l438pr73vzj";
-       editedCabalFile = "0w9x8k62c6bhm360bj38gkzbbwx770klk50sy2l4xf273yhg148l";
+       editedCabalFile = "1491f0a01f47b84ea8f01a94492738a7f3b5fe7c68c805cca8701926cc443d71";
        buildDepends = [
          alsa-core alsa-pcm clock deepseq definitive-base primitive
          sample-frame storable-record vector
@@ -33091,7 +33091,7 @@ self: {
        pname = "directory";
        version = "1.2.1.0";
        sha256 = "110ch0nd2hh5fsq3whrvj85s0h27ch1q6xg7z9s6mqbd6k6p9yzs";
-       editedCabalFile = "0bvl4zfx13bnlb234nh7ax9djdik52vmbkbdd7df0s0kbq0zdz85";
+       editedCabalFile = "05fdf6015e1368e0da696dcd55b7283336d95257075a32c4a2768dd0dd27742f";
        buildDepends = [ filepath time ];
        description = "library for directory handling";
        license = stdenv.lib.licenses.bsd3;
@@ -33768,7 +33768,7 @@ self: {
        pname = "doctest-discover-configurator";
        version = "0.1.0.6";
        sha256 = "1n2x8rp67ddifyahxcny0k7r514qa82lbxg13z7yg2kvmrfip7r8";
-       editedCabalFile = "0i8anaxkzw4j9gygcj6vvxxn7mcrzqpysc07hm7vmb0hzw02mxkr";
+       editedCabalFile = "79f62a00ff10acba4f850730ed2ffe99d5637bdfdb48f6fc4b92f03fbbb20a45";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ configurator doctest filepath ];
@@ -34832,7 +34832,7 @@ self: {
        pname = "edenskel";
        version = "2.0.0.1";
        sha256 = "0fmr2chrpp990lyjfk13s4d8h1hdw853wk54233mpmxlh0sd32ki";
-       editedCabalFile = "1pyil6b2scc3vrgbrjl0mr706wkvd06y736imfgnwcp29k12504p";
+       editedCabalFile = "978022c24ce2326e9fabd18ce30d687b72034eae80cabc5ede83312d96a1d1df";
        buildDepends = [ edenmodules parallel ];
        description = "Semi-explicit parallel programming skeleton library";
        license = stdenv.lib.licenses.bsd3;
@@ -35102,7 +35102,7 @@ self: {
        pname = "eibd-client-simple";
        version = "0.0.4";
        sha256 = "14nxahznqy6xfjgyi8d11b4hgrw431ywqc5hkz0lbpgxysgkc61d";
-       editedCabalFile = "103xb7w0sqs1np2ygn9d3vyn2f959dhz54pf1k3b889m13ws0m2i";
+       editedCabalFile = "5154a0f9083521b4c60cee92f2614b253961fd1e2dd9e7c5b541630df8597d80";
        buildDepends = [ mtl transformers ];
        extraLibraries = [ eibclient ];
        description = "EIBd Client";
@@ -35772,7 +35772,7 @@ self: {
        pname = "engine-io-yesod";
        version = "1.0.1";
        sha256 = "0pczmiqrg046r367j071h2hr6p2amw93sqy7j1drd2gdiwaxzn02";
-       editedCabalFile = "1ajjga1r2j8czvchnwqpn6kk09dzba1mzcvyyr4r0c25y62w6qsr";
+       editedCabalFile = "5963c385f145309049f67eb35f835abf2530a7b117730bd9fe0c4991837a52aa";
        buildDepends = [
          conduit conduit-extra engine-io http-types text
          unordered-containers wai wai-websockets websockets yesod-core
@@ -36762,7 +36762,7 @@ self: {
        pname = "expiring-cache-map";
        version = "0.0.5.3";
        sha256 = "0ihyfhkqdr29pmcb2pylrj6p2xmfgfz9qw6dabxxy8dbcg38ppvf";
-       editedCabalFile = "0k6s0cm3rsq4gv7yklilxgd9zbr6m7zd9fcgsqnj1z50nw0096g3";
+       editedCabalFile = "e3990400b7a0fc202dd68fb9d4fea926af9fdaeb34d2e9cf7e04eb3c2a03da4c";
        buildDepends = [ hashable unordered-containers ];
        testDepends = [ hashable time unordered-containers ];
        homepage = "https://github.com/elblake/expiring-cache-map";
@@ -36889,7 +36889,7 @@ self: {
        pname = "exposed-containers";
        version = "0.5.5.1";
        sha256 = "09ck4hadxgdlqpgxr45jxr261mzkzihmwd5b02xi05z8034bhqk7";
-       editedCabalFile = "0p36wbk8rmx6kqh5g2nfw26a8fsc8da3039ahy5l7kl8fa56yl95";
+       editedCabalFile = "25516f8a7288ce438b872a0d3054434c3ba48ce0ce8a57209ea6d78ce6e2665c";
        buildDepends = [ deepseq ];
        testDepends = [
          ChasingBottoms deepseq HUnit QuickCheck test-framework
@@ -37312,7 +37312,7 @@ self: {
        pname = "fastcgi";
        version = "3001.0.2.4";
        sha256 = "0lp17w098043xczwkah7h1x47wzrym7vv5adgla0aq9iybqay7xr";
-       editedCabalFile = "12p963nf6375sh1k7dd1m9l0nzq4xwsc099gh1qj2jch59lqgkbl";
+       editedCabalFile = "74cd87692a90492171802f25c034ef047f0b68aaa1b53303d4e50ce3ec30e98a";
        buildDepends = [ cgi ];
        extraLibraries = [ fcgi ];
        description = "A Haskell library for writing FastCGI programs";
@@ -37626,7 +37626,7 @@ self: {
        pname = "fedora-packages";
        version = "0.0.3";
        sha256 = "14fpv76ndp755mysgbya2hgr35rg2hb6dsagmrq2j2mn06xmngqk";
-       editedCabalFile = "0fnkx2k6iii86g6k1kvg9acpnp0cc7hjd1mvky67yllidmz8b7dh";
+       editedCabalFile = "b09d857e6d91527f8c9fbb8626e1610c5c7b994a6fcf30cd3328c668a6e8d33a";
        buildDepends = [
          aeson HsOpenSSL http-streams io-streams lens text
        ];
@@ -38065,7 +38065,7 @@ self: {
        pname = "filepath";
        version = "1.3.0.2";
        sha256 = "0wvvz6cs5fh4f04a87b9s7xrnzypmnzzkn149p6xk8xi7gcvcpy2";
-       editedCabalFile = "0q7dwhmpik7a3046wshkjwdhsv1cd628n8m0846x6mkzlfhqnnca";
+       editedCabalFile = "8a598ba1a37f56d30d41a0228b84692c6c0d1b97136a6e0818eacc782be4ed60";
        testDepends = [ QuickCheck random ];
        homepage = "http://www-users.cs.york.ac.uk/~ndm/filepath/";
        description = "Library for manipulating FilePaths in a cross platform way";
@@ -38654,7 +38654,7 @@ self: {
        pname = "flippers";
        version = "1.0.1";
        sha256 = "1swyj1f67giq7h9xcl6dzsw4ywk1jbl6avpihbv0q9g9hp6yzqp3";
-       editedCabalFile = "1d3k5prcb5nl7gwq30h4n7qsbl86hrj42zpvrqwsr9lir2jss279";
+       editedCabalFile = "e908ada5c891a6ac39cefb7e41648606d1a5f1b1048281f93bd496c5f22d73b4";
        description = "Variations on flip for multiple arguments";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -40096,7 +40096,7 @@ self: {
        pname = "future-resource";
        version = "0.3.0.0";
        sha256 = "1w1ifjzfpqlqf7dzlnca67xhc1m1ddaflq3xin5xf9s2qnmsahvx";
-       editedCabalFile = "10mh317aq1b1wq900cs34hcjydf0i22lzvmqj1hls4wndvr2m17r";
+       editedCabalFile = "f9842af26e96134d6190b8ee4f8588c0352f192443330012e66105ac4e18b082";
        description = "realtime resource handling with manual concurrency";
        license = stdenv.lib.licenses.gpl3;
      }) {};
@@ -42268,7 +42268,7 @@ self: {
        pname = "gloss-accelerate";
        version = "1.8.15.0";
        sha256 = "1nj2rnp2bg3xmi4xbaws9jc7qx3b4qqg9fyvfv13xdav28d7iqb0";
-       editedCabalFile = "1mmq7z826pz923s7m8znjwvsyjajgyhjf7wdddwcdcwc4319a09w";
+       editedCabalFile = "3c0195c2208cb3c6786b8d1f27a17f5249af3797f6a37af410e95f23d03fb8d6";
        buildDepends = [ accelerate accelerate-cuda gloss ];
        description = "Extras to interface Gloss and Accelerate";
        license = stdenv.lib.licenses.bsd3;
@@ -42375,7 +42375,7 @@ self: {
        pname = "gloss-raster-accelerate";
        version = "1.8.15.0";
        sha256 = "1fs3ybrzkykslac1zzh6g73lfdfysn6y2fr1pra9hd0a7x5a8j10";
-       editedCabalFile = "0dan3bb78p3rmv46lgapawjfz0nyl80qcdi92f8jp0j56ksh3ivx";
+       editedCabalFile = "7dc701f53445822b911329368601a2de82ef2457573d6ac8ae795c74d61a5635";
        buildDepends = [
          accelerate accelerate-cuda gloss gloss-accelerate
        ];
@@ -46813,7 +46813,7 @@ self: {
        pname = "hask";
        version = "0";
        sha256 = "1c87jxafxpnlyblhdif4br61wqvnad0s6hvfhmzhx9y1jri3rb39";
-       editedCabalFile = "09h0sr60vwkjnjdfawg8d8shz8vh3r7q7n9vgwfs3fkzbajcpaq4";
+       editedCabalFile = "04abcba45a7fbaa11d7f3bd9834f1e70a30f356ae871e59ab472f20d4cd60026";
        buildDepends = [ constraints reflection tagged transformers void ];
        homepage = "http://github.com/ekmett/hask";
        description = "Categories";
@@ -47033,7 +47033,7 @@ self: {
        pname = "haskell-awk";
        version = "1.1";
        sha256 = "0ic21rfm35jp7476pm6ggkp4faqsn9rhvzb58b497ilgj9wzv1dp";
-       editedCabalFile = "162nlnqs99bz6h0idgv372rp2jz87qv0kp39sbvy5z58ax6fk96x";
+       editedCabalFile = "dda4e94c57a8fce2f7d269dc09363ee84b71b33863bf1601347fa5a4b1a55698";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -48738,7 +48738,7 @@ self: {
        pname = "haxr";
        version = "3000.10.3.1";
        sha256 = "0alvrsk85f1l79hfa9shagjckp4sx835l9734ab2izfv50mxx7gm";
-       editedCabalFile = "060r24v3x8idc07ji22z7aq53h2mw3k2vv8kyn7k4q5f4b8q26li";
+       editedCabalFile = "911a81d122ae60328ff513ed2de6e055c051b03a5f88280f602da23e36111918";
        buildDepends = [
          base64-bytestring blaze-builder HaXml HTTP mtl network network-uri
          time utf8-string
@@ -50729,7 +50729,7 @@ self: {
        pname = "higherorder";
        version = "0.0";
        sha256 = "06cqhk9jalyps4v9w6wmpy9jdj3piwsp0wl3fvkzwa5iydlyvisz";
-       editedCabalFile = "0nflwfx4gng0kk2lxfsrrk10sgjln7jq4zl3ydv8i0n4m472b1y5";
+       editedCabalFile = "c587250ea9c4828876f3837e82e5b1543e0dc2cc59bb4ec59ce0d947bae3d459";
        description = "Some higher order functions for Bool and []";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -52270,7 +52270,7 @@ self: {
        pname = "hoist-error";
        version = "0.1.0.2";
        sha256 = "1485adrlm52jm5afcwa7qnfy4b1679nqjhhlsjp264wqmm0h9l0z";
-       editedCabalFile = "12kszqrw8241lnzpvx2qwiwabd6w3wnb6d2kqvgr152wp73hh2wh";
+       editedCabalFile = "900b08c7b95c9490dfc65334b32c1fdcb4a578e458f47dbfa58108c433fe7a8a";
        buildDepends = [ either mtl ];
        description = "Some convenience facilities for hoisting errors into a monad";
        license = stdenv.lib.licenses.mit;
@@ -53919,7 +53919,7 @@ self: {
        pname = "hsConfigure";
        version = "0.1.0.2";
        sha256 = "199sza2jh3d5046yyb141b0jwh1m1p68hv4x3b5xz6vw9dzfbw3c";
-       editedCabalFile = "00jwlii1w8smc5b0hn8lhiynld3v35hr0fwizm07xq4ryzmn8cmb";
+       editedCabalFile = "ab3264ebf799e07e40fd913b9061197b346a7d84145908566155231e62a45c02";
        buildDepends = [ filepath ];
        homepage = "http://github.com/YoshikuniJujo/hsConfigure/wiki";
        description = "By using this package, you can make application configurable";
@@ -53957,7 +53957,7 @@ self: {
        pname = "hsay";
        version = "1.0.0";
        sha256 = "01mjlknqrn7s8xxcvyshw12iaals57q1dzfbxd96wypd4irnzhjn";
-       editedCabalFile = "1a7irsaq9k5qgj39a4kbihlffqz2ns3vrb1cyimri9mx4qlkfb6z";
+       editedCabalFile = "df2c372926bda6986bf42cacbc87b6e263e7288c6b1295867cb8cc8495cef1a8";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [ HTTP ];
@@ -55527,7 +55527,7 @@ self: {
        pname = "hspec2";
        version = "0.6.1";
        sha256 = "0zlvm7r46q8yhgx2kx9mfrf6x2f5amdbi3a59fh69dsqs4lbgmf4";
-       editedCabalFile = "0zqh0f7d89aw3ib7mx2wlkpc166f3zipgka4m54y2shcz3rbl7nl";
+       editedCabalFile = "d41ebaf2f80c6ae149a944cd77e31fce98c0eea45cf47a561c5c25d48e03107f";
        buildDepends = [ hspec hspec-discover ];
        homepage = "http://hspec.github.io/";
        description = "Alpha version of Hspec 2.0";
@@ -55606,7 +55606,7 @@ self: {
        pname = "hsql-mysql";
        version = "1.8.3";
        sha256 = "0834jr5jrr1m7ap93wvmb5ir0906f7f7xx52x21i1l1jfpan34j9";
-       editedCabalFile = "1aqlpx6fjyp2pyjxz0bs5qrvvj1105g4lgm94g7hlcbfrcgbgfz1";
+       editedCabalFile = "e1bbb71ecb6e310acf23a93e4a5e0121c8bd332e7a81dfa5bfe27ae94cbf14ab";
        buildDepends = [ Cabal hsql ];
        extraLibraries = [ mysqlclient ];
        description = "MySQL driver for HSQL";
@@ -58153,7 +58153,7 @@ self: {
        pname = "igrf";
        version = "0.2.0.0";
        sha256 = "04ipbhry1v3cpkflshqa9sp46px0k6g67n8apvdqykk5fsssdpm1";
-       editedCabalFile = "0kqyrvv7wnr35nlyip14g1shjb8zfqg7x4vm0qqhc57vc6s6qqbx";
+       editedCabalFile = "7d616cb461fb1406310675937e1e761f2d09757824dce8a92d235b7ef6ce1e4f";
        buildDepends = [ ad polynomial ];
        homepage = "https://github.com/dmcclean/igrf";
        description = "International Geomagnetic Reference Field";
@@ -58323,7 +58323,7 @@ self: {
        pname = "image-type";
        version = "0.1.0.0";
        sha256 = "0xr55c5g4jn1y83qy7bqa5ww9r73vw9clgln9ld893vypmb91wks";
-       editedCabalFile = "1wl2sv2g7iwxldk582h1z6a2b3ks4wzk8rx8bflcxwlh6s4kq0s7";
+       editedCabalFile = "47033c893690f2cea85ba867343f277a8e2594f9010a5466a39dc7f3c4d682f2";
        homepage = "https://github.com/Icelandjack/Image-type";
        description = "Determine the type of an image by reading the first bytes";
        license = stdenv.lib.licenses.bsd3;
@@ -58392,7 +58392,7 @@ self: {
        pname = "imagesize-conduit";
        version = "1.0.0.4";
        sha256 = "0hhmjbdqdljfy3khzpg2xq6kgxa9x89jvpci7lf413pc1lpg4cw7";
-       editedCabalFile = "0gaas69df3m6q6yanzhzyv4smqkar4svs6yzy7vcvq9aayk6x6ls";
+       editedCabalFile = "9a9a6ea6572ae1cdf6f1df1bbd35c96ae2aac9f61f7eabbcc1a60ed792d14a3d";
        buildDepends = [ conduit conduit-extra ];
        testDepends = [ conduit conduit-extra hspec resourcet ];
        homepage = "http://github.com/silkapp/imagesize-conduit";
@@ -59390,7 +59390,7 @@ self: {
        pname = "io-throttle";
        version = "0.1.0";
        sha256 = "043plb9n606hkbdjddgk9kg12fzzs7ry063ckiky4zymy2vprcj9";
-       editedCabalFile = "0vm1c6ncb6ckchrmyhk201b2mc3s3z8p59cy49sf6xjza4r3b463";
+       editedCabalFile = "c3903532515f76e374229ea572d11f7ab02a560062425f33649399c5ac61a16e";
        buildDepends = [ SafeSemaphore threads ];
        homepage = "http://github.com/rodrigosetti/io-throttle";
        description = "Limit number of IO actions started per second";
@@ -59616,7 +59616,7 @@ self: {
        pname = "irc-ctcp";
        version = "0.1.2.1";
        sha256 = "1bpn9i9mqmhiif6mhw6q9nzy5cwx1x1yh81216gkqc5gi43gsc5s";
-       editedCabalFile = "1khd5naw7jb1mn7s3c8gnccpmf5qx51yagr7i57v6cnkrbvjzs93";
+       editedCabalFile = "23e92ff7cad332b34f89273fe543e9b8b87a19b30fb1a18fad61c9c3952d0dce";
        buildDepends = [ text ];
        homepage = "https://github.com/barrucadu/irc-ctcp";
        description = "A CTCP encoding and decoding library for IRC clients";
@@ -59655,7 +59655,7 @@ self: {
        pname = "ireal";
        version = "0.1";
        sha256 = "0qphr5fr118549wr09aq6yf4v7f346pdv0w8ga7a1svq3ckkyp5d";
-       editedCabalFile = "1xrfnrd066q6sl3q657jza5098606z1xz4i6yw1yfl8rma0vjdxg";
+       editedCabalFile = "af37b981aa1951e703f72692dfc337c0a0048afaf2148307d5061b035ab62ef7";
        buildDepends = [ QuickCheck ];
        description = "Real numbers and intervals with not so inefficient exact arithmetic";
        license = stdenv.lib.licenses.bsd3;
@@ -60342,7 +60342,7 @@ self: {
        pname = "jammittools";
        version = "0.3";
        sha256 = "0qwnqnz3s4bmgmhmy05x58znxz7vdr1bjbkd5lb6pzbi11grjipg";
-       editedCabalFile = "1l0kq0admi17pmyq6d9rq2vyp8kzlr0f9pga3xf5lni7daz0lhmh";
+       editedCabalFile = "b0420abe6a275a5a5c1feadde440a67fa2ebb7c03935837dbd27c4da14c013d0";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -60895,7 +60895,7 @@ self: {
        pname = "json-extra";
        version = "0.1.0.1";
        sha256 = "1wqn68brkjmix7xidcb7170ydpxwq1p48qqmm4w9ak0zkvm70fks";
-       editedCabalFile = "0h87dgff9wf775vm643hs3fchb52x84ip3p1zy3q0pfb8wykq4bn";
+       editedCabalFile = "76113c3d47cb5d8087ffe18e1b09eaa22cc8dcd07010537739c7f1e4dc6b0741";
        buildDepends = [ aeson data-default unordered-containers yaml ];
        homepage = "https://bitbucket.org/tdammers/json-extra";
        description = "Utility functions to extend Aeson";
@@ -65667,7 +65667,7 @@ self: {
        pname = "lojban";
        version = "0.3";
        sha256 = "0pd31g21db8yh1mrnmy7r60lr0dbpwlxpwc0hli3y1wcr4fisnx6";
-       editedCabalFile = "1z0wdcylh38mn5jhwnp1rl7azadkw57df1m69jiax05ay74cjc4x";
+       editedCabalFile = "9d30c9c8f1aa80aea24ca606d74ee1b3a9af0ecde15a0e65b1150d483d6b1cfc";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -66138,7 +66138,7 @@ self: {
        pname = "lvish";
        version = "1.1.4";
        sha256 = "1s7i1jxb6m7ivk4nd60dy8hn4wgfhv1gcamvv6hgjvcw6rxn4k44";
-       editedCabalFile = "0xkfwxn9k68lcanqz2kcb5v0zn1j715c58h15dd4pigbs9xszc1q";
+       editedCabalFile = "38b0af7bd2ebc54b5a2b01a2c24a3832d80f76596c8a8fad621499996ce76e76";
        buildDepends = [
          async atomic-primops bits-atomic deepseq lattices missing-foreign
          random transformers vector
@@ -67215,7 +67215,7 @@ self: {
        pname = "markup-preview";
        version = "0.2.0.2";
        sha256 = "1y4ha8wn2v7rw9v3sy0faxnmi0g623bnvyj05gha2nnxrzif9pdd";
-       editedCabalFile = "0nz2jamp44a6h26xc1435gdhjfkdi7cb5spbfxh6b0ggxn3c5a1h";
+       editedCabalFile = "30a8c286edef81656077ebeab2d8896d3a09db2b8304d68d80461172ab92e25b";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
@@ -67807,7 +67807,7 @@ self: {
        pname = "memexml";
        version = "0.0.2";
        sha256 = "07cmjx10wbpfcblnd23rzdkma04nyjcpd1g58gp0phajj6xj4i7a";
-       editedCabalFile = "0givph35nw1flak8vzhpsfsiha18fspgswd783xz29rscjkjwwd1";
+       editedCabalFile = "a1712ea7643a27f1fb40a771fdae76282818b5d317fe8da6a22e705b06bc3b3e";
        buildDepends = [ hxt ];
        homepage = "https://github.com/eggzilla/memexml";
        description = "Library for reading Meme XML output";
@@ -69069,7 +69069,7 @@ self: {
        pname = "monad-lrs";
        version = "0.0.2.1";
        sha256 = "01i8hz50r3lf8r3rasl96blr6br3p1x6hvckhbi8aw61x507jmcg";
-       editedCabalFile = "1hcmwss7ifz2gd8h0559ksxai6gs61sk0674l1jfa4b9hablfwfx";
+       editedCabalFile = "dd714797826911e564a0e418307530fa99a8ba9ea91400517be2bb78b4e695c1";
        testDepends = [
          QuickCheck test-framework test-framework-quickcheck2
        ];
@@ -70061,7 +70061,7 @@ self: {
        pname = "mqtt-hs";
        version = "0.2.0";
        sha256 = "0jvzr6qbmdxl11j8fwnbasgqgdfm395lm2gh2va9zfpk5xpx0mjg";
-       editedCabalFile = "0fb4f0cp2lfw870fyw1dmrsq27rncrdn40mc8r3fvywwm6g2w2ma";
+       editedCabalFile = "aa0a2e9ea99cfbed4646ac02625b66361f8175ae2d70efc041dc517119706439";
        buildDepends = [
          attoparsec monad-loops mtl network singletons text
        ];
@@ -73634,7 +73634,7 @@ self: {
        pname = "opaleye";
        version = "0.3";
        sha256 = "1jq2q0dswgj5jksdd5xn2ny66d1nfqmwf7cv835gg59g4rd2yyrx";
-       editedCabalFile = "118asq6v6zskvjkx3c0s57y3i1qsah46lwsv3qkz7x9qwpirv87v";
+       editedCabalFile = "fba09de3e538f5f3271e5b736a08541a8738fc291ab0d1a7dc537fb30dd60a85";
        buildDepends = [
          contravariant postgresql-simple product-profunctors profunctors
          semigroups text time transformers uuid
@@ -74458,7 +74458,7 @@ self: {
        pname = "packunused";
        version = "0.1.1.3";
        sha256 = "1f8lc9lzqwyzdz1j8czdan04d4bj393xk1rxfhr39j4a56qskp1c";
-       editedCabalFile = "09qm5v4rjplig1fz7fk61i1lhh4fgh613jxfwjlia1v2qamhbchk";
+       editedCabalFile = "13b205abc2620715a9e4aecb110c7c8e4048430c66baf35d78915e99c92e1527";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
@@ -74505,7 +74505,7 @@ self: {
        pname = "pagerduty";
        version = "0.0.0";
        sha256 = "0g14xnk0a210fzfxyxviqnrfgl6bxvvf5ikgqsjmifjv1h9pj6b8";
-       editedCabalFile = "0zby8sylrgipdx8kk4mxzrmhzrip0q53p80vd0xww706q2lx7zax";
+       editedCabalFile = "5dfdd3a9c0061cce3b681ba03b0a0637e60f6bfebd9239516f37be4cbd467e7d";
        buildDepends = [
          aeson bifunctors bytestring-conversion conduit data-default-class
          exceptions generics-sop http-client http-types lens lens-aeson
@@ -74587,7 +74587,7 @@ self: {
        pname = "pandoc";
        version = "1.13.1";
        sha256 = "0vvysa70xp4pskxrvslmddwdsalc479zb8wn6z1vmpvfssvvj6vv";
-       editedCabalFile = "1i57yk1pql4gv97cs86fk82hkwncics1wkzjqd9iz866204y4wrg";
+       editedCabalFile = "2f73e20910c6a01f53c3f24f1e348bccf209059ace20cd4eda8f507cc3f4a7c4";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -75176,7 +75176,7 @@ self: {
        pname = "partial";
        version = "0.1.0.0";
        sha256 = "0ybh0yz68gawbfswk1s498asc1z7qw6b8qys7rasw5i5iw6vjvr8";
-       editedCabalFile = "0wp1cqv9n9ff4wlxk7q17m0vd1dfh8wxljmmdc01l41gzc6bp77l";
+       editedCabalFile = "f49cbb0cfb2f101a006bb54ada3982ae85b6413d019fd92927ce259b3666e172";
        homepage = "https://github.com/paf31/partial";
        description = "A nullary type class for partial functions";
        license = stdenv.lib.licenses.mit;
@@ -78393,7 +78393,7 @@ self: {
        pname = "prefix-units";
        version = "0.1.0.2";
        sha256 = "07b5s2bsqlaad06dgr5psidfgi1nmgc5c16j6kzayw9f4najjrav";
-       editedCabalFile = "02mh9m5yx7n25zl4vggjqckysphp60n2gic0m128wrsj7aannba9";
+       editedCabalFile = "492d6b953a52678e44a880c5272c30175eed27c3f2bd4de82fc29eee4b4db00a";
        testDepends = [
          Cabal HUnit QuickCheck test-framework test-framework-hunit
          test-framework-quickcheck2
@@ -78855,7 +78855,7 @@ self: {
        pname = "process";
        version = "1.2.0.0";
        sha256 = "02il5pxibf0q9b46v0lgdxyc2wlk5kg1v8223ry6brg41zpcj71q";
-       editedCabalFile = "1bz4cxzi251aphyiplsf55bk3315s9ppliq9sigpfzfss1w8a023";
+       editedCabalFile = "43008578d0da7d775fd409477a6fd2258c3157294ed31b3dbc2a14117f67e4af";
        buildDepends = [ deepseq filepath ];
        description = "Process libraries";
        license = stdenv.lib.licenses.bsd3;
@@ -79051,7 +79051,7 @@ self: {
        pname = "product-profunctors";
        version = "0.6";
        sha256 = "1qhl2v0shzip5yh7x7b6k7xsnd4d5spf1f69h0qr0l57lm6jywl4";
-       editedCabalFile = "0cix24mk56pdfh4dn404fsc7njvax66dir6xyhh6k6ip83c4bf29";
+       editedCabalFile = "49b845d840379a6920f4dde4d88ce96a4b7b98760410db0874ed9a322b113d32";
        buildDepends = [ contravariant profunctors ];
        testDepends = [ profunctors ];
        homepage = "https://github.com/tomjaguarpaw/product-profunctors";
@@ -79226,7 +79226,7 @@ self: {
        pname = "projection";
        version = "0.1";
        sha256 = "0g9zrdp92w8ygrsmbw4600xaf8d17sm4pq68qd6z7hnf8zps22c1";
-       editedCabalFile = "02ykpvapl8ypzrggf0b6bdcy6wcwbkwrczhbq3ccc02282lv8pc0";
+       editedCabalFile = "805db4a9404200c6d8c00b7e96f95c9c71e3595b6601f75efed7237ad5bed30b";
        description = "Projection function for arbitrarily nested binary product types";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -81537,7 +81537,7 @@ self: {
        pname = "reasonable-lens";
        version = "0.2.0.0";
        sha256 = "0pnq83h2i6dv4kbkgl44h0ik2gi8khavv9j587c8w655k0i5nf4v";
-       editedCabalFile = "0i8fjw5zs0df72kxy27qwsz08s5q2m93mby2y1n6dv43sxvgg6v9";
+       editedCabalFile = "699bf776d783ec666cf0c2af3a5215b86804bee6f808dfa738ae01fd0b970e45";
        buildDepends = [ mtl split ];
        homepage = "https://github.com/tokiwoousaka/reasonable-lens";
        description = "Just size lens implementation";
@@ -81681,7 +81681,7 @@ self: {
        pname = "redis-resp";
        version = "0.3.2";
        sha256 = "07lvgq2l2fahhc9z3hjjjpx3n4rzdxl2l2ww9brxnv23432xpz97";
-       editedCabalFile = "0cfryrh6ys3b9pydbx7pwifxmp4v98xabr94shk3pkqd4pv7mybl";
+       editedCabalFile = "74f97af6250dcf3b26d424e5a53a4a9bdcda5de4f7f4d5fc4d6b686f60f6d931";
        buildDepends = [
          attoparsec bytestring-conversion dlist double-conversion
          operational semigroups split transformers
@@ -83255,7 +83255,7 @@ self: {
        pname = "rest-stringmap";
        version = "0.2.0.2";
        sha256 = "0nzkc09679c2mz3amh1avk2kfjpqbhbxsr0r9zvgcs71gqkal2mz";
-       editedCabalFile = "04rvx4f6pn1dm0k3p5jlj07m9dh4mvzpk05an86c0rngvwi89n3b";
+       editedCabalFile = "6bd88422dfcf66c00cb2aa8079ffae04b6540f9054963b26a82dd86b1ce93b13";
        buildDepends = [
          aeson hashable hxt json-schema tagged text tostring
          unordered-containers
@@ -85233,7 +85233,7 @@ self: {
        pname = "scholdoc";
        version = "0.1.3";
        sha256 = "0dsbr4nk56cmbgdnk91s39lc4qp2wb39hkyisaf4f1n6nmx8zmn4";
-       editedCabalFile = "0ddlmg6f7y70f1yi351q1d46mgxzs8h53969jmhdhj6al860grxv";
+       editedCabalFile = "bbe7070ca2ca48d86095c9a45120d2bfbf6a480b3894117d70e0f8e3ccabb435";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -85263,7 +85263,7 @@ self: {
        pname = "scholdoc-citeproc";
        version = "0.6";
        sha256 = "0wy8cwr933zcqb85qscj9l9qcl2xv8mkbd2g9b4gs7c1k5b6khll";
-       editedCabalFile = "065ij08gi9ymyqqa7lmj5d57zqk4rax72kzhm2qbvn00h3g6d81k";
+       editedCabalFile = "33a066de8000d8bdb0a8f04f71baca64e27f4a2bb2d2a330f6d5a7f81090b118";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -85287,7 +85287,7 @@ self: {
        pname = "scholdoc-texmath";
        version = "0.1";
        sha256 = "1ddzdypdijpkil7v7g6jf74dmlw72j0hjmnxys21fdvgafiq9bk3";
-       editedCabalFile = "17qzsqmbfgz60v4nphfl5xqdcw0m0w60mfcwqc7gk377g7hdinkf";
+       editedCabalFile = "6edad8e079e78cf90ec39cb90a0c071570d6702fd4c16bc906e63fb72ad61f9f";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ mtl network-uri parsec scholdoc-types syb xml ];
@@ -85303,7 +85303,7 @@ self: {
        pname = "scholdoc-types";
        version = "0.1.3";
        sha256 = "0als5517hplkccrkv9c31dm0ivlk60ais0wyvc9a31jdjwjcyppk";
-       editedCabalFile = "139npnck7gc2m7q5zrs4y163n22wnb2xl9bhsmhq72lq3255gyqq";
+       editedCabalFile = "18fb578a18988a8361d57025dac5b25c083b4cf044e75ff0a982bd3399bd368d";
        buildDepends = [ aeson deepseq-generics syb ];
        homepage = "http://scholdoc.scholarlymarkdown.com";
        description = "Scholdoc fork of pandoc-types";
@@ -85490,7 +85490,7 @@ self: {
        pname = "scotty";
        version = "0.9.0";
        sha256 = "0gx00k5w4cs68bh3ciplkwhzh2412y6wqg0qdsslnnsb41l5kb1d";
-       editedCabalFile = "1i4r5h8c0dnnf352d3g3bk13jvdcp7wmdgv1mafa8wsw0myqlw0x";
+       editedCabalFile = "1d708a7d055c73a49caa61bf56f9b9ac6d39c25ce38d26ca70d636c0102c99c4";
        buildDepends = [
          aeson blaze-builder case-insensitive data-default http-types
          monad-control mtl regex-compat text transformers transformers-base
@@ -86678,7 +86678,7 @@ self: {
        pname = "sexp-show";
        version = "0.1.1.0";
        sha256 = "1ip1y1y2z2d6ib3ihq18j93081cp2lkwjm27bc0d0ihixd154gy5";
-       editedCabalFile = "0k0m584vg3wlvan140fgha3la91kq8ga7yl5shbpar9cajj0akri";
+       editedCabalFile = "314f05a4542c657517d485faa31ec23324458782cf0112acda948fb7092a154c";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [ pretty-show ];
@@ -87971,7 +87971,7 @@ self: {
        pname = "simpleirc-lens";
        version = "0.1.0.0";
        sha256 = "0lr4zrp8h7xgg8zsznawqkkzh3pvlzfw5hl6n0hss5ramb71ccy5";
-       editedCabalFile = "0x89s7ilj4rylz1wjvri8d2419410ka4ny4xsm3nfc9hnbam11v1";
+       editedCabalFile = "618750d5b230316747d59d784bd40481a4404443316fc9c3a73e1349e3d10975";
        buildDepends = [ simpleirc ];
        homepage = "https://github.com/relrod/simpleirc-lens";
        description = "Lenses for simpleirc types";
@@ -88012,7 +88012,7 @@ self: {
        pname = "simplesmtpclient";
        version = "0.2";
        sha256 = "0z8g82222nvh3yhn8qisr8qqnsv02zxjyzs32qrcg2pshbd5mdj8";
-       editedCabalFile = "09dd2d70jhkw3svsf4680f9250w4c7s9396w6dac2l2ypxxiq0p6";
+       editedCabalFile = "e6021c7bbf5e50c15433dca491f4618483229203c810a7b71e7c42094e13ad25";
        buildDepends = [ network ];
        description = "Very simple SMTP Client";
        license = stdenv.lib.licenses.bsd3;
@@ -88703,7 +88703,7 @@ self: {
        pname = "snap-core";
        version = "0.9.6.3";
        sha256 = "0i3gl1kxzi2l76sqhyhda7lrcvq8hq6aqgwvfx5k9fa2xic01dw1";
-       editedCabalFile = "0gj8wgxy8vs0cdwmb32ksszx7jbgn0w5n2682vg842dn6gvn24qc";
+       editedCabalFile = "0c1361f733b60982de16c8085b38b06fc9d3bfd6538c557963406fe4fbe3483e";
        buildDepends = [
          attoparsec attoparsec-enumerator blaze-builder
          blaze-builder-enumerator bytestring-mmap case-insensitive deepseq
@@ -88788,7 +88788,7 @@ self: {
        pname = "snap-loader-dynamic";
        version = "0.10.0.2";
        sha256 = "0fnpzhwnj3dsqwx880391x9x6y0ry8f6dfrzkfs963zib9l3qvh7";
-       editedCabalFile = "0zbxv1hx2mb147wg7hl3lckx2qy4wmw8fhf4c7qzdml41kyvqr1g";
+       editedCabalFile = "2f64bcfd0c84d6f6f161c4418778e5c463d127a383c2f3f8216155d161d87d7d";
        buildDepends = [ directory-tree hint mtl snap-core time ];
        homepage = "http://snapframework.com/";
        description = "Snap: A Haskell Web Framework: dynamic loader";
@@ -88837,7 +88837,7 @@ self: {
        pname = "snap-server";
        version = "0.9.4.5";
        sha256 = "09399vlqgic0iwmx31c01bjpbdblw8gayxnz71lwzkixqibkbbip";
-       editedCabalFile = "153crm1b629by5r5g05fq0k4c1a82y5v1hzl7s3g40mwpsr3icfj";
+       editedCabalFile = "d2b138b2bebc02f2863ef4c3b08b1748054626c0ae805772f12b09b342cd6c94";
        buildDepends = [
          attoparsec attoparsec-enumerator blaze-builder
          blaze-builder-enumerator case-insensitive enumerator HsOpenSSL
@@ -89660,7 +89660,7 @@ self: {
        pname = "soap";
        version = "0.2.2.4";
        sha256 = "03zqbdmk44jds6sqaq90rr5zprnrw524c084jndl9hgq4gd4d39c";
-       editedCabalFile = "0k48q82kia572f8s6c90zqvi5ph3a1i99cdcf6amk7rcpyifg695";
+       editedCabalFile = "2599e7a2bf2c9f599571acb194625003de1237fe2031a39113a7a83805c2884c";
        buildDepends = [
          conduit configurator data-default exceptions http-client http-types
          iconv mtl resourcet text unordered-containers xml-conduit
@@ -90394,7 +90394,7 @@ self: {
        pname = "split";
        version = "0.2.2";
        sha256 = "0xa3j0gwr6k5vizxybnzk5fgb3pppgspi6mysnp2gwjp2dbrxkzr";
-       editedCabalFile = "1i1h5v1zqvganhzy1wdd9r648yjpir078n0g8051njg82h2f964h";
+       editedCabalFile = "9098e40414e8491b0a400f5874408e577a444c4eadf1e03fb4ea6dfcc32e30c4";
        testDepends = [ QuickCheck ];
        description = "Combinator library for splitting lists";
        license = stdenv.lib.licenses.bsd3;
@@ -90489,7 +90489,7 @@ self: {
        pname = "spoon";
        version = "0.3.1";
        sha256 = "1m41k0mfy6fpfrv2ym4m5jsjaj9xdfl2iqpppd3c4d0fffv51cxr";
-       editedCabalFile = "09s5jjcsg4g4qxchq9g2l4i9d5zh3rixpkbiysqcgl69kj8mwv74";
+       editedCabalFile = "e46c5e919cc9d0c7b0f671cddb631ef0979622a1e2250c59c7e491a799944527";
        buildDepends = [ deepseq ];
        description = "Catch errors thrown from pure computations";
        license = stdenv.lib.licenses.bsd3;
@@ -91569,7 +91569,7 @@ self: {
        pname = "stm-queue-extras";
        version = "0.2.0.0";
        sha256 = "1qd6zsr2lkkg5yxp72l38h00b2xj40jn38qx9sfvgpss6rkda40s";
-       editedCabalFile = "0fqrnd7mv82rhxwipg30mmqvsp9kvvznwl001nva162r5hn1540c";
+       editedCabalFile = "0c90122c2c5998a0b60d00506effde335dbd71ad60bc1b798759a05d4fb3193b";
        buildDepends = [ stm stm-chans ];
        description = "Extra queue utilities for STM";
        license = stdenv.lib.licenses.asl20;
@@ -95181,7 +95181,7 @@ self: {
        pname = "text-icu";
        version = "0.7.0.0";
        sha256 = "1fvq6qi9kvw722v2m9d40vwwa2irswfapqfjcrym9c2swdagxnry";
-       editedCabalFile = "07dqh8inkz7m0v65rl1npvg48g73vg5d192n6rwkgacczz54whqr";
+       editedCabalFile = "19434ecaff8ca937793656a4d0cadbe33c44debe36d05ccc06f5fc692382b81d";
        buildDepends = [ deepseq text ];
        testDepends = [
          deepseq HUnit QuickCheck random test-framework test-framework-hunit
@@ -95615,7 +95615,7 @@ self: {
        pname = "th-lift";
        version = "0.7";
        sha256 = "1mh5k6ifmc3mjavlrpkcq55ng737yb3nqv1q67fv8irkv5m6qpza";
-       editedCabalFile = "1mdf0zv65025fma8v6gxi3hf3ikjbkfydh74i0axw8cnwa6y29wc";
+       editedCabalFile = "8c27e18de29621de1588e4c0e6dd5c72c6e1e088fd998d5475458062f607aed5";
        homepage = "http://github.com/mboes/th-lift";
        description = "Derive Template Haskell's Lift class for datatypes";
        license = stdenv.lib.licenses.bsd3;
@@ -95750,7 +95750,7 @@ self: {
        pname = "these";
        version = "0.4.2";
        sha256 = "0hs59i07k1lkynvdpymjvl1va2frc3aq6wyrmbi7mz3vmz0bjcp7";
-       editedCabalFile = "0abnlhd8ijjppmbzfil7qfm7qrprlq4iy67iji7wqj68v3z73sq2";
+       editedCabalFile = "02eb71fed8c848cc4f94f1181f09a6f9667caac38746f757bd57ca881aa47629";
        buildDepends = [
          bifunctors mtl profunctors semigroupoids semigroups transformers
          vector
@@ -95818,7 +95818,7 @@ self: {
        pname = "thorn";
        version = "0.2";
        sha256 = "1krxfsgj4ciifg76khsl4lw1nb40xx4gs07nwd84ail85s394h1h";
-       editedCabalFile = "16hvf6vszsrgprdrsg8yhwf3ab0fk2y3q0ghykv7al7mjng9b7ni";
+       editedCabalFile = "d19e959e95f55075f6f4f0013cbc980e2c351c871e3d9d5bbe2febafb7711b9a";
        buildDepends = [ bifunctors contravariant mtl profunctors random ];
        homepage = "https://github.com/Kinokkory/Thorn";
        description = "Datatype Manipulation with Template Haskell";
@@ -97535,7 +97535,7 @@ self: {
        pname = "tsession";
        version = "0.1";
        sha256 = "1rj11vyd272h66cjx8pq6smcpi65n3vlfv4g7indcnpcz4w5l6rk";
-       editedCabalFile = "0msyf0rkd6aj8y632ippnrz554r6r5l7j45dnlnqlf1kls29kn5g";
+       editedCabalFile = "afd89984a633388a2db5ad107968c92693527eb6f746318c4752993633705e57";
        buildDepends = [ mtl time transformers ];
        description = "A Transaction Framework for Web Applications";
        license = stdenv.lib.licenses.bsd3;
@@ -97679,7 +97679,7 @@ self: {
        pname = "tuple-morph";
        version = "0.1.0.0";
        sha256 = "1zi6nh1z7z2jz5h0pvdm2czfy1rx7ixnnvp9akcpas19npgyfk94";
-       editedCabalFile = "1npahk37am7x6n4lfdk6y1i1690drg39j63gzb2jx5ivzxhlcp43";
+       editedCabalFile = "835c4661ff3b962ec5fa6f1899c6cb0d241362f06636478935fd5475c684eada";
        buildDepends = [ HList ];
        description = "Morph between tuples, or convert them from and to HLists";
        license = stdenv.lib.licenses.mit;
@@ -97994,7 +97994,7 @@ self: {
        pname = "twitter-conduit";
        version = "0.1.0";
        sha256 = "1cymgp3wlswxn5qfdr442cqq2ak48b5w1zcsr67n2g5p1izadwji";
-       editedCabalFile = "06z8dwvc17xhzpvb7cm0j6v63r5f3xirj36rr86bds3rw1zbnd0z";
+       editedCabalFile = "1f34bb7ee079e8b60ccad90c99631faee461b691a0b2b3f6fdb09fc0366fe81b";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -99508,7 +99508,7 @@ self: {
        pname = "unix";
        version = "2.7.0.1";
        sha256 = "0bppfzwdrf7afjqw9kzkq8chxvh6g7nyjd81pgn5dfd5qv7rgzpb";
-       editedCabalFile = "1pyg4ckdhsi2vlahzs99s6r87nsin782bq2v83jf3cc5p3yj629j";
+       editedCabalFile = "320923fdb885b1e1e4405be025d0b151db83b2d129e90f15dd226ad82623cfdf";
        buildDepends = [ time ];
        homepage = "https://github.com/haskell/unix";
        description = "POSIX functionality";
@@ -99884,7 +99884,7 @@ self: {
        pname = "uri-encode";
        version = "1.5.0.3";
        sha256 = "115wnc7x7gx57qza5az4c1wy0n2f40634529jk0vpxw6bb9b1mzn";
-       editedCabalFile = "1gjkbxxwamv6vak2iqn1byxh3z98d13z2nr1y533dv78bjj72ps5";
+       editedCabalFile = "455f71a45ce8ec3646f1215bf1476828fd01bb5fc1e228a6da6657c57b5f53be";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ network-uri text utf8-string ];
@@ -99972,7 +99972,7 @@ self: {
        pname = "url-generic";
        version = "0.1";
        sha256 = "0yfcy2nhc67kxb7n9mjxi4z5jcq4iz4kq80fb9lbi461vijhmw5m";
-       editedCabalFile = "1fbgzz9yhqc5lx15n551r190g2a6f1plf3clpar76fj3wqn6x4nr";
+       editedCabalFile = "d9926e2ce6433a73b2ba940d476f7046890752c8a1145b42a78561e8d3ff6fb9";
        buildDepends = [ mtl syb ];
        description = "Parse/format generic key/value URLs from record data types";
        license = stdenv.lib.licenses.bsd3;
@@ -100853,7 +100853,7 @@ self: {
        pname = "vect-floating-accelerate";
        version = "0.1.0.4";
        sha256 = "10mn2gvpkp14j7rc7cc66x30k7xh56xpp04ak1aj8p46rsy75s4x";
-       editedCabalFile = "05k20xd7rcf3hypbbw53bv8yl65sgpdawdfmskypk3mbl1w5fymg";
+       editedCabalFile = "af7a5778a0ab8e79fdd4d535aeda7dba18ead15ea3f0b5ae87c3b17c5a076216";
        buildDepends = [ accelerate vect-floating ];
        homepage = "http://github.com/cpdurham/vect-floating-accelerate";
        description = "Accelerate instances for vect-floating types";
@@ -103201,7 +103201,7 @@ self: {
        pname = "whois";
        version = "1.2.2";
        sha256 = "199fd710zicx7ijyvipc7p0d3yg18f6nppcln2wz38hl9kfv0iv0";
-       editedCabalFile = "07jpszzhzfygz920y09j4xrkw6pgwbpxqn79lavzz0w6jpd447y1";
+       editedCabalFile = "c11f42da958683ffb7a2e958dcefe2ef1a3e732732010f44facfbb0fffd7571e";
        buildDepends = [ network network-uri split ];
        homepage = "http://github.com/relrod/whois-hs";
        description = "WHOIS client library";
@@ -103951,7 +103951,7 @@ self: {
        pname = "x11-xim";
        version = "0.0.9.0";
        sha256 = "0sn789j0kz891l9p0srx6537yq44b5jlyph9vc3xdb3ygy20bjrw";
-       editedCabalFile = "1c561z9xvfcd7ddbiw3r0frhjvsrklachd38s66fzwjdgw1sl124";
+       editedCabalFile = "4404aa037f4df2ef8cd16834c8149d596f09b30379f0b85a3b8db9ddd30fa6b0";
        buildDepends = [ utf8-string X11 ];
        homepage = "https://github.com/YoshikuniJujo/x11-xim_haskell/wiki/";
        description = "A binding to the xim of X11 graphics library";
@@ -104533,7 +104533,7 @@ self: {
        pname = "xml-html-conduit-lens";
        version = "0.3.2.1";
        sha256 = "0iy58nq5b6ixdky2xr4r8xxk3c8wqp1y3jbpsk3dr1qawzjbzp12";
-       editedCabalFile = "0iq6m3wyaj8xxhrass9lylddj993ksl9ngxbdzf0dqv4p67dc9dm";
+       editedCabalFile = "b525d68eb964e306dc6fab3f9ba89e2325d91af53469ad32ec1d49e5f9a80647";
        buildDepends = [ html-conduit lens text xml-conduit ];
        testDepends = [
          doctest hspec hspec-expectations-lens lens xml-conduit
@@ -105211,7 +105211,7 @@ self: {
        pname = "xxhash";
        version = "0.0.1";
        sha256 = "0crmvkvk2604a06jjsn613bxx0n1lv59picl2656rx2pc7wbyidn";
-       editedCabalFile = "0x6jcj3p3fdjwfjx6rc2xhfgkchvamrbw7645lawccg4x6bifr0x";
+       editedCabalFile = "1d641797e9e431c6152dc41cbe72551bb2f91cec8265d3a5e3b2b9718764d274";
        buildDepends = [ crypto-api tagged ];
        testDepends = [ hspec QuickCheck ];
        description = "A Haskell implementation of the xxHash algorithm";
@@ -105504,7 +105504,7 @@ self: {
        pname = "yaop";
        version = "0.1.2.1";
        sha256 = "0z66ffxb89bksgqfji9x8msch9yk7nmbzm2qrcn5j3w4ylg7dpdr";
-       editedCabalFile = "0p55j9q5idzw5bmpg0i4vkifaadzvf3fdhjd02bh2ym2y15g0csk";
+       editedCabalFile = "5333f04af0a27a0197004dc2e686dbbf29e5e2dc248277eb2afcb7587092a55c";
        buildDepends = [ mtl ];
        homepage = "https://github.com/esmolanka/yaop";
        description = "Yet another option parser";
@@ -107638,7 +107638,7 @@ self: {
        pname = "zot";
        version = "0.0.2";
        sha256 = "12wgkrlvhby0gy6kngjwyx468yarpgkiwy51v6zb8jhx79mhidq3";
-       editedCabalFile = "0h1sb5bmdv2bh1n0vf5254kvf569bz8g6f7qar55p4r66kdwwp1j";
+       editedCabalFile = "325ccedb3426935b4a56f838f3d05fc914b72729a2b80d6c804bec5657593a40";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [ monads-tf ];
