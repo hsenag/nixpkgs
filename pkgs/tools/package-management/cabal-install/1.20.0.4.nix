@@ -9,6 +9,7 @@ cabal.mkDerivation (self: {
   sha256 = "171lkr8jw5k3l58gn41jmbp47kf3b8iq9dds0v8qx7wxzlxy0kz1";
   isLibrary = false;
   isExecutable = true;
+  configureFlags = "-f-network-uri";
   buildDepends = [
     Cabal filepath HTTP mtl network networkUri random stm time zlib
   ];

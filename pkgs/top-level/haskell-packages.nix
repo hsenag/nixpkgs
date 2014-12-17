@@ -3135,6 +3135,7 @@ self : let callPackage = x : y : modifyPrio (newScope self x y); in
   cabalInstall_1_18_0_3 = callPackage ../tools/package-management/cabal-install/1.18.0.3.nix { Cabal = self.Cabal_1_18_1_3; };
   cabalInstall_1_20_0_4 = callPackage ../tools/package-management/cabal-install/1.20.0.4.nix {
     HTTP = self.HTTP.override { network = self.network_2_5_0_0; };
+    network = self.network_2_5_0_0;
     Cabal = self.Cabal_1_20_0_3;
   };
   cabalInstall = self.cabalInstall_1_20_0_4;
