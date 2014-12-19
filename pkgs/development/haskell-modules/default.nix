@@ -166,7 +166,7 @@ let
     command-qq = super.command-qq.overrideCabal (drv: { doCheck = false; });
     comonads-fd = super.comonads-fd.overrideCabal (drv: { noHaddock = true; });
     comonad-transformers = super.comonad-transformers.overrideCabal (drv: { noHaddock = true; });
-    concreteTyperep = super.concreteTyperep.overrideCabal (drv: { doCheck = false; });
+    concrete-typerep = super.concrete-typerep.overrideCabal (drv: { doCheck = false; });
     conduit-extra = super.conduit-extra.overrideCabal (drv: { doCheck = false; });
     conduit = super.conduit.overrideCabal (drv: { doCheck = false; });
     CouchDB = super.CouchDB.overrideCabal (drv: { doCheck = false; jailbreak = true; });
@@ -321,7 +321,6 @@ let
     msgpack = super.msgpack.overrideCabal (drv: { jailbreak = true; });
     multiplate = super.multiplate.overrideCabal (drv: { jailbreak = true; });
     mwc-random = super.mwc-random.overrideCabal (drv: { doCheck = false; });
-    mwcRandom = super.mwcRandom.overrideCabal (drv: { doCheck = false; });
     nanospec = super.nanospec.overrideCabal (drv: { doCheck = false; });
     network-carbon = super.network-carbon.overrideCabal (drv: { jailbreak = true; });
     network-conduit = super.network-conduit.overrideCabal (drv: { noHaddock = true; });
