@@ -3375,17 +3375,9 @@ let
   ghc704Binary = callPackage ../development/compilers/ghc/7.0.4-binary.nix { gmp = pkgs.gmp4; };
   ghc742Binary = callPackage ../development/compilers/ghc/7.4.2-binary.nix { gmp = pkgs.gmp4; };
 
-  ghc642 = callPackage ../development/compilers/ghc/6.4.2.nix { ghc = ghc6102Binary; };
-  ghc682 = callPackage ../development/compilers/ghc/6.8.2.nix { ghc = ghc6102Binary; };
   ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc6102Binary; };
-  ghc6121 = callPackage ../development/compilers/ghc/6.12.1.nix { ghc = ghc6101Binary; };
-  ghc6122 = callPackage ../development/compilers/ghc/6.12.2.nix { ghc = ghc6101Binary; };
   ghc6123 = callPackage ../development/compilers/ghc/6.12.3.nix { ghc = ghc6101Binary; };
-  ghc701 = callPackage ../development/compilers/ghc/7.0.1.nix { ghc = ghc704Binary; };
-  ghc702 = callPackage ../development/compilers/ghc/7.0.2.nix { ghc = ghc704Binary; };
-  ghc703 = callPackage ../development/compilers/ghc/7.0.3.nix { ghc = ghc704Binary; };
   ghc704 = callPackage ../development/compilers/ghc/7.0.4.nix { ghc = ghc704Binary; };
-  ghc721 = callPackage ../development/compilers/ghc/7.2.1.nix { ghc = ghc704Binary; };
   ghc722 = callPackage ../development/compilers/ghc/7.2.2.nix { ghc = ghc704Binary; };
   ghc741 = callPackage ../development/compilers/ghc/7.4.1.nix { ghc = ghc704Binary; };
   ghc742 = callPackage ../development/compilers/ghc/7.4.2.nix { ghc = ghc704Binary; };
