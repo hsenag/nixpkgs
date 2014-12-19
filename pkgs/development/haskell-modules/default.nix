@@ -110,6 +110,11 @@ let
     # resourcet doesn't build otherwise.
     monad-control = super.monad-control-0_3_x;
 
+    # Needs latest Cabal.
+    Cabal_1_20 = super.Cabal.overrideCabal (drv: { preCheck = "unset GHC_PACKAGE_PATH; export HOME=$NIX_BUILD_TOP"; doCheck = false;});
+    cabal-install = (super.cabal-install.override { Cabal = self.Cabal_1_20; }).overrideCabal (drv: { doCheck = false; });
+    jailbreak-cabal = super.jailbreak-cabal.override { Cabal = self.Cabal_1_20; };
+
     # Depends on code distributed under a non-free license.
     yices-painless = super.yices-painless.overrideCabal (drv: { hydraPlatforms = []; });
 
