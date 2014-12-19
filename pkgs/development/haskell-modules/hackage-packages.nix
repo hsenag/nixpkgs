@@ -1699,8 +1699,8 @@ self: {
      }:
      mkDerivation {
        pname = "Cabal";
-       version = "1.20.0.2";
-       sha256 = "00mz24fj3qpq6rl3n3i73x6k0jzqix24k9izrlkzg07mpjcj4k93";
+       version = "1.20.0.3";
+       sha256 = "0vq1xcwvvk74jkzp7386ldyrls8qszg3rj4l37fyq3fvjkqnx80v";
        buildDepends = [ deepseq filepath time ];
        testDepends = [
          extensible-exceptions filepath HUnit QuickCheck regex-posix
@@ -2651,21 +2651,21 @@ self: {
      }) {};
 
   "Deadpan-DDP" = callPackage
-    ({ mkDerivation, aeson, base64-bytestring, doctest, IfElse, lens
+    ({ mkDerivation, aeson, base64-bytestring, doctest, haskeline, lens
      , mtl, network, network-uri, QuickCheck, safe, scientific, stm
-     , text, transformers, unordered-containers, uuid, vector
+     , text, time, transformers, unordered-containers, uuid, vector
      , websockets
      }:
      mkDerivation {
        pname = "Deadpan-DDP";
-       version = "0.5.0.0";
-       sha256 = "1kay7wy4rda71s0kbdc81zgb1dd1g8484p1ywcjcqf2rid0dc0xx";
+       version = "0.6.0.0";
+       sha256 = "15vdpwzm2kc0ipmwja6pvvl8llc30vagshn2hwbi6cc7s34qd9an";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         aeson base64-bytestring IfElse lens mtl network network-uri safe
-         scientific stm text transformers unordered-containers uuid vector
-         websockets
+         aeson base64-bytestring haskeline lens mtl network network-uri safe
+         scientific stm text time transformers unordered-containers uuid
+         vector websockets
        ];
        testDepends = [ doctest QuickCheck ];
        homepage = "http://github.com/sordina/Deadpan-DDP";
@@ -5830,8 +5830,8 @@ self: {
      }:
      mkDerivation {
        pname = "HTTP";
-       version = "4000.2.18";
-       sha256 = "1jn0ikbdwhd32qjwpnsmpnmy0dxhmwfhf8851ifxik91fn7j5j4k";
+       version = "4000.2.19";
+       sha256 = "1yzm8gimh8g0wwbixcbxg60v4l3vgi63w9v55ms0x9qnm6vrgysz";
        buildDepends = [ mtl network network-uri parsec ];
        testDepends = [
          case-insensitive conduit conduit-extra deepseq http-types
@@ -6760,6 +6760,7 @@ self: {
        pname = "HsOpenSSL";
        version = "0.11";
        sha256 = "000c1589yf1lzvw32hh2jacq1da6k2vynh5rymw3rlapxq7skyyr";
+       editedCabalFile = "100294b4e6d0e2e4b8dd73b633d0329f19c6dccdc02c819cd124405de1800854";
        buildDepends = [ network time ];
        extraLibraries = [ openssl ];
        homepage = "https://github.com/phonohawk/HsOpenSSL";
@@ -13100,8 +13101,8 @@ self: {
     ({ mkDerivation, parsec, prettify, semigroups }:
      mkDerivation {
        pname = "abcnotation";
-       version = "1.8";
-       sha256 = "1j0j2wzn7fr0n3gbcdf531wr5sg7xmrmbm221j5pni9nlqm2hr7x";
+       version = "1.8.1";
+       sha256 = "18qb8qdlfi3r8vv8aagsz65iv2clyj9lzn0q29m4gpvzgncsn22n";
        buildDepends = [ parsec prettify semigroups ];
        description = "Haskell representation and parser for ABC notation";
        license = stdenv.lib.licenses.bsd3;
@@ -15028,8 +15029,8 @@ self: {
      }:
      mkDerivation {
        pname = "amazonka";
-       version = "0.0.8";
-       sha256 = "0xa0ssphn5skqfg59azna02jw2rzgvzzhnffk1xacp0yxs6nw539";
+       version = "0.1.0";
+       sha256 = "043mgvsir5kh8yramssv0zpb645pv5c6jp0kwkx1z3hls0yc7r2b";
        buildDepends = [
          amazonka-core conduit exceptions http-conduit lens mmorph
          monad-control mtl resourcet retry text time transformers
@@ -15044,8 +15045,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-autoscaling";
-       version = "0.0.8";
-       sha256 = "0i90mc7bxqiyqbcfb26s8k8hfdhcs8vn0id3x9a11klza7xppdcd";
+       version = "0.1.0";
+       sha256 = "1rfblxics5xxclhfypp8vhs3l7p1izi56fx7g6rfxm3cv5s5pacv";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Auto Scaling SDK";
@@ -15056,8 +15057,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudformation";
-       version = "0.0.8";
-       sha256 = "184rk96jalzwn3nlbavl6nfiki46g27nx9pijm8vnvaqirp20mkr";
+       version = "0.1.0";
+       sha256 = "1iyk06k506rw3xzknlx6x2lk0f8xkrhw5ahy84530kqka6c3h4wi";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudFormation SDK";
@@ -15068,8 +15069,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudfront";
-       version = "0.0.8";
-       sha256 = "1qcghr0va93zl21g18spyhw6m6v8nmln3y19hxf4pfvlpp93pnr4";
+       version = "0.1.0";
+       sha256 = "165bc5nnc992lxk1zyh1zqpn9pynkvrzpr63nisvg1rb2qxp3lcs";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudFront SDK";
@@ -15080,8 +15081,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudsearch";
-       version = "0.0.8";
-       sha256 = "10w152ylfmr975zd89czxzryax3m0fyvgf3a8ih6xwixfpmwb1ih";
+       version = "0.1.0";
+       sha256 = "01pi062l0qqhih6bq5y3r1ivxcyzbmmc6lwjdgw5c3r9z5cnl9cb";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudSearch SDK";
@@ -15092,8 +15093,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudsearch-domains";
-       version = "0.0.8";
-       sha256 = "0lx5j6imzsp57kkzz7sd53nvb9pmpxf5l3f0hl6slbz29k44qndw";
+       version = "0.1.0";
+       sha256 = "0xdgkr7wcsmmj1pk1gna438v20834w5nhmv21vx894pmy071ks76";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudSearch Domain SDK";
@@ -15104,8 +15105,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudtrail";
-       version = "0.0.8";
-       sha256 = "0vxwbhxw1mynrjdvcdbimsji1xwrckdiq4272h7pmpkahnbxjw80";
+       version = "0.1.0";
+       sha256 = "0bhn2rr0k6zfzhbd5awz016gpnln39r2r4mc7y3rnd8623r1szx6";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudTrail SDK";
@@ -15116,8 +15117,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudwatch";
-       version = "0.0.8";
-       sha256 = "0wlg8im97lyqljhxy5s3nd1mnnrqvcqi6qbr82j6r086kqi92lps";
+       version = "0.1.0";
+       sha256 = "1d37gssbr8jk1mwwbdrs245vmbrhrnklr8gpk9lvk4gqbdnd8gpl";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudWatch SDK";
@@ -15128,8 +15129,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cloudwatch-logs";
-       version = "0.0.8";
-       sha256 = "0b1g3n7h4s6qdr033i88v01wxa2drvh7bf1x8ciim95wpa2vxqzd";
+       version = "0.1.0";
+       sha256 = "16gqbz9a6baln9x8p6ax8wbp03l8qjfp34n6cvm43rhwqgjypyb9";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CloudWatch Logs SDK";
@@ -15140,8 +15141,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-codedeploy";
-       version = "0.0.8";
-       sha256 = "1zzsfl8q56ahxzdilwa2pqwc3d5g5rcsldwy2mb971mk3y8adjw3";
+       version = "0.1.0";
+       sha256 = "10s18p2qs850plfshx2flajzal96f3lmzgbdhyq5x7vlb687b39k";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon CodeDeploy SDK";
@@ -15152,8 +15153,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cognito-identity";
-       version = "0.0.8";
-       sha256 = "1masj2xz2vsia1jzrg20ldiycixpnz2rvhgf7s2hqh5bxpb159zh";
+       version = "0.1.0";
+       sha256 = "0xqch2v8ym729wsdh7djhrigc28wwmhrygzyn6i3zfvawvgak542";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Cognito Identity SDK";
@@ -15164,8 +15165,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-cognito-sync";
-       version = "0.0.8";
-       sha256 = "1q5x3i164npbdjymmavln07jjldyfm8fx08b82fp1w55b7gvanv3";
+       version = "0.1.0";
+       sha256 = "1v53pvkzhqy9qgw668jfzaz0yjwpkdq5zapf11l6pldsqp72ycf3";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Cognito Sync SDK";
@@ -15176,8 +15177,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-config";
-       version = "0.0.8";
-       sha256 = "1wzg9mcz1b01m5wi01r5q3a8mp6b3mxhb1fmv9vqh74q8073yaj1";
+       version = "0.1.0";
+       sha256 = "0f5y365q5nnwwgy76c7qfqdqfwvkbwdd80bhd72dgpkgdrblszf7";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Config SDK";
@@ -15194,8 +15195,8 @@ self: {
      }:
      mkDerivation {
        pname = "amazonka-core";
-       version = "0.0.8";
-       sha256 = "1r07m0q8ggp59hrv9jsl77mqrw6yrnl8fpvx2wvk0cyxpydhwgb5";
+       version = "0.1.0";
+       sha256 = "0qhkkwdrdkaqkhwv2lkvdrh0mdx6abhdcksai7h5502wn848sk5y";
        buildDepends = [
          aeson attoparsec base16-bytestring base64-bytestring bifunctors
          case-insensitive conduit conduit-extra cryptohash
@@ -15213,8 +15214,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-datapipeline";
-       version = "0.0.8";
-       sha256 = "15lbava9i8dj07g184nd7ljzlxffdqdpj6jpv01xprc0ism2xa9j";
+       version = "0.1.0";
+       sha256 = "1is5b51df498ig4g9f7kjjd6lm57z3ps9dnhqdxfm216sr8rk3gc";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Data Pipeline SDK";
@@ -15225,8 +15226,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-directconnect";
-       version = "0.0.8";
-       sha256 = "1gm6k65sddkq8bv16i4b5aj5qlsl9rhxml6945k1hqcsics3b6q0";
+       version = "0.1.0";
+       sha256 = "0ah4p3n3ddyhcqmlds10nr4cjbdwwxmhva9sbkw9jc7qxrh4m006";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Direct Connect SDK";
@@ -15237,8 +15238,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-dynamodb";
-       version = "0.0.8";
-       sha256 = "1bxcwrc283xg2kcv9z2001ir928mrlk8h2jvmdw76fxfr14dh59g";
+       version = "0.1.0";
+       sha256 = "009hgwsn55cwvzhcimymxhxfvi8y36v8yb8pdasz7qfnfhvxn59h";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon DynamoDB SDK";
@@ -15249,8 +15250,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-ec2";
-       version = "0.0.8";
-       sha256 = "14xrdrk240m9b8k97dwi9ifxc1yhfff5simrgdv7sgihx82w1idz";
+       version = "0.1.0";
+       sha256 = "1gvbdf7vlmw1b6czyfphd18k1w77xbxl95inzjsfnhamrdk6ns1r";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Elastic Compute Cloud SDK";
@@ -15261,8 +15262,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-elasticache";
-       version = "0.0.8";
-       sha256 = "1lrh9i4jlq0frdisxmllw8825knj1nh0f7sb6hcf9c7n912s39dw";
+       version = "0.1.0";
+       sha256 = "0milmfqswary2ss3vc2l8x6rjwnjalcvqbj6rxlai16d6p59xcm6";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon ElastiCache SDK";
@@ -15273,8 +15274,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-elasticbeanstalk";
-       version = "0.0.8";
-       sha256 = "1mrvij1i88rkly72m6j78y8lbz2y88spwzk70nd4sqs6gnafypj1";
+       version = "0.1.0";
+       sha256 = "0wij8sh2xlbfxdb99v380m1ilyp7gq676f7ykfappzwaw9g2kazq";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Elastic Beanstalk SDK";
@@ -15285,8 +15286,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-elastictranscoder";
-       version = "0.0.8";
-       sha256 = "0zgsckxcqli1777zca4z3bw0dly3gbayrkfs6nla7h7dpiyj9p43";
+       version = "0.1.0";
+       sha256 = "1ci0cfkgc1l3yklvp0ymyyavpriq8qm649rabxknv76qabkh49cn";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Elastic Transcoder SDK";
@@ -15297,8 +15298,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-elb";
-       version = "0.0.8";
-       sha256 = "0639bnrpxdy42b7dzysmxn636lv0bni1ydjya96az1f4mc602y7w";
+       version = "0.1.0";
+       sha256 = "1lp22sy7n0smyz0hh0279xyfbd9n7vi7bdxigsn8n0chln01f3ia";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Elastic Load Balancing SDK";
@@ -15309,8 +15310,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-emr";
-       version = "0.0.8";
-       sha256 = "1ba4s4rn5ys96rfqwhibxwyl2chwmnvp3y2xh2y9r9rg0yy5bh9r";
+       version = "0.1.0";
+       sha256 = "141yn5rbf51wi9lpm56qv7y935j8710bwwmaqyz92693sxf7xdnz";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Elastic MapReduce SDK";
@@ -15321,8 +15322,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-iam";
-       version = "0.0.8";
-       sha256 = "0897lwmd4mhwmq56zhsb72vn2905cx5bdkqxwrxkwalchppampam";
+       version = "0.1.0";
+       sha256 = "0brazpmgbiplax631x2ff0ygq85li43x2rf656rrm5wj9vqf6pj2";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Identity and Access Management SDK";
@@ -15333,8 +15334,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-importexport";
-       version = "0.0.8";
-       sha256 = "04pkg2c3ivcaw4mv2lf2cpjixdvnd3bsdcpxfbvj057k8caj3859";
+       version = "0.1.0";
+       sha256 = "14dkry62jr030x7ky6ig36w9mdlyivcsknwfzwldayb0i6a8xnp2";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Import/Export SDK";
@@ -15345,8 +15346,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-kinesis";
-       version = "0.0.8";
-       sha256 = "00wzrqw7q0xqb6sn4dwybibf928cadscg4i86dgwdxi4p22qm62y";
+       version = "0.1.0";
+       sha256 = "1pvy2srqma8ibdhxfajynfqcqzz3hzqwsa3rzr7pw53ici7fn9d5";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Kinesis SDK";
@@ -15357,8 +15358,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-kms";
-       version = "0.0.8";
-       sha256 = "0sk377g97fijysk7qm7k7r239xrvamdrjhlzg7aswcc66cr6bary";
+       version = "0.1.0";
+       sha256 = "16yrr7bhxl2hfvhmgkgdg45kjghnnqr237bi2xvwnkqy0ral8gm4";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Key Management Service SDK";
@@ -15369,8 +15370,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-lambda";
-       version = "0.0.8";
-       sha256 = "1pmg9z66jb3gpbnrf92hr3i70mda03vpgal11ibrq001mps3pfs4";
+       version = "0.1.0";
+       sha256 = "1zmkqdfi5nay0hsyzn2n19lm8lg1xjv40dvhgfbbsqhr1lsk1s8p";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Lambda SDK";
@@ -15381,8 +15382,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-opsworks";
-       version = "0.0.8";
-       sha256 = "0i64msqj914bxyadlvaxk502r83w1lkr9lvz3k50q3hlf4yqcggm";
+       version = "0.1.0";
+       sha256 = "0rhwp0pklmngr3zmni7n9qy4b5zwv6q6z5jcd63g9dvg6kg0m4zw";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon OpsWorks SDK";
@@ -15393,8 +15394,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-rds";
-       version = "0.0.8";
-       sha256 = "1dihpadf1xnr03a15g08ssxm0nkixx3hj5jhb36whigb48rsg4p8";
+       version = "0.1.0";
+       sha256 = "0b6q8m1wnp837djd9sjryd6q0if4f5vwfnj4lbqb4ckmlvjm2w2z";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Relational Database Service SDK";
@@ -15405,8 +15406,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-redshift";
-       version = "0.0.8";
-       sha256 = "0bm8rwzb7cis73yvvkr69rnazdmbp69m1brlfqpjsq1w9y12b90i";
+       version = "0.1.0";
+       sha256 = "0wrwxdz6bvjj3p6crw8nbiydp45czsi2avh105mqa2880mzay0wg";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Redshift SDK";
@@ -15417,8 +15418,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-route53";
-       version = "0.0.8";
-       sha256 = "0xd22qicbsgb456i2zan09pj27h7spjcqb3mz7dv938jgp5p3mim";
+       version = "0.1.0";
+       sha256 = "17snm54ry3prm86ylkvclxgbymdl1y174f22wp30rclwb9jcxz4v";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Route 53 SDK";
@@ -15429,8 +15430,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-route53-domains";
-       version = "0.0.8";
-       sha256 = "1zvf984ayr11vmi1ag0zd2ampfnv6pf526j1cj2rymz551d59h74";
+       version = "0.1.0";
+       sha256 = "0c4r2ca044gpdf9gscbdg5ry05fhsyyx0srrfadyb0mnlymjmbv6";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Route 53 Domains SDK";
@@ -15441,8 +15442,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-s3";
-       version = "0.0.8";
-       sha256 = "0hmlcanfhh8c3hdwaxhvjfmmx9lk9y3ildqj46al8p1wqghxisjp";
+       version = "0.1.0";
+       sha256 = "0rj70msdgm7jl7a1jw9pc541qi254b5if6i6xhyak5aznhprmhw4";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Simple Storage Service SDK";
@@ -15453,8 +15454,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-sdb";
-       version = "0.0.8";
-       sha256 = "1vdbpzg6jjz62y8a1alv5p97k27gfyqff4avp6jgvv2c7n17lx31";
+       version = "0.1.0";
+       sha256 = "1c4vhymhmmbia92h8jm7p5x0wg3imkw7p62h3m5xv34wxk8s3yw2";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon SimpleDB SDK";
@@ -15465,8 +15466,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-ses";
-       version = "0.0.8";
-       sha256 = "0cf0ki6k1x19p46z6skq77h094k12fhrkcwr3sxngjzin95mfxvd";
+       version = "0.1.0";
+       sha256 = "1x32w7dypjkjnq66m304jkssqb2w9z9c4ip62nxhaw12ka28j74k";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Simple Email Service SDK";
@@ -15477,8 +15478,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-sns";
-       version = "0.0.8";
-       sha256 = "0rk5r163cs91sw43azbhk4fwp19i56lgpr1w0gis73snrlxi78fn";
+       version = "0.1.0";
+       sha256 = "1ahyasliz279mxmwqiz9pp6359rhny8hm1bnvkjqwmmqw4qds3j2";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Simple Notification Service SDK";
@@ -15489,8 +15490,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-sqs";
-       version = "0.0.8";
-       sha256 = "1ryb8g4dcm0qfw2d9spdhv4n7zn5afzraa378bcyl0dkkkz3swq8";
+       version = "0.1.0";
+       sha256 = "1x0rviqjkcvkwv7yya5zv7apagdb0h3ysk5j42v3mj222fd1h5qk";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Simple Queue Service SDK";
@@ -15501,8 +15502,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-storagegateway";
-       version = "0.0.8";
-       sha256 = "1k8qibg85ybq33yh1229mc0hsj97wzas0i75adkzy790lgd1mci6";
+       version = "0.1.0";
+       sha256 = "0y2g63n3jc2x21mx439jqrcamk1nvbf613ha65p1gb9qjbghha37";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Storage Gateway SDK";
@@ -15513,8 +15514,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-sts";
-       version = "0.0.8";
-       sha256 = "0bz2js48pfjk5pb6rjg4nd49vij9xvlmcbyiz9dr4mwc9x69qa2a";
+       version = "0.1.0";
+       sha256 = "1gl28xw7r48bhvnrxgn6vb5lr452yq0ibaakhk980r7s8b78favw";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Security Token Service SDK";
@@ -15525,8 +15526,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-support";
-       version = "0.0.8";
-       sha256 = "0hfx7v12mch5s0nmp7qqj7lgkf2dnmdncn4gh4w3np99ikwm8sra";
+       version = "0.1.0";
+       sha256 = "0w4sv3gjyv48rf65qm8yiqxcn5qnp22ks61ifj7cqnd93nmap9kg";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Support SDK";
@@ -15537,8 +15538,8 @@ self: {
     ({ mkDerivation, amazonka-core }:
      mkDerivation {
        pname = "amazonka-swf";
-       version = "0.0.8";
-       sha256 = "1cpqfjpjgsq37kbsl07slcyvl29yz4n8jw4hdbr1yvgmgapaq8ac";
+       version = "0.1.0";
+       sha256 = "12wl1a4nfgv0y385nm7cfzp8ixaiwdanym8zz1pzhifs777ypvj1";
        buildDepends = [ amazonka-core ];
        homepage = "https://github.com/brendanhay/amazonka";
        description = "Amazon Simple Workflow Service SDK";
@@ -16036,28 +16037,27 @@ self: {
     ({ mkDerivation, blaze-builder, blaze-html, blaze-markup
      , bytestring-lexing, case-insensitive, data-default-class
      , exceptions, hashable, http-date, http-types, HUnit, mime-types
-     , monad-control, mtl, test-framework, test-framework-hunit, text
-     , time, transformers, transformers-base, unix-compat
-     , unordered-containers, vault, wai, wai-extra
+     , monad-control, mtl, stringsearch, test-framework
+     , test-framework-hunit, text, time, transformers, transformers-base
+     , unix-compat, unordered-containers, vault, wai, wai-extra
      }:
      mkDerivation {
        pname = "apiary";
-       version = "1.2.0";
-       sha256 = "1315m35j3pjl4awzfc0y6avawc605v4q74jhxkf0jwwnwp2d74a2";
-       editedCabalFile = "afb096e88b165253485545c77a2ec4975c53cd591cc28b9efa334ec30e1c82ae";
+       version = "1.2.1";
+       sha256 = "0j32i1dhpqpvp433k6y8m6hvkwd3jmw29mxsr249gwq90k1fkqw3";
        buildDepends = [
          blaze-builder blaze-html blaze-markup bytestring-lexing
          case-insensitive data-default-class exceptions hashable http-date
-         http-types mime-types monad-control mtl text time transformers
-         transformers-base unix-compat unordered-containers vault wai
-         wai-extra
+         http-types mime-types monad-control mtl stringsearch text time
+         transformers transformers-base unix-compat unordered-containers
+         vault wai
        ];
        testDepends = [
          http-types HUnit mtl test-framework test-framework-hunit wai
          wai-extra
        ];
        homepage = "https://github.com/philopon/apiary";
-       description = "Simple and type safe web framework that can be automatically generate API documentation";
+       description = "Simple and type safe web framework that generate web API documentation";
        license = stdenv.lib.licenses.mit;
      }) {};
 
@@ -16068,8 +16068,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-authenticate";
-       version = "1.2.0";
-       sha256 = "0j9kr4jv1ssyivwjs7mr995k2rslwnmzhz98cnnn78k1ygjz3lym";
+       version = "1.2.1";
+       sha256 = "0nflplgpnynn4jf4nnwv9xn95wwrmcyx2sf5bgvny9fzbjhcp8v9";
        buildDepends = [
          apiary apiary-session authenticate blaze-builder cereal
          data-default-class http-client http-client-tls http-types
@@ -16129,8 +16129,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-helics";
-       version = "1.2.0";
-       sha256 = "0w4f9k6d0cbp9k0fzh3l9v3njq9fxpxccpwq9fnyah8l5d8k2wh3";
+       version = "1.2.1";
+       sha256 = "1wzmdgc0k6g1ah42ymw8dh4iyphjz42v698dn1dqb5gvbxh21ksm";
        buildDepends = [
          apiary data-default-class helics helics-wai monad-control text
          transformers vault wai
@@ -16147,8 +16147,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-logger";
-       version = "1.2.0";
-       sha256 = "12c02jnbidf8x8hkl6l371q2fjvcy3f10zrmlxsfk9k88zp2bsi7";
+       version = "1.2.1";
+       sha256 = "18pa9mx3599szcw7lpmklc2xfzn9r6knkq0qad0ljkn4rdhd7hjp";
        buildDepends = [
          apiary data-default-class fast-logger lifted-base monad-control
          monad-logger transformers transformers-base
@@ -16164,8 +16164,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-memcached";
-       version = "1.2.1";
-       sha256 = "1wqcnp59savay6yybl3plsz193hlzib6lk78v65bxsaxirddl4c3";
+       version = "1.2.2";
+       sha256 = "1blxvqdas55p56227f4cmfh02n2xvx43rcfkxqkh7jgchan6278m";
        buildDepends = [
          apiary data-default-class memcached-binary monad-control text
          transformers
@@ -16181,8 +16181,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-mongoDB";
-       version = "1.2.0";
-       sha256 = "0d76sz2x5fnyzl8zclbsh0wbdagx7avdadrd7ckk84sxhcxdl0il";
+       version = "1.2.1";
+       sha256 = "1xx1qmpp9ndci2ypiarvlnkz4vzc7b9qrpsz0442nwvnlxh716lq";
        buildDepends = [
          apiary bson data-default-class lifted-base monad-control mongoDB
          resource-pool text time transformers
@@ -16199,8 +16199,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-persistent";
-       version = "1.2.0";
-       sha256 = "1bajdiv49wcf4ar7wbc5gsxd3hibbq515m3b90ajsnh6h69hld8j";
+       version = "1.2.1";
+       sha256 = "01hkrq1c2sji6w9fdk7riflshnkjk7sg059bw3q60vxpkk5zzkdq";
        buildDepends = [
          apiary apiary-logger monad-control monad-logger persistent
          persistent-sqlite resource-pool resourcet transformers
@@ -16217,8 +16217,8 @@ self: {
      }:
      mkDerivation {
        pname = "apiary-purescript";
-       version = "1.2.0";
-       sha256 = "1584xnqf9w2n9r7vmcr6j03g7z80zyndv57wh9z0x0bm72shw74z";
+       version = "1.2.1";
+       sha256 = "1qz51ncl68lvwx91xcqvcvj4nakpg309c85zhxk0z0d2rv8j45bf";
        buildDepends = [
          apiary data-default-class filepath Glob parsec purescript text
          unordered-containers utf8-string
@@ -19563,8 +19563,8 @@ self: {
      }:
      mkDerivation {
        pname = "binary-typed";
-       version = "0.2.3";
-       sha256 = "1w5clk2wnldn4rsq9cmjs9v7gyl81wy0ib453l2df5yiw2k0ahy7";
+       version = "0.3";
+       sha256 = "12yzgcrj528pss4jk753xmcrzv2qm70dacqjnx7460bcdsmyd6zy";
        buildDepends = [ binary murmur-hash ];
        testDepends = [ binary tasty tasty-hunit tasty-quickcheck ];
        homepage = "https://github.com/quchen/binary-typed";
@@ -22433,9 +22433,9 @@ self: {
      }) {};
 
   "cabal-bounds" = callPackage
-    ({ mkDerivation, Cabal, cabal-lenses, cabalInstall, cmdargs, either
-     , filepath, Glob, lens, strict, tasty, tasty-golden, transformers
-     , unordered-containers
+    ({ mkDerivation, Cabal, cabal-install, cabal-lenses, cmdargs
+     , either, filepath, Glob, lens, strict, tasty, tasty-golden
+     , transformers, unordered-containers
      }:
      mkDerivation {
        pname = "cabal-bounds";
@@ -22448,7 +22448,7 @@ self: {
          unordered-containers
        ];
        testDepends = [ filepath Glob tasty tasty-golden ];
-       buildTools = [ cabalInstall ];
+       buildTools = [ cabal-install ];
        description = "A command line program for managing the bounds/versions of the dependencies in a cabal file";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -22617,17 +22617,18 @@ self: {
 
   "cabal-install" = callPackage
     ({ mkDerivation, Cabal, filepath, HTTP, HUnit, mtl, network
-     , QuickCheck, random, stm, test-framework, test-framework-hunit
-     , test-framework-quickcheck2, time, zlib
+     , network-uri, QuickCheck, random, stm, test-framework
+     , test-framework-hunit, test-framework-quickcheck2, time, zlib
      }:
      mkDerivation {
        pname = "cabal-install";
-       version = "1.20.0.3";
-       sha256 = "050b9dc4khfc1fs283p1635zni25z4b55gi5ffwvg4mfpkrmdgfj";
+       version = "1.20.0.4";
+       sha256 = "171lkr8jw5k3l58gn41jmbp47kf3b8iq9dds0v8qx7wxzlxy0kz1";
+       editedCabalFile = "17220d6347299cffc31203f89b0b57641409e525afc0ecc83689f6b920fc0e6f";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
-         Cabal filepath HTTP mtl network random stm time zlib
+         Cabal filepath HTTP mtl network network-uri random stm time zlib
        ];
        testDepends = [
          Cabal filepath HTTP HUnit mtl network QuickCheck stm test-framework
@@ -22771,8 +22772,8 @@ self: {
     ({ mkDerivation, Cabal, filepath, time }:
      mkDerivation {
        pname = "cabal-rpm";
-       version = "0.9.1";
-       sha256 = "190yfxnwfdyiq647j7c5mzpazamhnndpa48qwnjwdhpmviyf1i76";
+       version = "0.9.2";
+       sha256 = "1i47vm27vp55dl0qybx5r152w6mfr94zzdr6h2kp49xc8ccvh469";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [ Cabal filepath time ];
@@ -23277,8 +23278,8 @@ self: {
      }:
      mkDerivation {
        pname = "call";
-       version = "0.1.1.3";
-       sha256 = "0avryavd59bam9qbw7nhnmp587f7ac3h17nww21r9yag59cfn23i";
+       version = "0.1.2";
+       sha256 = "11nm2h9z758c6j77a60aaln53p2izrcnaygklapv5l46dmgjiy8b";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -23411,17 +23412,18 @@ self: {
      }) {};
 
   "caramia" = callPackage
-    ({ mkDerivation, exceptions, OpenGLRaw, semigroups, text
-     , transformers, vector
+    ({ mkDerivation, exceptions, lens, linear, OpenGLRaw, semigroups
+     , text, transformers, vector
      }:
      mkDerivation {
        pname = "caramia";
-       version = "0.4.0.0";
-       sha256 = "1m6a37sd6azkbq426gqr4a1xdp2gsv29p2g1m0fa5lcxhgzffsg9";
+       version = "0.5.0.0";
+       sha256 = "1xhzr5czirgkvf033vna9vrmz0c1r4a39ad7gnc3hax488vykw5n";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         exceptions OpenGLRaw semigroups text transformers vector
+         exceptions lens linear OpenGLRaw semigroups text transformers
+         vector
        ];
        homepage = "https://github.com/Noeda/caramia/";
        description = "Less painful OpenGL 3.3 rendering";
@@ -23609,8 +23611,8 @@ self: {
      }:
      mkDerivation {
        pname = "case-insensitive";
-       version = "1.2.0.1";
-       sha256 = "1hnckzi6yq3332fx4b140lwa9p6x69rlpaw6y1pmldj2h9nsxl6m";
+       version = "1.2.0.3";
+       sha256 = "1jbn8ipil02badf1jziaqspdpqslbnydn6vp79rhj77q78dsl6hd";
        buildDepends = [ deepseq hashable text ];
        testDepends = [ HUnit test-framework test-framework-hunit text ];
        homepage = "https://github.com/basvandijk/case-insensitive";
@@ -25648,16 +25650,22 @@ self: {
      }) {};
 
   "cloud-haskell" = callPackage
-    ({ mkDerivation, distributed-process, distributed-process-platform
-     , distributed-static, network-transport, rank1dynamic
+    ({ mkDerivation, distributed-process, distributed-process-async
+     , distributed-process-client-server, distributed-process-execution
+     , distributed-process-extras, distributed-process-supervisor
+     , distributed-process-task, distributed-static, network-transport
+     , rank1dynamic
      }:
      mkDerivation {
        pname = "cloud-haskell";
-       version = "0.0.1.0";
-       sha256 = "070rhzqv2jmwp578yizi7zw5k3i8w6xhf0mcvfknb1zk3mwnda1v";
+       version = "0.2.0.0";
+       sha256 = "11i2r7zf3vvywsfnlcsgvnh2qf92wgc81sfmhkhfpdrpcd2zx606";
        buildDepends = [
-         distributed-process distributed-process-platform distributed-static
-         network-transport rank1dynamic
+         distributed-process distributed-process-async
+         distributed-process-client-server distributed-process-execution
+         distributed-process-extras distributed-process-supervisor
+         distributed-process-task distributed-static network-transport
+         rank1dynamic
        ];
        homepage = "http://github.com/haskell-distributed/cloud-haskell";
        description = "The Cloud Haskell Application Platform";
@@ -25931,8 +25939,8 @@ self: {
     ({ mkDerivation, binary, cassava, file-embed, text, vector }:
      mkDerivation {
        pname = "cndict";
-       version = "0.4.0";
-       sha256 = "1vxyyzlg164ybgsq48fx327sg04xwyzxn2z3vvk25h9jzmf0pvpd";
+       version = "0.4.6";
+       sha256 = "04vg36ygchz27rzfa9cgf9gimsjq8j99sfrbj4gx937klsc6ipqa";
        buildDepends = [ binary cassava file-embed text vector ];
        homepage = "https://github.com/Lemmih/cndict";
        description = "Chinese/Mandarin <-> English dictionary, Chinese lexer";
@@ -26031,8 +26039,8 @@ self: {
      }:
      mkDerivation {
        pname = "codex";
-       version = "0.2.0.2";
-       sha256 = "0an043cmsxc296i90pv19d8xdl7fg2fvf026lx4rly7bwskzn99x";
+       version = "0.2.1.0";
+       sha256 = "037q01cfyvwkjap3ifvbjbq0nvh3gm46pmkl5d99cfr7wh85jbm8";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -26219,12 +26227,12 @@ self: {
      }) {};
 
   "colors" = callPackage
-    ({ mkDerivation, profunctors }:
+    ({ mkDerivation, lens, linear, profunctors }:
      mkDerivation {
        pname = "colors";
-       version = "0.2.0.1";
-       sha256 = "0xl7hdp1di8gl0g28vz2lm6pbj7hihdkfnr18843016736hll4qn";
-       buildDepends = [ profunctors ];
+       version = "0.3";
+       sha256 = "04kd3fpj4k4bfqgaabpq7hxqmhsg7ny0qipfx61im2rh663p8zjp";
+       buildDepends = [ lens linear profunctors ];
        homepage = "https://github.com/fumieval/colors";
        description = "A type for colors";
        license = stdenv.lib.licenses.bsd3;
@@ -26802,6 +26810,26 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "concraft-hr" = callPackage
+    ({ mkDerivation, aeson, binary, cmdargs, concraft
+     , double-conversion, lazy-io, moan, network, sgd, split
+     , tagset-positional, text
+     }:
+     mkDerivation {
+       pname = "concraft-hr";
+       version = "0.1.0.2";
+       sha256 = "0q2l2yqxk210ycw1alcps9x7l2f60g9sb0wan7d1d2fkbfhq3z41";
+       isLibrary = true;
+       isExecutable = true;
+       buildDepends = [
+         aeson binary cmdargs concraft double-conversion lazy-io moan
+         network sgd split tagset-positional text
+       ];
+       homepage = "https://github.com/vjeranc/concraft-hr";
+       description = "Part-of-speech tagger for Croatian";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "concraft-pl" = callPackage
     ({ mkDerivation, aeson, binary, cmdargs, concraft, lazy-io, mtl
      , network, sgd, split, tagset-positional, text, transformers
@@ -27047,17 +27075,17 @@ self: {
      }) {};
 
   "conduit" = callPackage
-    ({ mkDerivation, exceptions, hspec, lifted-base, mmorph
-     , monad-control, mtl, QuickCheck, resourcet, safe, transformers
-     , transformers-base, void
+    ({ mkDerivation, exceptions, hspec, lifted-base, mmorph, mtl
+     , QuickCheck, resourcet, safe, transformers, transformers-base
+     , void
      }:
      mkDerivation {
        pname = "conduit";
-       version = "1.2.3";
-       sha256 = "1n4cc5mij9q5wrnm394a2dka7vbnnr9c2kg5d3f4sl1fh156lf6n";
+       version = "1.2.3.1";
+       sha256 = "04n330f9iad6asmry81aqvb7wyh7b962d6pvcfnpm327z4llnvbq";
        buildDepends = [
-         exceptions lifted-base mmorph monad-control mtl resourcet
-         transformers transformers-base void
+         exceptions lifted-base mmorph mtl resourcet transformers
+         transformers-base void
        ];
        testDepends = [
          exceptions hspec mtl QuickCheck resourcet safe transformers void
@@ -27404,8 +27432,8 @@ self: {
     ({ mkDerivation, newtype }:
      mkDerivation {
        pname = "constraints";
-       version = "0.4";
-       sha256 = "0nnplylzbcw884jgsd4i46z75dkiyx4166j5fym5zdnwhyj75sp5";
+       version = "0.4.1.1";
+       sha256 = "0v793lax2wr5gbxy4w2f59jl2ixkyp4r50bxiy3kgga6n3nvjqrl";
        buildDepends = [ newtype ];
        homepage = "http://github.com/ekmett/constraints/";
        description = "Constraint manipulation";
@@ -27451,8 +27479,8 @@ self: {
      }:
      mkDerivation {
        pname = "containers";
-       version = "0.5.5.1";
-       sha256 = "08xd9v7q5iiy0aywl7kzq5qv8455xkgq2bljx8f5p6ywyxys8z2b";
+       version = "0.5.6.1";
+       sha256 = "0azbqga0k7fa2b45d8nx01li00gqr6z7qdpkb18nj2iqzcnmaqi1";
        buildDepends = [ deepseq ];
        testDepends = [
          ChasingBottoms deepseq HUnit QuickCheck test-framework
@@ -28735,8 +28763,8 @@ self: {
      }:
      mkDerivation {
        pname = "criterion-plus";
-       version = "0.1.1";
-       sha256 = "0ml97f717mlzxfi5j998zxxc0bva26lcxgq2r5ababxa9x55kpkz";
+       version = "0.1.2";
+       sha256 = "0xwzvjafq3idwalph7h1rgsx85jdwickq0jig7d7k16xmry9nw2v";
        buildDepends = [
          criterion deepseq loch-th monad-control mtl optparse-applicative
          placeholders statistics string-conversions system-fileio
@@ -28967,8 +28995,8 @@ self: {
      }:
      mkDerivation {
        pname = "crypto-pubkey";
-       version = "0.2.5";
-       sha256 = "18rxm6mgxp8x4ns2725pw6ja2g6n6k64dj9cbwdlsb13pkdh3lxq";
+       version = "0.2.6";
+       sha256 = "19wj061zn58mk41021s007d4klc8fv4vsm1b917mzx82c3ilsxgz";
        buildDepends = [
          byteable crypto-numbers crypto-pubkey-types crypto-random
          cryptohash
@@ -29489,8 +29517,8 @@ self: {
      }:
      mkDerivation {
        pname = "cublas";
-       version = "0.2.0.2";
-       sha256 = "1kf7xydwcxajc6pk89vhdhpb4lxsmbr98r8nj6nl017fqiz3mk52";
+       version = "0.2.1.0";
+       sha256 = "02x8a9varkj770cl4nnb0mf4qh519gf9mv51awinlaikyz932q1w";
        buildDepends = [ cuda filepath language-c storable-complex ];
        buildTools = [ c2hs ];
        extraLibraries = [ cublas cusparse ];
@@ -30575,6 +30603,18 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "data-kiln" = callPackage
+    ({ mkDerivation, data-fix, IfElse, mtl, transformers }:
+     mkDerivation {
+       pname = "data-kiln";
+       version = "0.1.0.0";
+       sha256 = "13pkpmpjy787cjn1hcsl9r04w70nxrzdx8xrn9w6ifbzb2xj2iny";
+       buildDepends = [ data-fix IfElse mtl transformers ];
+       homepage = "https://github.com/kwf/data-kiln";
+       description = "Sculpt mutable recursive data with reference equality; bake it using a data kiln into an immutable lazy structure";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "data-layout" = callPackage
     ({ mkDerivation, vector }:
      mkDerivation {
@@ -31597,8 +31637,8 @@ self: {
     ({ mkDerivation, Cabal, filepath, transformers }:
      mkDerivation {
        pname = "debian-build";
-       version = "0.2.1.1";
-       sha256 = "0kpxm1vvz3f0pa403lxs79yvfc8aimraw1ggcm4xj0g9px8l5hsx";
+       version = "0.4.0.0";
+       sha256 = "0kid54vhbwlk71fjgnvgp5x2yvgnab04203cqym1k2s53wwi33f8";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ Cabal filepath transformers ];
@@ -31681,13 +31721,32 @@ self: {
      }) {};
 
   "deepseq" = callPackage
-    ({ mkDerivation }:
+    ({ mkDerivation, HUnit, test-framework, test-framework-hunit }:
      mkDerivation {
        pname = "deepseq";
-       version = "1.3.0.2";
-       sha256 = "09jnfz5158s4fvlfjbz44vb5jsvflagmsrgbk846arymwym6b7bp";
-       editedCabalFile = "4d513aff21f43be3d3ab166f6cd19b29e2eaad487ce2eca59159c61d91d72f3e";
+       version = "1.4.0.0";
+       sha256 = "0ns8njkigxa05z2mif9dz2r41j8c717q7f7lswvbp4wwfhr7vdk9";
+       testDepends = [ HUnit test-framework test-framework-hunit ];
        description = "Deep evaluation of data structures";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "deepseq-bounded" = callPackage
+    ({ mkDerivation, deepseq, deepseq-generics, generics-sop, HUnit
+     , parallel, random, syb
+     }:
+     mkDerivation {
+       pname = "deepseq-bounded";
+       version = "0.5.1";
+       sha256 = "0p78j3h0vqygl1pglr8ciijaxr0ffcx0w90g0ywf6j0wlic6vs62";
+       buildDepends = [
+         deepseq deepseq-generics generics-sop parallel random syb
+       ];
+       testDepends = [
+         deepseq deepseq-generics generics-sop HUnit parallel random syb
+       ];
+       homepage = "http://fremissant.net/deepseq-bounded";
+       description = "Bounded deepseq, including support for generic deriving";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -31697,8 +31756,8 @@ self: {
      }:
      mkDerivation {
        pname = "deepseq-generics";
-       version = "0.1.1.1";
-       sha256 = "1icc2gxsbnjjl150msnyysvr9r14kb6s2gm3izrj5a3mwf6l7s08";
+       version = "0.1.1.2";
+       sha256 = "01pvigx8n9p8hwbzp2qiq6kzf7cxiam843jz2sjgliacmmp1v7l3";
        buildDepends = [ deepseq ];
        testDepends = [
          deepseq HUnit test-framework test-framework-hunit
@@ -33263,14 +33322,42 @@ self: {
      }:
      mkDerivation {
        pname = "distributed-process";
-       version = "0.5.2";
-       sha256 = "04llhz9z28365idgj13hhwkp98zwqv6mhhy9i7416wk5d3r70g7l";
+       version = "0.5.3";
+       sha256 = "1jp85dd7scizs03cslrbgmaly735l2rv9yl5hq573xj3mjwmv5nz";
        buildDepends = [
          binary data-accessor deepseq distributed-static hashable mtl
          network-transport random rank1dynamic stm syb time transformers
        ];
        homepage = "http://haskell-distributed.github.com/";
        description = "Cloud Haskell: Erlang-style concurrency in Haskell";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-async" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-extras
+     , distributed-process-tests, fingertree, hashable, HUnit, mtl
+     , network, network-transport, network-transport-tcp, rematch, stm
+     , test-framework, test-framework-hunit, time, transformers
+     , unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-async";
+       version = "0.2.0";
+       sha256 = "0ybnxmgy59i28k9yxbz95x3ljxmbvxiny7hc7z3bvrjh91lvv2az";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process
+         distributed-process-extras fingertree hashable mtl stm time
+         transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary deepseq distributed-process
+         distributed-process-extras distributed-process-tests HUnit network
+         network-transport network-transport-tcp rematch stm test-framework
+         test-framework-hunit transformers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-async";
+       description = "Cloud Haskell Async API";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -33294,6 +33381,96 @@ self: {
        ];
        homepage = "http://github.com/haskell-distributed/distributed-process";
        description = "Microsoft Azure backend for Cloud Haskell";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-client-server" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-async
+     , distributed-process-extras, distributed-process-tests, fingertree
+     , hashable, HUnit, mtl, network, network-transport
+     , network-transport-tcp, rematch, stm, test-framework
+     , test-framework-hunit, time, transformers, unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-client-server";
+       version = "0.1.1";
+       sha256 = "0247a0z9k7g1dp9hxx6yqnsany0gxl3iwd5z4hb6h136xswv3j4g";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process
+         distributed-process-async distributed-process-extras fingertree
+         hashable mtl stm time transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary deepseq distributed-process
+         distributed-process-async distributed-process-extras
+         distributed-process-tests fingertree HUnit mtl network
+         network-transport network-transport-tcp rematch stm test-framework
+         test-framework-hunit transformers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-client-server";
+       description = "The Cloud Haskell Application Platform";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-execution" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-client-server
+     , distributed-process-extras, distributed-process-supervisor
+     , distributed-static, fingertree, hashable, HUnit, mtl, network
+     , network-transport, network-transport-tcp, QuickCheck, rematch
+     , stm, test-framework, test-framework-hunit
+     , test-framework-quickcheck2, time, transformers
+     , unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-execution";
+       version = "0.1.0";
+       sha256 = "0v5cnmaqpg1cazf71dgmwvxj80jjvqw9isdi51sla4phgnnsrli6";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process
+         distributed-process-client-server distributed-process-extras
+         distributed-process-supervisor fingertree hashable mtl stm time
+         transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary data-accessor deepseq distributed-process
+         distributed-process-extras distributed-static fingertree hashable
+         HUnit mtl network network-transport network-transport-tcp
+         QuickCheck rematch stm test-framework test-framework-hunit
+         test-framework-quickcheck2 time transformers unordered-containers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-execution";
+       description = "Execution Framework for The Cloud Haskell Application Platform";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-extras" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-tests
+     , distributed-static, fingertree, hashable, HUnit, mtl, network
+     , network-transport, network-transport-tcp, QuickCheck, rematch
+     , stm, test-framework, test-framework-hunit
+     , test-framework-quickcheck2, time, transformers
+     , unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-extras";
+       version = "0.1.1";
+       sha256 = "0dqpz6vfrbip147qwmais31vck0fkzgk1ki5janq932ilxdcgmf8";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process fingertree
+         hashable mtl stm time transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary data-accessor deepseq distributed-process
+         distributed-process-tests distributed-static fingertree hashable
+         HUnit mtl network network-transport network-transport-tcp
+         QuickCheck rematch stm test-framework test-framework-hunit
+         test-framework-quickcheck2 time transformers unordered-containers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-extras";
+       description = "Cloud Haskell Extras";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -33379,6 +33556,68 @@ self: {
        ];
        homepage = "http://haskell-distributed.github.com";
        description = "Simple zero-configuration backend for Cloud Haskell";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-supervisor" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-client-server
+     , distributed-process-extras, distributed-static, fingertree
+     , hashable, HUnit, mtl, network, network-transport
+     , network-transport-tcp, rematch, stm, test-framework
+     , test-framework-hunit, time, transformers, unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-supervisor";
+       version = "0.1.1";
+       sha256 = "09bbwsj000f8px9vjhj0h487ks0fxd3dn9b0vngf6v0gx74awhga";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process
+         distributed-process-client-server distributed-process-extras
+         fingertree hashable mtl stm time transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary data-accessor deepseq distributed-process
+         distributed-process-client-server distributed-process-extras
+         distributed-static fingertree hashable HUnit mtl network
+         network-transport network-transport-tcp rematch stm test-framework
+         test-framework-hunit time transformers unordered-containers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-supervisor";
+       description = "Supervisors for The Cloud Haskell Application Platform";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "distributed-process-task" = callPackage
+    ({ mkDerivation, ansi-terminal, binary, data-accessor, deepseq
+     , distributed-process, distributed-process-async
+     , distributed-process-client-server, distributed-process-extras
+     , distributed-static, fingertree, hashable, HUnit, mtl, network
+     , network-transport, network-transport-tcp, QuickCheck, rematch
+     , stm, test-framework, test-framework-hunit
+     , test-framework-quickcheck2, time, transformers
+     , unordered-containers
+     }:
+     mkDerivation {
+       pname = "distributed-process-task";
+       version = "0.1.0";
+       sha256 = "0shda8arsjb2ixvflbx11hdc3zkqh2vi4ixcf6yrk79w8236bd1n";
+       buildDepends = [
+         binary data-accessor deepseq distributed-process
+         distributed-process-async distributed-process-client-server
+         distributed-process-extras fingertree hashable mtl stm time
+         transformers unordered-containers
+       ];
+       testDepends = [
+         ansi-terminal binary data-accessor deepseq distributed-process
+         distributed-process-async distributed-process-client-server
+         distributed-process-extras distributed-static fingertree hashable
+         HUnit mtl network network-transport network-transport-tcp
+         QuickCheck rematch stm test-framework test-framework-hunit
+         test-framework-quickcheck2 time transformers unordered-containers
+       ];
+       homepage = "http://github.com/haskell-distributed/distributed-process-task";
+       description = "Task Framework for The Cloud Haskell Application Platform";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -33687,25 +33926,25 @@ self: {
      }) {};
 
   "dockercook" = callPackage
-    ({ mkDerivation, attoparsec, base16-bytestring, cereal, conduit
+    ({ mkDerivation, attoparsec, base16-bytestring, conduit
      , conduit-combinators, conduit-extra, cryptohash, filepath
-     , graph-core, hashable, HTF, monad-logger, mtl
-     , optparse-applicative, persistent-sqlite, persistent-template
-     , regex-compat, resourcet, safecopy, stm, system-filepath
-     , temporary, text, time, transformers, unordered-containers, vector
+     , hashable, hslogger, HTF, monad-logger, mtl, optparse-applicative
+     , persistent-sqlite, persistent-template, regex-compat, resourcet
+     , retry, stm, streaming-commons, system-filepath, temporary, text
+     , time, transformers, unordered-containers, vector
      }:
      mkDerivation {
        pname = "dockercook";
-       version = "0.1.2.1";
-       sha256 = "1phfnijfnjlwfglz661cvi5pp43vz753d6qdfj3q74wmmhk4pspv";
+       version = "0.4.0.0";
+       sha256 = "1v74zcbk53daxlqgr5b8d900dvyj8kizmz7cwka18a2rz8zi0vbw";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         attoparsec base16-bytestring cereal conduit conduit-combinators
-         conduit-extra cryptohash filepath graph-core hashable monad-logger
+         attoparsec base16-bytestring conduit conduit-combinators
+         conduit-extra cryptohash filepath hashable hslogger monad-logger
          mtl optparse-applicative persistent-sqlite persistent-template
-         regex-compat resourcet safecopy stm system-filepath temporary text
-         time transformers unordered-containers vector
+         regex-compat resourcet retry stm streaming-commons system-filepath
+         temporary text time transformers unordered-containers vector
        ];
        testDepends = [ HTF text vector ];
        homepage = "https://github.com/factisresearch/dockercook";
@@ -34523,8 +34762,8 @@ self: {
      }:
      mkDerivation {
        pname = "dynamic-graph";
-       version = "0.1.0.3";
-       sha256 = "0sn3g41qhhh9jcp7siqiqxp5rzf29dxc6a07c48dgj214gglns4z";
+       version = "0.1.0.4";
+       sha256 = "0wlrhyxql5f0ply6maz9ygy0959gdz64h47ff78kx67n3faymrm5";
        buildDepends = [
          cairo colour deepseq either GLFW-b GLUtil OpenGL pango pipes
          transformers
@@ -36433,14 +36672,15 @@ self: {
      }) {};
 
   "etcd" = callPackage
-    ({ mkDerivation, aeson, hspec, http-conduit, MonadRandom, mtl, time
+    ({ mkDerivation, aeson, hspec, http-conduit, MonadRandom, mtl, text
+     , time
      }:
      mkDerivation {
        pname = "etcd";
-       version = "0.1.0.2";
-       sha256 = "07ai1dchi708v024ajv4cnx2rrlqyk8cd95znxxl1zz9mz6s1sdv";
-       buildDepends = [ aeson http-conduit time ];
-       testDepends = [ hspec MonadRandom mtl ];
+       version = "1.0.3";
+       sha256 = "0575f7kh8kkyp849b0gh10ka0xip0q1014il2q05vds118mvqxg3";
+       buildDepends = [ aeson http-conduit text time ];
+       testDepends = [ hspec MonadRandom mtl text ];
        description = "Client for etcd, a highly-available key value store";
        license = "unknown";
      }) {};
@@ -36546,16 +36786,16 @@ self: {
      }) {};
 
   "eventstore" = callPackage
-    ({ mkDerivation, aeson, async, attoparsec, binary, cereal, network
-     , protobuf, random, stm, suspend, text, time, timers, uuid
+    ({ mkDerivation, aeson, async, attoparsec, cereal, network
+     , protobuf, random, sodium, stm, text, time, uuid
      }:
      mkDerivation {
        pname = "eventstore";
-       version = "0.1.0.0";
-       sha256 = "0hyyxg062i79gbgqw1fkqp6jjjvns78nmwz36w2jkzxyzp4pgjgj";
+       version = "0.1.0.1";
+       sha256 = "15nhgmf8wpr6hlv6hcp1z43zv0hww0gpa18zfr88xq0s5zwaj6dw";
        buildDepends = [
-         aeson async attoparsec binary cereal network protobuf random stm
-         suspend text time timers uuid
+         aeson async attoparsec cereal network protobuf random sodium stm
+         text time uuid
        ];
        description = "EventStore Haskell TCP Client";
        license = stdenv.lib.licenses.bsd3;
@@ -36961,8 +37201,8 @@ self: {
      }:
      mkDerivation {
        pname = "extended-reals";
-       version = "0.1.0.0";
-       sha256 = "05v45adkjpjirhlilapsi447jkmhjr8x93znjyhkg5v782dvjh5c";
+       version = "0.2.0.0";
+       sha256 = "1v42ncxczfdbabllj6b1dhkml0j04c7phqvmwa2rlnsrgwx54swg";
        buildDepends = [ deepseq hashable ];
        testDepends = [
          HUnit QuickCheck test-framework test-framework-hunit
@@ -37854,20 +38094,20 @@ self: {
      }) {};
 
   "fft" = callPackage
-    ({ mkDerivation, carray, fftw3, ix-shapable, QuickCheck
+    ({ mkDerivation, carray, fftw3, fftw3f, ix-shapable, QuickCheck
      , storable-complex, syb
      }:
      mkDerivation {
        pname = "fft";
-       version = "0.1.7.3";
-       sha256 = "0zfs1p1lfa83qqrlma4hnwf3j934f7hml5r0dxa3zf3cqmkgqln4";
+       version = "0.1.8";
+       sha256 = "073f0w3hm0zs0gi1s5adhd7z4xj3zq88s1d12mmby5ri3zr927k0";
        buildDepends = [ carray ix-shapable storable-complex syb ];
        testDepends = [ carray QuickCheck storable-complex ];
-       pkgconfigDepends = [ fftw3 ];
+       pkgconfigDepends = [ fftw3 fftw3f ];
        description = "Bindings to the FFTW library";
        license = stdenv.lib.licenses.bsd3;
        broken = true;
-     }) { fftw3 = null; };
+     }) { fftw3 = null; fftw3f = null; };
 
   "fgl" = callPackage
     ({ mkDerivation, mtl }:
@@ -39117,8 +39357,8 @@ self: {
     ({ mkDerivation, scientific, text, text-format, time }:
      mkDerivation {
        pname = "formatting";
-       version = "5.4";
-       sha256 = "017fm3pqr2nqpcqmpldr74cvb641hxvybhvnwv8a8vv4ry1vdrk9";
+       version = "6.0.0";
+       sha256 = "01zighgfc8nywigzsah07fr7pkcz0mfrb495gikaapi01i13nkmc";
        buildDepends = [ scientific text text-format time ];
        description = "Combinator-based type-safe formatting (like printf() or FORMAT)";
        license = stdenv.lib.licenses.bsd3;
@@ -40615,8 +40855,8 @@ self: {
     ({ mkDerivation }:
      mkDerivation {
        pname = "generics-sop";
-       version = "0.1.0.3";
-       sha256 = "0wvrav5armspfp6iixns1db45xfpqicx74asi14a2gnl28yqmfpl";
+       version = "0.1.0.4";
+       sha256 = "00rjlqsjb7hba5q0kbfwg4ajk75a4sd7m72wx18fa9rlz92qbx2j";
        description = "Generic Programming using True Sums of Products";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -42617,18 +42857,21 @@ self: {
 
   "google-drive" = callPackage
     ({ mkDerivation, aeson, conduit, conduit-extra, filepath
-     , google-oauth2, hspec, http-conduit, http-types, load-env, mtl
-     , random, resourcet, text, time
+     , google-oauth2, hspec, hspec-expectations-lifted, http-conduit
+     , http-types, load-env, mtl, random, resourcet, text, time, timerep
      }:
      mkDerivation {
        pname = "google-drive";
-       version = "0.2.0";
-       sha256 = "1lkz7dc7jiq2d8k1714priyxm464v9m04inc3glbw3k2wa68h1s3";
+       version = "0.3.1";
+       sha256 = "0fzz9dgb2l5zcfjrzf4bqv0dgjhy12r9i1h66y1mji2z0f9qj37y";
        buildDepends = [
          aeson conduit conduit-extra filepath http-conduit http-types mtl
-         random resourcet text time
+         random resourcet text time timerep
        ];
-       testDepends = [ conduit google-oauth2 hspec load-env text ];
+       testDepends = [
+         conduit conduit-extra google-oauth2 hspec hspec-expectations-lifted
+         load-env text time
+       ];
        description = "Google Drive API access";
        license = stdenv.lib.licenses.mit;
      }) {};
@@ -43442,8 +43685,8 @@ self: {
      }:
      mkDerivation {
        pname = "groundhog";
-       version = "0.7.0";
-       sha256 = "0l86d46ch5ivm3hjdz02rzwj1dijnilksm2i7zrcj7hyhksci2v6";
+       version = "0.7.0.1";
+       sha256 = "1g50qwwxp999g1r8486vqr12facmlxy6nz9vz412v6y469ww5b1x";
        buildDepends = [
          blaze-builder monad-control monad-logger mtl text time transformers
          transformers-base
@@ -43478,8 +43721,8 @@ self: {
      }:
      mkDerivation {
        pname = "groundhog-mysql";
-       version = "0.7.0";
-       sha256 = "1impf72vq2lrf6apcg5lmw9pnrbhk77f83r1a8kp4ssn61zsk6z8";
+       version = "0.7.0.1";
+       sha256 = "01pnninva0va0pl9k7mjk2l7fm42978j9x82sj8z7cscshvl327f";
        buildDepends = [
          groundhog monad-control monad-logger mysql mysql-simple
          resource-pool text time transformers
@@ -43495,8 +43738,8 @@ self: {
      }:
      mkDerivation {
        pname = "groundhog-postgresql";
-       version = "0.7.0";
-       sha256 = "05j5188gm183mwzp270m1h4311n4b4cxlz7c3y47p7bjv65daq4a";
+       version = "0.7.0.1";
+       sha256 = "0xsiq7ma5bp6fhy4bigdxly1wi9h2kq8sbk5gxr43fvvm402h9k1";
        buildDepends = [
          attoparsec blaze-builder groundhog monad-control monad-logger
          postgresql-libpq postgresql-simple resource-pool text time
@@ -43513,8 +43756,8 @@ self: {
      }:
      mkDerivation {
        pname = "groundhog-sqlite";
-       version = "0.7.0";
-       sha256 = "17np5dx8c1z27h8dv4gw2qzqx2qs5l4ars1k0xdqs0xzf745id84";
+       version = "0.7.0.1";
+       sha256 = "0lsm9yfapdpy4nf5bxrbjkvw9nwc82qfmyw1h9l3mc4b8nfp12dy";
        buildDepends = [
          direct-sqlite groundhog monad-control monad-logger resource-pool
          text transformers unordered-containers
@@ -45487,8 +45730,8 @@ self: {
      }:
      mkDerivation {
        pname = "hakyll";
-       version = "4.6.1.1";
-       sha256 = "1y1bc25ivj6sgq9909qgwsm54dn6sdisd1znkk9r5x9c7ajv6gaa";
+       version = "4.6.2.0";
+       sha256 = "1sw6agya1zd867316rr23ipk7aa9m8sgkwbvkzz8q6mw1ni8c0fz";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -48409,21 +48652,22 @@ self: {
 
   "hasql" = callPackage
     ({ mkDerivation, attoparsec, base-prelude, ex-pool, hasql-backend
-     , hasql-postgres, HTF, list-t, loch-th, mmorph, monad-control
-     , mtl-prelude, placeholders, safe, text, time, transformers
-     , transformers-base, vector
+     , hasql-postgres, hspec, list-t, loch-th, mmorph, monad-control
+     , mtl-prelude, placeholders, safe, slave-thread, text, time
+     , transformers, transformers-base, vector
      }:
      mkDerivation {
        pname = "hasql";
-       version = "0.4.0";
-       sha256 = "1y4fs0pa8kbgjdkwp47p03gizj878dyil32zyxhapharmvajhp37";
+       version = "0.4.1";
+       sha256 = "0bzxdp9mh2fr8dwqf4qkisy6k5dsxxg0f2rkgydnf1w4c6kpwf9s";
        buildDepends = [
          attoparsec base-prelude ex-pool hasql-backend list-t loch-th mmorph
          monad-control placeholders safe text time transformers
          transformers-base vector
        ];
        testDepends = [
-         base-prelude hasql-backend hasql-postgres HTF mtl-prelude
+         base-prelude hasql-backend hasql-postgres hspec mtl-prelude
+         slave-thread text
        ];
        homepage = "https://github.com/nikita-volkov/hasql";
        description = "A minimalistic general high level API for relational databases";
@@ -52755,8 +52999,8 @@ self: {
     ({ mkDerivation, mtl, openssl }:
      mkDerivation {
        pname = "hopenssl";
-       version = "1.6.2";
-       sha256 = "0b9xdm7jgkadx53vwszjnisyblzsqk99s3zqppgp0iqqf9955s4w";
+       version = "1.7";
+       sha256 = "1zs69kxwz5fnm62mdscbpfz78vwnda75gyx1vxmmlisfhfslprly";
        buildDepends = [ mtl ];
        extraLibraries = [ openssl ];
        homepage = "http://github.com/peti/hopenssl";
@@ -53952,15 +54196,14 @@ self: {
      }) { xenctrl = null; };
 
   "hsay" = callPackage
-    ({ mkDerivation, HTTP }:
+    ({ mkDerivation, Hclip, HTTP }:
      mkDerivation {
        pname = "hsay";
-       version = "1.0.0";
-       sha256 = "01mjlknqrn7s8xxcvyshw12iaals57q1dzfbxd96wypd4irnzhjn";
-       editedCabalFile = "df2c372926bda6986bf42cacbc87b6e263e7288c6b1295867cb8cc8495cef1a8";
+       version = "1.1.0";
+       sha256 = "0qar7y4190dfv63jmzx8saxqxzh73spc2q3i6pqywdbv7zb6zvrl";
        isLibrary = false;
        isExecutable = true;
-       buildDepends = [ HTTP ];
+       buildDepends = [ Hclip HTTP ];
        description = "(ab)Use Google Translate as a speech synthesiser";
        license = stdenv.lib.licenses.gpl3;
      }) {};
@@ -55380,17 +55623,18 @@ self: {
      }) {};
 
   "hspec-server" = callPackage
-    ({ mkDerivation, hspec, hspec-core, HUnit, regex-posix, temporary
-     , transformers
+    ({ mkDerivation, hspec, hspec-core, hspec-expectations, HUnit
+     , regex-posix, temporary, transformers
      }:
      mkDerivation {
        pname = "hspec-server";
-       version = "0.1.0.0";
-       sha256 = "04kq9g8hwllzz4rcn42jw62wvhp6dbs71hagfb5wls4a9ijn15jm";
+       version = "0.2.2";
+       sha256 = "1z6sakv345mqpcpx2m9b42jzz865f6b94bqkqzqd9g21svha9g3m";
        buildDepends = [
-         hspec hspec-core HUnit regex-posix temporary transformers
+         hspec hspec-core hspec-expectations HUnit regex-posix temporary
+         transformers
        ];
-       testDepends = [ hspec ];
+       testDepends = [ hspec transformers ];
        description = "Test Framework for Server's status";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -56319,6 +56563,7 @@ self: {
        pname = "http-client";
        version = "0.4.6.1";
        sha256 = "1z4vk055knjslfy20yi2agc328y4844zi3x05ncpjxsq5a0aibwb";
+       editedCabalFile = "86eb1bcfc162801bdde88fbe4a3b39efa9f2eb14d56fd8e28d1a95cb3b574819";
        buildDepends = [
          base64-bytestring blaze-builder case-insensitive cookie
          data-default-class deepseq exceptions filepath http-types
@@ -56415,6 +56660,22 @@ self: {
        ];
        homepage = "https://github.com/spl/http-client-request-modifiers";
        description = "Convenient monadic HTTP request modifiers";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "http-client-streams" = callPackage
+    ({ mkDerivation, HsOpenSSL, http-client, http-client-openssl
+     , io-streams, mtl, transformers
+     }:
+     mkDerivation {
+       pname = "http-client-streams";
+       version = "0.2.0.0";
+       sha256 = "1k4wqbhms5dvza5k13ndmd3f023jnkdngvbv3rw923bp7bhm3bai";
+       buildDepends = [
+         HsOpenSSL http-client http-client-openssl io-streams mtl
+         transformers
+       ];
+       description = "http-client for io-streams supporting openssl";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -57244,8 +57505,8 @@ self: {
      }:
      mkDerivation {
        pname = "hxt";
-       version = "9.3.1.9";
-       sha256 = "1f0dri6v821cd7d3jkylnmx0y73z7yrnirl3x4jfcx8arscc27q9";
+       version = "9.3.1.10";
+       sha256 = "0jmd13wh29i7rl8wvz2mrn4055r4pc8qaph5p0hkw8mbpkn93jcf";
        buildDepends = [
          binary deepseq filepath HUnit hxt-charproperties
          hxt-regex-xmlschema hxt-unicode mtl network-uri parsec
@@ -57594,17 +57855,18 @@ self: {
 
   "hydrogen-prelude" = callPackage
     ({ mkDerivation, cereal, filepath, hashable, hydrogen-version
-     , random, regex-base, regex-tdfa, strict, time, transformers, uuid
+     , network, random, regex-base, regex-tdfa, strict, time
+     , transformers, uuid
      }:
      mkDerivation {
        pname = "hydrogen-prelude";
-       version = "0.7.1";
-       sha256 = "17hm0dgnxfc87prnral9gwg7aaz5a9n4ymmdxaa6044k95y45704";
+       version = "0.8";
+       sha256 = "0f2ahz7bklczlm6pcrg6q2v448p5l85vqzbs7svnw6pg98n6vn8l";
        buildDepends = [
-         cereal filepath hashable hydrogen-version random regex-base
+         cereal filepath hashable hydrogen-version network random regex-base
          regex-tdfa strict time transformers uuid
        ];
-       homepage = "https://github.com/scravy/hydrogen-prelude";
+       homepage = "https://scravy.de/hydrogen-prelude/";
        description = "Hydrogen Prelude";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -57629,10 +57891,10 @@ self: {
     ({ mkDerivation, hydrogen-prelude, parsec, time }:
      mkDerivation {
        pname = "hydrogen-util";
-       version = "0.7.1";
-       sha256 = "0g00ip9jncbb35b2z31iw96p118rkppfpabnypr4xg0p9s1k4naj";
+       version = "0.8";
+       sha256 = "14z2nf2af0ydqr2sm4r4cn252qn0hbacdc4z1lhyjnin66djb1a8";
        buildDepends = [ hydrogen-prelude parsec time ];
-       homepage = "https://github.com/scravy/hydrogen-util";
+       homepage = "https://scravy.de/hydrogen-util/";
        description = "Hydrogen Tools";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -57641,10 +57903,10 @@ self: {
     ({ mkDerivation }:
      mkDerivation {
        pname = "hydrogen-version";
-       version = "1.1";
-       sha256 = "1qpsxl2pmcqgn4f1pdra7jg3sv2yfgkcm02s51y7f82sqsihj51m";
-       homepage = "https://github.com/scravy/hydrogen-version";
-       description = "Hydrogen Version type";
+       version = "1.2";
+       sha256 = "0y549bki7zfwf9v5372s78fb9y1fyn2a3gk74cb9cg2yh9l81w8z";
+       homepage = "https://scravy.de/hydrogen-version/";
+       description = "Hydrogen Version Type";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -59384,6 +59646,21 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "io-streams-http" = callPackage
+    ({ mkDerivation, http-client, http-client-tls, io-streams, mtl
+     , transformers
+     }:
+     mkDerivation {
+       pname = "io-streams-http";
+       version = "0.2.0.1";
+       sha256 = "0pfdr38zmk2mzdbpmm6dkx462y2mdnh41nqpvflcc571sfsly6d4";
+       buildDepends = [
+         http-client http-client-tls io-streams mtl transformers
+       ];
+       description = "http-client for io-streams";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "io-throttle" = callPackage
     ({ mkDerivation, SafeSemaphore, threads }:
      mkDerivation {
@@ -59570,12 +59847,18 @@ self: {
      }) {};
 
   "irc" = callPackage
-    ({ mkDerivation, attoparsec }:
+    ({ mkDerivation, attoparsec, HUnit, QuickCheck, test-framework
+     , test-framework-hunit, test-framework-quickcheck2
+     }:
      mkDerivation {
        pname = "irc";
-       version = "0.6.0.1";
-       sha256 = "0524phrxjv0i5qabrf4sj0zpcvkdvcivv1lg46591pmvndfhpyn4";
+       version = "0.6.1.0";
+       sha256 = "1q9p2qwfy9rsfyaja4x3gjr8ql2ka2ja5qv56b062bdkvzafl5iq";
        buildDepends = [ attoparsec ];
+       testDepends = [
+         HUnit QuickCheck test-framework test-framework-hunit
+         test-framework-quickcheck2
+       ];
        description = "A small library for parsing IRC messages";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -61494,8 +61777,8 @@ self: {
      }:
      mkDerivation {
        pname = "keter";
-       version = "1.3.6";
-       sha256 = "00g34gazj3kk39nk34vzw88dy04rr3swb0hcl6k6gafwqrpv3i79";
+       version = "1.3.7.1";
+       sha256 = "0gl4v5gblc114581xxfn2k7b42bilfcnmd01z5yl1kmqslky6g00";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -62141,6 +62424,16 @@ self: {
        license = stdenv.lib.licenses.gpl3;
      }) {};
 
+  "lambdaBase" = callPackage
+    ({ mkDerivation, parsec }:
+     mkDerivation {
+       pname = "lambdaBase";
+       version = "0.0.1.0";
+       sha256 = "0mmdkyadpnkm8d3jv6vb7ln762vkf744hcq6qiyhznxhvih0k28x";
+       buildDepends = [ parsec ];
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "lambdaFeed" = callPackage
     ({ mkDerivation, html }:
      mkDerivation {
@@ -62153,6 +62446,19 @@ self: {
        homepage = "http://www.cse.unsw.edu.au/~chak/haskell/lambdaFeed/";
        description = "RSS 2.0 feed generator";
        license = "GPL";
+     }) {};
+
+  "lambdaLit" = callPackage
+    ({ mkDerivation, haskeline, lambdaBase, mtl, network }:
+     mkDerivation {
+       pname = "lambdaLit";
+       version = "0.1.1.0";
+       sha256 = "1xw1496q84wrzy1r3dwvwy04sb3184namnmdj5kspc5pmd8ipx0h";
+       isLibrary = false;
+       isExecutable = true;
+       buildDepends = [ haskeline lambdaBase mtl network ];
+       description = "...";
+       license = stdenv.lib.licenses.mit;
      }) {};
 
   "lambdabot" = callPackage
@@ -63231,6 +63537,24 @@ self: {
        homepage = "https://github.com/skypers/leaf";
        description = "A simple portfolio generator";
        license = stdenv.lib.licenses.gpl3;
+     }) {};
+
+  "leaky" = callPackage
+    ({ mkDerivation, deepseq-bounded, deepseq-generics, generics-sop
+     , random, seqaid
+     }:
+     mkDerivation {
+       pname = "leaky";
+       version = "0.1.0.2";
+       sha256 = "096ip5pb5bmy3bklflcr5vxhr6k6ic5zbnqhbh60lxr24zz5dls5";
+       isLibrary = false;
+       isExecutable = true;
+       buildDepends = [
+         deepseq-bounded deepseq-generics generics-sop random seqaid
+       ];
+       homepage = "http://www.fremissant.net/leaky";
+       description = "Robust space leak, and its strictification";
+       license = stdenv.lib.licenses.bsd3;
      }) {};
 
   "leankit-api" = callPackage
@@ -64374,8 +64698,8 @@ self: {
      }:
      mkDerivation {
        pname = "lilypond";
-       version = "1.8";
-       sha256 = "188m2qvv3l30wdhl634dkqvbwxan2dab7ip6cwp5kx5rv19q6sm6";
+       version = "1.8.1";
+       sha256 = "0y60i1rsl6rzdvbx2jj3y660bqlsz6dywwxq8nl4q1g6gr2k97fd";
        buildDepends = [
          data-default music-dynamics-literal music-pitch-literal prettify
          semigroups vector-space
@@ -65381,8 +65705,8 @@ self: {
     ({ mkDerivation, lmdb }:
      mkDerivation {
        pname = "lmdb";
-       version = "0.2.1";
-       sha256 = "1zrwgpj4c2h17zhbpg9ynniljadzdl3jqdxr926vjsl1j89lpkps";
+       version = "0.2.4";
+       sha256 = "1fc466n8y5dqbp9v6a5av381gflj67rkbj7abs5kqb7h79fdaawa";
        extraLibraries = [ lmdb ];
        homepage = "http://github.com/dmbarbour/haskell-lmdb";
        description = "Lightning MDB bindings";
@@ -66308,8 +66632,8 @@ self: {
     ({ mkDerivation, filepath, machines, machines-io, transformers }:
      mkDerivation {
        pname = "machines-directory";
-       version = "0.0.0.1";
-       sha256 = "1npgh7f5czx6r3s05y48rs6xkrgpv3if38apwnbvi4ignmsfsvyx";
+       version = "0.0.0.2";
+       sha256 = "0pyc1j2v4pyai6a52ilvqlhqikr6fhk4acs89za62mnyd96fkl0j";
        buildDepends = [ filepath machines machines-io transformers ];
        homepage = "http://github.com/aloiscochard/machines-io";
        description = "Directory (system) utilities for the machines library";
@@ -68256,8 +68580,8 @@ self: {
      }:
      mkDerivation {
        pname = "mime-mail";
-       version = "0.4.6";
-       sha256 = "051mqpzypg4r6rd06qb75pl3nq9p68r1sl73r0pwl1imcp158aw6";
+       version = "0.4.6.2";
+       sha256 = "17msl8d6rzqhswfsymd2c892ghf1wc9sys5mgvn7s3mf89qmkvfb";
        buildDepends = [
          base64-bytestring blaze-builder filepath random text
        ];
@@ -68265,7 +68589,7 @@ self: {
        configureFlags = "--ghc-option=-DMIME_MAIL_SENDMAIL_PATH=\"${sendmail}\"";
        homepage = "http://github.com/snoyberg/mime-mail";
        description = "Compose MIME email messages";
-       license = stdenv.lib.licenses.bsd3;
+       license = stdenv.lib.licenses.mit;
      }) {};
 
   "mime-mail-ses" = callPackage
@@ -68275,8 +68599,8 @@ self: {
      }:
      mkDerivation {
        pname = "mime-mail-ses";
-       version = "0.3.2";
-       sha256 = "19jdmfwlak50sw75gba5a2c91rs8694b2y6wl8zxc3xx4bkq6ldz";
+       version = "0.3.2.1";
+       sha256 = "1d36n3i9q4b6dsi3j8sjghgs797bgzrxlshq5d1kfpbvgmwhv43p";
        buildDepends = [
          base64-bytestring byteable conduit cryptohash http-client
          http-conduit http-types mime-mail text time transformers
@@ -68671,6 +68995,22 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "moan" = callPackage
+    ({ mkDerivation, binary, dawg, regex-tdfa, regex-tdfa-text
+     , tagset-positional, text, zlib
+     }:
+     mkDerivation {
+       pname = "moan";
+       version = "0.2.0.2";
+       sha256 = "0fb0z3v4a8kblwx4xjs7xdkczpvcyz9la7071kz7q6cjl6w49i30";
+       buildDepends = [
+         binary dawg regex-tdfa regex-tdfa-text tagset-positional text zlib
+       ];
+       homepage = "https://github.com/vjeranc/moan";
+       description = "Language-agnostic analyzer for positional morphosyntactic tags";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "modbus-tcp" = callPackage
     ({ mkDerivation, base-unicode-symbols, cereal, network }:
      mkDerivation {
@@ -68898,12 +69238,12 @@ self: {
      }) {};
 
   "monad-control" = callPackage
-    ({ mkDerivation, transformers, transformers-base }:
+    ({ mkDerivation, stm, transformers, transformers-base }:
      mkDerivation {
        pname = "monad-control";
-       version = "1.0.0.0";
-       sha256 = "0s8x54rsdbdl1qv8fnqfljgigw3mcqqhxxiw9dmsk4k6r4734lh1";
-       buildDepends = [ transformers transformers-base ];
+       version = "1.0.0.1";
+       sha256 = "1332wravhjhcbj0jh3z1hg2dyfxlkqyb3rv6zdkgz49h2pfjlfbn";
+       buildDepends = [ stm transformers transformers-base ];
        homepage = "https://github.com/basvandijk/monad-control";
        description = "Lift control operations, like exception catching, through monad transformers";
        license = stdenv.lib.licenses.bsd3;
@@ -68968,8 +69308,8 @@ self: {
     ({ mkDerivation, mtl, transformers }:
      mkDerivation {
        pname = "monad-gen";
-       version = "0.3.0.0";
-       sha256 = "0h2w7kd1kdmidv6lyzjf785ca9kjg3qr5b1mhhqb4l7qg9x1jlby";
+       version = "0.3.0.1";
+       sha256 = "0rc4r6sg29sjgh9xsk7q80h0lixhyxs60bszj5dnn8yf7w18b15y";
        buildDepends = [ mtl transformers ];
        description = "A simple monad for generating fresh integers";
        license = stdenv.lib.licenses.mit;
@@ -69009,8 +69349,8 @@ self: {
      }:
      mkDerivation {
        pname = "monad-logger";
-       version = "0.3.11";
-       sha256 = "0ydxv4pdq660dh3cdmsd5lgjkfhh7c62kb5vcl8jl6qmjf8kvmdq";
+       version = "0.3.11.1";
+       sha256 = "1vh847ivymhb20sly9aplcm35zcmn7xmibv8lkv1ws9y7s1951p7";
        buildDepends = [
          blaze-builder conduit conduit-extra exceptions fast-logger
          lifted-base monad-control monad-loops mtl resourcet stm stm-chans
@@ -70563,8 +70903,8 @@ self: {
     ({ mkDerivation, average, semigroups }:
      mkDerivation {
        pname = "music-articulation";
-       version = "1.8";
-       sha256 = "0inxmcrnpsxfgay1j7h45qwr45zq94l8pjfn0vwj7vmvhkymw5py";
+       version = "1.8.1";
+       sha256 = "1wmj1265bk4fb1qw3vmm6r7a576i8fc2dshrfh3i7w39vy9ywprr";
        buildDepends = [ average semigroups ];
        description = "Abstract representation of musical articulation";
        license = stdenv.lib.licenses.bsd3;
@@ -70584,8 +70924,8 @@ self: {
     ({ mkDerivation, average, music-dynamics-literal, semigroups }:
      mkDerivation {
        pname = "music-dynamics";
-       version = "1.8";
-       sha256 = "0abziidvf78wh86r2lxqg3jvr93nfjnmzr9k3iiki1lq2w6p2n9y";
+       version = "1.8.1";
+       sha256 = "1rdv9kn3i5m6l9xpfmccdwjkdw0smr9qiaw4p0y79fr9gdqrd6a1";
        buildDepends = [ average music-dynamics-literal semigroups ];
        description = "Abstract representation of musical dynamics";
        license = stdenv.lib.licenses.bsd3;
@@ -70595,8 +70935,8 @@ self: {
     ({ mkDerivation, semigroups }:
      mkDerivation {
        pname = "music-dynamics-literal";
-       version = "1.8";
-       sha256 = "1rgir9r12jrc73g1rsnl9ksqzr2yh7pyha13ih94lskcqc2zvqps";
+       version = "1.8.1";
+       sha256 = "1p5r9fj71rvg2hma1r4s4vlxxqzam7iq99hfmn8k92sv7yzjm5na";
        buildDepends = [ semigroups ];
        description = "Overloaded dynamics literals";
        license = stdenv.lib.licenses.bsd3;
@@ -70608,8 +70948,8 @@ self: {
      }:
      mkDerivation {
        pname = "music-graphics";
-       version = "1.8";
-       sha256 = "1hgqs8i6g33ang7bg7phyiz6k1k20ldfb3k8aamvna6ffqq6ck3m";
+       version = "1.8.1";
+       sha256 = "1764qmb8pafddsclr5gl5ibqpi9wvwa96idn6iqx8d3jbpqc4fam";
        buildDepends = [
          aeson blaze-svg lens music-pitch music-preludes music-score
        ];
@@ -70623,8 +70963,8 @@ self: {
      }:
      mkDerivation {
        pname = "music-parts";
-       version = "1.8";
-       sha256 = "0mb07c4494dxdvzsyi06znnha65llpgy08hf6wfrsl14nizpasfl";
+       version = "1.8.1";
+       sha256 = "1m0grrqmlj21ld5g381zz1y7s25ngkjq0d5sr3wd7z7ssp44xxs2";
        buildDepends = [
          adjunctions aeson data-default lens music-dynamics music-pitch
          roman-numerals semigroups
@@ -70640,8 +70980,8 @@ self: {
      }:
      mkDerivation {
        pname = "music-pitch";
-       version = "1.8";
-       sha256 = "0q7v133p77sn2xwv2g14l1xzszzwqnfgs4k0rh4ckvzdphnlwvii";
+       version = "1.8.1";
+       sha256 = "01wrhzyn7mpa4xk1iyg17clfwyy6ggfg1bz45dvr62pz3gl0sd03";
        buildDepends = [
          data-interval lens music-pitch-literal nats positive semigroups
          type-unary vector-space vector-space-points
@@ -70654,16 +70994,16 @@ self: {
     ({ mkDerivation, semigroups }:
      mkDerivation {
        pname = "music-pitch-literal";
-       version = "1.8";
-       sha256 = "0l4iw993jm0azl2v62y6k7gfg85kqwlr48gz4fk2c2ag4v5adifg";
+       version = "1.8.1";
+       sha256 = "11qjsxn10lrl3z7yi8h2likasy1g68ybbfzpnx03d01irl5kyzyf";
        buildDepends = [ semigroups ];
        description = "Overloaded pitch literals";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
   "music-preludes" = callPackage
-    ({ mkDerivation, aeson, async, average, data-default, filepath
-     , lens, lilypond, monadplus, music-articulation, music-dynamics
+    ({ mkDerivation, async, average, filepath, lens, lilypond
+     , monadplus, music-articulation, music-dynamics
      , music-dynamics-literal, music-parts, music-pitch
      , music-pitch-literal, music-score, musicxml2, optparse-applicative
      , semigroups, split, tasty, tasty-golden, temporary, vector-space
@@ -70671,16 +71011,15 @@ self: {
      }:
      mkDerivation {
        pname = "music-preludes";
-       version = "1.8";
-       sha256 = "01mpb8g0b43v475d7w9hndfxlbxcy3l4fabq330c91api26vzsxa";
+       version = "1.8.1";
+       sha256 = "0apqhv3658i7nrh40ksfxzbi21xvfaix1mm2m3bxid2plbm88qav";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
-         aeson async average data-default filepath lens lilypond monadplus
-         music-articulation music-dynamics music-dynamics-literal
-         music-parts music-pitch music-pitch-literal music-score musicxml2
-         optparse-applicative semigroups split temporary vector-space
-         vector-space-points
+         async average filepath lens lilypond monadplus music-articulation
+         music-dynamics music-dynamics-literal music-parts music-pitch
+         music-pitch-literal music-score musicxml2 optparse-applicative
+         semigroups split temporary vector-space vector-space-points
        ];
        testDepends = [ tasty tasty-golden ];
        description = "Some useful preludes for the Music Suite";
@@ -70689,22 +71028,22 @@ self: {
 
   "music-score" = callPackage
     ({ mkDerivation, adjunctions, aeson, average, bifunctors, colour
-     , comonad, contravariant, data-default, distributive, HCodecs, lens
-     , lilypond, monadplus, mtl, music-dynamics-literal
-     , music-pitch-literal, musicxml2, nats, NumInstances, parsec
-     , prettify, profunctors, semigroups, transformers
-     , transformers-compat, vector-space, vector-space-points, void
+     , comonad, contravariant, distributive, HCodecs, lens, lilypond
+     , monadplus, mtl, music-dynamics-literal, music-pitch-literal
+     , musicxml2, nats, NumInstances, parsec, prettify, semigroups
+     , transformers, transformers-compat, vector-space
+     , vector-space-points
      }:
      mkDerivation {
        pname = "music-score";
-       version = "1.8";
-       sha256 = "1j3xz1xbww4qp6vdr0qc72v23r0vjgyd0n2c7p4wckfbbc95rnyj";
+       version = "1.8.1";
+       sha256 = "1bz93g4v69wkwsamjmgbdxwnv77nwrnvrahj180vjkfwj77f88hq";
        buildDepends = [
          adjunctions aeson average bifunctors colour comonad contravariant
-         data-default distributive HCodecs lens lilypond monadplus mtl
+         distributive HCodecs lens lilypond monadplus mtl
          music-dynamics-literal music-pitch-literal musicxml2 nats
-         NumInstances parsec prettify profunctors semigroups transformers
-         transformers-compat vector-space vector-space-points void
+         NumInstances parsec prettify semigroups transformers
+         transformers-compat vector-space vector-space-points
        ];
        description = "Musical score and part representation";
        license = stdenv.lib.licenses.bsd3;
@@ -70716,8 +71055,8 @@ self: {
      }:
      mkDerivation {
        pname = "music-sibelius";
-       version = "1.8";
-       sha256 = "1fn132cpnn9fp0qx45zkzmqljxf3n19ahib2aaccv0pki8hl5hc8";
+       version = "1.8.1";
+       sha256 = "0g36m4fym11kw2qwciv93zxbxklikmkxbvxlmgi6l9nkjd0n5q9v";
        buildDepends = [
          aeson lens monadplus music-pitch-literal music-preludes music-score
          semigroups unordered-containers
@@ -70733,8 +71072,8 @@ self: {
      }:
      mkDerivation {
        pname = "music-suite";
-       version = "1.8";
-       sha256 = "04xvs2vgmcm7czzg79jkk0wingysx1a2zpjw1lvbxanf7xcc2xx4";
+       version = "1.8.1";
+       sha256 = "14hhzmsq5m2h0qq3220xv1gg90sn69whmiysj3y0mw6rcm0zia0f";
        buildDepends = [
          abcnotation lilypond music-articulation music-dynamics
          music-dynamics-literal music-parts music-pitch music-pitch-literal
@@ -70805,8 +71144,8 @@ self: {
      }:
      mkDerivation {
        pname = "musicxml2";
-       version = "1.8";
-       sha256 = "19s08s88hzazyy2fmzg485krfw02jpcrfv1cgb300zpj3lzv7k81";
+       version = "1.8.1";
+       sha256 = "096vm73a4ngl1yc27x7z226difh97zjm5386cy5vw58ndmf1fws7";
        buildDepends = [
          data-default music-dynamics-literal music-pitch-literal nats
          reverse-apply semigroups type-unary xml
@@ -71062,6 +71401,22 @@ self: {
        sha256 = "1ggqqjn83rx23qk7lzrcgj1arjhmhi85xfl7d2pz27rrjx2ywpn8";
        buildDepends = [ haskell-src-meta mysql-simple ];
        description = "Quasi-quoter for use with mysql-simple";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "mysql-simple-typed" = callPackage
+    ({ mkDerivation, haskell-src-meta, mysql, mysql-simple, typedquery
+     , utf8-string
+     }:
+     mkDerivation {
+       pname = "mysql-simple-typed";
+       version = "0.1.0.0";
+       sha256 = "1glqiimxv0b4s0isd5c9n365j7nmy7k9bqkm2ccsi6rxhzlm9aqw";
+       buildDepends = [
+         haskell-src-meta mysql mysql-simple typedquery utf8-string
+       ];
+       homepage = "https://github.com/tolysz/mysql-simple-typed";
+       description = "Typed extension to mysql simple";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -73326,17 +73681,19 @@ self: {
      }) {};
 
   "objective" = callPackage
-    ({ mkDerivation, clean-unions, elevator, free, hashable
-     , kan-extensions, minioperational, profunctors, transformers
-     , unordered-containers, witherable
+    ({ mkDerivation, adjunctions, clean-unions, either, elevator, free
+     , hashable, kan-extensions, minioperational, profunctors
+     , transformers, transformers-compat, unordered-containers
+     , witherable
      }:
      mkDerivation {
        pname = "objective";
-       version = "0.6.2";
-       sha256 = "0jzxi5ip67vjyh3wz9kf4p5mqliidx75109xmlakjlr3dghrc5zq";
+       version = "0.6.3.2";
+       sha256 = "1g8qdqr9b3p8dl5wv45d41m18vhralk6gb1ygik8vnpx52c72xkb";
        buildDepends = [
-         clean-unions elevator free hashable kan-extensions minioperational
-         profunctors transformers unordered-containers witherable
+         adjunctions clean-unions either elevator free hashable
+         kan-extensions minioperational profunctors transformers
+         transformers-compat unordered-containers witherable
        ];
        homepage = "https://github.com/fumieval/objective";
        description = "Extensible objects";
@@ -75333,8 +75690,8 @@ self: {
     ({ mkDerivation, hspec, HUnit, QuickCheck, text, time }:
      mkDerivation {
        pname = "path-pieces";
-       version = "0.1.4";
-       sha256 = "1fxhp4bk88km7z1rdpify7l38li5k21qxw3vgcmq9b6bblvz6y2v";
+       version = "0.1.5";
+       sha256 = "05rya4gvpmm3pa4qp6cvvh4552qsrsgi61i1cx0aj8slakqrk8xw";
        buildDepends = [ text time ];
        testDepends = [ hspec HUnit QuickCheck text ];
        description = "Components of paths";
@@ -76001,8 +76358,8 @@ self: {
      }:
      mkDerivation {
        pname = "persistent";
-       version = "2.1.1";
-       sha256 = "0wmvjizz0zx5i9q5sh8hvsks14q6if4s0dnk63f9mw03jb8jpdd1";
+       version = "2.1.1.2";
+       sha256 = "0w85fd46r2v4cq8d3kdzj2gdkjv81rc4pggj94vkk87l8wvyiw8w";
        buildDepends = [
          aeson attoparsec base64-bytestring blaze-html blaze-markup conduit
          exceptions fast-logger lifted-base monad-control monad-logger mtl
@@ -76139,8 +76496,8 @@ self: {
      }:
      mkDerivation {
        pname = "persistent-postgresql";
-       version = "2.1.1";
-       sha256 = "0mfvzd62qn7ffx6nrgkr52qzl3prjq8xkahvb6j5akb6azdmzg80";
+       version = "2.1.2";
+       sha256 = "1lxx9gi63m51qcymdyis2viap6fz60y6xcxi3nhmjq9g99fypkp7";
        buildDepends = [
          aeson blaze-builder conduit monad-control monad-logger persistent
          postgresql-libpq postgresql-simple resourcet text time transformers
@@ -76201,18 +76558,22 @@ self: {
      }) {};
 
   "persistent-sqlite" = callPackage
-    ({ mkDerivation, aeson, conduit, monad-control, monad-logger
-     , persistent, resourcet, text, transformers
+    ({ mkDerivation, aeson, conduit, hspec, monad-control, monad-logger
+     , persistent, persistent-template, resourcet, text, time
+     , transformers
      }:
      mkDerivation {
        pname = "persistent-sqlite";
-       version = "2.1.1";
-       sha256 = "1hypaixwp6q10gfwbg0xfqfw7vz9j56max5i0k1mklan6js7wy9w";
+       version = "2.1.1.1";
+       sha256 = "02plvack8qif9cmj0aj2wd73ydsrqdclwavmfckp740471zh359a";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
          aeson conduit monad-control monad-logger persistent resourcet text
-         transformers
+         time transformers
+       ];
+       testDepends = [
+         hspec persistent persistent-template time transformers
        ];
        homepage = "http://www.yesodweb.com/book/persistent";
        description = "Backend for the persistent library using sqlite3";
@@ -76226,8 +76587,8 @@ self: {
      }:
      mkDerivation {
        pname = "persistent-template";
-       version = "2.1";
-       sha256 = "0rj3yqm38kg7lvj9hi4c5yaypvxj6pwb47b0kg8h2hsa0rshhrdy";
+       version = "2.1.0.1";
+       sha256 = "14jalq90x6czhasc9d8s7j1nylgjhw96ialdqsxvg7iswdp753qx";
        buildDepends = [
          aeson monad-control monad-logger path-pieces persistent tagged text
          transformers unordered-containers
@@ -77299,15 +77660,15 @@ self: {
      }) {};
 
   "plot-lab" = callPackage
-    ({ mkDerivation, colour, gtk, hmatrix, plot, text }:
+    ({ mkDerivation, colour, gtk, hmatrix, plot, text, vector }:
      mkDerivation {
        pname = "plot-lab";
-       version = "0.0.1.8";
-       sha256 = "0h0ni0vbhfj93g5xff2k8r0n7x40ns5q6rs8fy6hydzqsd7yp803";
+       version = "0.0.1.9";
+       sha256 = "1qa5mxq9j5m5zbvzsmrzg8jb9w9v8ik50c8w5ffddcrrqb9b8mcq";
        isLibrary = false;
        isExecutable = true;
-       buildDepends = [ colour gtk hmatrix plot text ];
-       homepage = "github.com/sumitsahrawat/plot-lab";
+       buildDepends = [ colour gtk hmatrix plot text vector ];
+       homepage = "https://github.com/sumitsahrawat/plot-lab";
        description = "A plotting tool with Mathematica like Manipulation abilities";
        license = stdenv.lib.licenses.gpl2;
      }) {};
@@ -78191,6 +78552,23 @@ self: {
        license = stdenv.lib.licenses.mit;
      }) {};
 
+  "postgresql-simple-typed" = callPackage
+    ({ mkDerivation, haskell-src-meta, postgresql-libpq
+     , postgresql-simple, typedquery, utf8-string
+     }:
+     mkDerivation {
+       pname = "postgresql-simple-typed";
+       version = "0.1.0.0";
+       sha256 = "1n9fkg1qcrycb7gvx4pln4xq3hpbczic4p2zv0f9hq7ljb5h3f1a";
+       buildDepends = [
+         haskell-src-meta postgresql-libpq postgresql-simple typedquery
+         utf8-string
+       ];
+       homepage = "https://github.com/tolysz/postgresql-simple-typed";
+       description = "Typed extension for PostgreSQL simple";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "postie" = callPackage
     ({ mkDerivation, attoparsec, cprng-aes, data-default-class, mtl
      , network, pipes, pipes-bytestring, pipes-parse, stringsearch, tls
@@ -78429,8 +78807,8 @@ self: {
      }:
      mkDerivation {
        pname = "pregame";
-       version = "0.1.3.0";
-       sha256 = "1hywls68mxhcpkhhn3sprw1d7kb7i6nlvdlmcncl1vg2sj677iq1";
+       version = "0.1.4.0";
+       sha256 = "0zngrl5ard9si6751j969ya8yh3mfxmpc42a6j3pp5qa5ns368z7";
        buildDepends = [
          data-default lens mtl parallel safe stm text transformers tuple
          vector
@@ -78853,9 +79231,8 @@ self: {
     ({ mkDerivation, deepseq, filepath }:
      mkDerivation {
        pname = "process";
-       version = "1.2.0.0";
-       sha256 = "02il5pxibf0q9b46v0lgdxyc2wlk5kg1v8223ry6brg41zpcj71q";
-       editedCabalFile = "43008578d0da7d775fd409477a6fd2258c3157294ed31b3dbc2a14117f67e4af";
+       version = "1.2.1.0";
+       sha256 = "0r11j0vys8gmzsdkfq491g43l21f9301dzma0s3gwblfsvdv2hwc";
        buildDepends = [ deepseq filepath ];
        description = "Process libraries";
        license = stdenv.lib.licenses.bsd3;
@@ -79303,8 +79680,8 @@ self: {
      }:
      mkDerivation {
        pname = "propellor";
-       version = "1.2.0";
-       sha256 = "0k1b9pw89dwxwx90kvjj17qzb2agsvslllrvzm7f40dq0rcf0y7w";
+       version = "1.2.1";
+       sha256 = "0kpvlm4qj7i2zx427rymk20lfxy3ljhc6y9qwhqxsbxg0aka25nj";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -82510,14 +82887,15 @@ self: {
 
   "relational-query" = callPackage
     ({ mkDerivation, Cabal, dlist, names-th, persistable-record
-     , sql-words, text, time, transformers
+     , sql-words, text, time, time-locale-compat, transformers
      }:
      mkDerivation {
        pname = "relational-query";
-       version = "0.1.0.0";
-       sha256 = "0qhr73j4d0b0957phf4nc8r64kjv7ws2nygnb93dnk290qhm0clc";
+       version = "0.1.0.1";
+       sha256 = "0hfg810q3cc6glwnw1lxgv3v83zw01mydjip5k0d2ahq197x97qn";
        buildDepends = [
-         dlist names-th persistable-record sql-words text time transformers
+         dlist names-th persistable-record sql-words text time
+         time-locale-compat transformers
        ];
        testDepends = [ Cabal ];
        homepage = "http://khibino.github.io/haskell-relational-record/";
@@ -83039,6 +83417,20 @@ self: {
        license = stdenv.lib.licenses.mit;
      }) {};
 
+  "resolve-trivial-conflicts" = callPackage
+    ({ mkDerivation, ansi-terminal, Diff, filepath, mtl }:
+     mkDerivation {
+       pname = "resolve-trivial-conflicts";
+       version = "0.2";
+       sha256 = "1ax6rg3av2mkqlijd1m44zk5fl0ll5b8w43lpikwidpci4vchv7v";
+       isLibrary = false;
+       isExecutable = true;
+       buildDepends = [ ansi-terminal Diff filepath mtl ];
+       homepage = "https://github.com/ElastiLotem/resolve-trivial-conflicts";
+       description = "Remove trivial conflict markers in a git repository";
+       license = stdenv.lib.licenses.gpl2;
+     }) {};
+
   "resource-effect" = callPackage
     ({ mkDerivation, extensible-effects, HUnit, mtl, QuickCheck
      , test-framework, test-framework-hunit, test-framework-quickcheck2
@@ -83063,8 +83455,8 @@ self: {
      }:
      mkDerivation {
        pname = "resource-pool";
-       version = "0.2.3.1";
-       sha256 = "02fpw5jfzcdhijx8mfpb6j4c8sxl36f04i2nx3cbivh9yhbgqr92";
+       version = "0.2.3.2";
+       sha256 = "04mw8b9djb14zp4rdi6h7mc3zizh597ffiinfbr4m0m8psifw9w6";
        buildDepends = [
          hashable monad-control stm time transformers transformers-base
          vector
@@ -83113,8 +83505,8 @@ self: {
      }:
      mkDerivation {
        pname = "resourcet";
-       version = "1.1.3.1";
-       sha256 = "13g8vj9hc59q8n696j0w79k5bhp3mgs923y4d2cffnd0p7yd8r8x";
+       version = "1.1.3.3";
+       sha256 = "0ih5p1k0n3ylcv0yk5x7hjzbzhs67vxmng708g9vz7a24xs2m7w2";
        buildDepends = [
          exceptions lifted-base mmorph monad-control mtl transformers
          transformers-base
@@ -83122,6 +83514,30 @@ self: {
        testDepends = [ hspec lifted-base transformers ];
        homepage = "http://github.com/snoyberg/conduit";
        description = "Deterministic allocation and freeing of scarce resources";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "respond" = callPackage
+    ({ mkDerivation, aeson, bifunctors, data-default-class, exceptions
+     , fast-logger, formatting, HList, http-media, http-types, lens
+     , monad-control, monad-logger, mtl, path-pieces, safe, scientific
+     , text, time, transformers, transformers-base, unordered-containers
+     , vector, wai, wai-extra, warp
+     }:
+     mkDerivation {
+       pname = "respond";
+       version = "1.0.0";
+       sha256 = "1k5vvr24c24jbrblh6xmqbyfm0bdjh55lnkpmxb9ycz1l7wnx4wm";
+       isLibrary = true;
+       isExecutable = true;
+       buildDepends = [
+         aeson bifunctors data-default-class exceptions fast-logger
+         formatting HList http-media http-types lens monad-control
+         monad-logger mtl path-pieces safe scientific text time transformers
+         transformers-base unordered-containers vector wai wai-extra warp
+       ];
+       homepage = "https://github.com/raptros/respond";
+       description = "process and route HTTP requests and generate responses on top of WAI";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -83563,6 +83979,20 @@ self: {
        isLibrary = true;
        isExecutable = true;
        description = "Simple unicode collation as per RFC5051";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "rhythm-game-tutorial" = callPackage
+    ({ mkDerivation, call, lens, mtl, objective, split }:
+     mkDerivation {
+       pname = "rhythm-game-tutorial";
+       version = "0.1";
+       sha256 = "1ib6a0skxmhngvii11ikyibg862j5l4dcjyd2l141v8nsb0incpn";
+       isLibrary = false;
+       isExecutable = true;
+       buildDepends = [ call lens mtl objective split ];
+       homepage = "https://github.com/fumieval/rhythm-game-tutorial";
+       description = "Haskell rhythm game tutorial";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -84684,12 +85114,12 @@ self: {
     ({ mkDerivation, ghc-syb-utils, HUnit, syb }:
      mkDerivation {
        pname = "sai-shape-syb";
-       version = "0.2.2";
-       sha256 = "0ryifxvpqqqszgr74zwz23cjq1dk7ik8jyqjknzbph473m14z9s1";
+       version = "0.3.0";
+       sha256 = "0pyldxchrqhc5rxx9sa3mfssfqyxnxym7kdihv1d5k1m6l91x5x3";
        buildDepends = [ ghc-syb-utils syb ];
        testDepends = [ ghc-syb-utils HUnit syb ];
        homepage = "http://www.fremissant.net/shape-syb";
-       description = "Obtain homogeneous values from arbitrary values, tramsforming or culling data";
+       description = "Obtain homogeneous values from arbitrary values, transforming or culling data";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -86085,8 +86515,8 @@ self: {
      }:
      mkDerivation {
        pname = "semigroups";
-       version = "0.16";
-       sha256 = "0mq5c6py0z3jaxr1j0aalz4vjd1v6ygffv91h7nh5621rcv4ga4s";
+       version = "0.16.0.1";
+       sha256 = "1j0k65mlsgx0v9gayy221iz3l5990qry5nzhx3w395pn3djrxvs6";
        buildDepends = [ deepseq hashable nats text unordered-containers ];
        homepage = "http://github.com/ekmett/semigroups/";
        description = "Anything that associates";
@@ -86213,6 +86643,25 @@ self: {
        testDepends = [ doctest filepath QuickCheck ];
        homepage = "https://github.com/tonymorris/separated";
        description = "A data type with elements separated by values";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "seqaid" = callPackage
+    ({ mkDerivation, Cabal, deepseq-bounded, modulespection, mtl
+     , regex-base, regex-pcre, syb, temporary, th-expand-syns
+     }:
+     mkDerivation {
+       pname = "seqaid";
+       version = "0.1.2";
+       sha256 = "1idhapc84xiqmjpyd3qf9b0xxahapp8waala8l5gckiz3q8g4j48";
+       isLibrary = true;
+       isExecutable = true;
+       buildDepends = [
+         Cabal deepseq-bounded modulespection mtl regex-base regex-pcre syb
+         temporary th-expand-syns
+       ];
+       homepage = "http://www.fremissant.net/seqaid";
+       description = "Dynamic strictness control, including space leak repair";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -86491,8 +86940,8 @@ self: {
      }:
      mkDerivation {
        pname = "servant-server";
-       version = "0.2.1";
-       sha256 = "1b2aqxnn9nf5qabbl8k9kq9b2mpn591j9jpjy33sis7ni469bayj";
+       version = "0.2.2";
+       sha256 = "11zyv1igg01a08j94698lpg55pp2ziizr0p5r0xfq768wz2l91m7";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -86923,12 +87372,17 @@ self: {
      }) {};
 
   "shake-language-c" = callPackage
-    ({ mkDerivation, fclabels, shake, split, unordered-containers }:
+    ({ mkDerivation, data-default-class, doctest, fclabels, hspec
+     , shake, split, unordered-containers
+     }:
      mkDerivation {
        pname = "shake-language-c";
-       version = "0.5.0";
-       sha256 = "1m3pyp7vdcdhsyr16kkanpc6rxqi7ydw5pp9ppsn903kiwd690yp";
-       buildDepends = [ fclabels shake split unordered-containers ];
+       version = "0.6.2";
+       sha256 = "0hmj0a5milfxg4a5yxk832lhhprmxjdiq3k2hw00mvs12h3dhh2m";
+       buildDepends = [
+         data-default-class fclabels shake split unordered-containers
+       ];
+       testDepends = [ doctest hspec shake ];
        homepage = "https://github.com/samplecount/shake-language-c";
        description = "Utilities for cross-compiling with Shake";
        license = stdenv.lib.licenses.asl20;
@@ -88772,6 +89226,7 @@ self: {
        pname = "snap-extras";
        version = "0.9";
        sha256 = "143n0y3cavfgn6f40sh7i441q77ys4lkfv0g9cai714n7yr0ya1v";
+       editedCabalFile = "3a360180bc4463874da336da5b4f1271a1cce298ca36cf9407a04823d4df58d8";
        buildDepends = [
          aeson blaze-builder blaze-html configurator data-default
          digestive-functors digestive-functors-heist digestive-functors-snap
@@ -89638,14 +90093,14 @@ self: {
      }) {};
 
   "snowglobe" = callPackage
-    ({ mkDerivation, gl-capture, GLUT, hmatrix, OpenGLRaw, random }:
+    ({ mkDerivation, gl-capture, GLUT, OpenGL, OpenGLRaw, random }:
      mkDerivation {
        pname = "snowglobe";
-       version = "2";
-       sha256 = "1apjycbl5a46wm6f20nd4l7caggz0y25fzxjz52n1xp6b8kzpwd6";
+       version = "3";
+       sha256 = "1iaynfi1jsj4vx25n9xqliaq88dbrw5kd1d610wzcfxsvf7ilkly";
        isLibrary = false;
        isExecutable = true;
-       buildDepends = [ gl-capture GLUT hmatrix OpenGLRaw random ];
+       buildDepends = [ gl-capture GLUT OpenGL OpenGLRaw random ];
        description = "randomized fractal snowflakes demo";
        license = stdenv.lib.licenses.gpl3;
      }) {};
@@ -90710,6 +91165,22 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "sqlite-simple-typed" = callPackage
+    ({ mkDerivation, haskell-src-meta, sqlite, sqlite-simple
+     , typedquery, utf8-string
+     }:
+     mkDerivation {
+       pname = "sqlite-simple-typed";
+       version = "0.1.0.0";
+       sha256 = "00flij4wv8ga0bpnnai6gwwga1fkra9kr3y9yw30j7czwl5r2h0r";
+       buildDepends = [
+         haskell-src-meta sqlite sqlite-simple typedquery utf8-string
+       ];
+       homepage = "https://github.com/tolysz/sqlite-simple-typed";
+       description = "Typed extension to sqlite simple";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "sqlvalue-list" = callPackage
     ({ mkDerivation, convertible, HDBC }:
      mkDerivation {
@@ -90931,23 +91402,23 @@ self: {
   "stackage" = callPackage
     ({ mkDerivation, aeson, async, Cabal, classy-prelude-conduit
      , conduit-extra, data-default-class, filepath, hspec, http-client
-     , mono-traversable, mtl, QuickCheck, semigroups, stm
-     , streaming-commons, system-fileio, system-filepath, tar, temporary
-     , text, time, transformers, unix-compat, utf8-string, xml-conduit
-     , yaml, zlib
+     , http-client-tls, mono-traversable, mtl, QuickCheck, semigroups
+     , stm, streaming-commons, system-fileio, system-filepath, tar
+     , temporary, text, time, transformers, unix-compat, utf8-string
+     , xml-conduit, yaml, zlib
      }:
      mkDerivation {
        pname = "stackage";
-       version = "0.1.0.0";
-       sha256 = "02wn5qwzhjq8h7w8a6h91w95rnsmp3bc6ais675mixhn0nkgny8z";
+       version = "0.2.1.0";
+       sha256 = "1jp5iqmlbyr6nfsppgdh4d0245azn7y68mmc64pfmadj48941sck";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
          aeson async Cabal classy-prelude-conduit conduit-extra
-         data-default-class filepath http-client mono-traversable mtl
-         semigroups stm streaming-commons system-fileio system-filepath tar
-         temporary text time transformers unix-compat utf8-string
-         xml-conduit yaml zlib
+         data-default-class filepath http-client http-client-tls
+         mono-traversable mtl semigroups stm streaming-commons system-fileio
+         system-filepath tar temporary text time transformers unix-compat
+         utf8-string xml-conduit yaml zlib
        ];
        testDepends = [
          Cabal classy-prelude-conduit hspec QuickCheck text yaml
@@ -91334,6 +91805,19 @@ self: {
        license = stdenv.lib.licenses.gpl2;
      }) {};
 
+  "steambrowser" = callPackage
+    ({ mkDerivation, parsec, transformers }:
+     mkDerivation {
+       pname = "steambrowser";
+       version = "0.1.0.0";
+       sha256 = "071ial002ip6lsm422wf9xzq7ka70h4va67382smkbgiinbma5g4";
+       isLibrary = false;
+       isExecutable = true;
+       buildDepends = [ parsec transformers ];
+       description = "List and launch steam games from the cli";
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "steeloverseer" = callPackage
     ({ mkDerivation, fsnotify, regex-tdfa, system-filepath, text, time
      }:
@@ -91385,8 +91869,8 @@ self: {
     ({ mkDerivation }:
      mkDerivation {
        pname = "stm";
-       version = "2.4.3";
-       sha256 = "0vzw4s06d5scfy4ircl81ym8ylkw9ckzsp8rq950dvipmaj1xhis";
+       version = "2.4.4";
+       sha256 = "0gc8zvdijp3rwmidkpxv76b4i0dc8dw6nbd92rxl4vxl0655iysx";
        description = "Software Transactional Memory";
        license = stdenv.lib.licenses.bsd3;
      }) {};
@@ -91866,8 +92350,8 @@ self: {
      }:
      mkDerivation {
        pname = "streaming-commons";
-       version = "0.1.7.3";
-       sha256 = "12sm59dhjrygly215888i2xcsn5m5a393ir0mm6w62883x49wzxb";
+       version = "0.1.8";
+       sha256 = "1rj31nkj7a89pphlrys40d91lzh6yxq1rnhxhxlc392bd6crb5hg";
        buildDepends = [
          blaze-builder network random stm text transformers zlib
        ];
@@ -93348,13 +93832,14 @@ self: {
      }:
      mkDerivation {
        pname = "system-fileio";
-       version = "0.3.15";
-       sha256 = "06cnr3hzw8xd75529nfqajgb5xy5i4ddqybgjw1v1nwpq04mhihi";
+       version = "0.3.16";
+       sha256 = "1x18ffhas6bhjis0glf0xd6ap8vy7cap8lkmnkn4px83d82yzi8k";
+       editedCabalFile = "27687f6a2383c74296863a8593ee788f1310d0795a5a110f4bdf80bb74e6d23f";
        buildDepends = [ system-filepath text time ];
        testDepends = [
          chell system-filepath temporary text time transformers
        ];
-       homepage = "https://john-millikin.com/software/haskell-filesystem/";
+       homepage = "https://github.com/fpco/haskell-filesystem";
        description = "Consistent filesystem interaction across GHC versions";
        license = stdenv.lib.licenses.mit;
      }) {};
@@ -93364,11 +93849,11 @@ self: {
      }:
      mkDerivation {
        pname = "system-filepath";
-       version = "0.4.12";
-       sha256 = "0sfralwgd5b9hfqmp20v31sq96s0v7j9g920qdj3n9i5mhslhwd2";
+       version = "0.4.13";
+       sha256 = "0g1lam859vs71vyc8qsg6aianw5s7w19rk02acf2gr8dg3ypznca";
        buildDepends = [ deepseq text ];
        testDepends = [ chell chell-quickcheck QuickCheck text ];
-       homepage = "https://john-millikin.com/software/haskell-filesystem/";
+       homepage = "https://github.com/fpco/haskell-filesystem";
        description = "High-level, byte-based file and directory path manipulations";
        license = stdenv.lib.licenses.mit;
      }) {};
@@ -94023,8 +94508,8 @@ self: {
     ({ mkDerivation, mtl, safe, text }:
      mkDerivation {
        pname = "tamper";
-       version = "0.3.5.1";
-       sha256 = "17aqzw9vjq5mwikx4kjw9l8h7a18aff02217kw9yfvk23acnxgkf";
+       version = "0.4.0";
+       sha256 = "16ca5c4w0qmar1nv4m91cwrjw38ql76lphxd25d063d5v77lwr8z";
        buildDepends = [ mtl safe text ];
        description = "An HTML templating system similar to Blaze, implemented as a monad transformer of sorts";
        license = stdenv.lib.licenses.bsd3;
@@ -94745,8 +95230,8 @@ self: {
      }:
      mkDerivation {
        pname = "test-framework";
-       version = "0.8.0.3";
-       sha256 = "136nw5dapsz3jrnw1pdfkjgplxigpr2mrf6i85154vx342zvw5ar";
+       version = "0.8.1.0";
+       sha256 = "1js7jbdw0xijpjlca3yh7mw427s3rjkymm1qi565r928pbsbdkhm";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -96186,8 +96671,8 @@ self: {
      }:
      mkDerivation {
        pname = "tighttp";
-       version = "0.0.0.6";
-       sha256 = "16n824qjnv3d1dlhgqm124ldqnps3cd332f4gl38dg948ldchzpn";
+       version = "0.0.0.8";
+       sha256 = "0xbipgy79pivy69a84lrriw7ams60r1a2rrkqy6llhsw4v2qk497";
        buildDepends = [ handle-like monads-tf papillon simple-pipe time ];
        homepage = "https://github.com/YoshikuniJujo/tighttp/wiki";
        description = "Tiny and Incrementally-Growing HTTP library";
@@ -96323,6 +96808,18 @@ self: {
        sha256 = "0916qfan93aq91icf87ifvskrq6s6s75rhkajvl8pxp74j28hlwz";
        buildDepends = [ data-lens-light time ];
        description = "Lens-based interface to Data.Time data structures";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "time-locale-compat" = callPackage
+    ({ mkDerivation, time }:
+     mkDerivation {
+       pname = "time-locale-compat";
+       version = "0.1.0.1";
+       sha256 = "0q5d134cvcy7hlr473fanqqixqnqpqvz9ka2r45m59l6kzrws95c";
+       buildDepends = [ time ];
+       homepage = "http://twitter.com/khibino/";
+       description = "Compatibility of TimeLocale between old-locale and time-1.5";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -98514,6 +99011,20 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "typedquery" = callPackage
+    ({ mkDerivation, aeson, haskell-src-meta, parsec, text
+     , transformers
+     }:
+     mkDerivation {
+       pname = "typedquery";
+       version = "0.1.0.0";
+       sha256 = "1pjdn03jr9l6jkz6lr67plh22i429r3vs3697xmkd4rxncvyykxk";
+       buildDepends = [ aeson haskell-src-meta parsec text transformers ];
+       homepage = "https://github.com/tolysz/typedquery";
+       description = "Parser for SQL augmented with types";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "typehash" = callPackage
     ({ mkDerivation, binary, mtl, pureMD5, syb }:
      mkDerivation {
@@ -98806,8 +99317,8 @@ self: {
      }:
      mkDerivation {
        pname = "uhc-light";
-       version = "1.1.8.0";
-       sha256 = "0062388v0gf6xjdggnsn0q85afcgdwfi3x8a93p21zdkghv2jdds";
+       version = "1.1.8.2";
+       sha256 = "0xgxpymxccszqvh46a7jmbcw0jy2jwhskngp2bya59v37hfa2z1b";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -98920,8 +99431,8 @@ self: {
     ({ mkDerivation, io-streams, unagi-chan }:
      mkDerivation {
        pname = "unagi-streams";
-       version = "0.1.0.0";
-       sha256 = "1mvpccy44v03xa7zzs4k6n6d73i70764ggm53hpw7qv4xnczq2cr";
+       version = "0.1.1.0";
+       sha256 = "1mns1qmxv1xmrrsbhr1ywami37gk416rwxi5p3ry6j88cbf4i4zg";
        buildDepends = [ io-streams unagi-chan ];
        description = "Unagi Chan IO-Streams";
        license = stdenv.lib.licenses.bsd3;
@@ -99506,9 +100017,8 @@ self: {
     ({ mkDerivation, time }:
      mkDerivation {
        pname = "unix";
-       version = "2.7.0.1";
-       sha256 = "0bppfzwdrf7afjqw9kzkq8chxvh6g7nyjd81pgn5dfd5qv7rgzpb";
-       editedCabalFile = "320923fdb885b1e1e4405be025d0b151db83b2d129e90f15dd226ad82623cfdf";
+       version = "2.7.1.0";
+       sha256 = "0p74ljsl1zgwnyl69pg4l15z5rqidam9fw9il4siam2m700ydm3b";
        buildDepends = [ time ];
        homepage = "https://github.com/haskell/unix";
        description = "POSIX functionality";
@@ -100032,12 +100542,17 @@ self: {
      }) {};
 
   "urlpath" = callPackage
-    ({ mkDerivation, mtl, text, transformers }:
+    ({ mkDerivation, hspec, mtl, QuickCheck, quickcheck-instances, text
+     , transformers
+     }:
      mkDerivation {
        pname = "urlpath";
-       version = "0.0.6";
-       sha256 = "12sxmybggbc2q842w42sbvcfzdk7azy1jgn804dyp20c6kpnfr6d";
-       buildDepends = [ mtl text transformers ];
+       version = "0.1.0.1";
+       sha256 = "0lq6biips2lv9947f7af45c7dq0qswawjvyv90fi5nbyzjd8l8k3";
+       buildDepends = [ mtl transformers ];
+       testDepends = [
+         hspec mtl QuickCheck quickcheck-instances text transformers
+       ];
        description = "Painfully simple URL writing combinators";
        license = stdenv.lib.licenses.mit;
      }) {};
@@ -100753,8 +101268,8 @@ self: {
     ({ mkDerivation, hashable, unordered-containers }:
      mkDerivation {
        pname = "vault";
-       version = "0.3.0.3";
-       sha256 = "0wpj73jbwgcva1hfjc0bpf9l3lfc3iwdz70m29dh1785wvzxhsh5";
+       version = "0.3.0.4";
+       sha256 = "0ah6qrg71krc87f4vjy4b4shdd0mgyil8fikb3j6fl4kfwlg67jn";
        buildDepends = [ hashable unordered-containers ];
        homepage = "https://github.com/HeinrichApfelmus/vault";
        description = "a persistent store for values of arbitrary types";
@@ -101375,6 +101890,18 @@ self: {
        license = stdenv.lib.licenses.mit;
      }) {};
 
+  "vinyl-utils" = callPackage
+    ({ mkDerivation, contravariant, transformers, vinyl }:
+     mkDerivation {
+       pname = "vinyl-utils";
+       version = "0.0.0.0";
+       sha256 = "18qpv27rg62fj3qg2a0r9k0jj4qsv7cjfd7xhgqzb33vg621c45x";
+       buildDepends = [ contravariant transformers vinyl ];
+       homepage = "http://hub.darcs.net/mjm/vinyl-utils";
+       description = "Utilities for vinyl";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
   "virthualenv" = callPackage
     ({ mkDerivation, Cabal, file-embed, filepath, mtl, safe, split }:
      mkDerivation {
@@ -101694,8 +102221,8 @@ self: {
      }:
      mkDerivation {
        pname = "wai-app-static";
-       version = "3.0.0.3";
-       sha256 = "0krvjnysmfaqds715mp6lhh5am327swi2vja5insmn08da87zhnb";
+       version = "3.0.0.4";
+       sha256 = "1ms1gmh13vl85qlb84ib2xh4fxjzwpnhhsvx5iwzjfpa2pdb1zki";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -102867,6 +103394,7 @@ self: {
        pname = "webdriver-snoy";
        version = "0.6.0.4";
        sha256 = "02c2ihqk5gsgnv61rj14rdd76r2nhmxacml3z9krrgxgn326hrbk";
+       editedCabalFile = "7cc952e84c8ff09b8d032df7d8089bd4d5167b32834bda67c79c62a34b12d52a";
        buildDepends = [
          aeson attoparsec base64-bytestring cond data-default directory-tree
          exceptions filepath http-client http-types lifted-base
@@ -102876,7 +103404,7 @@ self: {
        ];
        testDepends = [ parallel text ];
        homepage = "https://github.com/kallisti-dev/hs-webdriver";
-       description = "a Haskell client for the Selenium WebDriver protocol";
+       description = "a Haskell client for the Selenium WebDriver protocol (deprecated)";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -104344,6 +104872,25 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "xlsior" = callPackage
+    ({ mkDerivation, attoparsec, blaze-markup, conduit, conduit-extra
+     , data-default, exceptions, mtl, resourcet, scientific, text, time
+     , vector, xml-conduit, xml-types, zip-archive
+     }:
+     mkDerivation {
+       pname = "xlsior";
+       version = "0.1.0.0";
+       sha256 = "0gi8dh3iflny70dfylsin88j176i7nplhsrd09c8a6cbz93w1bd6";
+       buildDepends = [
+         attoparsec blaze-markup conduit conduit-extra data-default
+         exceptions mtl resourcet scientific text time vector xml-conduit
+         xml-types zip-archive
+       ];
+       testDepends = [ blaze-markup text time zip-archive ];
+       description = "Streaming Excel file generation and parsing";
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "xlsx" = callPackage
     ({ mkDerivation, conduit, data-default, digest, HUnit, lens
      , smallcheck, tasty, tasty-hunit, tasty-smallcheck, text, time
@@ -104434,8 +104981,8 @@ self: {
      }:
      mkDerivation {
        pname = "xml-conduit";
-       version = "1.2.3";
-       sha256 = "1knwmvs9hczlknyi27hciy1xkn219s6niv3w7q0wkw6rxz2q555v";
+       version = "1.2.3.1";
+       sha256 = "10cqhqpc85zx87jc0hapzkvwm76drpxqsjliipvlah2a0x8l4ai8";
        buildDepends = [
          attoparsec blaze-builder blaze-html blaze-markup conduit
          conduit-extra data-default deepseq monad-control resourcet
@@ -104495,6 +105042,18 @@ self: {
        isExecutable = true;
        buildDepends = [ enumerator xml-enumerator xml-types ];
        description = "Parser combinators for xml-enumerator and compatible XML parsers";
+       license = stdenv.lib.licenses.bsd3;
+     }) {};
+
+  "xml-extractors" = callPackage
+    ({ mkDerivation, mtl, safe, transformers, xml }:
+     mkDerivation {
+       pname = "xml-extractors";
+       version = "0.2.0.0";
+       sha256 = "17kwn30lijrirck6zyys5lzy94hbkzp9q78k1cla6zk2b22qvfxs";
+       buildDepends = [ mtl safe transformers xml ];
+       homepage = "https://github.com/holmisen/xml-extractors";
+       description = "Simple wrapper over xml (Text.XML.Light) to extract data from parsed xml";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -105234,18 +105793,18 @@ self: {
 
   "yackage" = callPackage
     ({ mkDerivation, blaze-builder, blaze-html, Cabal, cmdargs, conduit
-     , hamlet, http-conduit, http-types, shakespeare, tar, text
-     , transformers, unordered-containers, vector, wai, warp, yaml
-     , yesod-core, yesod-form, zlib
+     , http-conduit, http-types, shakespeare, tar, text, transformers
+     , unordered-containers, vector, wai, warp, yaml, yesod-core
+     , yesod-form, zlib
      }:
      mkDerivation {
        pname = "yackage";
-       version = "0.7.0.5";
-       sha256 = "17bn9i3l8bgh7h641bix2faskx91gbl5clnz7xv8h64zj1bdqzy9";
+       version = "0.7.0.6";
+       sha256 = "0c0wln31415xvnjd4bn9bqxl190a9yc3ifypif4fab2m7dkd27ly";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
-         blaze-builder blaze-html Cabal cmdargs conduit hamlet http-conduit
+         blaze-builder blaze-html Cabal cmdargs conduit http-conduit
          http-types shakespeare tar text transformers unordered-containers
          vector wai warp yaml yesod-core yesod-form zlib
        ];
@@ -105609,8 +106168,8 @@ self: {
      }:
      mkDerivation {
        pname = "yesod";
-       version = "1.4.1.1";
-       sha256 = "0p95f6gjpcl28ysl82hbyxh7fjql6lr5csndmnrd264h2pd88pxx";
+       version = "1.4.1.2";
+       sha256 = "1mj7alfi053vymy257j69vsmmizkrpfy23pan85r4j571flbkcqp";
        buildDepends = [
          aeson blaze-html blaze-markup conduit-extra data-default
          fast-logger monad-control monad-logger safe semigroups shakespeare
@@ -105887,8 +106446,8 @@ self: {
      }:
      mkDerivation {
        pname = "yesod-bin";
-       version = "1.4.1.1";
-       sha256 = "1m60lbach4j2qi4pk9ly3f8grm9zacqc4cgk8kc87wfknfy1rb5v";
+       version = "1.4.2";
+       sha256 = "0zh0vxwc1g0hlxg9cb76bkihcqsn7r89x18k3ym3bv344fsqks88";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
@@ -105951,8 +106510,8 @@ self: {
      }:
      mkDerivation {
        pname = "yesod-core";
-       version = "1.4.6";
-       sha256 = "1xlqqiyn2p0c1qxrkx0mlkp4cra0adhlpw27y03icvj0c93xi27g";
+       version = "1.4.6.2";
+       sha256 = "0sim59n9wkah373xcbd4a6bb3m00nc21rmpvz36qrl9dgrkc4vaw";
        buildDepends = [
          aeson auto-update blaze-builder blaze-html blaze-markup
          case-insensitive cereal clientsession conduit conduit-extra cookie
