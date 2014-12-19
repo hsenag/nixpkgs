@@ -81,6 +81,7 @@ stdenv.mkDerivation {
   LANG = "en_US.UTF-8";
   LOCALE_ARCHIVE = optionalString stdenv.isLinux "${glibcLocales}/lib/locale/locale-archive";
 
+  # TODO: Build Setup with -j<n> parallelism enabled.
   configurePhase = ''
     echo "Building with ${ghc}."
     export PATH="${ghc}/bin:$PATH"
