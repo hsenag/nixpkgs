@@ -101032,16 +101032,16 @@ self: {
      }) {};
 
   "vacuum" = callPackage
-    ({ mkDerivation, ghcPaths }:
+    ({ mkDerivation, ghc-paths }:
      mkDerivation {
        pname = "vacuum";
        version = "2.2.0.0";
        sha256 = "157wjx2shzfh6dfl6h8x017cn9ji3ql1p0gpi79ginz4s81f2ny1";
-       extraLibraries = [ ghcPaths ];
+       extraLibraries = [ ghc-paths ];
        homepage = "http://thoughtpolice.github.com/vacuum";
        description = "Graph representation of the GHC heap";
        license = stdenv.lib.licenses.gpl3;
-     }) {};
+     }) { inherit (pkgs) ghc-paths; };
 
   "vacuum-cairo" = callPackage
     ({ mkDerivation, cairo, deepseq, gtk, strict-concurrency, svgcairo
