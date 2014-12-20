@@ -81,7 +81,6 @@ stdenv.mkDerivation {
   LANG = "en_US.UTF-8";
   LOCALE_ARCHIVE = optionalString stdenv.isLinux "${glibcLocales}/lib/locale/locale-archive";
 
-  # TODO: Build Setup with -j<n> parallelism enabled.
   configurePhase = ''
     echo "Building with ${ghc}."
     export PATH="${ghc}/bin:$PATH"
@@ -97,6 +96,7 @@ stdenv.mkDerivation {
     ''}
     ${optionalString (versionOlder "7.8" ghc.version && !isLibrary) ''
       configureFlags+=" --ghc-option=-j$NIX_BUILD_CORES"
+      setupCompileFlags="-j$NIX_BUILD_CORES"
     ''}
 
     local confDir=$out/nix-support/ghc-${ghc.version}-package.conf.d
@@ -131,7 +131,7 @@ stdenv.mkDerivation {
     for i in Setup.hs Setup.lhs ${defaultSetupHs}; do
       test -f $i && break
     done
-    ghc -package-db=$confDir --make -o Setup -odir $TMPDIR -hidir $TMPDIR $i
+    ghc -package-db=$confDir $setupCompileFlags --make -o Setup -odir $TMPDIR -hidir $TMPDIR $i
 
     echo configureFlags: $configureFlags
     unset GHC_PACKAGE_PATH      # Cabal complains about this variable if it's set.
