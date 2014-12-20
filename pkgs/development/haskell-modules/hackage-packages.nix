@@ -18868,6 +18868,21 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "bdd" = callPackage
+    ({ mkDerivation, HUnit, mtl, test-framework, test-framework-hunit
+     , transformers
+     }:
+     mkDerivation {
+       pname = "bdd";
+       version = "0.1.0.0";
+       sha256 = "0jj059v21c4y5vk3wa7ldqbssj7l81bfhbq4qaq529x1mc0zzpw6";
+       buildDepends = [ HUnit mtl transformers ];
+       testDepends = [ HUnit mtl test-framework test-framework-hunit ];
+       homepage = "http://github.com/humane-software/haskell-bdd";
+       description = "Behavior-Driven Development DSL";
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "bdelta" = callPackage
     ({ mkDerivation }:
      mkDerivation {
@@ -41800,15 +41815,15 @@ self: {
      , network-protocol-xmpp, network-uri, openssh, optparse-applicative
      , path-pieces, perl, QuickCheck, random, regex-tdfa, resourcet
      , rsync, SafeSemaphore, securemem, SHA, shakespeare, stm, tasty
-     , tasty-hunit, tasty-quickcheck, tasty-rerun, text, time
+     , tasty-hunit, tasty-quickcheck, tasty-rerun, text, time, torrent
      , transformers, unix-compat, utf8-string, uuid, wai, wai-extra
      , warp, warp-tls, which, xml-types, yesod, yesod-core
      , yesod-default, yesod-form, yesod-static
      }:
      mkDerivation {
        pname = "git-annex";
-       version = "5.20141203";
-       sha256 = "01gifds86925vg7mh363i7qsii2wrgf3vpk3wgjff9rbb7z0fvfk";
+       version = "5.20141219";
+       sha256 = "1qxvsvys5hrpc5sm6s2ygr7hyrgfjc4qaycp1b0kkwjj4bl4cbvz";
        isLibrary = false;
        isExecutable = true;
        buildDepends = [
@@ -41821,9 +41836,9 @@ self: {
          network-protocol-xmpp network-uri optparse-applicative path-pieces
          QuickCheck random regex-tdfa resourcet SafeSemaphore securemem SHA
          shakespeare stm tasty tasty-hunit tasty-quickcheck tasty-rerun text
-         time transformers unix-compat utf8-string uuid wai wai-extra warp
-         warp-tls xml-types yesod yesod-core yesod-default yesod-form
-         yesod-static
+         time torrent transformers unix-compat utf8-string uuid wai
+         wai-extra warp warp-tls xml-types yesod yesod-core yesod-default
+         yesod-form yesod-static
        ];
        buildTools = [ bup curl git gnupg1 lsof openssh perl rsync which ];
        configureFlags = "-fAssistant -fProduction";
@@ -45024,8 +45039,8 @@ self: {
      }:
      mkDerivation {
        pname = "hack2-contrib-extra";
-       version = "2013.6.22";
-       sha256 = "082zncsmzfs7vcvssfkrb3l8ks3y26hw4y2796932psjnl8v36rr";
+       version = "2014.12.20";
+       sha256 = "1mxgvlr593cw523mknr5bcwf55544q04cz0nlpzgm5bg3336b5wl";
        buildDepends = [
          air air-extra cgi data-default filepath hack2 hack2-contrib network
          time
@@ -48737,6 +48752,7 @@ self: {
        pname = "hastache";
        version = "0.6.0";
        sha256 = "1z609mhsc875ba3k6mlmlqpmqlwgxpav2asnf83yzq1q7bfs0cxh";
+       editedCabalFile = "81792c6664e5cfaa6c99b9c57203ab3c1d321e786e13b42906b22178666f9a1d";
        buildDepends = [
          blaze-builder filepath ieee754 mtl syb text transformers
          utf8-string
@@ -51010,8 +51026,8 @@ self: {
      }:
      mkDerivation {
        pname = "highlighting-kate";
-       version = "0.5.11";
-       sha256 = "0jfgz4cyn6fylfrsk1yi0fykir8mhxdniq80h7hy5i2xv7qwf5vw";
+       version = "0.5.11.1";
+       sha256 = "1z62wp1a1qlw1l3bkxwq7pd3mi64jl688ib23263bc46zc8z0nkv";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -52904,8 +52920,8 @@ self: {
     ({ mkDerivation }:
      mkDerivation {
        pname = "hoopl";
-       version = "3.10.0.1";
-       sha256 = "1wahcngdmb3ixny0havrddkmrhs02rzlf1d1l7g8f6pzg051mr11";
+       version = "3.10.0.2";
+       sha256 = "11j7xd82zx7ja08lsnnkfq39yzqc2wbgdxgnwsviml58bkp495yj";
        homepage = "http://ghc.cs.tufts.edu/hoopl/";
        description = "A library to support dataflow analysis and optimization";
        license = stdenv.lib.licenses.bsd3;
@@ -54046,8 +54062,8 @@ self: {
     ({ mkDerivation, data-default-class, text }:
      mkDerivation {
        pname = "hs-pkg-config";
-       version = "0.1.0.0";
-       sha256 = "16660pp64m5n38xl4576iikbxk6g9xpmisbsmahs79fc14y3c1i9";
+       version = "0.2.0.0";
+       sha256 = "0pfy4rn8iasj8k1r3qvldgscljyd8a8n7q5ds4bmkwk3m97jlsf3";
        buildDepends = [ data-default-class text ];
        homepage = "https://github.com/trskop/hs-pkg-config";
        description = "Create pkg-config configuration files";
@@ -56997,6 +57013,7 @@ self: {
        pname = "http-streams";
        version = "0.7.2.4";
        sha256 = "1hs2d5qiq5vq6qjxxx061w1iigr05chkv28xvlvxfz0wc7nlipzz";
+       editedCabalFile = "cd9bfce1014b9f9cb90918ac0187c07ac851e1d54149a453a32ffe7bd2bac522";
        buildDepends = [
          aeson attoparsec base64-bytestring blaze-builder case-insensitive
          HsOpenSSL http-common io-streams mtl network network-uri
@@ -57837,6 +57854,18 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "hydrogen-cli-args" = callPackage
+    ({ mkDerivation, hydrogen-multimap, hydrogen-prelude }:
+     mkDerivation {
+       pname = "hydrogen-cli-args";
+       version = "0.9";
+       sha256 = "0k2ga4j7pbhwffkxlmgkqfvdpypl71q63vv81w5nmna9dbgzwcjz";
+       buildDepends = [ hydrogen-multimap hydrogen-prelude ];
+       homepage = "https://scravy.de/hydrogen-cli-args/";
+       description = "Hydrogen Command Line Arguments Parser";
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "hydrogen-data" = callPackage
     ({ mkDerivation, hydrogen-prelude, hydrogen-syntax, hydrogen-util
      , nicify, parsec, uuid
@@ -57853,22 +57882,33 @@ self: {
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
+  "hydrogen-multimap" = callPackage
+    ({ mkDerivation }:
+     mkDerivation {
+       pname = "hydrogen-multimap";
+       version = "0.1";
+       sha256 = "165lxvm0yvz0jq3l520ww0fp4zb7y4azz32bvrz00z4j1dqr5vaw";
+       homepage = "https://scravy.de/hydrogen-multimap/";
+       description = "Hydrogen Multimap";
+       license = stdenv.lib.licenses.mit;
+     }) {};
+
   "hydrogen-prelude" = callPackage
-    ({ mkDerivation, cereal, filepath, hashable, hydrogen-version
-     , network, random, regex-base, regex-tdfa, strict, time
-     , transformers, uuid
+    ({ mkDerivation, cereal, filepath, hashable, hydrogen-multimap
+     , hydrogen-version, network, random, regex-base, regex-tdfa, strict
+     , time, transformers, uuid
      }:
      mkDerivation {
        pname = "hydrogen-prelude";
-       version = "0.8";
-       sha256 = "0f2ahz7bklczlm6pcrg6q2v448p5l85vqzbs7svnw6pg98n6vn8l";
+       version = "0.9";
+       sha256 = "1v9zmladbhqdhag7kbya8dfrdd7xsdqqkh42wcwdadrr4kgm371c";
        buildDepends = [
-         cereal filepath hashable hydrogen-version network random regex-base
-         regex-tdfa strict time transformers uuid
+         cereal filepath hashable hydrogen-multimap hydrogen-version network
+         random regex-base regex-tdfa strict time transformers uuid
        ];
-       homepage = "https://scravy.de/hydrogen-prelude/";
+       homepage = "http://scravy.de/hydrogen-prelude/";
        description = "Hydrogen Prelude";
-       license = stdenv.lib.licenses.bsd3;
+       license = stdenv.lib.licenses.mit;
      }) {};
 
   "hydrogen-syntax" = callPackage
@@ -63912,13 +63952,13 @@ self: {
 
   "leveldb-haskell-fork" = callPackage
     ({ mkDerivation, async, data-default, filepath, hspec
-     , hspec-expectations, hyperleveldb, mtl, QuickCheck, resourcet
+     , hspec-expectations, leveldb, mtl, QuickCheck, resourcet
      , transformers
      }:
      mkDerivation {
        pname = "leveldb-haskell-fork";
-       version = "0.3.4.1";
-       sha256 = "18wxws6lx65p4m78d6bvxailwna2av3imd53ymv5q5kwh0ndrw73";
+       version = "0.3.4.3";
+       sha256 = "01vgyy7095qhjjwj8kwyp5g3f65r55mql57hc1bssk12ik3436a9";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -63927,12 +63967,11 @@ self: {
        testDepends = [
          data-default hspec hspec-expectations mtl QuickCheck transformers
        ];
-       extraLibraries = [ hyperleveldb ];
+       extraLibraries = [ leveldb ];
        homepage = "http://github.com/kim/leveldb-haskell";
        description = "Haskell bindings to LevelDB";
        license = stdenv.lib.licenses.bsd3;
-       broken = true;
-     }) { hyperleveldb = null; };
+     }) {};
 
   "levmar" = callPackage
     ({ mkDerivation, base-unicode-symbols, bindings-levmar, hmatrix
@@ -69332,8 +69371,8 @@ self: {
      }:
      mkDerivation {
        pname = "monad-journal";
-       version = "0.5.0.1";
-       sha256 = "1rxmz6hx8kh8sw497h4kpxkvhgaa7jbzif7qssjqijyfmghsxh80";
+       version = "0.6";
+       sha256 = "17ld9z118l7mvlycpg13578ycwswkzfmmnw66djqx0xwx5j7imhi";
        buildDepends = [
          either monad-control mtl transformers transformers-base
        ];
@@ -74686,15 +74725,17 @@ self: {
      }) {};
 
   "ot" = callPackage
-    ({ mkDerivation, aeson, attoparsec, binary, HUnit, QuickCheck
-     , test-framework, test-framework-hunit, test-framework-quickcheck2
-     , text
+    ({ mkDerivation, aeson, attoparsec, binary, either, HUnit, mtl
+     , QuickCheck, test-framework, test-framework-hunit
+     , test-framework-quickcheck2, text
      }:
      mkDerivation {
        pname = "ot";
-       version = "0.1.2.2";
-       sha256 = "0sgd8jsj2mgnzbvhgqjn4b555kj4phkknm9nn1bggy9kkhylwsib";
-       buildDepends = [ aeson attoparsec binary QuickCheck text ];
+       version = "0.2.0.0";
+       sha256 = "0vf4lqc0mffnhz4a03jvs35rl1ygp2ipdmn3dyb5darsg941gsd3";
+       buildDepends = [
+         aeson attoparsec binary either mtl QuickCheck text
+       ];
        testDepends = [
          aeson binary HUnit QuickCheck test-framework test-framework-hunit
          test-framework-quickcheck2 text
@@ -74942,9 +74983,8 @@ self: {
      }:
      mkDerivation {
        pname = "pandoc";
-       version = "1.13.1";
-       sha256 = "0vvysa70xp4pskxrvslmddwdsalc479zb8wn6z1vmpvfssvvj6vv";
-       editedCabalFile = "2f73e20910c6a01f53c3f24f1e348bccf209059ace20cd4eda8f507cc3f4a7c4";
+       version = "1.13.2";
+       sha256 = "12kd71g70d1wzz19p5yq7f00hw8d4ra8ghn83g7yzsal8igl8p76";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -83526,8 +83566,8 @@ self: {
      }:
      mkDerivation {
        pname = "respond";
-       version = "1.0.0";
-       sha256 = "1k5vvr24c24jbrblh6xmqbyfm0bdjh55lnkpmxb9ycz1l7wnx4wm";
+       version = "1.1.0";
+       sha256 = "0j2xafk6rrspffmd0fxsmmz8gnmxxn3dxngh684nwj4030cg9m3r";
        isLibrary = true;
        isExecutable = true;
        buildDepends = [
@@ -95587,16 +95627,16 @@ self: {
      }) {};
 
   "texmath" = callPackage
-    ({ mkDerivation, filepath, mtl, pandoc-types, parsec, split, syb
-     , temporary, text, utf8-string, xml
+    ({ mkDerivation, filepath, mtl, network-uri, pandoc-types, parsec
+     , split, syb, temporary, text, utf8-string, xml
      }:
      mkDerivation {
        pname = "texmath";
-       version = "0.8";
-       sha256 = "1j0i9594fqhl2fzxyndyy6fvrpaqdarq817pxdar0hmccy55b7gb";
+       version = "0.8.0.1";
+       sha256 = "1k68spamhqwq4afcd0283w731gq0k6j6jxbp5099y6bndh8ff9cn";
        isLibrary = true;
        isExecutable = true;
-       buildDepends = [ mtl pandoc-types parsec syb xml ];
+       buildDepends = [ mtl network-uri pandoc-types parsec syb xml ];
        testDepends = [ filepath split temporary text utf8-string xml ];
        homepage = "http://github.com/jgm/texmath";
        description = "Conversion between formats used to represent mathematics";
@@ -97455,13 +97495,13 @@ self: {
      }) {};
 
   "torrent" = callPackage
-    ({ mkDerivation, bencode, binary, filepath, network }:
+    ({ mkDerivation, bencode, binary, filepath, syb }:
      mkDerivation {
        pname = "torrent";
-       version = "2007.10.27";
-       sha256 = "0b0qkn46afzksvdnfy0sn809s927fjqy0gczlkzsc5vi6hlmb9iy";
-       buildDepends = [ bencode binary filepath network ];
-       description = "BitTorrent file parser";
+       version = "10000.0.0";
+       sha256 = "030ll4m80ljkvq72n1aa8a2ygqa56ykkndzy5g40vh9j9j5vq52r";
+       buildDepends = [ bencode binary filepath syb ];
+       description = "BitTorrent file parser and generater";
        license = stdenv.lib.licenses.bsd3;
      }) {};
 
@@ -100896,8 +100936,8 @@ self: {
      }:
      mkDerivation {
        pname = "uuid";
-       version = "1.3.6";
-       sha256 = "0llfpcx6jpsfk88m8b6p32w6f758glxq4v4mxphsa62bdvl31sgg";
+       version = "1.3.7";
+       sha256 = "01idfi9vdmcz8fkgnfa0bpz6khx4x2r0rzynzha42irl7881da21";
        buildDepends = [
          binary cryptohash deepseq hashable network-info random time
        ];
@@ -100961,6 +101001,7 @@ self: {
        pname = "uvector";
        version = "0.1.1.1";
        sha256 = "1psbdsq20nr28cr9ni2mwzwkpz3p20n1xqp0m0m9qafz66d2vi08";
+       editedCabalFile = "e289ff93c365248deb93e6268b57be8a47d724a39702887979fd842c80577508";
        homepage = "http://code.haskell.org/~dons/code/uvector";
        description = "Fast unboxed arrays with a flexible interface";
        license = stdenv.lib.licenses.bsd3;
@@ -107401,8 +107442,8 @@ self: {
      }:
      mkDerivation {
        pname = "yi-language";
-       version = "0.1.0.8";
-       sha256 = "1lzn1yswrh72lqvc5xcna2xjv5zs3x1mzc1ijkqjl84nvqcabj60";
+       version = "0.1.1.0";
+       sha256 = "1gsh0njslncfh0r5wg1rq9w4f03ixkk5grd9zigkspsndhij7379";
        buildDepends = [
          binary data-default derive hashable lens oo-prototypes pointedlist
          regex-base regex-tdfa transformers-base unordered-containers
