@@ -107,6 +107,9 @@ let
     # Doesn't compile with lua 5.2.
     hslua = super.hslua.override { lua = pkgs.lua5_1; };
 
+    # "curl" means pkgs.curl
+    git-annex = super.git-annex.override { inherit (pkgs) git rsync gnupg1 curl lsof openssh which bup perl wget; };
+
     # resourcet doesn't build otherwise.
     monad-control = super.monad-control-0_3_x;
 

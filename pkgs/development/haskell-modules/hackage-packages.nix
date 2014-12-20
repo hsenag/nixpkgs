@@ -41817,7 +41817,7 @@ self: {
      , rsync, SafeSemaphore, securemem, SHA, shakespeare, stm, tasty
      , tasty-hunit, tasty-quickcheck, tasty-rerun, text, time, torrent
      , transformers, unix-compat, utf8-string, uuid, wai, wai-extra
-     , warp, warp-tls, which, xml-types, yesod, yesod-core
+     , warp, warp-tls, wget, which, xml-types, yesod, yesod-core
      , yesod-default, yesod-form, yesod-static
      }:
      mkDerivation {
@@ -41840,7 +41840,9 @@ self: {
          wai-extra warp warp-tls xml-types yesod yesod-core yesod-default
          yesod-form yesod-static
        ];
-       buildTools = [ bup curl git gnupg1 lsof openssh perl rsync which ];
+       buildTools = [
+         bup curl git gnupg1 lsof openssh perl rsync wget which
+       ];
        configureFlags = "-fAssistant -fProduction";
        preConfigure = "export HOME=$TEMPDIR";
        installPhase = "./Setup install";
