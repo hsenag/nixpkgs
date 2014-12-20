@@ -2059,6 +2059,14 @@ let
 
   pal = callPackage ../tools/misc/pal { };
 
+  pandoc = haskellPackages.pandoc.overrideCabal (drv: {
+    configureFlags = drv.configureFlags or "" + " -fembed_data_files";
+    enableSharedExecutables = false;
+    enableSharedLibraries = false;
+    isLibrary = false;
+    postInstall = "rm -rf $out/lib $out/nix-support $out/share";
+  });
+
   panomatic = callPackage ../tools/graphics/panomatic { };
 
   par2cmdline = callPackage ../tools/networking/par2cmdline { };
