@@ -19,7 +19,7 @@ let
       };
 
       mkDerivation = args: stdenv.lib.addPassthru (mkHaskellDerivation args) {
-        overrideCabal = f: mkDerivation (args // (f args));
+        overrideCabal = f: callPackage mkDerivation (args // (f args));
       };
 
       callPackage = pkg: args: newScope self pkg args;
