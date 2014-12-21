@@ -12,6 +12,7 @@
 , configurePhase ? "", preConfigure ? "", postConfigure ? ""
 , installPhase ? "", preInstall ? "", postInstall ? ""
 , checkPhase ? "", preCheck ? "", postCheck ? ""
+, preFixup ? "", postFixup ? ""
 , isExecutable ? false, isLibrary ? !isExecutable
 , propagatedUserEnvPkgs ? []
 , testDepends ? []
@@ -76,6 +77,7 @@ stdenv.mkDerivation {
   inherit patches patchPhase prePatch postPatch;
   inherit preInstall postInstall;
   inherit doCheck preCheck postCheck;
+  inherit preFixup postFixup;
 
   # GHC needs the locale configured during the Haddock phase.
   LANG = "en_US.UTF-8";
