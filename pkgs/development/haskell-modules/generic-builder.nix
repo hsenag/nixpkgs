@@ -1,4 +1,6 @@
-{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused, jailbreak-cabal }:
+{ stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused
+, jailbreak-cabal, hscolour
+}:
 
 { pname, version, sha256
 , buildDepends ? []
@@ -18,7 +20,7 @@
 , testDepends ? []
 , doCheck ? stdenv.lib.versionOlder "7.4" ghc.version, testTarget ? ""
 , jailbreak ? false
-, enableHyperlinkSource ? true
+, hyperlinkSource ? true
 , enableLibraryProfiling ? false
 , enableSharedExecutables ? stdenv.lib.versionOlder "7.7" ghc.version
 , enableSharedLibraries ? stdenv.lib.versionOlder "7.7" ghc.version
@@ -84,9 +86,11 @@ stdenv.mkDerivation {
   LOCALE_ARCHIVE = optionalString stdenv.isLinux "${glibcLocales}/lib/locale/locale-archive";
 
   configurePhase = ''
+    runHook preConfigure
+
     echo "Building with ${ghc}."
     export PATH="${ghc}/bin:$PATH"
-    runHook preConfigure
+    ${optionalString (hasActiveLibrary && hyperlinkSource) "export PATH=${hscolour}/bin:$PATH"}
 
     configureFlags="--verbose --prefix=$out --libdir=\$prefix/lib/\$compiler --libsubdir=\$pkgid $configureFlags"
     configureFlags+=' ${concatStringsSep " " defaultConfigureFlags}'
@@ -152,7 +156,7 @@ stdenv.mkDerivation {
     runHook preBuild
     ./Setup build
     ${optionalString (!noHaddock && hasActiveLibrary) ''
-      ./Setup haddock --html
+      ./Setup haddock --html ${optionalString (hasActiveLibrary && hyperlinkSource) "--hyperlink-source"}
     ''}
     runHook postBuild
   '';

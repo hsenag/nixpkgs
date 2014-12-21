@@ -1,5 +1,4 @@
-{ pkgs, newScope, stdenv, fetchurl, ghc
-, overrides ? (self: super: {})
+{ pkgs, newScope, stdenv, ghc, overrides ? (self: super: {})
 , provideOldAttributeNames ? false
 }:
 
@@ -13,9 +12,15 @@ let
     let
 
       mkHaskellDerivation = pkgs.callPackage ./generic-builder.nix {
-        inherit stdenv ghc fetchurl;
-        inherit (pkgs) pkgconfig glibcLocales coreutils gnugrep gnused;
+        inherit stdenv ghc;
+        inherit (pkgs) fetchurl pkgconfig glibcLocales coreutils gnugrep gnused;
         inherit (self) jailbreak-cabal;
+        hscolour = self.hscolour.overrideCabal (drv: {
+          isLibrary = false;
+          noHaddock = true;
+          hyperlinkSource = false;      # Avoid depending on hscolour for this build.
+          postFixup = "rm -rf $out/lib $out/share $out/nix-support";
+        });
       };
 
       mkDerivation = args: stdenv.lib.addPassthru (mkHaskellDerivation args) {
