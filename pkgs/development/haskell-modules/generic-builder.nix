@@ -156,7 +156,7 @@ stdenv.mkDerivation {
     runHook preBuild
     ./Setup build
     ${optionalString (!noHaddock && hasActiveLibrary) ''
-      ./Setup haddock --html ${optionalString (hasActiveLibrary && hyperlinkSource) "--hyperlink-source"}
+      ./Setup haddock --html --hoogle ${optionalString (hasActiveLibrary && hyperlinkSource) "--hyperlink-source"}
     ''}
     runHook postBuild
   '';
