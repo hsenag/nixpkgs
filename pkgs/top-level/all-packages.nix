@@ -2064,7 +2064,7 @@ let
     enableSharedExecutables = false;
     enableSharedLibraries = false;
     isLibrary = false;
-    postInstall = "rm -rf $out/lib $out/nix-support $out/share";
+    postFixup = "rm -rf $out/lib $out/nix-support $out/share";
   });
 
   panomatic = callPackage ../tools/graphics/panomatic { };
