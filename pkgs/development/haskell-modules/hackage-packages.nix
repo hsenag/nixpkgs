@@ -23122,8 +23122,7 @@ self: {
      }) {};
 
   "cairo" = callPackage
-    ({ mkDerivation, cairo, gtk2hs-buildtools, libc, mtl, pkgconfig
-     , text, utf8-string, zlib
+    ({ mkDerivation, cairo, gtk2hs-buildtools, mtl, text, utf8-string
      }:
      mkDerivation {
        pname = "cairo";
@@ -23131,14 +23130,11 @@ self: {
        sha256 = "0ak6hzfrcyxajx7qybsmd5g26blqb6zxvv8r2a8bnylvm5sdj70r";
        buildDepends = [ mtl text utf8-string ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ cairo libc pkgconfig zlib ];
        pkgconfigDepends = [ cairo ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Cairo library";
        license = stdenv.lib.licenses.bsd3;
-       broken = true;
-     }) { inherit (pkgs) cairo zlib; 
-          libc = null; };
+     }) { inherit (pkgs) cairo; };
 
   "cairo-appbase" = callPackage
     ({ mkDerivation, cairo, glib, gtk }:
@@ -42345,22 +42341,19 @@ self: {
      }) {};
 
   "glade" = callPackage
-    ({ mkDerivation, glib, gtk, gtk2hs-buildtools, gtkC, libc, libglade
-     , pkgconfig
-     }:
+    ({ mkDerivation, glib, gtk, gtk2hs-buildtools, libglade }:
      mkDerivation {
        pname = "glade";
        version = "0.12.5.0";
        sha256 = "0dbl7y5rdwzcham16iym9cikfyaphzr1rqcsni9ab6s2368a1vkr";
        buildDepends = [ glib gtk ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc pkgconfig ];
-       pkgconfigDepends = [ gtkC libglade ];
+       pkgconfigDepends = [ libglade ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the glade library";
        license = stdenv.lib.licenses.lgpl21;
        broken = true;
-     }) { gtkC = null; libc = null; libglade = null; };
+     }) { libglade = null; };
 
   "gladexml-accessor" = callPackage
     ({ mkDerivation, glade, HaXml }:
@@ -42388,23 +42381,18 @@ self: {
      }) {};
 
   "glib" = callPackage
-    ({ mkDerivation, glib, gtk2hs-buildtools, libc, pkgconfig, text
-     , utf8-string
-     }:
+    ({ mkDerivation, glib, gtk2hs-buildtools, text, utf8-string }:
      mkDerivation {
        pname = "glib";
        version = "0.13.0.6";
        sha256 = "1hn3l0vrz76gmk7bjhs4nw68izf29k0pxm92l0zih7wq5ny4lhrv";
        buildDepends = [ text utf8-string ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc pkgconfig ];
        pkgconfigDepends = [ glib ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GLIB library for Gtk2Hs";
        license = stdenv.lib.licenses.lgpl21;
-       broken = true;
-     }) { inherit (pkgs) glib; 
-          libc = null; };
+     }) { inherit (pkgs) glib; };
 
   "glider-nlp" = callPackage
     ({ mkDerivation, Cabal, HUnit, text }:
@@ -44014,8 +44002,8 @@ self: {
      }) {};
 
   "gtk" = callPackage
-    ({ mkDerivation, cairo, gio, glib, gtk, gtk2hs-buildtools, libc
-     , mtl, pango, pkgconfig, text
+    ({ mkDerivation, cairo, gio, glib, gtk, gtk2hs-buildtools, mtl
+     , pango, text
      }:
      mkDerivation {
        pname = "gtk";
@@ -44023,14 +44011,11 @@ self: {
        sha256 = "016v6r53py659ncx0nvlcvvs3j3kj6rrbrm7lk8sggdhm7jvz6w7";
        buildDepends = [ cairo gio glib mtl pango text ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc pkgconfig ];
        pkgconfigDepends = [ glib gtk ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Gtk+ graphical user interface library";
        license = stdenv.lib.licenses.lgpl21;
-       broken = true;
-     }) { inherit (pkgs) glib gtk; 
-          libc = null; };
+     }) { inherit (pkgs) glib gtk; };
 
   "gtk-jsinput" = callPackage
     ({ mkDerivation, gtk, json, transformers }:
@@ -44335,8 +44320,8 @@ self: {
      }) {};
 
   "gtksourceview2" = callPackage
-    ({ mkDerivation, glib, gtk, gtk2hs-buildtools, gtksourceview, libc
-     , mtl, pkgconfig, text
+    ({ mkDerivation, glib, gtk, gtk2hs-buildtools, gtksourceview, mtl
+     , text
      }:
      mkDerivation {
        pname = "gtksourceview2";
@@ -44344,13 +44329,12 @@ self: {
        sha256 = "09439drmwfy5bqni1clcn0nng30irn9x43fjak9jljggg1yij9xw";
        buildDepends = [ glib gtk mtl text ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc pkgconfig ];
        pkgconfigDepends = [ gtksourceview ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the GtkSourceView library";
        license = stdenv.lib.licenses.lgpl21;
        broken = true;
-     }) { gtksourceview = null; libc = null; };
+     }) { gtksourceview = null; };
 
   "gtksourceview3" = callPackage
     ({ mkDerivation, glib, gtk2hs-buildtools, gtk3, gtksourceview, mtl
@@ -47236,18 +47220,17 @@ self: {
      }) {};
 
   "haskeline" = callPackage
-    ({ mkDerivation, filepath, terminfo, transformers, utf8String }:
+    ({ mkDerivation, filepath, terminfo, transformers, utf8-string }:
      mkDerivation {
        pname = "haskeline";
        version = "0.7.1.3";
        sha256 = "1bwyfn7y9mi18g7zxz8wxjkld51azlfbxypxbiqdinpm2fdl63mi";
-       buildDepends = [ filepath terminfo transformers utf8String ];
+       buildDepends = [ filepath terminfo transformers utf8-string ];
        configureFlags = "-fterminfo";
        homepage = "http://trac.haskell.org/haskeline";
        description = "A command-line interface for user input, written in Haskell";
        license = stdenv.lib.licenses.bsd3;
-       broken = true;
-     }) { utf8String = null; };
+     }) {};
 
   "haskeline-class" = callPackage
     ({ mkDerivation, haskeline, mtl }:
@@ -70697,17 +70680,16 @@ self: {
      }) {};
 
   "multiarg" = callPackage
-    ({ mkDerivation, bifunctors, utf8String }:
+    ({ mkDerivation, bifunctors, utf8-string }:
      mkDerivation {
        pname = "multiarg";
        version = "0.28.0.0";
        sha256 = "1qy2xlxqhxlj9f5g7wf90vwch3qs1yz733f87irdmak0v4vxdkd5";
-       buildDepends = [ bifunctors utf8String ];
+       buildDepends = [ bifunctors utf8-string ];
        homepage = "https://github.com/massysett/multiarg";
        description = "Combinators to build command line parsers";
        license = stdenv.lib.licenses.bsd3;
-       broken = true;
-     }) { utf8String = null; };
+     }) {};
 
   "multifocal" = callPackage
     ({ mkDerivation, haskell-src-exts, HaXml, hxt, hxt-xpath, mtl
@@ -75071,8 +75053,7 @@ self: {
      }) {};
 
   "pango" = callPackage
-    ({ mkDerivation, cairo, glib, gtk2hs-buildtools, libc, mtl, pango
-     , pkgconfig, text
+    ({ mkDerivation, cairo, glib, gtk2hs-buildtools, mtl, pango, text
      }:
      mkDerivation {
        pname = "pango";
@@ -75080,14 +75061,11 @@ self: {
        sha256 = "1fglwywac36abpjjpgdsk62f4sndgr5nf29fmana0yac7hxsm1sq";
        buildDepends = [ cairo glib mtl text ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc pkgconfig ];
        pkgconfigDepends = [ cairo pango ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the Pango text rendering engine";
        license = stdenv.lib.licenses.lgpl21;
-       broken = true;
-     }) { inherit (pkgs) cairo pango; 
-          libc = null; };
+     }) { inherit (pkgs) cairo pango; };
 
   "papillon" = callPackage
     ({ mkDerivation, filepath, monads-tf, transformers }:
@@ -78255,7 +78233,7 @@ self: {
 
   "poppler" = callPackage
     ({ mkDerivation, cairo, gdk_pixbuf, glib, gtk, gtk2hs-buildtools
-     , libc, mtl, pango, popplerGlib
+     , mtl, pango, popplerGlib
      }:
      mkDerivation {
        pname = "poppler";
@@ -78263,14 +78241,13 @@ self: {
        sha256 = "1fv0h2ixanzv5vy4l2ln23f9n8ghmgdxzlyx54hh69bwhrcg049s";
        buildDepends = [ cairo glib gtk mtl ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc ];
        pkgconfigDepends = [ cairo gdk_pixbuf glib gtk pango popplerGlib ];
        homepage = "http://www.haskell.org/gtk2hs/";
        description = "Binding to the Poppler";
        license = stdenv.lib.licenses.gpl2;
        broken = true;
      }) { inherit (pkgs) cairo glib gtk pango; 
-          libc = null; popplerGlib = null; };
+          popplerGlib = null; };
 
   "populate-setup-exe-cache" = callPackage
     ({ mkDerivation }:
@@ -93194,8 +93171,7 @@ self: {
      }) {};
 
   "svgcairo" = callPackage
-    ({ mkDerivation, cairo, glib, gtk2hs-buildtools, libc, librsvg, mtl
-     , text
+    ({ mkDerivation, cairo, glib, gtk2hs-buildtools, librsvg, mtl, text
      }:
      mkDerivation {
        pname = "svgcairo";
@@ -93203,13 +93179,11 @@ self: {
        sha256 = "1i93dhg2fpnk38lgbfpsl97xpfgifrl7xs5nny5vj4hi8ln76ih0";
        buildDepends = [ cairo glib mtl text ];
        buildTools = [ gtk2hs-buildtools ];
-       extraLibraries = [ libc ];
        pkgconfigDepends = [ librsvg ];
        homepage = "http://projects.haskell.org/gtk2hs/";
        description = "Binding to the libsvg-cairo library";
        license = stdenv.lib.licenses.bsd3;
-       broken = true;
-     }) { libc = null; };
+     }) {};
 
   "svgutils" = callPackage
     ({ mkDerivation, filepath, xml }:
