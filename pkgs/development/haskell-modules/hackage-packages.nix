@@ -93978,7 +93978,7 @@ self: {
      }) { easy-data = null; };
 
   "system-uuid" = callPackage
-    ({ mkDerivation, binary, murmur-hash, parsec, uuid }:
+    ({ mkDerivation, binary, libossp_uuid, murmur-hash, parsec }:
      mkDerivation {
        pname = "system-uuid";
        version = "2.1.1";
@@ -93986,11 +93986,11 @@ self: {
        isLibrary = true;
        isExecutable = true;
        buildDepends = [ binary murmur-hash parsec ];
-       extraLibraries = [ uuid ];
+       extraLibraries = [ libossp_uuid ];
        homepage = "http://github.com/solidsnack/system-uuid/";
        description = "Bindings to system UUID functions";
        license = stdenv.lib.licenses.bsd3;
-     }) { inherit (pkgs) uuid; };
+     }) {};
 
   "systemd" = callPackage
     ({ mkDerivation, network, transformers }:
