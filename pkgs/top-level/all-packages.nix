@@ -3379,8 +3379,14 @@ let
   haskellPackages_ghc722 = callPackage ../development/haskell-modules { ghc = ghc722; };
   haskellPackages_ghc742 = callPackage ../development/haskell-modules { ghc = ghc742; };
   haskellPackages_ghc763 = callPackage ../development/haskell-modules { ghc = ghc763; };
-  haskellPackages_ghc783 = callPackage ../development/haskell-modules { ghc = ghc783; };
-  haskellPackages_ghcHEAD = callPackage ../development/haskell-modules { ghc = ghcHEAD; };
+  haskellPackages_ghc783 = callPackage ../development/haskell-modules {
+    ghc = ghc783;
+    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.8.3.nix { };
+  };
+  haskellPackages_ghcHEAD = callPackage ../development/haskell-modules {
+    ghc = ghcHEAD;
+    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.9.x.nix { };
+  };
   haskellPackages = recurseIntoAttrs (haskellPackages_ghc783.override {
     overrides = config.haskellPackageOverrides or (self: super: {});
     provideOldAttributeNames = config.provideOldHaskellAttributeNames or false;
