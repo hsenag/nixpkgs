@@ -3351,31 +3351,6 @@ let
 
   # Haskell and GHC
 
-  # Import Haskell infrastructure.
-
-  /* TODO: re-factor this stuff
-  haskell = let pkgs_       = pkgs // { gmp = gmp.override { withStatic = true; }; };
-                callPackage = newScope pkgs_;
-                newScope    = extra: lib.callPackageWith (pkgs_ // pkgs_.xorg // extra);
-            in callPackage ./haskell-defaults.nix { pkgs = pkgs_; inherit callPackage newScope; };
-
-  # Available GHC versions.
-
-  # For several compiler versions, we export a large set of Haskell-related
-  # packages.
-
-  # NOTE (recurseIntoAttrs): After discussion, we originally decided to
-  # enable it for all GHC versions. However, this is getting too much,
-  # particularly in connection with Hydra builds for all these packages.
-  # So we enable it for selected versions only. We build all ghcs, though
-
-  ghc = recurseIntoAttrs (lib.mapAttrs' (name: value:
-    lib.nameValuePair (builtins.substring (builtins.stringLength "packages_") (builtins.stringLength name) name) value.ghc
-  ) (lib.filterAttrs (name: value:
-    builtins.substring 0 (builtins.stringLength "packages_") name == "packages_"
-  ) haskell));
-  */
-
   ghc6101Binary = callPackage ../development/compilers/ghc/6.10.1-binary.nix { gmp = pkgs.gmp4; };
   ghc6102Binary = callPackage ../development/compilers/ghc/6.10.2-binary.nix { gmp = pkgs.gmp4; };
   ghc6121Binary = callPackage ../development/compilers/ghc/6.12.1-binary.nix { gmp = pkgs.gmp4; };
