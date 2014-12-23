@@ -3357,7 +3357,7 @@ let
   ghc642Binary = callPackage ../development/compilers/ghc/6.4.2-binary.nix { gmp = pkgs.gmp4; };
   ghc704Binary = callPackage ../development/compilers/ghc/7.0.4-binary.nix { gmp = pkgs.gmp4; };
   ghc742Binary = callPackage ../development/compilers/ghc/7.4.2-binary.nix { gmp = pkgs.gmp4; };
-  ghc783Binary = callPackage ../development/compilers/ghc/7.8.3-binary.nix { gmp = pkgs.gmp4; };
+  ghc783Binary = callPackage ../development/compilers/ghc/7.8.3-binary.nix { };
 
   ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc6102Binary; gmp = gmp.override { withStatic = true; }; };
   ghc6123 = callPackage ../development/compilers/ghc/6.12.3.nix { ghc = ghc6101Binary; gmp = gmp.override { withStatic = true; }; };
