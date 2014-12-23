@@ -3371,23 +3371,30 @@ let
   ghc783 = callPackage ../development/compilers/ghc/7.8.3.nix { ghc = ghc742Binary; gmp = gmp.override { withStatic = true; }; };
   ghc784 = callPackage ../development/compilers/ghc/7.8.4.nix { ghc = ghc742Binary; gmp = gmp.override { withStatic = true; }; };
   ghcHEAD = callPackage ../development/compilers/ghc/head.nix { inherit (haskellPackages) ghc alex happy; };
-  ghc = ghc783;
+  ghc = ghc784;
 
   haskellPackages_ghc6104 = callPackage ../development/haskell-modules { ghc = ghc6104; };
   haskellPackages_ghc6123 = callPackage ../development/haskell-modules { ghc = ghc6123; };
   haskellPackages_ghc704 = callPackage ../development/haskell-modules { ghc = ghc704; };
   haskellPackages_ghc722 = callPackage ../development/haskell-modules { ghc = ghc722; };
   haskellPackages_ghc742 = callPackage ../development/haskell-modules { ghc = ghc742; };
-  haskellPackages_ghc763 = callPackage ../development/haskell-modules { ghc = ghc763; };
+  haskellPackages_ghc763 = callPackage ../development/haskell-modules {
+    ghc = ghc763;
+    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.6.x.nix { };
+  };
   haskellPackages_ghc783 = callPackage ../development/haskell-modules {
     ghc = ghc783;
-    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.8.3.nix { };
+    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.8.x.nix { };
+  };
+  haskellPackages_ghc784 = callPackage ../development/haskell-modules {
+    ghc = ghc784;
+    packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.8.x.nix { };
   };
   haskellPackages_ghcHEAD = callPackage ../development/haskell-modules {
     ghc = ghcHEAD;
     packageSetConfig = callPackage ../development/haskell-modules/configuration-ghc-7.9.x.nix { };
   };
-  haskellPackages = recurseIntoAttrs (haskellPackages_ghc783.override {
+  haskellPackages = recurseIntoAttrs (haskellPackages_ghc784.override {
     overrides = config.haskellPackageOverrides or (self: super: {});
     provideOldAttributeNames = config.provideOldHaskellAttributeNames or false;
   });

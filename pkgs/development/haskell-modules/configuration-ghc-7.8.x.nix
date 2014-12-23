@@ -1,7 +1,8 @@
 { pkgs }:
 
 self: super: {
-  # Disable GHC 7.8.3 core libraries.
+
+  # Disable GHC 7.8.x core libraries.
   array = null;
   base = null;
   binary = null;
