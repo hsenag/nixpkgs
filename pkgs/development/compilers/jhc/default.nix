@@ -1,5 +1,5 @@
-{ stdenv, fetchurl, perl, ghc, binary, zlib, utf8String, readline, fgl,
-  regexCompat, HsSyck, random }:
+{ stdenv, fetchurl, perl, ghc, binary, zlib, utf8-string, readline, fgl,
+  regex-compat, HsSyck, random }:
 
 stdenv.mkDerivation rec {
   name = "jhc-${version}";
@@ -11,8 +11,8 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs =
-    [ perl ghc binary zlib utf8String
-      readline fgl regexCompat HsSyck random
+    [ perl ghc binary zlib utf8-string
+      readline fgl regex-compat HsSyck random
     ];
 
   meta = {

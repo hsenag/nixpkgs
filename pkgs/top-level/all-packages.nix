@@ -3328,12 +3328,10 @@ let
     };
   };
 
-   /* TODO: fix build
   jhc = callPackage ../development/compilers/jhc {
-    inherit (haskellPackages_ghc763) ghc binary zlib utf8String readline fgl
-      regexCompat HsSyck random;
+    inherit (haskellPackages_ghc763) ghc binary zlib utf8-string readline fgl
+      regex-compat HsSyck random;
   };
-  */
 
   gcc-arm-embedded-4_7 = callPackage_i686 ../development/compilers/gcc-arm-embedded {
     version = "4.7-2013q3-20130916";
@@ -9345,18 +9343,11 @@ let
 
   d4x = callPackage ../applications/misc/d4x { };
 
-  darcs = null;
-  /* TODO: fix build
-          with haskellPackages_ghc783; callPackage ../applications/version-management/darcs {
-    cabal = cabal.override {
-      extension = self : super : {
-        enableSharedExecutables = false;
-        isLibrary = false;
-        configureFlags = "-f-library " + super.configureFlags or "";
-      };
-    };
-  };
-  */
+  darcs = haskellPackages_ghc784.darcs.overrideCabal (drv: {
+    enableSharedExecutables = false;
+    isLibrary = false;
+    configureFlags = super.configureFlags or "" + "-f-library ";
+  });
 
   darktable = callPackage ../applications/graphics/darktable {
     inherit (gnome) GConf libglade;
@@ -9590,12 +9581,7 @@ let
 
     stratego = callPackage ../applications/editors/emacs-modes/stratego { };
 
-    /* TODO: fix build
-    structuredHaskellMode = callPackage ../applications/editors/emacs-modes/structured-haskell-mode {
-      inherit (haskellPackages) cabal ;
-      haskellSrcExts = haskellPackages.haskellSrcExts_1_15_0_1;
-    };
-    */
+    structuredHaskellMode = haskellPackages.structured-haskell-mode;
 
     sunriseCommander = callPackage ../applications/editors/emacs-modes/sunrise-commander { };
 
