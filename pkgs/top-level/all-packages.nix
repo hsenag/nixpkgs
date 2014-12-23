@@ -3383,17 +3383,17 @@ let
   ghc704Binary = callPackage ../development/compilers/ghc/7.0.4-binary.nix { gmp = pkgs.gmp4; };
   ghc742Binary = callPackage ../development/compilers/ghc/7.4.2-binary.nix { gmp = pkgs.gmp4; };
 
-  ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc6102Binary; };
-  ghc6123 = callPackage ../development/compilers/ghc/6.12.3.nix { ghc = ghc6101Binary; };
-  ghc704 = callPackage ../development/compilers/ghc/7.0.4.nix { ghc = ghc704Binary; };
-  ghc722 = callPackage ../development/compilers/ghc/7.2.2.nix { ghc = ghc704Binary; };
-  ghc741 = callPackage ../development/compilers/ghc/7.4.1.nix { ghc = ghc704Binary; };
-  ghc742 = callPackage ../development/compilers/ghc/7.4.2.nix { ghc = ghc704Binary; };
-  ghc761 = callPackage ../development/compilers/ghc/7.6.1.nix { ghc = ghc704Binary; };
-  ghc762 = callPackage ../development/compilers/ghc/7.6.2.nix { ghc = ghc704Binary; };
-  ghc763 = callPackage ../development/compilers/ghc/7.6.3.nix { ghc = ghc704Binary; };
-  ghc783 = callPackage ../development/compilers/ghc/7.8.3.nix { ghc = ghc742Binary; };
-  ghc784 = callPackage ../development/compilers/ghc/7.8.4.nix { ghc = ghc742Binary; };
+  ghc6104 = callPackage ../development/compilers/ghc/6.10.4.nix { ghc = ghc6102Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc6123 = callPackage ../development/compilers/ghc/6.12.3.nix { ghc = ghc6101Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc704 = callPackage ../development/compilers/ghc/7.0.4.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc722 = callPackage ../development/compilers/ghc/7.2.2.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc741 = callPackage ../development/compilers/ghc/7.4.1.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc742 = callPackage ../development/compilers/ghc/7.4.2.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc761 = callPackage ../development/compilers/ghc/7.6.1.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc762 = callPackage ../development/compilers/ghc/7.6.2.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc763 = callPackage ../development/compilers/ghc/7.6.3.nix { ghc = ghc704Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc783 = callPackage ../development/compilers/ghc/7.8.3.nix { ghc = ghc742Binary; gmp = gmp.override { withStatic = true; }; };
+  ghc784 = callPackage ../development/compilers/ghc/7.8.4.nix { ghc = ghc742Binary; gmp = gmp.override { withStatic = true; }; };
   ghcHEAD = callPackage ../development/compilers/ghc/head.nix { inherit (haskellPackages) ghc alex happy; };
   ghc = ghc783;
 
