@@ -26,8 +26,8 @@
 , enableSharedLibraries ? stdenv.lib.versionOlder "7.7" ghc.version
 , enableSplitObjs ? !stdenv.isDarwin # http://hackage.haskell.org/trac/ghc/ticket/4013
 , enableStaticLibraries ? true
-, homepage ? null
-, description ? null
+, homepage ? "http://hackage.haskell.org/package/${pname}"
+, description ? "no description available"
 , license
 , editedCabalFile ? null
 , platforms ? ghc.meta.platforms
