@@ -1,4 +1,4 @@
-{ pkgs, newScope, stdenv, ghc
+{ pkgs, stdenv, ghc
 , packageSetConfig ? (self: super: {})
 , overrides ? (self: super: {})
 , provideOldAttributeNames ? false
@@ -29,7 +29,8 @@ let
         overrideCabal = f: callPackage mkDerivation (args // (f args));
       };
 
-      callPackage = pkg: args: newScope self pkg args;
+      defaultScope = pkgs // pkgs.xlibs // pkgs.gnome // self;
+      callPackage = pkg: args: stdenv.lib.callPackageWith defaultScope pkg args;
 
     in
       import ./hackage-packages.nix { inherit pkgs stdenv callPackage; } self // {
