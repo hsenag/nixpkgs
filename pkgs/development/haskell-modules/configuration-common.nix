@@ -257,7 +257,6 @@ self: super: {
   prolog = super.prolog.overrideCabal (drv: { jailbreak = true; });
   punycode = super.punycode.overrideCabal (drv: { doCheck = false; });
   quickcheck-instances = super.quickcheck-instances.overrideCabal (drv: { jailbreak = true; });
-  QuickCheck = super.QuickCheck.overrideCabal (drv: { noHaddock = true; });
   Rasterific = super.Rasterific.overrideCabal (drv: { doCheck = false; });
   reactive-banana-wx = super.reactive-banana-wx.overrideCabal (drv: { jailbreak = true; });
   ReadArgs = super.ReadArgs.overrideCabal (drv: { jailbreak = true; });
