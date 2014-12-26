@@ -183,7 +183,7 @@ self: super: {
   httpd-shed = super.httpd-shed.overrideCabal (drv: { jailbreak = true; });
   http-reverse-proxy = super.http-reverse-proxy.overrideCabal (drv: { doCheck = false; });
   http-streams = super.http-streams.overrideCabal (drv: { doCheck = false; jailbreak = true; });
-  HTTP = super.HTTP.overrideCabal (drv: { doCheck = false; noHaddock = true; });
+  HTTP = super.HTTP.overrideCabal (drv: { doCheck = false; });
   http-types = super.http-types.overrideCabal (drv: { jailbreak = true; });
   idris = super.idris.overrideCabal (drv: { jailbreak = true; });
   ihaskell = super.ihaskell.overrideCabal (drv: { doCheck = false; jailbreak = true; });
