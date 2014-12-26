@@ -37,6 +37,8 @@ let
 
         inherit ghc mkDerivation;
 
+        ghcWithPackages = pkgs: callPackage ./with-packages-wrapper.nix { packages = pkgs self; };
+
         mtl21 = callPackage
                 ({ mkDerivation, transformers }:
                  mkDerivation {
@@ -60,10 +62,6 @@ let
                   description = "Lift control operations, like exception catching, through monad transformers";
                   license = stdenv.lib.licenses.bsd3;
                 }) {};
-
-         ghcWithPackages = packages: pkgs.callPackage ../compilers/ghc/with-packages.nix {
-           inherit stdenv ghc packages;
-         };
 
       };
 
