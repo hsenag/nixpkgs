@@ -3349,7 +3349,6 @@ let
 
   # Haskell and GHC
 
-  ghc642Binary = callPackage ../development/compilers/ghc/6.4.2-binary.nix { gmp = pkgs.gmp4; };
   ghc6102Binary = callPackage ../development/compilers/ghc/6.10.2-binary.nix { gmp = pkgs.gmp4; };
   ghc704Binary = callPackage ../development/compilers/ghc/7.0.4-binary.nix { gmp = pkgs.gmp4; };
   ghc742Binary = callPackage ../development/compilers/ghc/7.4.2-binary.nix { gmp = pkgs.gmp4; };
