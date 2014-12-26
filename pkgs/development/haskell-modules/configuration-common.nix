@@ -95,7 +95,7 @@ self: super: {
   directory-layout = super.directory-layout.overrideCabal (drv: { doCheck = false; });
   distributed-process-platform = super.distributed-process-platform.overrideCabal (drv: { doCheck = false; jailbreak = true; });
   distributed-process = super.distributed-process.overrideCabal (drv: { jailbreak = true; });
-  doctest = super.doctest.overrideCabal (drv: { noHaddock = true; doCheck = false; });
+  doctest = super.doctest.overrideCabal (drv: { doCheck = false; });
   dom-selector = super.dom-selector.overrideCabal (drv: { doCheck = false; });
   download-curl = super.download-curl.overrideCabal (drv: { jailbreak = true; });
   dual-tree = super.dual-tree.overrideCabal (drv: { jailbreak = true; });
