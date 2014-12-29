@@ -39,30 +39,6 @@ let
 
         ghcWithPackages = pkgs: callPackage ./with-packages-wrapper.nix { packages = pkgs self; };
 
-        mtl21 = callPackage
-                ({ mkDerivation, transformers }:
-                 mkDerivation {
-                   pname = "mtl";
-                   version = "2.1.3.1";
-                   sha256 = "1xpn2wjmqbh2cg1yssc6749xpgcqlrrg4iilwqgkcjgvaxlpdbvp";
-                   buildDepends = [ transformers ];
-                   homepage = "http://github.com/ekmett/mtl";
-                   description = "Monad classes, using functional dependencies";
-                   license = stdenv.lib.licenses.bsd3;
-                  }) {};
-
-        monad-control-0_3_x = callPackage
-                ({ mkDerivation, transformers, transformers-base }:
-                mkDerivation {
-                  pname = "monad-control";
-                  version = "0.3.3.0";
-                  sha256 = "0vjff64iwnd9vplqfjyylbd900qmsr92h62hnh715wk06yacji7g";
-                  buildDepends = [ transformers transformers-base ];
-                  homepage = "https://github.com/basvandijk/monad-control";
-                  description = "Lift control operations, like exception catching, through monad transformers";
-                  license = stdenv.lib.licenses.bsd3;
-                }) {};
-
       };
 
   compatLayer = if provideOldAttributeNames then import ./compat-layer.nix else (self: super: {});

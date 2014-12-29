@@ -33,15 +33,14 @@ self: super: {
   xhtml = null;
 
   # We cannot use mtl 2.2.x with GHC versions < 7.9.x.
-  mtl22 = super.mtl.override { transformers = super.transformers; };
-  mtl = self.mtl21.override { transformers = null; };
+  mtl = self.mtl_2_1_3_1.override { transformers = null; };
 
   # transformers-compat doesn't auto-detect the correct flags for
   # building with transformers 0.3.x.
   transformers-compat = super.transformers-compat.overrideCabal (drv: { configureFlags = ["-fthree"] ++ drv.configureFlags or []; });
 
   # resourcet doesn't build otherwise.
-  monad-control = super.monad-control-0_3_x;
+  monad-control = super.monad-control_0_3_3_0;
 
   # Needs latest Cabal.
   Cabal_1_20 = super.Cabal.overrideCabal (drv: { preCheck = "unset GHC_PACKAGE_PATH; export HOME=$NIX_BUILD_TOP"; doCheck = false;});
