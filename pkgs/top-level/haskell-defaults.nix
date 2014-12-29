@@ -19,7 +19,10 @@
     mtl = self.mtl_2_2_1;
   };
 
-  ghc784Prefs = self : super : ghcHEADPrefs self super // {
+  ghc7100Prefs = self : super : ghcHEADPrefs self super // {
+  };
+
+  ghc784Prefs = self : super : ghc7100Prefs self super // {
     cabalInstall_1_20_0_4 = super.cabalInstall_1_20_0_4.override { Cabal = self.Cabal_1_20_0_2; };
     codex = super.codex.override { hackageDb = super.hackageDb.override { Cabal = self.Cabal_1_20_0_2; }; };
     jailbreakCabal = super.jailbreakCabal.override { Cabal = self.Cabal_1_20_0_2; };
@@ -220,6 +223,16 @@
     packages { ghcPath = ../development/compilers/ghc/head.nix;
                ghcBinary = pkgs.haskellPackages.ghcPlain;
                prefFun = ghcHEADPrefs;
+               extraArgs = {
+                 happy = pkgs.haskellPackages.happy;
+                 alex = pkgs.haskellPackages.alex;
+               };
+             };
+
+  packages_ghc7100 =
+    packages { ghcPath = ../development/compilers/ghc/7.10.0.nix;
+               ghcBinary = pkgs.haskellPackages.ghcPlain;
+               prefFun = ghc7100Prefs;
                extraArgs = {
                  happy = pkgs.haskellPackages.happy;
                  alex = pkgs.haskellPackages.alex;
