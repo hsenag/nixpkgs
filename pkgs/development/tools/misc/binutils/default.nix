@@ -5,7 +5,7 @@ stdenv.mkDerivation rec {
   
   src = fetchurl {
     url = "mirror://gnu/binutils/${name}.tar.bz2";
-    sha256 = "1xirhxwc94bk6hn2k6i5ly4knbcjsqgy2lp7kl1s5q5csys2b0iy";
+    sha256 = "1hniba496fdgh1x9q1994lhbzz1ss00x9krgng2ibnbh9dajrg9d";
   };
 
   patches = [
