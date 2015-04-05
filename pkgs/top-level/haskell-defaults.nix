@@ -229,8 +229,8 @@
                };
              };
 
-  packages_ghc7100 =
-    packages { ghcPath = ../development/compilers/ghc/7.10.0.nix;
+  packages_ghc7101 =
+    packages { ghcPath = ../development/compilers/ghc/7.10.1.nix;
                ghcBinary = pkgs.haskellPackages.ghcPlain;
                prefFun = ghc7100Prefs;
                extraArgs = {
