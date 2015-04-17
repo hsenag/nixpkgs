@@ -1,4 +1,4 @@
-{ stdenv, makeWrapper, git, subversion, mercurial, bazaar, cvs, unzip, curl, gnused }:
+{ stdenv, makeWrapper, darcs, git, subversion, mercurial, bazaar, cvs, unzip, curl, gnused }:
 
 stdenv.mkDerivation {
   name = "nix-prefetch-scripts";
@@ -22,6 +22,7 @@ stdenv.mkDerivation {
     }
 
     copyScript "hg" ${../../../build-support/fetchhg/nix-prefetch-hg} ${mercurial}
+    copyScript "darcs" ${../../../build-support/fetchdarcs/nix-prefetch-darcs} ${darcs}
     copyScript "git" ${../../../build-support/fetchgit/nix-prefetch-git} ${git}
     copyScript "svn" ${../../../build-support/fetchsvn/nix-prefetch-svn} ${subversion}
     copyScript "bzr" ${../../../build-support/fetchbzr/nix-prefetch-bzr} ${bazaar}

@@ -1,0 +1,58 @@
+#! /bin/sh -e
+
+repo=$1
+tag=$2
+
+hashType=$NIX_HASH_ALGO
+if test -z "$hashType"; then
+    hashType=sha256
+fi
+
+if test -z "$repo"; then
+    # TODO support context as well
+    echo "syntax: nix-prefetch-darcs REPO [TAG]" >&2
+    exit 1
+fi
+
+
+mkTempDir() {
+    tmpPath="$(mktemp -d "${TMPDIR:-/tmp}/nix-prefetch-darcs-XXXXXXXX")"
+    trap removeTempDir EXIT SIGINT SIGQUIT
+}
+
+removeTempDir() {
+    if test -n "$tmpPath"; then
+        rm -rf "$tmpPath" || true
+    fi
+}
+
+
+# If we don't know the hash or a path with that hash doesn't exist,
+# download the file and add it to the store.
+if test -z "$finalPath"; then
+
+    mkTempDir
+    tmpFile=$tmpPath/darcs-dist/darcs-dist.tar.gz
+    out=`basename $repo` 
+
+    # Perform the checkout.
+    if test ! -z "$tag"; then
+        args=(--tag="$tag")
+    fi
+    (cd "$tmpPath" && darcs get --lazy $tagflags $repo $out && rm -rf $out/_darcs)
+
+    # Compute the hash.
+    hash=$(nix-hash --type $hashType $hashFormat $tmpPath/$out)
+    if ! test -n "$QUIET"; then echo "hash is $hash" >&2; fi
+
+    # Add the downloaded file to the Nix store.
+    finalPath=$(nix-store --add-fixed --recursive "$hashType" $tmpPath/$out)
+fi
+
+if ! test -n "$QUIET"; then echo "path is $finalPath" >&2; fi
+
+echo $hash
+
+if test -n "$PRINT_PATH"; then
+    echo $finalPath
+fi
