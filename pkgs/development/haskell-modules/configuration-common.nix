@@ -19,9 +19,9 @@ self: super: {
   };
 
   Cabal_HEAD = (overrideCabal super.Cabal_1_24_2_0 (drv: {
-    # use preUnpack/sourceRoot to navigate to the 'Cabal' subfolder of the git tree
-    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022402.html
-    preUnpack = ''export sourceRoot=cabal-${self.cabalGitSnapshot.rev}-src/Cabal'';
+    # navigate to the 'Cabal' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/Cabal";
     version = "HEAD";
     src = self.cabalGitSnapshot;
   }));
@@ -29,9 +29,9 @@ self: super: {
   hackage-security = (overrideCabal super.hackage-security (drv: { doCheck = false; }));
 
   cabal-install = (overrideCabal super.cabal-install (drv: {
-    # use preUnpack/sourceRoot to navigate to the 'cabal-install' subfolder of the git tree
-    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022402.html
-    preUnpack = ''export sourceRoot=cabal-${self.cabalGitSnapshot.rev}-src/cabal-install'';
+    # navigate to the 'cabal-install' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/cabal-install";
     version = "HEAD";
     # HEAD has some new dependencies
     executableHaskellDepends = drv.executableHaskellDepends
