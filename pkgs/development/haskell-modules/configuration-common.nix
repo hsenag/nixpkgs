@@ -9,8 +9,40 @@ self: super: {
   # evaluation errors.
   ghcjs-base = null;
 
-  # Some packages need a non-core version of Cabal.
-  cabal-install = super.cabal-install.overrideScope (self: super: { Cabal = self.Cabal_1_24_2_0; });
+  # use cabal-install from HEAD to get a fix for problem building zip-archive:
+  # https://github.com/haskell/cabal/issues/3910
+  cabalGitSnapshot = pkgs.fetchFromGitHub {
+      owner = "haskell";
+      repo = "cabal";
+      sha256 = "65bbf596ee1a546f41df6a62b31f1c74b122c30ea2eb9daaa0c877ebcdc4cf80";
+      rev = "28af355b0fadb27b3fac2292d305806de30ee781";
+  };
+
+  Cabal_HEAD = (overrideCabal super.Cabal_1_24_2_0 (drv: {
+    # navigate to the 'Cabal' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/Cabal";
+    version = "HEAD";
+    src = self.cabalGitSnapshot;
+  }));
+
+  hackage-security = (overrideCabal super.hackage-security (drv: { doCheck = false; }));
+
+  cabal-install = (overrideCabal super.cabal-install (drv: {
+    # navigate to the 'cabal-install' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/cabal-install";
+    version = "HEAD";
+    # HEAD has some new dependencies
+    executableHaskellDepends = drv.executableHaskellDepends
+                                 ++ [ pkgs.haskellPackages.echo pkgs.haskellPackages.edit-distance ];
+    src = self.cabalGitSnapshot;
+  })).overrideScope (self: super: {
+    # cabal-install HEAD requires Cabal HEAD
+    Cabal = self.Cabal_HEAD;
+    # the current hackage security tests don't build with Cabal HEAD
+    hackage-security = dontCheck super.hackage-security;
+  });
 
   # Link statically to avoid runtime dependency on GHC.
   jailbreak-cabal = (disableSharedExecutables super.jailbreak-cabal).override { Cabal = self.Cabal_1_20_0_4; };
