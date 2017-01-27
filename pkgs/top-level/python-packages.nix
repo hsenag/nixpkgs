@@ -923,79 +923,11 @@ in {
     };
   };
 
-  ansible = buildPythonPackage rec {
-    version = "1.9.6";
-    name = "ansible-${version}";
-    disabled = isPy3k;
+  ansible  = self.ansible2;
+  ansible2 = self.ansible_2_2;
 
-    src = pkgs.fetchurl {
-      url = "https://releases.ansible.com/ansible/${name}.tar.gz";
-      sha256 = "0pgfh5z4w44sjgd77q6k769a5ipigjlm28zbpf2jhvz7n60kfxsh";
-    };
-
-    prePatch = ''
-      sed -i "s,/usr/,$out," lib/ansible/constants.py
-    '';
-
-    doCheck = false;
-    dontStrip = true;
-    dontPatchELF = true;
-    dontPatchShebangs = true;
-    windowsSupport = true;
-
-    propagatedBuildInputs = with self; [
-      pycrypto paramiko jinja2 pyyaml httplib2 boto six
-      netaddr dns
-    ] ++ optional windowsSupport pywinrm;
-
-    meta = {
-      homepage = "http://www.ansible.com";
-      description = "A simple automation tool";
-      license = with licenses; [ gpl3] ;
-      maintainers = with maintainers; [
-        jgeerds
-        joamaki
-      ];
-      platforms = with platforms; linux ++ darwin;
-    };
-  };
-
-  ansible2 = buildPythonPackage rec {
-    version = "2.2.0.0";
-    name = "ansible-${version}";
-    disabled = isPy3k;
-
-    src = pkgs.fetchurl {
-      url = "http://releases.ansible.com/ansible/${name}.tar.gz";
-      sha256 = "11l5814inr44ammp0sh304rqx2382fr629c0pbwf0k1rjg99iwfr";
-    };
-
-    prePatch = ''
-      sed -i "s,/usr/,$out," lib/ansible/constants.py
-    '';
-
-    doCheck = false;
-    dontStrip = true;
-    dontPatchELF = true;
-    dontPatchShebangs = true;
-    windowsSupport = true;
-
-    propagatedBuildInputs = with self; [
-      pycrypto paramiko jinja2 pyyaml httplib2 boto six
-      netaddr dns
-    ] ++ optional windowsSupport pywinrm;
-
-    meta = with stdenv.lib; {
-      homepage = "http://www.ansible.com";
-      description = "A simple automation tool";
-      license = with licenses; [ gpl3 ];
-      maintainers = with maintainers; [
-        copumpkin
-        jgeerds
-      ];
-      platforms = with platforms; linux ++ darwin;
-    };
-  };
+  ansible_2_1 = callPackage ../development/python-modules/ansible/2.1.nix {};
+  ansible_2_2 = callPackage ../development/python-modules/ansible/2.2.nix {};
 
   apipkg = buildPythonPackage rec {
     name = "apipkg-1.4";
@@ -4968,6 +4900,23 @@ in {
     };
   };
 
+  pydub = buildPythonPackage rec {
+    name = "${pname}-${version}";
+    pname = "pydub";
+    version = "0.16.7";
+    src = pkgs.fetchurl {
+      url = "https://pypi.python.org/packages/05/e0/8d2496c8ef1d7f2c8ff625be3849f550da42809b862879a8fb137c6baa11/${name}.tar.gz";
+      sha256 = "10rmbvsld5fni9wsvb7la8lblrglsnzd2l1159rcxqf6b8k441dx";
+    };
+
+    meta = {
+      description = "Manipulate audio with a simple and easy high level interface.";
+      homepage    = "http://pydub.com/";
+      license     = licenses.mit;
+      platforms   = platforms.all;
+    };
+  };
+
   pyjade = buildPythonPackage rec {
     name = "${pname}-${version}";
     pname = "pyjade";
@@ -4997,61 +4946,13 @@ in {
 
   pytest = self.pytest_29;
 
-  pytest_27 = buildPythonPackage rec {
-    name = "pytest-2.7.3";
+  pytest_27 = callPackage ../development/python-modules/pytest/2_7.nix {};
 
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/p/pytest/${name}.tar.gz";
-      sha256 = "1z4yi986f9n0p8qmzmn21m21m8j1x78hk3505f89baqm6pdw7afm";
-    };
+  pytest_28 = callPackage ../development/python-modules/pytest/2_8.nix {};
 
-    # Disabled temporarily because of Hydra issue with namespaces
-    doCheck = false;
+  pytest_29 = callPackage ../development/python-modules/pytest/2_9.nix {};
 
-    preCheck = ''
-      # don't test bash builtins
-      rm testing/test_argcomplete.py
-    '';
-
-    propagatedBuildInputs = with self; [ py ]
-      ++ (optional isPy26 argparse)
-      ++ stdenv.lib.optional
-        pkgs.config.pythonPackages.pytest.selenium or false
-        self.selenium;
-
-    meta = {
-      maintainers = with maintainers; [ domenkozar lovek323 madjar ];
-      platforms = platforms.unix;
-    };
-  };
-
-  pytest_28 = self.pytest_27.override rec {
-    name = "pytest-2.8.7";
-
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/p/pytest/${name}.tar.gz";
-      sha256 = "1bwb06g64x2gky8x5hcrfpg6r351xwvafimnhm5qxq7wajz8ck7w";
-    };
-  };
-
-  pytest_29 = self.pytest_27.override rec {
-    name = "pytest-2.9.2";
-
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/p/pytest/${name}.tar.gz";
-      sha256 = "1n6igbc1b138wx1q5gca4pqw1j6nsyicfxds5n0b5989kaxqmh8j";
-    };
-  };
-
-  pytest_30 = self.pytest_27.override rec {
-    name = "pytest-3.0.5";
-
-    propagatedBuildInputs = with self; [ hypothesis py ];
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/p/pytest/${name}.tar.gz";
-      sha256 = "1z9pj39w0r2gw5hsqndlmsqa80kgbrann5kfma8ww8zhaslkl02a";
-    };
-  };
+  pytest_30 = callPackage ../development/python-modules/pytest {};
 
   pytestcache = buildPythonPackage rec {
     name = "pytest-cache-1.0";
@@ -5077,27 +4978,8 @@ in {
     };
   };
 
-  pytestdjango = buildPythonPackage rec {
-    name = "pytest-django-${version}";
-    version = "2.9.1";
-
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/p/pytest-django/${name}.tar.gz";
-      sha256 = "1mmc7zsz3dlhs6sx4sppkj1vgshabi362r1a8b8wpj1qfximpqcb";
-    };
-
-    # doing this to allow depending packages to find
-    # pytest's binaries
-    pytest = self.pytest;
-
-    buildInputs = with self; [ pytest ];
-    propagatedBuildInputs = with self; [ django setuptools_scm_18 ];
-
-    meta = {
-      description = "py.test plugin for testing of Django applications";
-      homepage = http://pytest-django.readthedocs.org/en/latest/;
-      license = licenses.bsd3;
-    };
+  pytestdjango = callPackage ../development/python-modules/pytestdjango.nix {
+    pytest = self.pytest_30;
   };
 
   pytest-fixture-config = buildPythonPackage rec {
@@ -10424,27 +10306,8 @@ in {
     };
   };
 
-  django_guardian = buildPythonPackage rec {
-    name = "django-guardian-${version}";
-    version = "1.4.4";
-
-    src = pkgs.fetchurl {
-      url = "mirror://pypi/d/django-guardian/${name}.tar.gz";
-      sha256 = "1m7y3brk3697hr2cvkzl8dry4pp7wkmhvxmf8db1ardz1r9d8895";
-    };
-
-    buildInputs = with self ; [ pytest pytestrunner pytestdjango django_environ mock ];
-    propagatedBuildInputs = with self ; [ django six ];
-
-    checkPhase = ''
-      ${python.interpreter} nix_run_setup.py test --addopts="--ignore build"
-    '';
-
-    meta = {
-      description = "Per object permissions for Django";
-      homepage = https://github.com/django-guardian/django-guardian;
-      licenses = [ licenses.mit licenses.bsd2 ];
-    };
+  django_guardian = callPackage ../development/python-modules/django_guardian.nix {
+    pytest = self.pytest_30;
   };
 
   django_tagging = buildPythonPackage rec {
@@ -11778,14 +11641,21 @@ in {
   });
 
   foolscap = buildPythonPackage (rec {
-    name = "foolscap-0.10.1";
+    name = "foolscap-${version}";
+    version = "0.12.6";
 
     src = pkgs.fetchurl {
-      url = "http://foolscap.lothar.com/releases/${name}.tar.gz";
-      sha256 = "1wrnbdq3y3lfxnhx30yj9xbr3iy9512jb60k8qi1da1phalnwz5x";
+      url = "mirror://pypi/f/foolscap/${name}.tar.gz";
+      sha256 = "1bpmqq6485mmr5jza9q2c55l9m1bfsvsbd9drsip7p5qcsi22jrz";
     };
 
-    propagatedBuildInputs = [ self.twisted self.pyopenssl self.service-identity ];
+    propagatedBuildInputs = with self; [ mock twisted pyopenssl service-identity ];
+
+    checkPhase = ''
+      # Either uncomment this, or remove this custom check phase entirely, if
+      # you wish to do battle with the foolscap tests. ~ C.
+      # trial foolscap
+    '';
 
     meta = {
       homepage = http://foolscap.lothar.com/;
@@ -18280,17 +18150,21 @@ in {
   };
 
   paste = buildPythonPackage rec {
-    name = "paste-1.7.5.1";
-    disabled = isPy3k;
+    name = "paste-${version}";
+    version = "2.0.3";
 
     src = pkgs.fetchurl {
-      url = mirror://pypi/P/Paste/Paste-1.7.5.1.tar.gz;
-      sha256 = "11645842ba8ec986ae8cfbe4c6cacff5c35f0f4527abf4f5581ae8b4ad49c0b6";
+      url = "mirror://pypi/P/Paste/Paste-${version}.tar.gz";
+      sha256 = "062jk0nlxf6lb2wwj6zc20rlvrwsnikpkh90y0dn8cjch93s6ii3";
     };
 
-    buildInputs = with self; [ nose ];
+    checkInputs = with self; [ nose ];
+    propagatedBuildInputs = with self; [ six ];
 
-    doCheck = false; # some files required by the test seem to be missing
+    # Certain tests require network
+    checkPhase = ''
+      NOSE_EXCLUDE=test_ok,test_form,test_error,test_stderr,test_paste_website nosetests
+    '';
 
     meta = {
       description = "Tools for using a Web Server Gateway Interface stack";
@@ -18328,7 +18202,7 @@ in {
 
     doCheck = false;
     buildInputs = with self; [ nose ];
-    propagatedBuildInputs = with self; [ paste PasteDeploy cheetah argparse ];
+    propagatedBuildInputs = with self; [ six paste PasteDeploy cheetah argparse ];
 
     meta = {
       description = "A pluggable command-line frontend, including commands to setup package file layouts";
@@ -25264,9 +25138,11 @@ in {
     '';
 
     patchPhase = ''
-      substituteInPlace "scripts/syncthing-gtk" \
-              --replace "/usr/share" "$out/share"
-      substituteInPlace setup.py --replace "version = get_version()" "version = '${version}'"
+        substituteInPlace setup.py --replace "version = get_version()" "version = '${version}'"
+        substituteInPlace scripts/syncthing-gtk --replace "/usr/share" "$out/share"
+        substituteInPlace syncthing_gtk/app.py --replace "/usr/share" "$out/share"
+        substituteInPlace syncthing_gtk/wizard.py --replace "/usr/share" "$out/share"
+        substituteInPlace syncthing-gtk.desktop --replace "/usr/bin/syncthing-gtk" "$out/bin/syncthing-gtk"
     '';
 
     meta = {
@@ -26093,6 +25969,13 @@ in {
     };
 
     propagatedBuildInputs = with self; [ zope_interface ];
+
+    # Patch t.p._inotify to point to libc. Without this,
+    # twisted.python.runtime.platform.supportsINotify() == False
+    patchPhase = optionalString stdenv.isLinux ''
+      substituteInPlace twisted/python/_inotify.py --replace \
+        "ctypes.util.find_library('c')" "'${stdenv.glibc.out}/lib/libc.so.6'"
+    '';
 
     # Generate Twisted's plug-in cache.  Twisted users must do it as well.  See
     # http://twistedmatrix.com/documents/current/core/howto/plugin.html#auto3
