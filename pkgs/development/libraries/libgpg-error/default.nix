@@ -14,6 +14,8 @@ stdenv.mkDerivation (rec {
 
   doCheck = true;
 
+  patches = [ ./no-build-timestamp.patch ];
+
   meta = {
     homepage = "https://www.gnupg.org/related_software/libgpg-error/index.html";
     description = "A small library that defines common error values for all GnuPG components";
