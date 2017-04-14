@@ -14,7 +14,7 @@ let
   callPackage = pkgs.newScope self;
 
   version = "3.22";
-  maintainers = with pkgs.lib.maintainers; [ lethalman jgeerds DamienCassou ];
+  maintainers = with pkgs.lib.maintainers; [ lethalman jgeerds ];
 
   corePackages = with gnome3; [
     pkgs.desktop_file_utils pkgs.ibus
@@ -31,7 +31,7 @@ let
     gucharmap nautilus totem vino yelp gnome-bluetooth
     gnome-calculator gnome-contacts gnome-font-viewer gnome-screenshot
     gnome-system-log gnome-system-monitor
-    gnome_terminal gnome-user-docs bijiben evolution file-roller gedit
+    gnome_terminal gnome-user-docs evolution file-roller gedit
     gnome-clocks gnome-music gnome-tweak-tool gnome-photos
     nautilus-sendto dconf-editor vinagre gnome-weather gnome-logs
     gnome-maps gnome-characters gnome-calendar accerciser gnome-nettool
@@ -233,6 +233,8 @@ let
   vte = callPackage ./core/vte { };
 
   vte_290 = callPackage ./core/vte/2.90.nix { };
+
+  vte-ng = callPackage ./core/vte/ng.nix { };
 
   vino = callPackage ./core/vino { };
 

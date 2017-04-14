@@ -5,8 +5,8 @@ stdenv.mkDerivation {
   name = "libnl-${version}";
 
   src = fetchFromGitHub {
-    sha256 = "1078sbfgcb6ijal9af6lv26sy233wq14afyrc4bkdbnfl0zgsbwi";
-    rev = "libnl3_2_23";
+    sha256 = "0y8fcb1bfbdvxgckq5p6l4jzx0kvv3g11svy6d5v3i6zy9kkq8wh";
+    rev = "libnl3_2_29";
     repo = "libnl";
     owner = "thom311";
   };
@@ -19,7 +19,7 @@ stdenv.mkDerivation {
     inherit version;
     homepage = "http://www.infradead.org/~tgr/libnl/";
     description = "Linux NetLink interface library";
-    maintainers = [ stdenv.lib.maintainers.urkud ];
+    maintainers = [ ];
     platforms = stdenv.lib.platforms.linux;
   };
 }
