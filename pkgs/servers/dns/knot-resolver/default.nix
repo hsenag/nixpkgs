@@ -1,4 +1,4 @@
-{ stdenv, fetchurl, pkgconfig, utillinux, vimNox, which
+{ stdenv, fetchurl, pkgconfig, utillinux, hexdump, which
 , knot-dns, luajit, libuv, lmdb
 , cmocka, systemd, hiredis, libmemcached
 , gnutls, nettle
@@ -10,23 +10,22 @@ let
 in
 stdenv.mkDerivation rec {
   name = "knot-resolver-${version}";
-  version = "1.2.0";
+  version = "1.2.5";
 
   src = fetchurl {
     url = "http://secure.nic.cz/files/knot-resolver/${name}.tar.xz";
-    sha256 = "b8828197dbd563e4b502571538c6d44ef2bb07dede1df884b785921f8aec77fd";
+    sha256 = "30e24f9681e40c79a0aadbbfd78aaa72534dd3bca3347de89dfeae055b2c99e4";
   };
 
   outputs = [ "out" "dev" ];
 
   configurePhase = ":";
 
-  nativeBuildInputs = [ pkgconfig which makeWrapper ]
-    ++ [(if stdenv.isLinux then utillinux.bin/*hexdump*/ else vimNox/*xxd*/)];
+  nativeBuildInputs = [ pkgconfig which makeWrapper hexdump ];
 
   buildInputs = [ knot-dns luajit libuv gnutls ]
-    # TODO: lmdb needs lmdb.pc; embedded for now
-    ## optional dependencies
+    ++ optional stdenv.isLinux lmdb # system lmdb causes some problems on Darwin
+    ## optional dependencies; TODO: libedit, dnstap?
     ++ optional doInstallCheck cmocka
     ++ optional stdenv.isLinux systemd # socket activation
     ++ [

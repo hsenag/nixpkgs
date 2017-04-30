@@ -76,6 +76,7 @@ in {
       description = "Kubernetes package to use.";
       type = types.package;
       default = pkgs.kubernetes;
+      defaultText = "pkgs.kubernetes";
     };
 
     verbose = mkOption {
@@ -611,8 +612,8 @@ in {
             --require-kubeconfig \
             --address=${cfg.kubelet.address} \
             --port=${toString cfg.kubelet.port} \
-            --register-node=${if cfg.kubelet.registerNode then "true" else "false"} \
-            --register-schedulable=${if cfg.kubelet.registerSchedulable then "true" else "false"} \
+            --register-node=${boolToString cfg.kubelet.registerNode} \
+            --register-schedulable=${boolToString cfg.kubelet.registerSchedulable} \
             ${optionalString (cfg.kubelet.tlsCertFile != null)
               "--tls-cert-file=${cfg.kubelet.tlsCertFile}"} \
             ${optionalString (cfg.kubelet.tlsKeyFile != null)
@@ -620,7 +621,7 @@ in {
             --healthz-bind-address=${cfg.kubelet.healthz.bind} \
             --healthz-port=${toString cfg.kubelet.healthz.port} \
             --hostname-override=${cfg.kubelet.hostname} \
-            --allow-privileged=${if cfg.kubelet.allowPrivileged then "true" else "false"} \
+            --allow-privileged=${boolToString cfg.kubelet.allowPrivileged} \
             --root-dir=${cfg.dataDir} \
             --cadvisor_port=${toString cfg.kubelet.cadvisorPort} \
             ${optionalString (cfg.kubelet.clusterDns != "")
@@ -669,14 +670,14 @@ in {
             --bind-address=0.0.0.0 \
             ${optionalString (cfg.apiserver.advertiseAddress != null)
               "--advertise-address=${cfg.apiserver.advertiseAddress}"} \
-            --allow-privileged=${if cfg.apiserver.allowPrivileged then "true" else "false"} \
+            --allow-privileged=${boolToString cfg.apiserver.allowPrivileged}\
             ${optionalString (cfg.apiserver.tlsCertFile != null)
               "--tls-cert-file=${cfg.apiserver.tlsCertFile}"} \
             ${optionalString (cfg.apiserver.tlsKeyFile != null)
               "--tls-private-key-file=${cfg.apiserver.tlsKeyFile}"} \
             ${optionalString (cfg.apiserver.tokenAuth != null)
               "--token-auth-file=${cfg.apiserver.tokenAuth}"} \
-            --kubelet-https=${if cfg.apiserver.kubeletHttps then "true" else "false"} \
+            --kubelet-https=${boolToString cfg.apiserver.kubeletHttps} \
             ${optionalString (cfg.apiserver.kubeletClientCaFile != null)
               "--kubelet-certificate-authority=${cfg.apiserver.kubeletClientCaFile}"} \
             ${optionalString (cfg.apiserver.kubeletClientCertFile != null)
@@ -718,7 +719,7 @@ in {
           ExecStart = ''${cfg.package}/bin/kube-scheduler \
             --address=${cfg.scheduler.address} \
             --port=${toString cfg.scheduler.port} \
-            --leader-elect=${if cfg.scheduler.leaderElect then "true" else "false"} \
+            --leader-elect=${boolToString cfg.scheduler.leaderElect} \
             --kubeconfig=${kubeconfig} \
             ${optionalString cfg.verbose "--v=6"} \
             ${optionalString cfg.verbose "--log-flush-frequency=1s"} \
@@ -743,7 +744,7 @@ in {
             --address=${cfg.controllerManager.address} \
             --port=${toString cfg.controllerManager.port} \
             --kubeconfig=${kubeconfig} \
-            --leader-elect=${if cfg.controllerManager.leaderElect then "true" else "false"} \
+            --leader-elect=${boolToString cfg.controllerManager.leaderElect} \
             ${if (cfg.controllerManager.serviceAccountKeyFile!=null)
               then "--service-account-private-key-file=${cfg.controllerManager.serviceAccountKeyFile}"
               else "--service-account-private-key-file=/var/run/kubernetes/apiserver.key"} \
@@ -775,7 +776,7 @@ in {
             --bind-address=${cfg.proxy.address} \
             ${optionalString cfg.verbose "--v=6"} \
             ${optionalString cfg.verbose "--log-flush-frequency=1s"} \
-            ${cfg.controllerManager.extraOpts}
+            ${cfg.proxy.extraOpts}
           '';
           WorkingDirectory = cfg.dataDir;
         };

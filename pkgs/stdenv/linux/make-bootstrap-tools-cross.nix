@@ -221,15 +221,14 @@ rec {
         # GCC has certain things built in statically. See
         # pkgs/stdenv/linux/default.nix for the details.
         cp -d ${isl}/lib/libisl*.so* $out/lib
-        # Also this is needed since bzip2 uses a custom build system
-        # for native builds but autoconf (via a patch) for cross builds
+
         cp -d ${bzip2.out}/lib/libbz2.so* $out/lib
 
         # Copy binutils.
         for i in as ld ar ranlib nm strip readelf objdump; do
           cp ${binutils.out}/bin/$i $out/bin
         done
-        cp -d ${binutils.out}/lib/lib*.so* $out/lib
+        cp -d ${binutils.lib}/lib/lib*.so* $out/lib
 
         chmod -R u+w $out
 
