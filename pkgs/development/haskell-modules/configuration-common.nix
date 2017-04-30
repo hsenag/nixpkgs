@@ -14,12 +14,12 @@ self: super: {
   cabalGitSnapshot = pkgs.fetchFromGitHub {
       owner = "haskell";
       repo = "cabal";
-      sha256 = "19jvvz7ldbhka65s824rda883i36dcyv4x2mg7ag484j9vyhwsjh";
-      rev = "051eac2bd6d254276ec931ba98dd6014b1e7b569";
+      # sha256 = "19jvvz7ldbhka65s824rda883i36dcyv4x2mg7ag484j9vyhwsjh";
+      # rev = "051eac2bd6d254276ec931ba98dd6014b1e7b569";
 
       # 2.0 branch
-      # sha256 = "02idricg4pxhrlc7rayr0fd3sh6rh48p4qzi7985qdvz73b7dsaw";
-      # rev = "41f416bc27796a3dc87037b66b6fef6f5810bc77";
+      sha256 = "02idricg4pxhrlc7rayr0fd3sh6rh48p4qzi7985qdvz73b7dsaw";
+      rev = "41f416bc27796a3dc87037b66b6fef6f5810bc77";
   };
 
   Cabal_HEAD = (overrideCabal super.Cabal_1_24_2_0 (drv: {
