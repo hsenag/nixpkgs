@@ -20,8 +20,44 @@ self: super: {
   # evaluation errors.
   ghcjs-base = null;
 
-  # Some packages need a non-core version of Cabal.
-  cabal-install = super.cabal-install.overrideScope (self: super: { Cabal = self.Cabal_1_24_2_0; });
+  # use cabal-install from HEAD to get a fix for problem building zip-archive:
+  # https://github.com/haskell/cabal/issues/3910
+  cabalGitSnapshot = pkgs.fetchFromGitHub {
+      owner = "haskell";
+      repo = "cabal";
+      # sha256 = "19jvvz7ldbhka65s824rda883i36dcyv4x2mg7ag484j9vyhwsjh";
+      # rev = "051eac2bd6d254276ec931ba98dd6014b1e7b569";
+
+      # 2.0 branch
+      sha256 = "02idricg4pxhrlc7rayr0fd3sh6rh48p4qzi7985qdvz73b7dsaw";
+      rev = "41f416bc27796a3dc87037b66b6fef6f5810bc77";
+  };
+
+  Cabal_HEAD = (overrideCabal super.Cabal_1_24_2_0 (drv: {
+    # navigate to the 'Cabal' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/Cabal";
+    version = "HEAD";
+    src = self.cabalGitSnapshot;
+  }));
+
+  hackage-security = (overrideCabal super.hackage-security (drv: { doCheck = false; }));
+
+  cabal-install = (overrideCabal super.cabal-install (drv: {
+    # navigate to the 'cabal-install' subfolder of the git tree
+    # http://lists.science.uu.nl/pipermail/nix-dev/2016-December/022403.html
+    postUnpack = "sourceRoot+=/cabal-install";
+    version = "HEAD";
+    # HEAD has some new dependencies
+    executableHaskellDepends = drv.executableHaskellDepends
+                                 ++ [ pkgs.haskellPackages.echo pkgs.haskellPackages.edit-distance ];
+    src = self.cabalGitSnapshot;
+  })).overrideScope (self: super: {
+    # cabal-install HEAD requires Cabal HEAD
+    Cabal = self.Cabal_HEAD;
+    # the current hackage security tests don't build with Cabal HEAD
+    hackage-security = dontCheck super.hackage-security;
+  });
 
   # Link statically to avoid runtime dependency on GHC.
   jailbreak-cabal = (disableSharedExecutables super.jailbreak-cabal).override { Cabal = self.Cabal_1_20_0_4; };
