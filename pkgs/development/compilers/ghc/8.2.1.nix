@@ -11,12 +11,12 @@ let
   inherit (bootPkgs) ghc;
 in
 stdenv.mkDerivation rec {
-  version = "8.2.0.20170404";
+  version = "8.2.0.20170507";
   name = "ghc-${version}";
 
   src = fetchurl {
-    url = "https://downloads.haskell.org/~ghc/8.2.1-rc1/${name}-src.tar.xz";
-    sha256 = "190v61hq0c9p78p4l8vj55y0s1jlqh1v9ms5cqffdafn1gw4dxgf";
+    url = "https://downloads.haskell.org/~ghc/8.2.1-rc2/${name}-src.tar.xz";
+    sha256 = "1hy3l6nzkyhzwy9mii4zs51jv048zwvdqk1q3188jznz35392zrn";
   };
 
   patches = [];
