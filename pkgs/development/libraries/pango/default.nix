@@ -6,14 +6,14 @@ with stdenv.lib;
 
 let
   ver_maj = "1.40";
-  ver_min = "4";
+  ver_min = "6";
 in
 stdenv.mkDerivation rec {
   name = "pango-${ver_maj}.${ver_min}";
 
   src = fetchurl {
     url = "mirror://gnome/sources/pango/${ver_maj}/${name}.tar.xz";
-    sha256 = "f8fdc5fc66356dc4edf915048cceeee065a0e0cb70b3b2598f62bda320129a3e";
+    sha256 = "ca152b7383a1e9f7fd74ae96023dc6770dc5043414793bfe768ff06b6759e573";
   };
 
   outputs = [ "bin" "dev" "out" "devdoc" ];

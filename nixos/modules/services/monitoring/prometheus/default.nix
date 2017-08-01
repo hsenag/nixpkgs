@@ -66,15 +66,6 @@ let
           How frequently to evaluate rules by default.
         '';
       };
-
-      labels = mkOption {
-        type = types.attrsOf types.str;
-        default = {};
-        description = ''
-          The labels to add to any timeseries that this Prometheus instance
-          scrapes.
-        '';
-      };
     };
   };
 
@@ -141,7 +132,7 @@ let
           };
         });
         default = null;
-        apply = x: if x == null then null else _filter x;
+        apply = x: mapNullable _filter x;
         description = ''
           Optional http login credentials for metrics scraping.
         '';

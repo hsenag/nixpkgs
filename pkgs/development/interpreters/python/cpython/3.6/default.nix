@@ -14,6 +14,7 @@
 , callPackage
 , self
 , CF, configd
+, python-setup-hook
 # For the Python package set
 , pkgs, packageOverrides ? (self: super: {})
 }:
@@ -26,7 +27,7 @@ with stdenv.lib;
 
 let
   majorVersion = "3.6";
-  minorVersion = "0";
+  minorVersion = "2";
   minorVersionSuffix = "";
   pythonVersion = majorVersion;
   version = "${majorVersion}.${minorVersion}${minorVersionSuffix}";
@@ -47,7 +48,7 @@ in stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://www.python.org/ftp/python/${majorVersion}.${minorVersion}/Python-${version}.tar.xz";
-    sha256 = "08inlbb2vb8lahw6wfq654lqk6l1x7ncpggp6a92vqw5yq2gkidh";
+    sha256 = "1ab4vlpdax1ihpiyiwchlgsk36apl4kgdw271wvl9l8ywhxpfacj";
   };
 
   NIX_LDFLAGS = optionalString stdenv.isLinux "-lgcc_s";
@@ -64,11 +65,7 @@ in stdenv.mkDerivation {
   '';
 
   patches = [
-    (fetchpatch {
-      name = "glibc-2.25-failed-to-get-random-numbers.patch";
-      url = https://github.com/python/cpython/commit/ff558f5aba4.patch;
-      sha256 = "1k12gpn69np94cm942vaf40sv7gsxqf20rv1m3parzgi1gs4hqa3";
-    })
+    ./no-ldconfig.patch
   ];
 
   postPatch = ''
@@ -102,7 +99,7 @@ in stdenv.mkDerivation {
      ''}
   '';
 
-  setupHook = ./setup-hook.sh;
+  setupHook = python-setup-hook sitePackages;
 
   postInstall = ''
     # needed for some packages, especially packages that backport functionality
@@ -133,6 +130,13 @@ in stdenv.mkDerivation {
     ln -s "$out/bin/python3" "$out/bin/python"
     ln -s "$out/bin/python3-config" "$out/bin/python-config"
     ln -s "$out/lib/pkgconfig/python3.pc" "$out/lib/pkgconfig/python.pc"
+
+    # Get rid of retained dependencies on -dev packages, and remove
+    # some $TMPDIR references to improve binary reproducibility.
+    # Note that the .pyc file of _sysconfigdata.py should be regenerated!
+    for i in $out/lib/python${majorVersion}/_sysconfigdata*.py $out/lib/python${majorVersion}/config-${majorVersion}m*/Makefile; do
+      sed -i $i -e "s|-I/nix/store/[^ ']*||g" -e "s|-L/nix/store/[^ ']*||g" -e "s|$TMPDIR|/no-such-path|g"
+    done
 
     # Determinism: rebuild all bytecode
     # We exclude lib2to3 because that's Python 2 code which fails

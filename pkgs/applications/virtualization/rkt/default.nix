@@ -12,15 +12,15 @@ let
   stage1Dir = "lib/rkt/stage1-images";
 
 in stdenv.mkDerivation rec {
-  version = "1.25.0";
+  version = "1.28.0";
   name = "rkt-${version}";
   BUILDDIR="build-${name}";
 
   src = fetchFromGitHub {
-      owner = "coreos";
-      repo = "rkt";
-      rev = "v${version}";
-      sha256 = "0lcnhyaxq8z0ndwqg0svcc1gg0ahhcprxlf9gifm4mpxqimhaz8j";
+    owner = "coreos";
+    repo = "rkt";
+    rev = "v${version}";
+    sha256 = "08bzi44rs4g8cxb44pxh7ln85zhkhmi40r8mb73kibnnzd008vg3";
   };
 
   stage1BaseImage = fetchurl {

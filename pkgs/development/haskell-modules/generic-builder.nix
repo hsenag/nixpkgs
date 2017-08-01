@@ -1,5 +1,5 @@
 { stdenv, fetchurl, ghc, pkgconfig, glibcLocales, coreutils, gnugrep, gnused
-, jailbreak-cabal, hscolour, cpphs, nodejs
+, jailbreak-cabal, hscolour, cpphs, nodejs, lib, removeReferencesTo
 }: let isCross = (ghc.cross or null) != null; in
 
 { pname
@@ -34,8 +34,7 @@
 , license
 , maintainers ? []
 , doCoverage ? false
-# TODO Do we care about haddock when cross-compiling?
-, doHaddock ? !isCross && (!stdenv.isDarwin || stdenv.lib.versionAtLeast ghc.version "7.8")
+, doHaddock ? !(ghc.isHaLVM or false)
 , passthru ? {}
 , pkgconfigDepends ? [], libraryPkgconfigDepends ? [], executablePkgconfigDepends ? [], testPkgconfigDepends ? [], benchmarkPkgconfigDepends ? []
 , testDepends ? [], testHaskellDepends ? [], testSystemDepends ? []
@@ -53,7 +52,9 @@
 , shellHook ? ""
 , coreSetup ? false # Use only core packages to build Setup.hs.
 , useCpphs ? false
-, hardeningDisable ? []
+, hardeningDisable ? lib.optional (ghc.isHaLVM or false) "all"
+, enableSeparateDataOutput ? false
+, enableSeparateDocOutput ? doHaddock
 } @ args:
 
 assert editedCabalFile != null -> revision != null;
@@ -63,7 +64,8 @@ assert enableSplitObjs == null;
 let
 
   inherit (stdenv.lib) optional optionals optionalString versionOlder versionAtLeast
-                       concatStringsSep enableFeature optionalAttrs toUpper;
+                       concatStringsSep enableFeature optionalAttrs toUpper
+                       filter makeLibraryPath;
 
   isGhcjs = ghc.isGhcjs or false;
   isHaLVM = ghc.isHaLVM or false;
@@ -108,6 +110,8 @@ let
 
   defaultConfigureFlags = [
     "--verbose" "--prefix=$out" "--libdir=\\$prefix/lib/\\$compiler" "--libsubdir=\\$pkgid"
+    (optionalString enableSeparateDataOutput "--datadir=$data/share/${ghc.name}")
+    (optionalString enableSeparateDocOutput "--docdir=$doc/share/doc")
     "--with-gcc=$CC" # Clang won't work without that extra information.
     "--package-db=$packageConfDir"
     (optionalString (enableSharedExecutables && stdenv.isLinux) "--ghc-option=-optl=-Wl,-rpath=$out/lib/${ghc.name}/${pname}-${version}")
@@ -144,9 +148,9 @@ let
   allPkgconfigDepends = pkgconfigDepends ++ libraryPkgconfigDepends ++ executablePkgconfigDepends ++
                         optionals doCheck testPkgconfigDepends ++ optionals withBenchmarkDepends benchmarkPkgconfigDepends;
 
+  nativeBuildInputs = buildTools ++ libraryToolDepends ++ executableToolDepends ++ [ removeReferencesTo ];
   propagatedBuildInputs = buildDepends ++ libraryHaskellDepends ++ executableHaskellDepends;
-  otherBuildInputs = extraLibraries ++ librarySystemDepends ++ executableSystemDepends ++ setupHaskellDepends ++
-                     buildTools ++ libraryToolDepends ++ executableToolDepends ++
+  otherBuildInputs = setupHaskellDepends ++ extraLibraries ++ librarySystemDepends ++ executableSystemDepends ++
                      optionals (allPkgconfigDepends != []) ([pkgconfig] ++ allPkgconfigDepends) ++
                      optionals doCheck (testDepends ++ testHaskellDepends ++ testSystemDepends ++ testToolDepends) ++
                      # ghcjs's hsc2hs calls out to the native hsc2hs
@@ -173,6 +177,9 @@ assert allPkgconfigDepends != [] -> pkgconfig != null;
 stdenv.mkDerivation ({
   name = "${pname}-${version}";
 
+  outputs = if (args ? outputs) then args.outputs else ([ "out" ] ++ (optional enableSeparateDataOutput "data") ++ (optional enableSeparateDocOutput "doc"));
+  setOutputFlags = false;
+
   pos = builtins.unsafeGetAttrPos "pname" args;
 
   prePhases = ["setupCompilerEnvironmentPhase"];
@@ -181,8 +188,9 @@ stdenv.mkDerivation ({
 
   inherit src;
 
-  nativeBuildInputs = otherBuildInputs ++ optionals (!hasActiveLibrary) propagatedBuildInputs;
-  propagatedNativeBuildInputs = optionals hasActiveLibrary propagatedBuildInputs;
+  inherit nativeBuildInputs;
+  buildInputs = otherBuildInputs ++ optionals (!hasActiveLibrary) propagatedBuildInputs;
+  propagatedBuildInputs = optionals hasActiveLibrary propagatedBuildInputs;
 
   LANG = "en_US.UTF-8";         # GHC needs the locale configured during the Haddock phase.
 
@@ -196,13 +204,11 @@ stdenv.mkDerivation ({
     ${jailbreak-cabal}/bin/jailbreak-cabal ${pname}.cabal
   '' + postPatch;
 
-  # for ghcjs, we want to put ghcEnv on PATH so compiler plugins will be available.
-  # TODO(cstrahan): would the same be of benefit to native ghc?
   setupCompilerEnvironmentPhase = ''
     runHook preSetupCompilerEnvironment
 
     echo "Build with ${ghc}."
-    export PATH="${if ghc.isGhcjs or false then ghcEnv else ghc}/bin:$PATH"
+    export PATH="${ghc}/bin:$PATH"
     ${optionalString (hasActiveLibrary && hyperlinkSource) "export PATH=${hscolour}/bin:$PATH"}
 
     packageConfDir="$TMPDIR/package.conf.d"
@@ -211,11 +217,8 @@ stdenv.mkDerivation ({
     setupCompileFlags="${concatStringsSep " " setupCompileFlags}"
     configureFlags="${concatStringsSep " " defaultConfigureFlags} $configureFlags"
 
-    local inputClosure=""
-    for i in $propagatedNativeBuildInputs $nativeBuildInputs; do
-      findInputs $i inputClosure propagated-native-build-inputs
-    done
-    for p in $inputClosure; do
+    # nativePkgs defined in stdenv/setup.hs
+    for p in "''${nativePkgs[@]}"; do
       if [ -d "$p/lib/${ghc.name}/package.conf.d" ]; then
         cp -f "$p/lib/${ghc.name}/package.conf.d/"*.conf $packageConfDir/
         continue
@@ -227,6 +230,22 @@ stdenv.mkDerivation ({
         configureFlags+=" --extra-lib-dirs=$p/lib"
       fi
     done
+  '' + (optionalString stdenv.isDarwin ''
+    # Work around a limit in the Mac OS X Sierra linker on the number of paths
+    # referenced by any one dynamic library:
+    #
+    # Create a local directory with symlinks of the *.dylib (Mac OS X shared
+    # libraries) from all the dependencies.
+    local dynamicLinksDir="$out/lib/links"
+    mkdir -p $dynamicLinksDir
+    for d in $(grep dynamic-library-dirs "$packageConfDir/"*|awk '{print $2}'); do
+      ln -s "$d/"*.dylib $dynamicLinksDir
+    done
+    # Edit the local package DB to reference the links directory.
+    for f in "$packageConfDir/"*.conf; do
+      sed -i "s,dynamic-library-dirs: .*,dynamic-library-dirs: $dynamicLinksDir," $f
+    done
+  '') + ''
     ${ghcCommand}-pkg --${packageDbFlag}="$packageConfDir" recache
 
     runHook postSetupCompilerEnvironment
@@ -299,7 +318,7 @@ stdenv.mkDerivation ({
     ${optionalString isGhcjs ''
       for exeDir in "$out/bin/"*.jsexe; do
         exe="''${exeDir%.jsexe}"
-        printf '%s\n' '#!${nodejs}/bin/node' > "$exe"
+        printWords '#!${nodejs}/bin/node' > "$exe"
         cat "$exeDir/all.js" >> "$exe"
         chmod +x "$exe"
       done
@@ -310,6 +329,14 @@ stdenv.mkDerivation ({
         install_name_tool -add_rpath "$out/lib/ghc-${ghc.version}/${pname}-${version}" "$exe"
       done
     ''}
+
+    ${optionalString enableSeparateDocOutput ''
+    for x in $doc/share/doc/html/src/*.html; do
+      remove-references-to -t $out $x
+    done
+    mkdir -p $doc
+    ''}
+    ${optionalString enableSeparateDataOutput "mkdir -p $data"}
 
     runHook postInstall
   '';
@@ -330,9 +357,14 @@ stdenv.mkDerivation ({
         export NIX_${ghcCommandCaps}="${ghcEnv}/bin/${ghcCommand}"
         export NIX_${ghcCommandCaps}PKG="${ghcEnv}/bin/${ghcCommand}-pkg"
         export NIX_${ghcCommandCaps}_DOCDIR="${ghcEnv}/share/doc/ghc/html"
-        '' + (if isHaLVM
-	       then ''export NIX_${ghcCommandCaps}_LIBDIR="${ghcEnv}/lib/HaLVM-${ghc.version}"''
-	       else ''export NIX_${ghcCommandCaps}_LIBDIR="${ghcEnv}/lib/${ghcCommand}-${ghc.version}"'') + "${shellHook}";
+        export LD_LIBRARY_PATH="''${LD_LIBRARY_PATH:+''${LD_LIBRARY_PATH}:}${
+          makeLibraryPath (filter (x: !isNull x) systemBuildInputs)
+        }"
+        ${if isHaLVM
+            then ''export NIX_${ghcCommandCaps}_LIBDIR="${ghcEnv}/lib/HaLVM-${ghc.version}"''
+            else ''export NIX_${ghcCommandCaps}_LIBDIR="${ghcEnv}/lib/${ghcCommand}-${ghc.version}"''}
+        ${shellHook}
+      '';
     };
   };
 

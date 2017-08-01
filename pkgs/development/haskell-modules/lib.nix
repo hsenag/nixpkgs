@@ -1,6 +1,7 @@
 { pkgs }:
 
 rec {
+  makePackageSet = pkgs.callPackage ./make-package-set.nix {};
 
   overrideCabal = drv: f: (drv.override (args: args // {
     mkDerivation = drv: (args.mkDerivation drv).override f;
@@ -88,7 +89,10 @@ rec {
     isLibrary = false;
     doHaddock = false;
     postFixup = "rm -rf $out/lib $out/nix-support $out/share/doc";
-  });
+  } // (if pkgs.stdenv.isDarwin then {
+    configureFlags = (drv.configureFlags or []) ++ ["--ghc-option=-optl=-dead_strip"];
+  } else {})
+  );
 
   buildFromSdist = pkg: pkgs.lib.overrideDerivation pkg (drv: {
     unpackPhase = let src = sdistTarball pkg; tarname = "${pkg.pname}-${pkg.version}"; in ''

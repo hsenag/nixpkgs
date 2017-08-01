@@ -2,11 +2,11 @@
 
 stdenv.mkDerivation rec {
   name = "josm-${version}";
-  version = "11639";
+  version = "12450";
 
   src = fetchurl {
     url = "https://josm.openstreetmap.de/download/josm-snapshot-${version}.jar";
-    sha256 = "1xq074jfk58gh5xmm8s9sjbcbnl34dpx7wsgq9n60phciya90sfb";
+    sha256 = "1l817mclbzyin9yh16q9jcqi31cz0qy6yi31hc8jp5ablknk979j";
   };
 
   phases = [ "installPhase" ];
@@ -39,7 +39,7 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with stdenv.lib; {
-    description = "An extensible editor for ​OpenStreetMap";
+    description = "An extensible editor for OpenStreetMap";
     homepage = https://josm.openstreetmap.de/;
     license = licenses.gpl2Plus;
     maintainers = [ maintainers.rycee ];

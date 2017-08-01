@@ -1,11 +1,12 @@
-{ fetchFromGitHub, stdenv
+{ mkDerivation, lib, fetchFromGitHub
 , cmake, git, pkgconfig, wget, zip
-, makeQtWrapper, qtbase, qtx11extras
+, qtbase, qtx11extras
 , libdwarf, libjpeg_turbo, libunwind, lzma, tinyxml, libX11
 , SDL2, SDL2_gfx, SDL2_image, SDL2_ttf
-, freeglut, mesa, mesa_glu
+, freeglut, mesa_glu
 }:
-stdenv.mkDerivation rec {
+
+mkDerivation rec {
   name = "vogl-${version}";
   version = "2016-05-13";
 
@@ -16,28 +17,27 @@ stdenv.mkDerivation rec {
     sha256 = "17gwd73x3lnqv6ccqs48pzqwbzjhbn41c0x0l5zzirhiirb3yh0n";
   };
 
-  nativeBuildInputs = [
-    cmake makeQtWrapper pkgconfig
-  ];
+  nativeBuildInputs = [ cmake pkgconfig ];
 
   buildInputs = [
     git wget zip
     qtbase qtx11extras
     libdwarf libjpeg_turbo libunwind lzma tinyxml libX11
     SDL2 SDL2_gfx SDL2_image SDL2_ttf
-    freeglut mesa mesa_glu
+    freeglut mesa_glu
   ];
-
-  enableParallelBuilding = true;
 
   dontUseCmakeBuildDir = true;
   preConfigure = ''
     cmakeDir=$PWD
     mkdir -p vogl/vogl_build/release64 && cd $_
   '';
-  cmakeFlags = '' -DCMAKE_VERBOSE=On -DCMAKE_BUILD_TYPE=Release -DBUILD_X64=On'';
+  cmakeFlags = [
+    "-DCMAKE_VERBOSE=On"
+    "-DBUILD_X64=On"
+  ];
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "OpenGL capture / playback debugger.";
     homepage = https://github.com/ValveSoftware/vogl;
     license = licenses.mit;

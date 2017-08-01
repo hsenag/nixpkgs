@@ -1,13 +1,13 @@
-{ stdenv, fetchurl, perl, buildLinux, ... } @ args:
+{ stdenv, hostPlatform, fetchurl, perl, buildLinux, ... } @ args:
 
 import ./generic.nix (args // rec {
-  version = "4.11-rc6";
-  modDirVersion = "4.11.0-rc6";
-  extraMeta.branch = "4.11";
+  version = "4.13-rc3";
+  modDirVersion = "4.13.0-rc3";
+  extraMeta.branch = "4.13";
 
   src = fetchurl {
-    url = "mirror://kernel/linux/kernel/v4.x/testing/linux-${version}.tar.xz";
-    sha256 = "1lrljxlx6s9rfwbzsl9ixhihf53rm7bwwah9756ar2siimrncvmr";
+    url = "https://git.kernel.org/torvalds/t/linux-${version}.tar.gz";
+    sha256 = "07cxqf57hgs3wnbvkqixiwhjrwdf433pjwmh0hv1id0bk8wdrjjl";
   };
 
   features.iwlwifi = true;

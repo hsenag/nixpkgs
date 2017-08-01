@@ -1,4 +1,7 @@
-{ stdenv, runCommand, nettools, bc, perl, kmod, openssl, writeTextFile, ubootChooser }:
+{ stdenv, runCommand, nettools, bc, perl, gmp, libmpc, mpfr, kmod, openssl
+, writeTextFile, ubootChooser
+, hostPlatform
+}:
 
 let
   readConfig = configfile: import (runCommand "config.nix" {} ''
@@ -219,7 +222,7 @@ stdenv.mkDerivation ((drvAttrs config stdenv.platform (kernelPatches ++ nativeKe
 
   enableParallelBuilding = true;
 
-  nativeBuildInputs = [ perl bc nettools openssl ] ++ optional (stdenv.platform.uboot != null)
+  nativeBuildInputs = [ perl bc nettools openssl gmp libmpc mpfr ] ++ optional (stdenv.platform.uboot != null)
     (ubootChooser stdenv.platform.uboot);
 
   hardeningDisable = [ "bindnow" "format" "fortify" "stackprotector" "pic" ];
@@ -230,7 +233,7 @@ stdenv.mkDerivation ((drvAttrs config stdenv.platform (kernelPatches ++ nativeKe
 
   karch = stdenv.platform.kernelArch;
 
-  crossAttrs = let cp = stdenv.cross.platform; in
+  crossAttrs = let cp = hostPlatform.platform; in
     (drvAttrs crossConfig cp (kernelPatches ++ crossKernelPatches) crossConfigfile) // {
       makeFlags = commonMakeFlags ++ [
         "ARCH=${cp.kernelArch}"

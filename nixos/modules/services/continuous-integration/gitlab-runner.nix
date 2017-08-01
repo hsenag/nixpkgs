@@ -5,6 +5,7 @@ with lib;
 let
   cfg = config.services.gitlab-runner;
   configFile = pkgs.writeText "config.toml" cfg.configText;
+  hasDocker = config.virtualisation.docker.enable;
 in
 {
   options.services.gitlab-runner = {
@@ -12,6 +13,23 @@ in
 
     configText = mkOption {
       description = "Verbatim config.toml to use";
+    };
+
+    gracefulTermination = mkOption {
+      default = false;
+      type = types.bool;
+      description = ''
+        Finish all remaining jobs before stopping, restarting or reconfiguring.
+        If not set gitlab-runner will stop immediatly without waiting for jobs to finish,
+        which will lead to failed builds.
+      '';
+    };
+
+    gracefulTimeout = mkOption {
+      default = "infinity";
+      type = types.str;
+      example = "5min 20s";
+      description = ''Time to wait until a graceful shutdown is turned into a forceful one.'';
     };
 
     workDir = mkOption {
@@ -33,8 +51,9 @@ in
   config = mkIf cfg.enable {
     systemd.services.gitlab-runner = {
       description = "Gitlab Runner";
-      after = [ "network.target" "docker.service" ];
-      requires = [ "docker.service" ];
+      after = [ "network.target" ]
+        ++ optional hasDocker "docker.service";
+      requires = optional hasDocker "docker.service";
       wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         ExecStart = ''${cfg.package.bin}/bin/gitlab-runner run \
@@ -43,6 +62,11 @@ in
           --service gitlab-runner \
           --user gitlab-runner \
         '';
+
+      } //  optionalAttrs (cfg.gracefulTermination) {
+        TimeoutStopSec = "${cfg.gracefulTimeout}";
+        KillSignal = "SIGQUIT";
+        KillMode = "process";
       };
     };
 
@@ -51,7 +75,7 @@ in
 
     users.extraUsers.gitlab-runner = {
       group = "gitlab-runner";
-      extraGroups = [ "docker" ];
+      extraGroups = optional hasDocker "docker";
       uid = config.ids.uids.gitlab-runner;
       home = cfg.workDir;
       createHome = true;
