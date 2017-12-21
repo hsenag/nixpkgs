@@ -78,6 +78,13 @@ in rec {
       sphinx = pkgs.python3Packages.sphinx;
       selfPkgs = packages.ghc822;
     };
+    ghc841 = callPackage ../development/compilers/ghc/8.4.1.nix rec {
+      bootPkgs = packages.ghc822;
+      inherit (bootPkgs) hscolour alex happy;
+      inherit buildPlatform targetPlatform;
+      sphinx = pkgs.python3Packages.sphinx;
+      selfPkgs = packages.ghc841;
+    };
     ghcHEAD = callPackage ../development/compilers/ghc/head.nix rec {
       bootPkgs = packages.ghc822;
       inherit (bootPkgs) alex happy;
@@ -165,6 +172,10 @@ in rec {
     ghc822 = callPackage ../development/haskell-modules {
       ghc = compiler.ghc822;
       compilerConfig = callPackage ../development/haskell-modules/configuration-ghc-8.2.x.nix { };
+    };
+    ghc841 = callPackage ../development/haskell-modules {
+      ghc = compiler.ghc841;
+      compilerConfig = callPackage ../development/haskell-modules/configuration-ghc-8.4.x.nix { };
     };
     ghcHEAD = callPackage ../development/haskell-modules {
       ghc = compiler.ghcHEAD;
