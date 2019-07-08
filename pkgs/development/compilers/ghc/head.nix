@@ -88,9 +88,9 @@ stdenv.mkDerivation (rec {
   name = "${targetPrefix}ghc-${version}";
 
   src = fetchgit {
-    url = "https://gitlab.haskell.org/ghc/ghc.git/";
-    rev = "9bc10993bb300d3712b0f13ec6e28621d75d4204";
-    sha256 = "1s7vbinywx8ffj09nxr0h32nggjiqpssrvgmj7820k32w2yi7i8v";
+    url = "https://gitlab.haskell.org/trupill/ghc.git/";
+    rev = "7ca4a22788257743c929e6ada79a418cfaecb6de";
+    sha256 = "1anss2ydm66fazy6b8slp0r4mhbnraa0n4zh1pi0jiij7j87z4xh";
   };
 
   enableParallelBuilding = true;
