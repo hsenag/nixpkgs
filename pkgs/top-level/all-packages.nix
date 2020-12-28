@@ -9338,6 +9338,16 @@ let
     };
   };
 
+  darcs-screened = with haskellPackages_ghc784; callPackage ../applications/version-management/darcs/screened.nix {
+    cabal = cabal.override {
+      extension = self : super : {
+        enableSharedExecutables = false;
+        isLibrary = false;
+        configureFlags = "-f-library " + super.configureFlags or "";
+      };
+    };
+  };
+
   darktable = callPackage ../applications/graphics/darktable {
     inherit (gnome) GConf libglade;
   };
