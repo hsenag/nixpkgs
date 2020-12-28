@@ -78,6 +78,12 @@ in rec {
       buildLlvmPackages = buildPackages.llvmPackages_5;
       llvmPackages = pkgs.llvmPackages_5;
     };
+    ghcLinearTypes = callPackage ../development/compilers/ghc/lineartypes.nix rec {
+      bootPkgs = packages.ghc821Binary;
+      inherit (bootPkgs) alex happy hscolour;
+      buildLlvmPackages = buildPackages.llvmPackages_5;
+      llvmPackages = pkgs.llvmPackages_5;
+    };    
     ghcjs = compiler.ghcjs82;
     ghcjs710 = packages.ghc7103.callPackage ../development/compilers/ghcjs {
       bootPkgs = packages.ghc7103;
@@ -150,9 +156,9 @@ in rec {
       ghc = bh.compiler.ghc843;
       compilerConfig = callPackage ../development/haskell-modules/configuration-ghc-8.4.x.nix { };
     };
-    ghcHEAD = callPackage ../development/haskell-modules {
-      buildHaskellPackages = bh.packages.ghcHEAD;
-      ghc = bh.compiler.ghcHEAD;
+    ghcLinearTypes = callPackage ../development/haskell-modules {
+      buildHaskellPackages = bh.packages.ghcLinearTypes;
+      ghc = bh.compiler.ghcLinearTypes;
       compilerConfig = callPackage ../development/haskell-modules/configuration-ghc-head.nix { };
     };
     ghcjs = packages.ghcjs82;

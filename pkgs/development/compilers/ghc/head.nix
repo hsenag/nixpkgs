@@ -3,7 +3,7 @@
 
 # build-tools
 , bootPkgs, alex, happy, hscolour
-, autoconf, automake, coreutils, fetchgit, perl, python3, m4
+, autoconf, automake, coreutils, fetchFromGitHub, perl, python3, m4
 
 , libffi, libiconv ? null, ncurses
 
@@ -80,10 +80,11 @@ stdenv.mkDerivation rec {
   inherit (src) rev;
   name = "${targetPrefix}ghc-${version}";
 
-  src = fetchgit {
-    url = "git://git.haskell.org/ghc.git";
+  src = fetchFromGitHub {
+    owner = "ghc";
+    repo = "ghc";
     rev = "e1d4140be4d2a1508015093b69e1ef53516e1eb6";
-    sha256 = "1gdcr10dd968d40qgljdwx9vfkva3yrvjm9a4nis7whaaac3ag58";
+    sha256 = "0qdsvkzl92z8ggw243pzj1nzkrgja27kflkvgy6rl7afg6sbxp47";
   };
 
   enableParallelBuilding = true;
